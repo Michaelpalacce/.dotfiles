@@ -1,5 +1,5 @@
 function ColorMyPencils(color)
-	color = color or "nord"
+	color = color or "dracula-soft"
 	vim.cmd.colorscheme(color)
 end
 
