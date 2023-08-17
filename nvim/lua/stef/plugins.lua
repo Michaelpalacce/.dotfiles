@@ -42,6 +42,7 @@ return require('packer').startup(function(use)
 			}
 		end
 	}
+	use { 'gpanders/editorconfig.nvim' }
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',

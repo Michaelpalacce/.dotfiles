@@ -7,9 +7,7 @@ lsp.ensure_installed({
 	'eslint',
 	'rust_analyzer',
 	'lua_ls',
-	'clangd',
 	'cssls',
-	'denols',
 	'pyre'
 })
 
