@@ -85,6 +85,8 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
     use 'romgrk/barbar.nvim'
 
+    use 'airblad/vim-gitgutter'
+
     if packer_bootstrap then
         require('packer').sync()
     end
