@@ -88,7 +88,7 @@ return require('packer').startup(function(use)
     use { "akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
     end }
-
+    use 'f-person/git-blame.nvim' -- Git blame to the end of the line 
     use 'lewis6991/gitsigns.nvim' -- No clue, some dep
     use 'romgrk/barbar.nvim'      -- Tabs
     use 'airblade/vim-gitgutter'  -- Shows if a line has been added/modified/etc
@@ -102,6 +102,11 @@ return require('packer').startup(function(use)
                 -- Configuration here, or leave empty to use defaults
             })
         end
+    })
+
+    use({
+        'folke/trouble.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
     })
 
     if packer_bootstrap then
