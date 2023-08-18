@@ -81,6 +81,10 @@ return require('packer').startup(function(use)
         require("toggleterm").setup()
     end }
 
+    -- These optional plugins should be loaded directly because of a bug in Packer lazy loading
+    use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
+    use 'romgrk/barbar.nvim'
+
     if packer_bootstrap then
         require('packer').sync()
     end
