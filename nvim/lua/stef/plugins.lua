@@ -119,14 +119,22 @@ return require('packer').startup(function(use)
     })
 
     use({
-        'folke/trouble.nvim',
+        'folke/trouble.nvim', -- Gives us issues for the workspace/file
         dependencies = { 'nvim-tree/nvim-web-devicons' }
     })
 
     use({
-        'nvim-pack/nvim-spectre',
+        'nvim-pack/nvim-spectre', -- Global Search and replace
         config = function ()
             require('spectre').setup()
+        end
+    })
+
+    use({
+        'ggandor/leap.nvim', -- Easily go to text 
+        dependencies = { 'tpope/vim-repeat' },
+        config = function ()
+            require('leap').add_default_mappings()
         end
     })
 

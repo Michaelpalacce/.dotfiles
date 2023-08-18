@@ -7,7 +7,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-
+vim.opt.smarttab = true
 vim.opt.smartindent = true
 
 -- Disable word wrap
@@ -23,3 +23,12 @@ vim.opt.isfname:append("@-@")
 -- Fast Updates
 vim.opt.updatetime = 50
 
+-- Set Visible Characters 
+vim.opt.listchars = {
+  eol = '⤶',
+  space = '.',
+  tab = '->',
+  trail = '-',
+  extends = '>',
+  precedes = '<',
+}
