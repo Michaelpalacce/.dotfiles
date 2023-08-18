@@ -50,18 +50,32 @@ return require('packer').startup(function(use)
             }
         end
     }
+    use({
+        "utilyre/barbecue.nvim", -- Adds breadcrumbs on the top 
+        tag = "*",
+        requires = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        after = "nvim-web-devicons", -- keep this if you're using NvChad
+        config = function()
+            require("barbecue").setup()
+        end,
+    })
+    
+    use 'RRethy/vim-illuminate'
 
     -- ########## Navigation
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1', -- Provides nice file jumping Capabilities
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })  -- Provides syntax highlighting
-    use 'ThePrimeagen/harpoon'                                     -- Allows for easier jumping between files
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }) -- Provides syntax highlighting
+    use 'ThePrimeagen/harpoon'                                    -- Allows for easier jumping between files
     use {
-        'nvim-tree/nvim-tree.lua',                                 -- Shows a nice file tree
+        'nvim-tree/nvim-tree.lua',                                -- Shows a nice file tree
         requires = {
-            'nvim-tree/nvim-web-devicons',                         -- optional
+            'nvim-tree/nvim-web-devicons',                        -- optional
         },
     }
 
@@ -88,7 +102,7 @@ return require('packer').startup(function(use)
     use { "akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
     end }
-    use 'f-person/git-blame.nvim' -- Git blame to the end of the line 
+    use 'f-person/git-blame.nvim' -- Git blame to the end of the line
     use 'lewis6991/gitsigns.nvim' -- No clue, some dep
     use 'romgrk/barbar.nvim'      -- Tabs
     use 'airblade/vim-gitgutter'  -- Shows if a line has been added/modified/etc
@@ -96,7 +110,7 @@ return require('packer').startup(function(use)
 
     use({
         "kylechui/nvim-surround", -- Allows us to easily surround text with delimiters
-        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        tag = "*",                -- Use for stability; omit to use `main` branch for the latest features
         config = function()
             require("nvim-surround").setup({
                 -- Configuration here, or leave empty to use defaults
@@ -107,6 +121,13 @@ return require('packer').startup(function(use)
     use({
         'folke/trouble.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
+    })
+
+    use({
+        'nvim-pack/nvim-spectre',
+        config = function ()
+            require('spectre').setup()
+        end
     })
 
     if packer_bootstrap then
