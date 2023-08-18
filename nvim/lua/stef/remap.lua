@@ -11,3 +11,6 @@ vim.keymap.set('n', "<C-U>", function ()
     vim.cmd.TSUpdate()
     vim.cmd.MasonUpdate()
 end, { desc = "Run TSUpdate, PackerSync, MasonUpdate" } )
+
+vim.keymap.set('n', "<leader>y", "+y", { desc = 'Copy to system clipboard' })
+

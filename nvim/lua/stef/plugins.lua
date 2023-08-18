@@ -66,10 +66,7 @@ return require('packer').startup(function(use)
 
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
-
-    if packer_bootstrap then
-        require('packer').sync()
-    end
+    use 'nvim-tree/nvim-web-devicons'
 
     use {
         'nvim-tree/nvim-tree.lua',
@@ -77,5 +74,10 @@ return require('packer').startup(function(use)
             'nvim-tree/nvim-web-devicons', -- optional
         },
     }
+
+    if packer_bootstrap then
+        require('packer').sync()
+    end
+
 
 end)
