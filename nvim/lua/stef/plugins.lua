@@ -12,39 +12,12 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
-    -- Configurations will go here soon
-    use 'wbthomason/packer.nvim'
+    -- ########## Configurations will go here soon
+    use 'wbthomason/packer.nvim' -- Packer is the plugin manager
+
+    -- ########## LSP Stuff
     use {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
-    }
-    use({ 'shaunsingh/nord.nvim', as = 'nord' })
-    use({ 'Mofiqul/dracula.nvim', as = 'dracula' })
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        -- or                            , branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
-    }
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-    use('nvim-treesitter/playground')
-    use('ThePrimeagen/harpoon')
-    use('ThePrimeagen/vim-be-good')
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 0
-            require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    }
-    use { 'gpanders/editorconfig.nvim' }
-    use {
-        'VonHeikemen/lsp-zero.nvim',
+        'VonHeikemen/lsp-zero.nvim', -- LSP-zero makes it really easy to have LSP Support
         branch = 'v2.x',
         requires = {
             -- LSP Support
@@ -64,33 +37,72 @@ return require('packer').startup(function(use)
         }
     }
 
-    use('mbbill/undotree')
-    use('tpope/vim-fugitive')
-    use 'nvim-tree/nvim-web-devicons'
-
+    -- ########## Themeing
+    use({ 'shaunsingh/nord.nvim', as = 'nord' })    -- Theme
+    use({ 'Mofiqul/dracula.nvim', as = 'dracula' }) -- Theme
+    use 'nvim-tree/nvim-web-devicons'               -- Does some magic so we can have icons.
     use {
-        'nvim-tree/nvim-tree.lua',
+        'nvim-lualine/lualine.nvim',                -- Provides a nice status bar at the bottom of the screen
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        config = function()
+            require('lualine').setup {
+                options = { theme = 'dracula' }
+            }
+        end
+    }
+
+    -- ########## Navigation
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.1', -- Provides nice file jumping Capabilities
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })  -- Provides syntax highlighting
+    use 'ThePrimeagen/harpoon'                                     -- Allows for easier jumping between files
+    use {
+        'nvim-tree/nvim-tree.lua',                                 -- Shows a nice file tree
         requires = {
-            'nvim-tree/nvim-web-devicons', -- optional
+            'nvim-tree/nvim-web-devicons',                         -- optional
         },
     }
 
-    use('jiangmiao/auto-pairs')
+    -- ########## Tutorials
+    use('ThePrimeagen/vim-be-good') -- Learn how to be better at vim
+    use {
+        "folke/which-key.nvim",     -- Show tooltips what key combinations you can do
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 0
+            require("which-key").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
 
+    -- ########## Editor
+    use 'gpanders/editorconfig.nvim' -- Editorconfig support
+    use 'mbbill/undotree'            -- Nice undo visualization
+    use 'tpope/vim-fugitive'         -- Git operations
+    use 'jiangmiao/auto-pairs'       -- Automatically pair up closing brackets and other symbols
     use { "akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
     end }
 
-    -- These optional plugins should be loaded directly because of a bug in Packer lazy loading
-    use 'lewis6991/gitsigns.nvim' -- OPTIONAL: for git status
-    use 'romgrk/barbar.nvim'
+    use 'lewis6991/gitsigns.nvim' -- No clue, some dep
+    use 'romgrk/barbar.nvim'      -- Tabs
+    use 'airblade/vim-gitgutter'  -- Shows if a line has been added/modified/etc
+    use 'tpope/vim-commentary'    -- Easily Comment Lines
 
-    use 'airblade/vim-gitgutter'
-
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
+    use({
+        "kylechui/nvim-surround", -- Allows us to easily surround text with delimiters
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    })
 
     if packer_bootstrap then
         require('packer').sync()
