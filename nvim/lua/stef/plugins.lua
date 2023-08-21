@@ -110,6 +110,8 @@ return require('packer').startup(function(use)
         dependencies = { 'tpope/vim-repeat' },
     })
 
+    use 'terryma/vim-expand-region' -- Expand the current selection with + and _
+
     if packer_bootstrap then
         require('packer').sync()
     end
