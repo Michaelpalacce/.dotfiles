@@ -42,17 +42,13 @@ return require('packer').startup(function(use)
     }
 
     -- ########## Themeing
-    use({ 'shaunsingh/nord.nvim', as = 'nord' })    -- Theme
-    use({ 'Mofiqul/dracula.nvim', as = 'dracula' }) -- Theme
+    use { 'shaunsingh/nord.nvim', as = 'nord' }    -- Theme
+    use { 'Mofiqul/dracula.nvim', as = 'dracula' } -- Theme
+    use { "catppuccin/nvim", as = "catppuccin" } -- Theme
     use 'nvim-tree/nvim-web-devicons'               -- Does some magic so we can have icons.
     use {
         'nvim-lualine/lualine.nvim',                -- Provides a nice status bar at the bottom of the screen
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-        config = function()
-            require('lualine').setup {
-                options = { theme = 'dracula' }
-            }
-        end
     }
     use({
         "utilyre/barbecue.nvim", -- Adds breadcrumbs on the top
@@ -61,10 +57,6 @@ return require('packer').startup(function(use)
             "SmiteshP/nvim-navic",
             "nvim-tree/nvim-web-devicons", -- optional dependency
         },
-        after = "nvim-web-devicons",       -- keep this if you're using NvChad
-        config = function()
-            require("barbecue").setup()
-        end,
     })
 
     use 'RRethy/vim-illuminate'
@@ -78,24 +70,13 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/harpoon'                                    -- Allows for easier jumping between files
     use {
         'nvim-tree/nvim-tree.lua',                                -- Shows a nice file tree
-        requires = {
-            'nvim-tree/nvim-web-devicons',                        -- optional
-        },
+        requires = { 'nvim-tree/nvim-web-devicons' },
     }
 
     -- ########## Tutorials
     use('ThePrimeagen/vim-be-good') -- Learn how to be better at vim
     use {
         "folke/which-key.nvim",     -- Show tooltips what key combinations you can do
-        config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 0
-            require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
     }
 
     -- ########## Editor
@@ -103,13 +84,7 @@ return require('packer').startup(function(use)
     use 'mbbill/undotree'            -- Nice undo visualization
     use 'tpope/vim-fugitive'         -- Git operations
     use 'jiangmiao/auto-pairs'       -- Automatically pair up closing brackets and other symbols
-    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup {
-            direction = 'float'
-            -- direction = 'vertical' | 'horizontal' | 'tab' | 'float',
-        }
-    end
-    }
+    use { "akinsho/toggleterm.nvim", tag = '*'} -- Nice terminal
     use 'f-person/git-blame.nvim' -- Git blame to the end of the line
     use 'lewis6991/gitsigns.nvim' -- No clue, some dep
     use 'romgrk/barbar.nvim'      -- Tabs
@@ -119,11 +94,6 @@ return require('packer').startup(function(use)
     use({
         "kylechui/nvim-surround", -- Allows us to easily surround text with delimiters
         tag = "*",                -- Use for stability; omit to use `main` branch for the latest features
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end
     })
 
     use({
@@ -133,17 +103,11 @@ return require('packer').startup(function(use)
 
     use({
         'nvim-pack/nvim-spectre', -- Global Search and replace
-        config = function()
-            require('spectre').setup()
-        end
     })
 
     use({
         'ggandor/leap.nvim', -- Easily go to text
         dependencies = { 'tpope/vim-repeat' },
-        config = function()
-            require('leap').add_default_mappings()
-        end
     })
 
     if packer_bootstrap then

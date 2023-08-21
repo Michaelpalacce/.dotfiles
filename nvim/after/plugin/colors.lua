@@ -1,6 +1,11 @@
-function ColorMyPencils(color)
-	color = color or "dracula-soft"
-	vim.cmd.colorscheme(color)
-end
+-- Catppuccin
+-- vim.cmd.colorscheme('catppuccin-latte')
+vim.cmd.colorscheme('catppuccin-mocha')
+-- vim.cmd.colorscheme('catppuccin-frappe')
+-- vim.cmd.colorscheme('catppuccin-macchiato')
 
-ColorMyPencils()
+-- Dracula
+
+-- vim.cmd.colorscheme('dracula')
+-- vim.cmd.colorscheme('dracula-soft')
+
