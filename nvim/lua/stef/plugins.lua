@@ -11,9 +11,13 @@ end
 
 local packer_bootstrap = ensure_packer()
 
+
+-- Dependencies: ripgrep
+
 return require('packer').startup(function(use)
     -- ########## Configurations will go here soon
     use 'wbthomason/packer.nvim' -- Packer is the plugin manager
+
 
     -- ########## LSP Stuff
     use {
@@ -51,18 +55,18 @@ return require('packer').startup(function(use)
         end
     }
     use({
-        "utilyre/barbecue.nvim", -- Adds breadcrumbs on the top 
+        "utilyre/barbecue.nvim", -- Adds breadcrumbs on the top
         tag = "*",
         requires = {
             "SmiteshP/nvim-navic",
             "nvim-tree/nvim-web-devicons", -- optional dependency
         },
-        after = "nvim-web-devicons", -- keep this if you're using NvChad
+        after = "nvim-web-devicons",       -- keep this if you're using NvChad
         config = function()
             require("barbecue").setup()
         end,
     })
-    
+
     use 'RRethy/vim-illuminate'
 
     -- ########## Navigation
@@ -100,8 +104,12 @@ return require('packer').startup(function(use)
     use 'tpope/vim-fugitive'         -- Git operations
     use 'jiangmiao/auto-pairs'       -- Automatically pair up closing brackets and other symbols
     use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup()
-    end }
+        require("toggleterm").setup {
+            direction = 'float'
+            -- direction = 'vertical' | 'horizontal' | 'tab' | 'float',
+        }
+    end
+    }
     use 'f-person/git-blame.nvim' -- Git blame to the end of the line
     use 'lewis6991/gitsigns.nvim' -- No clue, some dep
     use 'romgrk/barbar.nvim'      -- Tabs
@@ -125,15 +133,15 @@ return require('packer').startup(function(use)
 
     use({
         'nvim-pack/nvim-spectre', -- Global Search and replace
-        config = function ()
+        config = function()
             require('spectre').setup()
         end
     })
 
     use({
-        'ggandor/leap.nvim', -- Easily go to text 
+        'ggandor/leap.nvim', -- Easily go to text
         dependencies = { 'tpope/vim-repeat' },
-        config = function ()
+        config = function()
             require('leap').add_default_mappings()
         end
     })

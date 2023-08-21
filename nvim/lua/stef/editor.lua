@@ -23,6 +23,7 @@ vim.opt.isfname:append("@-@")
 -- Fast Updates
 vim.opt.updatetime = 50
 
+vim.opt.list = true
 -- Set Visible Characters 
 vim.opt.listchars = {
   eol = '⤶',
