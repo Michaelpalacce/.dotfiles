@@ -18,7 +18,6 @@ return require('packer').startup(function(use)
     -- ########## Configurations will go here soon
     use 'wbthomason/packer.nvim' -- Packer is the plugin manager
 
-
     -- ########## LSP Stuff
     use {
         'VonHeikemen/lsp-zero.nvim', -- LSP-zero makes it really easy to have LSP Support
@@ -44,10 +43,12 @@ return require('packer').startup(function(use)
     -- ########## Themeing
     use { 'shaunsingh/nord.nvim', as = 'nord' }    -- Theme
     use { 'Mofiqul/dracula.nvim', as = 'dracula' } -- Theme
-    use { "catppuccin/nvim", as = "catppuccin" } -- Theme
-    use 'nvim-tree/nvim-web-devicons'               -- Does some magic so we can have icons.
+    use { "catppuccin/nvim", as = "catppuccin" }   -- Theme
+    use({ 'rose-pine/neovim', as = 'rose-pine' })
+
+    use 'nvim-tree/nvim-web-devicons' -- Does some magic so we can have icons.
     use {
-        'nvim-lualine/lualine.nvim',                -- Provides a nice status bar at the bottom of the screen
+        'nvim-lualine/lualine.nvim',  -- Provides a nice status bar at the bottom of the screen
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     }
     use({
@@ -80,16 +81,16 @@ return require('packer').startup(function(use)
     }
 
     -- ########## Editor
-    use 'gpanders/editorconfig.nvim' -- Editorconfig support
-    use 'mbbill/undotree'            -- Nice undo visualization
-    use 'tpope/vim-fugitive'         -- Git operations
-    use 'jiangmiao/auto-pairs'       -- Automatically pair up closing brackets and other symbols
-    use { "akinsho/toggleterm.nvim", tag = '*'} -- Nice terminal
-    use 'f-person/git-blame.nvim' -- Git blame to the end of the line
-    use 'lewis6991/gitsigns.nvim' -- No clue, some dep
-    use 'romgrk/barbar.nvim'      -- Tabs
-    use 'airblade/vim-gitgutter'  -- Shows if a line has been added/modified/etc
-    use 'tpope/vim-commentary'    -- Easily Comment Lines
+    use 'gpanders/editorconfig.nvim'             -- Editorconfig support
+    use 'mbbill/undotree'                        -- Nice undo visualization
+    use 'tpope/vim-fugitive'                     -- Git operations
+    use 'jiangmiao/auto-pairs'                   -- Automatically pair up closing brackets and other symbols
+    use { "akinsho/toggleterm.nvim", tag = '*' } -- Nice terminal
+    use 'f-person/git-blame.nvim'                -- Git blame to the end of the line
+    use 'lewis6991/gitsigns.nvim'                -- No clue, some dep
+    use 'romgrk/barbar.nvim'                     -- Tabs
+    use 'airblade/vim-gitgutter'                 -- Shows if a line has been added/modified/etc
+    use 'tpope/vim-commentary'                   -- Easily Comment Lines
 
     use({
         "kylechui/nvim-surround", -- Allows us to easily surround text with delimiters
@@ -111,6 +112,17 @@ return require('packer').startup(function(use)
     })
 
     use 'terryma/vim-expand-region' -- Expand the current selection with + and _
+
+    use 'rafamadriz/friendly-snippets'
+
+    use({
+        "L3MON4D3/LuaSnip", -- Adds snippets to your LSP suggestions
+        -- follow latest release.
+        tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!:).
+        run = "make install_jsregexp",
+        dependencies = { "rafamadriz/friendly-snippets" },
+    })
 
     if packer_bootstrap then
         require('packer').sync()

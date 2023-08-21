@@ -9,3 +9,8 @@ vim.cmd.colorscheme('catppuccin-mocha')
 -- vim.cmd.colorscheme('dracula')
 -- vim.cmd.colorscheme('dracula-soft')
 
+-- Rose-pine
+
+-- vim.cmd.colorscheme('rose-pine')
+-- vim.cmd.colorscheme('rose-pine-dawn')
+-- vim.cmd.colorscheme('rose-pine-moon')

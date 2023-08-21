@@ -44,7 +44,7 @@ cmp.setup({
     }
 })
 
--- Make sure you setup `cmp` after lsp-zero
+-- Make sure you setup `cmp` after f lsp-zero
 cmp.setup({
     mapping = {
         ['<Tab>'] = cmp_action.luasnip_supertab(),
