@@ -15,3 +15,4 @@ end, { desc = "Run TSUpdate, PackerSync, MasonUpdate" } )
 -- Remaps
 vim.keymap.set('n', "<leader>y", "+y", { desc = 'Copy to system clipboard' })
 vim.keymap.set('n', "<C-d>", "VYp", { desc = 'Dupicate current line' })
+vim.keymap.set('n', "<C-H>", ":noh<CR><CR>", { desc = 'Hide search highlighting' })
