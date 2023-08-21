@@ -94,9 +94,6 @@ return require('packer').startup(function(use)
         end
     }
 
-
-
-
     -- ########## Editor
     use 'gpanders/editorconfig.nvim' -- Editorconfig support
     use 'mbbill/undotree'            -- Nice undo visualization
