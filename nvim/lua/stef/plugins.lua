@@ -118,11 +118,18 @@ return require('packer').startup(function(use)
     use({
         "L3MON4D3/LuaSnip", -- Adds snippets to your LSP suggestions
         -- follow latest release.
-        tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        tag = "v2.*",       -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         -- install jsregexp (optional!:).
         run = "make install_jsregexp",
         dependencies = { "rafamadriz/friendly-snippets" },
     })
+
+    use 'dstein64/vim-startuptime' -- Measures startuptime
+    use { 'kevinhwang91/nvim-bqf' } -- Better Quickfix
+
+    use { 'junegunn/fzf', run = function()
+        vim.fn['fzf#install']()
+    end }
 
     if packer_bootstrap then
         require('packer').sync()

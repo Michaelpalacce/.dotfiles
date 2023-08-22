@@ -41,14 +41,6 @@ cmp.setup({
         -- If the cursor is in the middle of a word it displays the completion menu
         ['<Tab>'] = cmp_action.luasnip_supertab(),
         ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-    }
-})
-
--- Make sure you setup `cmp` after f lsp-zero
-cmp.setup({
-    mapping = {
-        ['<Tab>'] = cmp_action.luasnip_supertab(),
-        ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
     },
     sources = {
         { name = 'nvim_lsp' },
@@ -59,3 +51,4 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     }
 })
+
