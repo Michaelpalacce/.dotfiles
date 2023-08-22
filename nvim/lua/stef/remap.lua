@@ -24,7 +24,9 @@ end, { desc = "Run TSUpdate, PackerSync, MasonUpdate" } )
 -- General remaps
 ------------------------------------------
 
--- Remaps
+-- Better Delete
+vim.keymap.set({'v', 'n'}, "D", '"_d', { desc = 'Delete without cutting' })
+
 vim.keymap.set('n', "<leader>y", "+y", { desc = 'Copy to system clipboard' })
 vim.keymap.set('n', "<C-d>", "VYp", { desc = 'Dupicate current line' })
 vim.keymap.set('n', "<C-h>", ":noh<CR><CR>", { desc = 'Hide search highlighting' })
