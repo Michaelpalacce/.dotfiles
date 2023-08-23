@@ -27,8 +27,8 @@ end, { desc = "Run TSUpdate, PackerSync, MasonUpdate" } )
 -- Better Delete
 vim.keymap.set({'v', 'n'}, "D", '"_d', { desc = 'Delete without cutting' })
 
-vim.keymap.set('n', "<leader>y", "+y", { desc = 'Copy to system clipboard' })
-vim.keymap.set('n', "<C-d>", "VYp", { desc = 'Dupicate current line' })
+vim.keymap.set({'v', 'n'}, "<leader>y", "+y", { desc = 'Copy to system clipboard' })
+vim.keymap.set({'v', 'n', 'i', 's'}, "<C-d>", "<Esc>VYp", { desc = 'Dupicate current line' })
 vim.keymap.set('n', "<C-h>", ":noh<CR><CR>", { desc = 'Hide search highlighting' })
 
 -- Move Lines
@@ -57,3 +57,4 @@ vim.keymap.set('n', '<C-Up>', '<C-w>k')
 vim.keymap.set('n', '<C-Right>', '<C-w>l')
 vim.keymap.set('n', '<C-q>', '<C-w>q')
 
+vim.keymap.set('n', 'mct', ':!mvn clean test -DskipInstallNodeDeps<CR>')

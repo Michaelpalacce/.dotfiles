@@ -20,23 +20,20 @@ return require('packer').startup(function(use)
 
     -- ########## LSP Stuff
     use {
-        'VonHeikemen/lsp-zero.nvim', -- LSP-zero makes it really easy to have LSP Support
+        'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
         requires = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
-            {                            -- Optional
-                'williamboman/mason.nvim',
-                run = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
+            { 'neovim/nvim-lspconfig' },   -- Required
+            { 'williamboman/mason.nvim' }, -- Optional
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
+            { 'hrsh7th/nvim-cmp' }, -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
+            { 'L3MON4D3/LuaSnip' }, -- Required
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-nvim-lua' },
         }
     }
 
@@ -44,23 +41,13 @@ return require('packer').startup(function(use)
     use { 'shaunsingh/nord.nvim', as = 'nord' }    -- Theme
     use { 'Mofiqul/dracula.nvim', as = 'dracula' } -- Theme
     use { "catppuccin/nvim", as = "catppuccin" }   -- Theme
-    use({ 'rose-pine/neovim', as = 'rose-pine' })
+    use({ 'rose-pine/neovim', as = 'rose-pine' })  -- Theme
 
-    use 'nvim-tree/nvim-web-devicons' -- Does some magic so we can have icons.
+    use 'nvim-tree/nvim-web-devicons'              -- Does some magic so we can have icons.
     use {
-        'nvim-lualine/lualine.nvim',  -- Provides a nice status bar at the bottom of the screen
+        'nvim-lualine/lualine.nvim',               -- Provides a nice status bar at the bottom of the screen
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     }
-    use({
-        "utilyre/barbecue.nvim", -- Adds breadcrumbs on the top
-        tag = "*",
-        requires = {
-            "SmiteshP/nvim-navic",
-            "nvim-tree/nvim-web-devicons", -- optional dependency
-        },
-    })
-
-    use 'RRethy/vim-illuminate'
 
     -- ########## Navigation
     use {
@@ -74,38 +61,6 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons' },
     }
 
-    -- ########## Tutorials
-    use('ThePrimeagen/vim-be-good') -- Learn how to be better at vim
-    use {
-        "folke/which-key.nvim",     -- Show tooltips what key combinations you can do
-    }
-
-    -- ########## Editor
-    use 'gpanders/editorconfig.nvim'             -- Editorconfig support
-    use 'mbbill/undotree'                        -- Nice undo visualization
-    use 'tpope/vim-fugitive'                     -- Git operations
-    use 'jiangmiao/auto-pairs'                   -- Automatically pair up closing brackets and other symbols
-    use { "akinsho/toggleterm.nvim", tag = '*' } -- Nice terminal
-    use 'f-person/git-blame.nvim'                -- Git blame to the end of the line
-    use 'lewis6991/gitsigns.nvim'                -- No clue, some dep
-    use 'romgrk/barbar.nvim'                     -- Tabs
-    use 'airblade/vim-gitgutter'                 -- Shows if a line has been added/modified/etc
-    use 'tpope/vim-commentary'                   -- Easily Comment Lines
-
-    use({
-        "kylechui/nvim-surround", -- Allows us to easily surround text with delimiters
-        tag = "*",                -- Use for stability; omit to use `main` branch for the latest features
-    })
-
-    use({
-        'folke/trouble.nvim', -- Gives us issues for the workspace/file
-        dependencies = { 'nvim-tree/nvim-web-devicons' }
-    })
-
-    use({
-        'nvim-pack/nvim-spectre', -- Global Search and replace
-    })
-
     use({
         'ggandor/leap.nvim', -- Easily go to text
         dependencies = { 'tpope/vim-repeat' },
@@ -113,18 +68,31 @@ return require('packer').startup(function(use)
 
     use 'terryma/vim-expand-region' -- Expand the current selection with + and _
 
-    use 'rafamadriz/friendly-snippets'
+    -- ########## Tutorials
+    use('ThePrimeagen/vim-be-good') -- Learn how to be better at vim
+    use "folke/which-key.nvim"      -- Show tooltips what key combinations you can do
+
+    -- ########## Editor
+    use 'gpanders/editorconfig.nvim'             -- Editorconfig support
+    use 'mbbill/undotree'                        -- Nice undo visualization
+    use 'tpope/vim-fugitive'                     -- Git operations
+    use 'jiangmiao/auto-pairs'                   -- Automatically pair up closing brackets and other symbols
+    use { "akinsho/toggleterm.nvim", tag = '*' } -- Nice terminal
+    use 'romgrk/barbar.nvim'                     -- Tabs
+    use 'airblade/vim-gitgutter'                 -- Shows if a line has been added/modified/etc
+    use 'tpope/vim-commentary'                   -- Easily Comment Lines
+    use 'RRethy/vim-illuminate'
+
+    -- use({
+    --     "kylechui/nvim-surround", -- Allows us to easily surround text with delimiters
+    --     tag = "*",                -- Use for stability; omit to use `main` branch for the latest features
+    -- })
 
     use({
-        "L3MON4D3/LuaSnip", -- Adds snippets to your LSP suggestions
-        -- follow latest release.
-        tag = "v2.*",       -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        -- install jsregexp (optional!:).
-        run = "make install_jsregexp",
-        dependencies = { "rafamadriz/friendly-snippets" },
+        'nvim-pack/nvim-spectre', -- Global Search and replace
     })
 
-    use 'dstein64/vim-startuptime' -- Measures startuptime
+    use 'dstein64/vim-startuptime'  -- Measures startuptime
     use { 'kevinhwang91/nvim-bqf' } -- Better Quickfix
 
     use { 'junegunn/fzf', run = function()
