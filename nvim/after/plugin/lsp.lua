@@ -8,7 +8,8 @@ lsp.ensure_installed({
     'rust_analyzer',
     'lua_ls',
     'cssls',
-    'pyre'
+    'pyre',
+    'lua_ls'
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -16,6 +17,16 @@ lsp.on_attach(function(client, bufnr)
     -- to learn the available actions
     lsp.default_keymaps({ buffer = bufnr })
 end)
+
+lsp.configure('lua_ls', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
 
 lsp.setup()
 
@@ -51,4 +62,3 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     }
 })
-

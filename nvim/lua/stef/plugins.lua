@@ -24,24 +24,30 @@ return require('packer').startup(function(use)
         branch = 'v2.x',
         requires = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' },   -- Required
-            { 'williamboman/mason.nvim' }, -- Optional
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' }, -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' }, -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-nvim-lua' },
         }
+    }
+
+    use {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
     }
 
     -- ########## Themeing
     use { 'shaunsingh/nord.nvim', as = 'nord' }    -- Theme
     use { 'Mofiqul/dracula.nvim', as = 'dracula' } -- Theme
     use { "catppuccin/nvim", as = "catppuccin" }   -- Theme
-    use({ 'rose-pine/neovim', as = 'rose-pine' })  -- Theme
+    use { 'rose-pine/neovim', as = 'rose-pine' }   -- Theme
+    use { 'doums/darcula', as = 'darcula' }   -- Theme
 
     use 'nvim-tree/nvim-web-devicons'              -- Does some magic so we can have icons.
     use {
@@ -65,8 +71,6 @@ return require('packer').startup(function(use)
         'ggandor/leap.nvim', -- Easily go to text
         dependencies = { 'tpope/vim-repeat' },
     })
-
-    use 'terryma/vim-expand-region' -- Expand the current selection with + and _
 
     -- ########## Tutorials
     use('ThePrimeagen/vim-be-good') -- Learn how to be better at vim
