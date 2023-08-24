@@ -6,7 +6,7 @@
 
 -- Dracula
 
--- vim.cmd.colorscheme('dracula')
+vim.cmd.colorscheme('dracula')
 -- vim.cmd.colorscheme('dracula-soft')
 
 -- Rose-pine
@@ -17,4 +17,4 @@
 
 -- Darcula by Jetbrains
 
-vim.cmd.colorscheme('darcula')
+-- vim.cmd.colorscheme('darcula')

@@ -42,12 +42,18 @@ return require('packer').startup(function(use)
         tag = 'legacy',
     }
 
+    use({
+        'nvimdev/lspsaga.nvim',
+        after = 'nvim-lspconfig',
+    })
+
+
     -- ########## Themeing
     use { 'shaunsingh/nord.nvim', as = 'nord' }    -- Theme
     use { 'Mofiqul/dracula.nvim', as = 'dracula' } -- Theme
     use { "catppuccin/nvim", as = "catppuccin" }   -- Theme
     use { 'rose-pine/neovim', as = 'rose-pine' }   -- Theme
-    use { 'doums/darcula', as = 'darcula' }   -- Theme
+    use { 'doums/darcula', as = 'darcula' }        -- Theme
 
     use 'nvim-tree/nvim-web-devicons'              -- Does some magic so we can have icons.
     use {
@@ -61,6 +67,7 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }) -- Provides syntax highlighting
+    use 'windwp/nvim-ts-autotag'                                  -- Provides Autoclose and autorename for html tags
     use 'ThePrimeagen/harpoon'                                    -- Allows for easier jumping between files
     use {
         'nvim-tree/nvim-tree.lua',                                -- Shows a nice file tree
