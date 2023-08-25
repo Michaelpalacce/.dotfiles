@@ -14,11 +14,11 @@ vim.keymap.set("n", "q", "<nop>", { desc = 'Remove recording feature' })
 ------------------------------------------
 
 -- helpers
-vim.keymap.set('n', "<C-U>", function ()
+vim.keymap.set('n', "<leader>u", function ()
     vim.cmd.PackerSync()
     vim.cmd.TSUpdate()
     vim.cmd.MasonUpdate()
-end, { desc = "Run TSUpdate, PackerSync, MasonUpdate" } )
+end, { desc = "R[u]n TSUpdate, PackerSync, MasonUpdate" } )
 
 ------------------------------------------
 -- General remaps
@@ -48,7 +48,7 @@ vim.keymap.set("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Reload
 vim.keymap.set("n", "<leader>fr", ":e!<CR>", { desc = "[F]ile: [R]eload" })
-vim.keymap.set({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save current file" })
+vim.keymap.set({ "v", "n", "s" }, "<leader>fs", "<cmd>w<cr><esc>", { desc = "[F]ile: [S]ave" })
 
 -- Move Between Windows
 vim.keymap.set('n', '<C-Left>', '<C-w>h')

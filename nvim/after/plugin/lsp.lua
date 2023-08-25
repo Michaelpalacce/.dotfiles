@@ -5,13 +5,12 @@ lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
     'eslint',
-    'rust_analyzer',
     'lua_ls',
     'cssls',
     'pyre',
-    'lua_ls',
-    'tailwindcss',
-    'jsonls'
+    'jsonls',
+    'yamlls',
+    'bashls'
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -104,4 +103,8 @@ cmp.setup({
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
     }
+})
+
+vim.diagnostic.config({
+    virtual_text = true
 })
