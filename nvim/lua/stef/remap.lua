@@ -27,6 +27,7 @@ end, { desc = "R[u]n TSUpdate, PackerSync, MasonUpdate" } )
 -- Better Delete
 vim.keymap.set({'v', 'n'}, "D", '"_d', { desc = 'Delete without cutting' })
 
+-- Yank me daddy
 vim.keymap.set({'v', 'n'}, "<leader>y", '"+y', { desc = 'Copy to system clipboard' })
 vim.keymap.set({'v', 'n', 'i', 's'}, "<C-d>", "<Esc>VYp", { desc = 'Dupicate current line' })
 vim.keymap.set('n', "<C-h>", ":noh<CR><CR>", { desc = 'Hide search highlighting' })
@@ -57,9 +58,6 @@ vim.keymap.set('n', '<C-Up>', '<C-w>k')
 vim.keymap.set('n', '<C-Right>', '<C-w>l')
 vim.keymap.set('n', '<C-q>', '<C-w>q')
 
+-- Experimental
 vim.keymap.set('n', 'mct', ':!mvn clean test -DskipInstallNodeDeps<CR>')
 
--- Yanks
-
--- vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
--- vim.keymap.set("n", "<leader>Y", [["+Y]])
