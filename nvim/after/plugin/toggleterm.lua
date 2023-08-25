@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<leader>tn', vim.cmd.ToggleTerm, { desc = "Toggle Terminal" })
+vim.keymap.set('n', '<leader>tn', vim.cmd.ToggleTerm, { desc = "[T]oggle Termi[n]al" })
 
 require("toggleterm").setup {
     direction = 'horizontal'

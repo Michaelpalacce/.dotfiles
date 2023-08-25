@@ -22,7 +22,7 @@ vim.opt.isfname:append("@-@")
 
 -- Fast Updates
 vim.opt.updatetime = 50
--- vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
+vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 
 -- vim.opt.cursorline = true -- Enable highlighting of the current line
 
@@ -35,4 +35,17 @@ vim.opt.listchars = {
   trail = '-',
   extends = '>',
   precedes = '<',
+}
+
+vim.g.clipboard = {
+    name = "win32yank-wsl",
+    copy = {
+         ["+"] = "win32yank.exe -i --crlf",
+         ["*"] = "win32yank.exe -i --crlf"
+    },
+    paste = {
+        ["+"] = "win32yank.exe -o --lf",
+        ["*"] = "win32yank.exe -o --lf"
+    },
+    cache_enabled = false
 }

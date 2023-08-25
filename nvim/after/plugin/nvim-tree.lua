@@ -1,6 +1,6 @@
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
-vim.keymap.set("n", "<leader>tt", vim.cmd.NvimTreeToggle, {desc = "Toggle Nvim Tree"})
+vim.keymap.set("n", "<leader>tt", vim.cmd.NvimTreeToggle, {desc = "[T]oggle Nvim [T]ree"})
 
 local function my_on_attach(bufnr)
     local api = require "nvim-tree.api"

@@ -47,7 +47,7 @@ vim.keymap.set("v", "<A-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 vim.keymap.set("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Reload
-vim.keymap.set("n", "<leader>r", ":e!<CR>", { desc = "Reload current file" })
+vim.keymap.set("n", "<leader>fr", ":e!<CR>", { desc = "[F]ile: [R]eload" })
 vim.keymap.set({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save current file" })
 
 -- Move Between Windows
