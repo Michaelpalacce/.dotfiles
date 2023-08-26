@@ -18,7 +18,9 @@ return require('packer').startup(function(use)
     -- ########## Configurations will go here soon
     use 'wbthomason/packer.nvim' -- Packer is the plugin manager
 
+    -- ##################################################
     -- ########## LSP Stuff
+    -- ##################################################
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
@@ -42,23 +44,40 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- use {
-    --     'j-hui/fidget.nvim',
-    --     tag = 'legacy',
-    -- }
+    use {
+        'j-hui/fidget.nvim', -- Shows a progress bar for LSP stuff
+        tag = 'legacy',
+    }
 
     use({
-        'nvimdev/lspsaga.nvim',
+        'nvimdev/lspsaga.nvim', -- Improved LSP functionality
         after = 'nvim-lspconfig',
     })
 
+    use {
+        "folke/trouble.nvim", -- Workspace Diagnostics
+        requires = { "nvim-tree/nvim-web-devicons" },
+    }
 
+    -- ##################################################
+    -- ########## Languages
+    -- ##################################################
+
+    -- Typescript
+
+    use('dmmulroy/tsc.nvim')
+
+
+    -- ##################################################
     -- ########## Themeing
+    -- ##################################################
     use { 'shaunsingh/nord.nvim', as = 'nord' }    -- Theme
     use { 'Mofiqul/dracula.nvim', as = 'dracula' } -- Theme
     use { "catppuccin/nvim", as = "catppuccin" }   -- Theme
     use { 'rose-pine/neovim', as = 'rose-pine' }   -- Theme
     use { 'doums/darcula', as = 'darcula' }        -- Theme
+    use 'Mofiqul/vscode.nvim'                      -- Theme
+    use 'AlexvZyl/nordic.nvim'
 
     use 'nvim-tree/nvim-web-devicons'              -- Does some magic so we can have icons.
     use {
@@ -66,7 +85,9 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     }
 
+    -- ##################################################
     -- ########## Navigation
+    -- ##################################################
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1', -- Provides nice file jumping Capabilities
         requires = { { 'nvim-lua/plenary.nvim' } }
@@ -84,11 +105,16 @@ return require('packer').startup(function(use)
         dependencies = { 'tpope/vim-repeat' },
     })
 
+    -- ##################################################
     -- ########## Tutorials
+    -- ##################################################
     use('ThePrimeagen/vim-be-good') -- Learn how to be better at vim
     use "folke/which-key.nvim"      -- Show tooltips what key combinations you can do
 
+    -- ##################################################
     -- ########## Editor
+    -- ##################################################
+
     use 'gpanders/editorconfig.nvim'             -- Editorconfig support
     use 'mbbill/undotree'                        -- Nice undo visualization
     use 'tpope/vim-fugitive'                     -- Git operations
@@ -98,11 +124,6 @@ return require('packer').startup(function(use)
     use 'airblade/vim-gitgutter'                 -- Shows if a line has been added/modified/etc
     use 'numToStr/Comment.nvim'
     use 'RRethy/vim-illuminate'
-
-    -- use({
-    --     "kylechui/nvim-surround", -- Allows us to easily surround text with delimiters
-    --     tag = "*",                -- Use for stability; omit to use `main` branch for the latest features
-    -- })
 
     use({
         'nvim-pack/nvim-spectre', -- Global Search and replace

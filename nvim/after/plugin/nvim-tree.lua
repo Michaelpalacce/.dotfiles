@@ -1,6 +1,6 @@
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
-vim.keymap.set("n", "<leader>tt", vim.cmd.NvimTreeToggle, {desc = "[T]oggle Nvim [T]ree"})
+vim.keymap.set("n", "<leader>tt", vim.cmd.NvimTreeToggle, { desc = "[T]oggle Nvim [T]ree" })
 
 local function my_on_attach(bufnr)
     local api = require "nvim-tree.api"
@@ -18,13 +18,16 @@ end
 
 -- OR setup with some options
 require("nvim-tree").setup({
+    sync_root_with_cwd = true,
+  respect_buf_cwd = true,
+
     sort_by = "case_sensitive",
     view = {
         width = 45,
     },
     update_focused_file = {
         enable = true,
-        update_root = false,
+        update_root = true,
         ignore_list = {},
     },
     diagnostics = {
