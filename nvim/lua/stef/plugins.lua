@@ -11,7 +11,6 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-
 -- Dependencies: ripgrep
 
 return require('packer').startup(function(use)
@@ -43,6 +42,7 @@ return require('packer').startup(function(use)
             -- Snippets
             { 'L3MON4D3/LuaSnip' },
             { 'rafamadriz/friendly-snippets' },
+            { 'tamago324/nlsp-settings.nvim' }
         }
     }
 
