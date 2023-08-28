@@ -4,18 +4,11 @@ require('mason-lspconfig').setup {
         'tsserver',
         'eslint',
         'lua_ls',
-        'cssls',
         'pyre',
         'jsonls',
         'yamlls',
-        'bashls',
-        'ansiblels',
-        'dockerls',
         'java_language_server',
-        'tailwindcss',
-        'terraformls',
-        'volar',
         'vimls',
-        'rome'
+        -- 'rome'
     }
 }

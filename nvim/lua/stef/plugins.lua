@@ -91,7 +91,7 @@ return require('packer').startup(function(use)
     -- ##################################################
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1', -- Provides nice file jumping Capabilities
+        'nvim-telescope/telescope.nvim', tag = '0.1.2', -- Provides nice file jumping Capabilities
         -- ##################################################
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
@@ -106,15 +106,6 @@ return require('packer').startup(function(use)
         'ggandor/leap.nvim', -- Easily go to text
         dependencies = { 'tpope/vim-repeat' },
     })
-
-    use {
-        'gorbit99/codewindow.nvim',
-        config = function()
-            local codewindow = require('codewindow')
-            codewindow.setup()
-            codewindow.apply_default_keybinds()
-        end,
-    }
 
     -- ##################################################
     -- ########## Sessions
