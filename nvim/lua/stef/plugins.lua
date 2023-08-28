@@ -16,11 +16,13 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
     -- ########## Configurations will go here soon
+
     use 'wbthomason/packer.nvim' -- Packer is the plugin manager
 
     -- ##################################################
     -- ########## LSP Stuff
     -- ##################################################
+
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v2.x',
@@ -65,19 +67,19 @@ return require('packer').startup(function(use)
 
     -- Typescript
 
-    use('dmmulroy/tsc.nvim')
-
+    use 'windwp/nvim-ts-autotag' -- Provides Autoclose and autorename for html tags
 
     -- ##################################################
     -- ########## Themeing
     -- ##################################################
+
     use { 'shaunsingh/nord.nvim', as = 'nord' }    -- Theme
     use { 'Mofiqul/dracula.nvim', as = 'dracula' } -- Theme
     use { "catppuccin/nvim", as = "catppuccin" }   -- Theme
     use { 'rose-pine/neovim', as = 'rose-pine' }   -- Theme
     use { 'doums/darcula', as = 'darcula' }        -- Theme
     use 'Mofiqul/vscode.nvim'                      -- Theme
-    use 'AlexvZyl/nordic.nvim'
+    use 'AlexvZyl/nordic.nvim'                     -- Theme
 
     use 'nvim-tree/nvim-web-devicons'              -- Does some magic so we can have icons.
     use {
@@ -85,15 +87,15 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     }
 
-    -- ##################################################
     -- ########## Navigation
     -- ##################################################
+
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1', -- Provides nice file jumping Capabilities
+        -- ##################################################
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }) -- Provides syntax highlighting
-    use 'windwp/nvim-ts-autotag'                                  -- Provides Autoclose and autorename for html tags
     use 'ThePrimeagen/harpoon'                                    -- Allows for easier jumping between files
     use {
         'nvim-tree/nvim-tree.lua',                                -- Shows a nice file tree
@@ -105,36 +107,64 @@ return require('packer').startup(function(use)
         dependencies = { 'tpope/vim-repeat' },
     })
 
+    use {
+        'gorbit99/codewindow.nvim',
+        config = function()
+            local codewindow = require('codewindow')
+            codewindow.setup()
+            codewindow.apply_default_keybinds()
+        end,
+    }
+
+    -- ##################################################
+    -- ########## Sessions
+    -- ##################################################
+
+    -- use 'rmagatti/auto-session'
+
     -- ##################################################
     -- ########## Tutorials
     -- ##################################################
-    use('ThePrimeagen/vim-be-good') -- Learn how to be better at vim
-    use "folke/which-key.nvim"      -- Show tooltips what key combinations you can do
+
+    use 'ThePrimeagen/vim-be-good' -- Learn how to be better at vim
+    use 'folke/which-key.nvim'     -- Show tooltips what key combinations you can do
+    use {
+        'sudormrfbin/cheatsheet.nvim',
+
+        requires = {
+            { 'nvim-telescope/telescope.nvim' },
+            { 'nvim-lua/popup.nvim' },
+            { 'nvim-lua/plenary.nvim' },
+        }
+    }
 
     -- ##################################################
     -- ########## Editor
     -- ##################################################
 
-    use 'gpanders/editorconfig.nvim'             -- Editorconfig support
+    use 'pocco81/auto-save.nvim'                 -- Triggers an auto save
     use 'mbbill/undotree'                        -- Nice undo visualization
-    use 'tpope/vim-fugitive'                     -- Git operations
     use 'jiangmiao/auto-pairs'                   -- Automatically pair up closing brackets and other symbols
     use { "akinsho/toggleterm.nvim", tag = '*' } -- Nice terminal
     use 'romgrk/barbar.nvim'                     -- Tabs
-    use 'airblade/vim-gitgutter'                 -- Shows if a line has been added/modified/etc
-    use 'numToStr/Comment.nvim'
-    use 'RRethy/vim-illuminate'
+    use 'numToStr/Comment.nvim'                  -- Easy Commenting
+    use 'RRethy/vim-illuminate'                  -- illuminates similar vars
+    use 'nvim-pack/nvim-spectre'                 -- Global Search and replace
+    use 'dstein64/vim-startuptime'               -- Measures startuptime
+    use 'kevinhwang91/nvim-bqf'                  -- Better Quickfix
 
-    use({
-        'nvim-pack/nvim-spectre', -- Global Search and replace
-    })
-
-    use 'dstein64/vim-startuptime'  -- Measures startuptime
-    use { 'kevinhwang91/nvim-bqf' } -- Better Quickfix
+    use 'ray-x/lsp_signature.nvim'
 
     use { 'junegunn/fzf', run = function()
         vim.fn['fzf#install']()
     end }
+
+    -- ##################################################
+    -- ########## Git
+    -- ##################################################
+
+    use 'airblade/vim-gitgutter' -- Shows if a line has been added/modified/etc
+    use 'tpope/vim-fugitive'     -- Git operations
 
     if packer_bootstrap then
         require('packer').sync()

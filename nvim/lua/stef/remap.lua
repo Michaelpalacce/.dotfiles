@@ -49,7 +49,6 @@ vim.keymap.set("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Reload
 vim.keymap.set("n", "<leader>fr", ":e!<CR>", { desc = "[F]ile: [R]eload" })
-vim.keymap.set({ "v", "n", "s" }, "<leader>fs", "<cmd>w<cr><esc>", { desc = "[F]ile: [S]ave" })
 
 -- Move Between Windows
 vim.keymap.set('n', '<C-Left>', '<C-w>h')

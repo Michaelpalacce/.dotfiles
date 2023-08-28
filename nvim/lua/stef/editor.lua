@@ -22,7 +22,7 @@ vim.opt.isfname:append("@-@")
 
 -- Fast Updates
 vim.opt.updatetime = 50
-vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
+-- vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 
 -- vim.opt.cursorline = true -- Enable highlighting of the current line
 
