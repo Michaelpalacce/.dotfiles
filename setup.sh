@@ -1,6 +1,5 @@
 #!/bin/bash
 
-ansible-playbook Home/ansible/playbooks/main/main.yml -b -K
 
 FOLDERS=("nvim")
 
