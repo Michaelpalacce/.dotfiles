@@ -1,7 +1,6 @@
 #!/bin/bash
 
-apt install -y ripgrep
-apt install -y stow
+ansible-playbook Home/ansible/playbooks/main/main.yml -b -K
 
 FOLDERS=("nvim")
 
