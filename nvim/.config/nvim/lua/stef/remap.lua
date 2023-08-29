@@ -30,7 +30,6 @@ vim.keymap.set({ 'v', 'n' }, "<leader>d", '"_d', { desc = 'Delete without cuttin
 -- Yank me daddy
 vim.keymap.set({ 'v', 'n' }, "<leader>y", '"+y', { desc = 'Copy to system clipboard' })
 vim.keymap.set({ 'v', 'n', 'i', 's' }, "<C-d>", "<Esc>VYp", { desc = 'Dupicate current line' })
-vim.keymap.set('n', "<C-h>", ":noh<CR><CR>", { desc = 'Hide search highlighting' })
 
 -- Move Lines
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
