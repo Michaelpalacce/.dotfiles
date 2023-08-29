@@ -35,7 +35,9 @@ On the given folder structure, if you run `stow nvim` from `.dotfiles`, a Symlin
 
 ## Hacks
 
-### Neovim
+### Telescope preview is broken
+
+Using downgraded version of neovim, compiled from source.
 
 > Make sure neovim is uninstalled `sudo apt remove neovim`
 
