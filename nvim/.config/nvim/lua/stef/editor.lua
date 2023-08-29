@@ -4,7 +4,7 @@ vim.wo.number = true
 
 -- Editor
 vim.opt.swapfile = false
-vim.opt.colorcolumn = "140"
+vim.opt.colorcolumn = "160" -- This will add a line to the right after 160 characters, so you know your text is too long :)
 
 -- Don't highlight search
 vim.opt.hlsearch = false
@@ -28,7 +28,7 @@ vim.opt.wrap = false
 vim.opt.whichwrap = '<,>,h,l'
 
 -- Always keep n lines of code visible on the bottom and top
-vim.opt.scrolloff = 14
+vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 

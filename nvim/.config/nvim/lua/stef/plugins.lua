@@ -143,15 +143,16 @@ return require('packer').startup(function(use)
     -- ########## Editor
     -- ##################################################
 
-    use 'mbbill/undotree'                        -- Nice undo visualization
-    use 'jiangmiao/auto-pairs'                   -- Automatically pair up closing brackets and other symbols
-    use { "akinsho/toggleterm.nvim", tag = '*' } -- Nice terminal
-    use 'romgrk/barbar.nvim'                     -- Tabs
-    use 'numToStr/Comment.nvim'                  -- Easy Commenting
-    use 'RRethy/vim-illuminate'                  -- illuminates similar vars
-    use 'nvim-pack/nvim-spectre'                 -- Global Search and replace
-    use 'dstein64/vim-startuptime'               -- Measures startuptime
-    use 'kevinhwang91/nvim-bqf'                  -- Better Quickfix
+    use 'nvim-treesitter/nvim-treesitter-context' -- Provides a nice context of where you are
+    use 'mbbill/undotree'                         -- Nice undo visualization
+    use 'jiangmiao/auto-pairs'                    -- Automatically pair up closing brackets and other symbols
+    use { "akinsho/toggleterm.nvim", tag = '*' }  -- Nice terminal
+    use 'romgrk/barbar.nvim'                      -- Tabs
+    use 'numToStr/Comment.nvim'                   -- Easy Commenting
+    use 'RRethy/vim-illuminate'                   -- illuminates similar vars
+    use 'nvim-pack/nvim-spectre'                  -- Global Search and replace
+    use 'dstein64/vim-startuptime'                -- Measures startuptime
+    use 'kevinhwang91/nvim-bqf'                   -- Better Quickfix
 
     use 'ray-x/lsp_signature.nvim'
 

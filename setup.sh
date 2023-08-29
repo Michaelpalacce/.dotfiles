@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-FOLDERS=("nvim")
+FOLDERS=("nvim" "editorconfig")
 
 for dir in ${FOLDERS[@]} ; do
     echo "stow $dir"
