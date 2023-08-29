@@ -62,7 +62,9 @@ vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-q>', '<C-w>q')
 
 -- Config
-vim.keymap.set("n", "<leader>cdd", ":cd ~/.dotfiles/<CR>");
+vim.keymap.set("n", "<leader>cdd", ":cd ~/.dotfiles/<CR>", { desc = "[C]hange [D]irectory To [D]otfiles" });
 
--- Experimental
-vim.keymap.set('n', 'mct', ':!mvn clean test -DskipInstallNodeDeps<CR>')
+-- Executables
+vim.keymap.set("n", "<leader>cfe", ":!%:p<CR>", { desc = "[C]urrent [F]ile [E]xecute", silent = true });
+vim.keymap.set("n", "<leader>cfx", "<cmd>!chmod +x %<CR>", { desc = "[C]urrent [F]ile Make E[x]ecutable", silent = true });
+vim.keymap.set("n", "<leader>cfs", ":so<CR>", { desc = "[C]urrent [F]ile [S]hout out" });

@@ -39,6 +39,7 @@ On the given folder structure, if you run `stow nvim` from `.dotfiles`, a Symlin
 
 Using downgraded version of neovim, compiled from source.
 
+Follow [topic](https://github.com/nvim-telescope/telescope.nvim/issues/2667) for more info
 > Make sure neovim is uninstalled `sudo apt remove neovim`
 
 ```bash
