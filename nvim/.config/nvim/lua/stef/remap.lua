@@ -14,22 +14,22 @@ vim.keymap.set("n", "q", "<nop>", { desc = 'Remove recording feature' })
 ------------------------------------------
 
 -- helpers
-vim.keymap.set('n', "<leader>u", function ()
+vim.keymap.set('n', "<leader>u", function()
     vim.cmd.PackerSync()
     vim.cmd.TSUpdate()
     vim.cmd.MasonUpdate()
-end, { desc = "R[u]n TSUpdate, PackerSync, MasonUpdate" } )
+end, { desc = "R[u]n TSUpdate, PackerSync, MasonUpdate" })
 
 ------------------------------------------
 -- General remaps
 ------------------------------------------
 
 -- Better Delete
-vim.keymap.set({'v', 'n'}, "D", '"_d', { desc = 'Delete without cutting' })
+vim.keymap.set({ 'v', 'n' }, "<leader>d", '"_d', { desc = 'Delete without cutting' })
 
 -- Yank me daddy
-vim.keymap.set({'v', 'n'}, "<leader>y", '"+y', { desc = 'Copy to system clipboard' })
-vim.keymap.set({'v', 'n', 'i', 's'}, "<C-d>", "<Esc>VYp", { desc = 'Dupicate current line' })
+vim.keymap.set({ 'v', 'n' }, "<leader>y", '"+y', { desc = 'Copy to system clipboard' })
+vim.keymap.set({ 'v', 'n', 'i', 's' }, "<C-d>", "<Esc>VYp", { desc = 'Dupicate current line' })
 vim.keymap.set('n', "<C-h>", ":noh<CR><CR>", { desc = 'Hide search highlighting' })
 
 -- Move Lines
@@ -57,6 +57,8 @@ vim.keymap.set('n', '<C-Up>', '<C-w>k')
 vim.keymap.set('n', '<C-Right>', '<C-w>l')
 vim.keymap.set('n', '<C-q>', '<C-w>q')
 
+-- Config
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/stef/plugins.lua<CR>");
+
 -- Experimental
 vim.keymap.set('n', 'mct', ':!mvn clean test -DskipInstallNodeDeps<CR>')
-

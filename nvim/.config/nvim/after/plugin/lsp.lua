@@ -1,4 +1,5 @@
 require('mason').setup()
+-- First Mason
 
 require('mason-lspconfig').setup {
     ensure_installed = {
@@ -8,10 +9,14 @@ require('mason-lspconfig').setup {
         'jsonls',
         'yamlls',
         'vimls',
+        'volar'
     }
 }
 
+-- LSP ZERO
+
 local lsp = require('lsp-zero')
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lsp.preset("recommended")
 
@@ -39,46 +44,51 @@ end)
 -- Load All LSP configs
 -- ##########################################################
 
-lsp.configure('lua_ls', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
-})
+-- (Optional) Configure lua language server for neovim
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
-lsp.configure('tsserver', {
+-- TSSERVER
+
+require('lspconfig').tsserver.setup({
     settings = {
+        completions = {
+            completeFunctionCalls = true
+        },
         typescript = {
-            inlayHints = {
-                includeInlayParameterNameHints = "literal",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = false,
-                includeInlayVariableTypeHints = false,
-                includeInlayPropertyDeclarationTypeHints = false,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-            },
+            format = {
+                semicolons = 'insert',
+                tabsize = 4,
+                trimTrailingWhitespace = true,
+                convertTabsToSpaces = false,
+            }
         },
         javascript = {
-            inlayHints = {
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-            },
+            inlayHints = {},
         },
     }
 })
 
-lsp.configure('volar')
+local function organize_imports()
+    local params = {
+        command = "_typescript.organizeImports",
+        arguments = { vim.api.nvim_buf_get_name(0) },
+        title = ""
+    }
+    vim.lsp.buf.execute_command(params)
+end
 
-lsp.configure('gopls', {
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = '*.{ts,js}',
+    callback = organize_imports,
+})
+
+-- VOLAR (VUE)
+
+require('lspconfig').volar.setup {}
+
+-- GOLANG
+
+require('lspconfig').gopls.setup({
     cmd = { "gopls", "serve" },
     settings = {
         gopls = {
@@ -97,6 +107,28 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     end
 })
 
+-- END
+
+-- Formatting
+
+lsp.format_on_save({
+    format_opts = {
+        async = false,
+        timeout_ms = 10000,
+    },
+    servers = {
+        ['lua_ls']   = { 'lua' },
+        ['tsserver'] = { 'typescript' }
+    }
+})
+
+lsp.set_sign_icons({
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = '»'
+})
+
 lsp.setup()
 
 -- ##########################################################
@@ -105,12 +137,18 @@ lsp.setup()
 
 -- You need to setup `cmp` after lsp-zero
 local cmp = require('cmp')
+local cmp_select_opts = { behavior = cmp.SelectBehavior.Select }
 local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
+    snippet = {
+        expand = function(args)
+            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        end,
+    },
     mapping = {
         -- `Enter` key to confirm completion
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
 
         -- Ctrl+Space to trigger completion menu
         ['<C-Space>'] = cmp.mapping.complete(),
@@ -126,12 +164,34 @@ cmp.setup({
         ['<Tab>'] = cmp_action.luasnip_supertab(),
         ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
     },
-    sources = {
+    sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
-    },
+        { name = 'luasnip' },
+        { name = 'buffer' },
+        { name = 'path' }
+    }, {
+        { name = 'buffer' }
+    }),
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
+    }
+})
+
+cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+        { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+    }, {
+        { name = 'buffer' },
+    })
+})
+require("cmp_git").setup()
+
+-- `/` cmdline setup.
+cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'buffer' }
     }
 })

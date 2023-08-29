@@ -2,6 +2,12 @@
 vim.opt.termguicolors = true
 vim.keymap.set("n", "<leader>tt", vim.cmd.NvimTreeToggle, { desc = "[T]oggle Nvim [T]ree" })
 
+local function change_root_to_global_cwd()
+    local api = require("nvim-tree.api")
+    local global_cwd = vim.fn.getcwd(-1, -1)
+    api.tree.change_root(global_cwd)
+end
+
 local function my_on_attach(bufnr)
     local api = require "nvim-tree.api"
 
@@ -14,12 +20,19 @@ local function my_on_attach(bufnr)
 
     -- custom mappings
     vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
+    vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
+    vim.keymap.set('n', '<C-c>', change_root_to_global_cwd, opts('Change Root To Global CWD'))
 end
+
+local api = require("nvim-tree.api")
+api.events.subscribe(api.events.Event.FileCreated, function(file)
+    vim.cmd("edit " .. file.fname)
+end)
 
 -- OR setup with some options
 require("nvim-tree").setup({
     sync_root_with_cwd = true,
-  respect_buf_cwd = true,
+    respect_buf_cwd = true,
 
     sort_by = "case_sensitive",
     view = {
@@ -27,11 +40,11 @@ require("nvim-tree").setup({
     },
     update_focused_file = {
         enable = true,
-        update_root = true,
+        -- update_root = true,
         ignore_list = {},
     },
     diagnostics = {
-        enable = false,
+        enable = true,
         show_on_dirs = false,
         show_on_open_dirs = true,
         debounce_delay = 50,

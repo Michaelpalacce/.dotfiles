@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
     -- ########## Configurations will go here soon
 
     use 'wbthomason/packer.nvim' -- Packer is the plugin manager
+    use 'nvim-lua/plenary.nvim'  -- Set of tools for lua
 
     -- ##################################################
     -- ########## LSP Stuff
@@ -35,16 +36,25 @@ return require('packer').startup(function(use)
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
-            { 'saadparwaiz1/cmp_luasnip' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-nvim-lua' },
-
-            -- Snippets
-            { 'L3MON4D3/LuaSnip' },
-            { 'rafamadriz/friendly-snippets' },
-            { 'tamago324/nlsp-settings.nvim' }
+            { 'hrsh7th/cmp-cmdline' },
+            { 'petertriho/cmp-git' }
         }
     }
+
+    use({
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!:).
+        run = "make install_jsregexp",
+        requires = {
+            { 'rafamadriz/friendly-snippets' },
+            { 'saadparwaiz1/cmp_luasnip' },
+            { 'tamago324/nlsp-settings.nvim' }
+        }
+    })
 
     use {
         'j-hui/fidget.nvim', -- Shows a progress bar for LSP stuff
@@ -67,7 +77,7 @@ return require('packer').startup(function(use)
 
     -- Typescript
 
-    use 'windwp/nvim-ts-autotag' -- Provides Autoclose and autorename for html tags
+    use 'windwp/nvim-ts-autotag' -- Provi-- ENDdes Autoclose and autorename for html tags
 
     -- ##################################################
     -- ########## Themeing
@@ -133,7 +143,6 @@ return require('packer').startup(function(use)
     -- ########## Editor
     -- ##################################################
 
-    use 'pocco81/auto-save.nvim'                 -- Triggers an auto save
     use 'mbbill/undotree'                        -- Nice undo visualization
     use 'jiangmiao/auto-pairs'                   -- Automatically pair up closing brackets and other symbols
     use { "akinsho/toggleterm.nvim", tag = '*' } -- Nice terminal

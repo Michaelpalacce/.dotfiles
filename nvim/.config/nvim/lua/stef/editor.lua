@@ -2,6 +2,18 @@
 vim.wo.relativenumber = true
 vim.wo.number = true
 
+-- Editor
+vim.opt.swapfile = false
+vim.opt.colorcolumn = "140"
+
+-- Don't highlight search
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+-- Persistent UNDO
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
 -- Configure Tabs
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -22,19 +34,19 @@ vim.opt.isfname:append("@-@")
 
 -- Fast Updates
 vim.opt.updatetime = 50
-vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
+-- vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 
 -- vim.opt.cursorline = true -- Enable highlighting of the current line
 
 vim.opt.list = true
--- Set Visible Characters 
+-- Set Visible Characters
 vim.opt.listchars = {
-  eol = '⤶',
-  space = '.',
-  tab = '  >',
-  trail = '-',
-  extends = '>',
-  precedes = '<',
+    eol = '⤶',
+    space = '.',
+    tab = '  >',
+    trail = '-',
+    extends = '>',
+    precedes = '<',
 }
 
 vim.diagnostic.config({
