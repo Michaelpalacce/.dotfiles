@@ -52,13 +52,17 @@ vim.keymap.set("n", "<leader>fr", ":e!<CR>", { desc = "[F]ile: [R]eload" })
 
 -- Move Between Windows
 vim.keymap.set('n', '<C-Left>', '<C-w>h')
+vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-Down>', '<C-w>j')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-Up>', '<C-w>k')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-Right>', '<C-w>l')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-q>', '<C-w>q')
 
 -- Config
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/stef/plugins.lua<CR>");
+vim.keymap.set("n", "<leader>cdd", ":cd ~/.dotfiles/<CR>");
 
 -- Experimental
 vim.keymap.set('n', 'mct', ':!mvn clean test -DskipInstallNodeDeps<CR>')
