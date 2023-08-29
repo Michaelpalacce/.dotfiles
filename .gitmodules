@@ -1,3 +1,6 @@
 [submodule "Home"]
 	path = Home
 	url = https://github.com/Michaelpalacce/Home.git
+[submodule "neovim"]
+	path = neovim
+	url = https://github.com/neovim/neovim

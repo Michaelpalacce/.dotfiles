@@ -30,5 +30,20 @@ Example:
 │  │  ├─ nvim/
 
 ```
+
 On the given folder structure, if you run `stow nvim` from `.dotfiles`, a Symlink will be created to `~/.config/nvim` ( aka from the home dir, whatever the structure was inside the `nvim` folder )
 
+## Hacks
+
+### Neovim
+
+> Make sure neovim is uninstalled `sudo apt remove neovim`
+
+```bash
+sudo apt-get install ninja-build gettext cmake unzip curl
+git submodule add https://github.com/neovim/neovim neovim
+cd neovim
+git checkout b641fc3
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+```
