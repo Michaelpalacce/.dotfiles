@@ -15,9 +15,9 @@ vim.keymap.set("n", "q", "<nop>", { desc = 'Remove recording feature' })
 
 -- helpers
 vim.keymap.set('n', "<leader>u", function()
-    vim.cmd.PackerSync()
-    vim.cmd.TSUpdate()
-    vim.cmd.MasonUpdate()
+	vim.cmd.PackerSync()
+	vim.cmd.TSUpdate()
+	vim.cmd.MasonUpdate()
 end, { desc = "R[u]n TSUpdate, PackerSync, MasonUpdate" })
 
 ------------------------------------------
@@ -67,3 +67,8 @@ vim.keymap.set("n", "<leader>cdd", ":cd ~/.dotfiles/<CR>", { desc = "[C]hange [D
 vim.keymap.set("n", "<leader>cfe", ":!%:p<CR>", { desc = "[C]urrent [F]ile [E]xecute", silent = true });
 vim.keymap.set("n", "<leader>cfx", "<cmd>!chmod +x %<CR>", { desc = "[C]urrent [F]ile Make E[x]ecutable", silent = true });
 vim.keymap.set("n", "<leader>cfs", ":so<CR>", { desc = "[C]urrent [F]ile [S]hout out" });
+
+-- Experimental
+-- These overlap, but they are a way for me to go to the previous and next quickfix result
+-- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
