@@ -5,13 +5,13 @@ vim.keymap.set('n', '<leader>fs', builtin.live_grep, { desc = 'Telescope: [F]ind
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope: [F]ind in [B]uffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope: [F]ind [H]elp Tags' })
 vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'Telescope: [F]ind [G]it files' })
-vim.keymap.set('n', '<leader>fc', builtin.colorscheme, { desc = 'Telescope: [F]ind and Select [C]olorscheme' })
+vim.keymap.set('n', '<leader>ft', builtin.colorscheme, { desc = 'Telescope: [F]ind and Select [T]heme (colorscheme)' })
 
 require('telescope').setup {
-    defaults = {
-        -- This will show enough directories so we can distinguish duplicates easily
-        path_display = { 'smart' },
-        dynamic_preview_title = true,
-        results_title = 'Your Results Milord'
-    }
+	defaults = {
+		-- This will show enough directories so we can distinguish duplicates easily
+		path_display = { 'smart' },
+		dynamic_preview_title = true,
+		results_title = 'Your Results Milord'
+	}
 }
