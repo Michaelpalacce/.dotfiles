@@ -149,7 +149,7 @@ cmp.setup({
 	},
 	mapping = {
 		-- `Enter` key to confirm completion
-		['<CR>'] = cmp.mapping.confirm({ select = true }),
+		['<CR>'] = cmp.mapping.confirm({ select = false }),
 
 		-- Ctrl+Space to trigger completion menu
 		['<C-Space>'] = cmp.mapping.complete(),
@@ -164,11 +164,15 @@ cmp.setup({
 		-- If the cursor is in the middle of a word it displays the completion menu
 		['<Tab>'] = cmp_action.luasnip_supertab(),
 		['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+
+		-- Disable up and down... I want to move
+		['<Up>'] = cmp.mapping.close(),
+		['<Down>'] = cmp.mapping.close(),
 	},
 	sources = cmp.config.sources({
+		{ name = 'luasnip' },
 		{ name = 'nvim_lsp' },
 		{ name = 'nvim_lua' },
-		{ name = 'luasnip' },
 		{ name = 'buffer' },
 		{ name = 'path' }
 	}, {
@@ -184,8 +188,10 @@ cmp.setup({
 			max_height = 3000
 		}),
 	},
+	matching = {
+		dissallow_fuzzy_matching = false
+	}
 })
-
 
 
 cmp.setup.filetype('gitcommit', {
