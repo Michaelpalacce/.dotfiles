@@ -68,6 +68,11 @@ vim.keymap.set("n", "<leader>cfe", ":!%:p<CR>", { desc = "[C]urrent [F]ile [E]xe
 vim.keymap.set("n", "<leader>cfx", "<cmd>!chmod +x %<CR>", { desc = "[C]urrent [F]ile Make E[x]ecutable", silent = true });
 vim.keymap.set("n", "<leader>cfs", ":so<CR>", { desc = "[C]urrent [F]ile [S]hout out" });
 
+-- Navigation
+
+vim.keymap.set("n", "B", "0", { desc = "[B]eginning of the line" });
+vim.keymap.set("n", "E", "$", { desc = "[E]nd of the line" });
+
 -- Experimental
 -- These overlap, but they are a way for me to go to the previous and next quickfix result
 -- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
