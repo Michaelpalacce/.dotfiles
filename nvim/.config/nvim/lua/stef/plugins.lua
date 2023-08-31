@@ -75,10 +75,6 @@ return require('packer').startup(function(use)
 	-- ########## Languages
 	-- ##################################################
 
-	-- Typescript
-
-	use 'windwp/nvim-ts-autotag' -- Provi-- ENDdes Autoclose and autorename for html tags
-
 	-- ##################################################
 	-- ########## Themeing
 	-- ##################################################
@@ -116,12 +112,6 @@ return require('packer').startup(function(use)
 		'ggandor/leap.nvim', -- Easily go to text
 		dependencies = { 'tpope/vim-repeat' },
 	})
-
-	-- ##################################################
-	-- ########## Sessions
-	-- ##################################################
-
-	-- use 'rmagatti/auto-session'
 
 	-- ##################################################
 	-- ########## Tutorials

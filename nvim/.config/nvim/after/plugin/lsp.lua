@@ -19,7 +19,23 @@ require('mason-lspconfig').setup {
 local lsp = require('lsp-zero')
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-lsp.preset("recommended")
+-- I need to configure this shit on my own... I don't want the default mappings... stolen from: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#minimal
+lsp.preset({
+	float_border = 'rounded',
+	call_servers = 'local',
+	configure_diagnostics = true,
+	setup_servers_on_start = true,
+	set_lsp_keymaps = false,
+	manage_nvim_cmp = {
+		set_sources = 'recommended',
+		set_basic_mappings = true,
+		set_extra_mappings = false,
+		use_luasnip = true,
+		set_format = true,
+		documentation_window = true,
+	},
+})
+
 
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr }
