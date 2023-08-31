@@ -56,24 +56,15 @@ return require('packer').startup(function(use)
 		}
 	})
 
-	use {
-		'j-hui/fidget.nvim', -- Shows a progress bar for LSP stuff
-		tag = 'legacy',
-	}
-
-	use({
-		'nvimdev/lspsaga.nvim', -- Improved LSP functionality
-		after = 'nvim-lspconfig',
-	})
-
-	use {
-		"folke/trouble.nvim", -- Workspace Diagnostics
-		requires = { "nvim-tree/nvim-web-devicons" },
-	}
+	use { 'j-hui/fidget.nvim', tag = 'legacy' }                             -- Shows a progress bar for LSP stuff
+	use { "folke/trouble.nvim", requires = { "nvim-tree/nvim-web-devicons" } } -- Workspace Diagnostics
+	use 'ray-x/lsp_signature.nvim'
 
 	-- ##################################################
 	-- ########## Languages
 	-- ##################################################
+
+	-- None for now
 
 	-- ##################################################
 	-- ########## Themeing
@@ -88,25 +79,17 @@ return require('packer').startup(function(use)
 	use 'AlexvZyl/nordic.nvim'                  -- Theme
 
 	use 'nvim-tree/nvim-web-devicons'           -- Does some magic so we can have icons.
-	use {
-		'nvim-lualine/lualine.nvim',            -- Provides a nice status bar at the bottom of the screen
-		requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-	}
+	use 'nvim-lualine/lualine.nvim'             -- Provides a nice status bar at the bottom of the screen
 
+
+	-- ##################################################
 	-- ########## Navigation
 	-- ##################################################
 
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.2', -- Provides nice file jumping Capabilities
-		-- ##################################################
-		requires = { { 'nvim-lua/plenary.nvim' } }
-	}
+	use { 'nvim-telescope/telescope.nvim', tag = '0.1.2' }     -- Provides nice file jumping Capabilities
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }) -- Provides syntax highlighting
 	use 'ThePrimeagen/harpoon'                                 -- Allows for easier jumping between files
-	use {
-		'nvim-tree/nvim-tree.lua',                             -- Shows a nice file tree
-		requires = { 'nvim-tree/nvim-web-devicons' },
-	}
+	use 'nvim-tree/nvim-tree.lua'                              -- Shows a nice file tree
 
 	use({
 		'ggandor/leap.nvim', -- Easily go to text
@@ -117,11 +100,9 @@ return require('packer').startup(function(use)
 	-- ########## Tutorials
 	-- ##################################################
 
-	use 'ThePrimeagen/vim-be-good' -- Learn how to be better at vim
-	use 'folke/which-key.nvim'  -- Show tooltips what key combinations you can do
+	use 'folke/which-key.nvim' -- Show tooltips what key combinations you can do
 	use {
 		'sudormrfbin/cheatsheet.nvim',
-
 		requires = {
 			{ 'nvim-telescope/telescope.nvim' },
 			{ 'nvim-lua/popup.nvim' },
@@ -133,7 +114,6 @@ return require('packer').startup(function(use)
 	-- ########## Editor
 	-- ##################################################
 
-	use 'andythigpen/nvim-coverage'            -- Displays code coverage in the gutter
 	use 'nvim-treesitter/nvim-treesitter-context' -- Provides a nice context of where you are
 	use 'mbbill/undotree'                      -- Nice undo visualization
 	use 'jiangmiao/auto-pairs'                 -- Automatically pair up closing brackets and other symbols
@@ -145,8 +125,6 @@ return require('packer').startup(function(use)
 	use 'dstein64/vim-startuptime'             -- Measures startuptime
 	use 'kevinhwang91/nvim-bqf'                -- Better Quickfix
 
-	use 'ray-x/lsp_signature.nvim'
-
 	use { 'junegunn/fzf', run = function()
 		vim.fn['fzf#install']()
 	end }
@@ -157,6 +135,10 @@ return require('packer').startup(function(use)
 
 	use 'airblade/vim-gitgutter' -- Shows if a line has been added/modified/etc
 	use 'tpope/vim-fugitive'  -- Git operations
+
+	-- ##################################################
+	-- ########## Finalize
+	-- ##################################################
 
 	if packer_bootstrap then
 		require('packer').sync()
