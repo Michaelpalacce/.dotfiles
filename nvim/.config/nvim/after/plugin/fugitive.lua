@@ -3,6 +3,7 @@ local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', "<leader>gs", vim.cmd.Git, { desc = '[T]oggle [G]it Status' })
 vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope: [G]it [B]ranches' })
+vim.keymap.set('n', '<leader>gd', builtin.git_status, { desc = 'Telescope: [G]it [D]iff' })
 
 local stef_Fugitive = vim.api.nvim_create_augroup("stef_Fugitive", {})
 local autocmd = vim.api.nvim_create_autocmd
