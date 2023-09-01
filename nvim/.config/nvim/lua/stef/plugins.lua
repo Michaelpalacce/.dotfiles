@@ -81,15 +81,15 @@ return require('packer').startup(function(use)
 	use 'nvim-tree/nvim-web-devicons'           -- Does some magic so we can have icons.
 	use 'nvim-lualine/lualine.nvim'             -- Provides a nice status bar at the bottom of the screen
 
-
 	-- ##################################################
 	-- ########## Navigation
 	-- ##################################################
 
-	use { 'nvim-telescope/telescope.nvim', tag = '0.1.2' }     -- Provides nice file jumping Capabilities
+	use { 'nvim-telescope/telescope.nvim', tag = '0.1.x' }        -- Provides nice file jumping Capabilities
+	use { 'nvim-telescope/telescope-fzf-native.nvim', run = "make" } -- telescope fuzzy finder
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }) -- Provides syntax highlighting
-	use 'ThePrimeagen/harpoon'                                 -- Allows for easier jumping between files
-	use 'nvim-tree/nvim-tree.lua'                              -- Shows a nice file tree
+	use 'ThePrimeagen/harpoon'                                    -- Allows for easier jumping between files
+	use 'nvim-tree/nvim-tree.lua'                                 -- Shows a nice file tree
 
 	use({
 		'ggandor/leap.nvim', -- Easily go to text
@@ -114,6 +114,7 @@ return require('packer').startup(function(use)
 	-- ########## Editor
 	-- ##################################################
 
+	use 'tpope/vim-surround'
 	use 'nvim-treesitter/nvim-treesitter-context' -- Provides a nice context of where you are
 	use 'mbbill/undotree'                      -- Nice undo visualization
 	use 'jiangmiao/auto-pairs'                 -- Automatically pair up closing brackets and other symbols
