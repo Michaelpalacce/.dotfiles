@@ -114,7 +114,7 @@ return require('packer').startup(function(use)
 	-- ########## Editor
 	-- ##################################################
 
-	use 'tpope/vim-surround'
+	use 'tpope/vim-surround'                   -- Magic text surround replacement https://github.com/tpope/vim-surround
 	use 'nvim-treesitter/nvim-treesitter-context' -- Provides a nice context of where you are
 	use 'mbbill/undotree'                      -- Nice undo visualization
 	use 'jiangmiao/auto-pairs'                 -- Automatically pair up closing brackets and other symbols

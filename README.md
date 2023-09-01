@@ -33,6 +33,11 @@ Example:
 
 On the given folder structure, if you run `stow nvim` from `.dotfiles`, a Symlink will be created to `~/.config/nvim` ( aka from the home dir, whatever the structure was inside the `nvim` folder )
 
+## Experimenting With
+
+- [ ] Git bindings
+- [ ] vim-surround. Do I even need this?
+
 ## Hacks
 
 ### Telescope preview is broken
