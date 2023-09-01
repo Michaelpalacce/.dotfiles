@@ -8,14 +8,20 @@ vim.keymap.set('n', '<leader>ft', builtin.colorscheme, { desc = 'Telescope: [F]i
 vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = 'Telescope: [F]ind In The [Q]uickfix List' })
 vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope: [F]ind [K]eymaps' })
 vim.keymap.set('n', '<leader>fo', builtin.vim_options, { desc = 'Telescope: [F]ind Vim [O]ptions' })
-
-vim.keymap.set('n', '<leader>fb', builtin.git_branches, { desc = 'Telescope: [F]ind Git [B]ranches' })
+vim.keymap.set('n', '<leader>fR', builtin.reloader, { desc = 'Telescope: [F]ind Plugins To [R]eload' })
 
 require('telescope').setup {
 	defaults = {
 		-- This will show enough directories so we can distinguish duplicates easily
 		path_display = { 'smart' },
 		dynamic_preview_title = true,
-		results_title = 'Your Results Milord'
+		results_title = 'Your Results Milord',
+		layout_config = {
+			horizontal = {
+				width = 0.95
+			}
+		}
 	}
 }
+
+require('telescope').load_extension("fzf")
