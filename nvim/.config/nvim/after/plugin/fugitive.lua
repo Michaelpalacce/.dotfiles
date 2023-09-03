@@ -21,7 +21,6 @@ autocmd("BufWinEnter", {
 			vim.cmd.Git('push')
 		end, { desc = "Fugitive: [G]it [P]ush", buffer = bufnr, remap = false })
 
-		-- rebase always
 		vim.keymap.set("n", "<leader>gP", function()
 			vim.cmd.Git('pull')
 		end, { buffer = bufnr, remap = false, desc = "Fugitive: [G]it [P]ull" })
