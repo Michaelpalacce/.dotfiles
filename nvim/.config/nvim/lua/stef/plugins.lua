@@ -64,7 +64,9 @@ return require('packer').startup(function(use)
 	-- ########## Languages
 	-- ##################################################
 
-	-- None for now
+	-- General
+
+	use 'laytan/cloak.nvim'
 
 	-- ##################################################
 	-- ########## Themeing
