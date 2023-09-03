@@ -23,7 +23,7 @@ autocmd("BufWinEnter", {
 
 		-- rebase always
 		vim.keymap.set("n", "<leader>gP", function()
-			vim.cmd.Git({ 'pull', '--rebase' })
+			vim.cmd.Git('pull')
 		end, { buffer = bufnr, remap = false, desc = "Fugitive: [G]it [P]ull" })
 	end,
 })
