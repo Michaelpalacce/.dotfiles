@@ -58,7 +58,6 @@ return require('packer').startup(function(use)
 
 	use { 'j-hui/fidget.nvim', tag = 'legacy' }                             -- Shows a progress bar for LSP stuff
 	use { "folke/trouble.nvim", requires = { "nvim-tree/nvim-web-devicons" } } -- Workspace Diagnostics
-	use 'ray-x/lsp_signature.nvim'
 
 	-- ##################################################
 	-- ########## Languages
@@ -119,7 +118,7 @@ return require('packer').startup(function(use)
 	use 'mbbill/undotree'                      -- Nice undo visualization
 	use 'jiangmiao/auto-pairs'                 -- Automatically pair up closing brackets and other symbols
 	use { "akinsho/toggleterm.nvim", tag = '*' } -- Nice terminal
-	use 'romgrk/barbar.nvim'                   -- Tabs
+	-- use 'romgrk/barbar.nvim'                   -- Tabs
 	use 'numToStr/Comment.nvim'                -- Easy Commenting
 	use 'RRethy/vim-illuminate'                -- illuminates similar vars
 	use 'nvim-pack/nvim-spectre'               -- Global Search and replace
