@@ -118,7 +118,6 @@ return require('packer').startup(function(use)
 	use 'mbbill/undotree'                      -- Nice undo visualization
 	use 'jiangmiao/auto-pairs'                 -- Automatically pair up closing brackets and other symbols
 	use { "akinsho/toggleterm.nvim", tag = '*' } -- Nice terminal
-	-- use 'romgrk/barbar.nvim'                   -- Tabs
 	use 'numToStr/Comment.nvim'                -- Easy Commenting
 	use 'RRethy/vim-illuminate'                -- illuminates similar vars
 	use 'nvim-pack/nvim-spectre'               -- Global Search and replace
@@ -133,8 +132,8 @@ return require('packer').startup(function(use)
 	-- ########## Git
 	-- ##################################################
 
-	use 'airblade/vim-gitgutter' -- Shows if a line has been added/modified/etc
-	use 'tpope/vim-fugitive'  -- Git operations
+	use 'tpope/vim-fugitive'   -- Git operations
+	use 'lewis6991/gitsigns.nvim' -- Show Signs in the gutter
 
 	-- ##################################################
 	-- ########## Finalize
