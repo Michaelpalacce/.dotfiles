@@ -117,6 +117,7 @@ return require('packer').startup(function(use)
 	use 'RRethy/vim-illuminate'                -- illuminates similar vars
 	use 'nvim-pack/nvim-spectre'               -- Global Search and replace
 	use 'kevinhwang91/nvim-bqf'                -- Better Quickfix
+	use 'windwp/nvim-autopairs'                -- Autopairs
 
 	use { 'junegunn/fzf', run = function()
 		vim.fn['fzf#install']()
