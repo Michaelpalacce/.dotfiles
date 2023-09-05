@@ -7,7 +7,7 @@ vim.g.mapleader = " "
 
 -- disables
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "q", "<nop>", { desc = 'Remove recording feature' })
+-- vim.keymap.set("n", "q", "<nop>", { desc = 'Remove recording feature' })
 
 ------------------------------------------
 -- Helpers
