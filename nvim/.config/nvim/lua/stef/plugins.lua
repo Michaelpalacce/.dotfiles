@@ -11,11 +11,8 @@ end
 
 local packer_bootstrap = ensure_packer()
 
--- Dependencies: ripgrep
-
+-- Dependencies: ripgrep, sed,
 return require('packer').startup(function(use)
-	-- ########## Configurations will go here soon
-
 	use 'wbthomason/packer.nvim' -- Packer is the plugin manager
 	use 'nvim-lua/plenary.nvim' -- Set of tools for lua
 
@@ -56,7 +53,7 @@ return require('packer').startup(function(use)
 		}
 	})
 
-	use { 'j-hui/fidget.nvim', tag = 'legacy' }                             -- Shows a progress bar for LSP stuff
+	use { 'j-hui/fidget.nvim', tag = 'legacy' }                             -- Shows a spinner of lsp loading
 	use { "folke/trouble.nvim", requires = { "nvim-tree/nvim-web-devicons" } } -- Workspace Diagnostics
 
 	-- ##################################################
@@ -84,11 +81,10 @@ return require('packer').startup(function(use)
 	-- ########## Navigation
 	-- ##################################################
 
-	use { 'nvim-telescope/telescope.nvim', tag = '0.1.x' }        -- Provides nice file jumping Capabilities
-	use { 'nvim-telescope/telescope-fzf-native.nvim', run = "make" } -- telescope fuzzy finder
+	use { 'nvim-telescope/telescope.nvim', tag = '0.1.x' }     -- Provides nice file jumping Capabilities
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }) -- Provides syntax highlighting
-	use 'ThePrimeagen/harpoon'                                    -- Allows for easier jumping between files
-	use 'nvim-tree/nvim-tree.lua'                                 -- Shows a nice file tree
+	use 'ThePrimeagen/harpoon'                                 -- Allows for easier jumping between files
+	use 'nvim-tree/nvim-tree.lua'                              -- Shows a nice file tree
 
 	use({
 		'ggandor/leap.nvim', -- Easily go to text
@@ -116,12 +112,10 @@ return require('packer').startup(function(use)
 	use 'tpope/vim-surround'                   -- Magic text surround replacement https://github.com/tpope/vim-surround
 	use 'nvim-treesitter/nvim-treesitter-context' -- Provides a nice context of where you are
 	use 'mbbill/undotree'                      -- Nice undo visualization
-	use 'jiangmiao/auto-pairs'                 -- Automatically pair up closing brackets and other symbols
 	use { "akinsho/toggleterm.nvim", tag = '*' } -- Nice terminal
 	use 'numToStr/Comment.nvim'                -- Easy Commenting
 	use 'RRethy/vim-illuminate'                -- illuminates similar vars
 	use 'nvim-pack/nvim-spectre'               -- Global Search and replace
-	use 'dstein64/vim-startuptime'             -- Measures startuptime
 	use 'kevinhwang91/nvim-bqf'                -- Better Quickfix
 
 	use { 'junegunn/fzf', run = function()
@@ -134,6 +128,12 @@ return require('packer').startup(function(use)
 
 	use 'tpope/vim-fugitive'   -- Git operations
 	use 'lewis6991/gitsigns.nvim' -- Show Signs in the gutter
+
+	-- ##################################################
+	-- ########## Helpers
+	-- ##################################################
+
+	use 'dstein64/vim-startuptime' -- Measures startuptime :StartupTime
 
 	-- ##################################################
 	-- ########## Finalize
