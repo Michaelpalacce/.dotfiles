@@ -25,7 +25,7 @@ end, { desc = "R[u]n TSUpdate, PackerSync, MasonUpdate" })
 ------------------------------------------
 
 -- Better Delete
-vim.keymap.set({ 'v', 'n' }, "<leader>d", '"_d', { desc = 'Delete without cutting' })
+vim.keymap.set({ 'v', 'n' }, "<leader>D", '"_d', { desc = 'Delete without cutting' })
 
 -- Yank me daddy
 vim.keymap.set({ 'v', 'n' }, "<leader>y", '"+y', { desc = 'Copy to system clipboard' })
@@ -69,11 +69,11 @@ vim.keymap.set("n", "<leader>cfx", "<cmd>!chmod +x %<CR>", { desc = "[C]urrent [
 vim.keymap.set("n", "<leader>cfs", ":so<CR>", { desc = "[C]urrent [F]ile [S]hout out" });
 
 -- Navigation
-
 vim.keymap.set("n", "B", "0", { desc = "[B]eginning of the line" });
 vim.keymap.set("n", "E", "$", { desc = "[E]nd of the line" });
 
--- Experimental
--- These overlap, but they are a way for me to go to the previous and next quickfix result
--- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
--- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- Quick Fix
+vim.keymap.set("n", "<S-Down>", "<cmd>cnext<CR>zz", { desc = 'Go to the next quickfix item' })
+vim.keymap.set("n", "<S-Up>", "<cmd>cprev<CR>zz", { desc = 'Go to the previous quickfix item' })
+vim.keymap.set("n", "<S-k>", "<cmd>cnext<CR>zz", { desc = 'Go to the next quickfix item' })
+vim.keymap.set("n", "<S-j>", "<cmd>cprev<CR>zz", { desc = 'Go to the previous quickfix item' })

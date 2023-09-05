@@ -33,10 +33,17 @@ Example:
 
 On the given folder structure, if you run `stow nvim` from `.dotfiles`, a Symlink will be created to `~/.config/nvim` ( aka from the home dir, whatever the structure was inside the `nvim` folder )
 
-## Experimenting With
+## Explanations
 
-- [ ] Git bindings
-- [ ] vim-surround. Do I even need this?
+### QuickFix Navigation
+
+- Utilizing `cnext` and `cprev`
+- If you press `<S-Down> / <S-Up> / <S-j> / <S-k>` we can move up and down the quickfix list no matter if it's open or not. 
+
+### Moving Lines Up And Down
+
+- This can be done by holding alt and `up/down/j/k`
+- This works in `v`, `n`, `i` mode
 
 ## Hacks
 

@@ -3,6 +3,7 @@ require('bqf').setup {
 		default = true
 	},
 	preview = {
+		auto_preview = false,
 		win_height = 500,
 		win_vheight = 500,
 		-- Don't want any transparency... you can increase this up to 100 to have the window MEGA transparent
