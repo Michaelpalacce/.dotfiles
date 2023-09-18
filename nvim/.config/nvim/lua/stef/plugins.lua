@@ -55,7 +55,6 @@ return require('packer').startup(function(use)
 
 	use { 'j-hui/fidget.nvim', tag = 'legacy' }                             -- Shows a spinner of lsp loading
 	use { "folke/trouble.nvim", requires = { "nvim-tree/nvim-web-devicons" } } -- Workspace Diagnostics
-	use 'ray-x/lsp_signature.nvim'
 
 	-- ##################################################
 	-- ########## Languages
