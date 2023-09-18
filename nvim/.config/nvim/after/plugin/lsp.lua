@@ -84,19 +84,19 @@ require('lspconfig').tsserver.setup({
 	}
 })
 
-local function organize_imports()
-	local params = {
-		command = "_typescript.organizeImports",
-		arguments = { vim.api.nvim_buf_get_name(0) },
-		title = ""
-	}
-	vim.lsp.buf.execute_command(params)
-end
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = '*.{ts,js}',
-	callback = organize_imports,
-})
+-- local function organize_imports()
+-- 	local params = {
+-- 		command = "_typescript.organizeImports",
+-- 		arguments = { vim.api.nvim_buf_get_name(0) },
+-- 		title = ""
+-- 	}
+-- 	vim.lsp.buf.execute_command(params)
+-- end
+--
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	pattern = '*.{ts,js}',
+-- 	callback = organize_imports,
+-- })
 
 -- VOLAR (VUE)
 
