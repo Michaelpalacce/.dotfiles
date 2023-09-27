@@ -68,9 +68,8 @@ vim.keymap.set("n", "<leader>cfe", ":!%:p<CR>", { desc = "[C]urrent [F]ile [E]xe
 vim.keymap.set("n", "<leader>cfx", "<cmd>!chmod +x %<CR>", { desc = "[C]urrent [F]ile Make E[x]ecutable", silent = true });
 vim.keymap.set("n", "<leader>cfs", ":so<CR>", { desc = "[C]urrent [F]ile [S]hout out" });
 
--- Navigation
-vim.keymap.set("n", "B", "0", { desc = "[B]eginning of the line" });
-vim.keymap.set("n", "E", "$", { desc = "[E]nd of the line" });
+-- Folds
+vim.keymap.set({ "n", "v" }, "<leader>zf", "zf%", { desc = "Create a fold on the matching paranthesis" });
 
 -- Quick Fix
 vim.keymap.set("n", "<S-Down>", "<cmd>cnext<CR>zz", { desc = 'Go to the next quickfix item' })

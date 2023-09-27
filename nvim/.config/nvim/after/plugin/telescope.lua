@@ -10,6 +10,7 @@ vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope: [F]ind [
 vim.keymap.set('n', '<leader>fo', builtin.vim_options, { desc = 'Telescope: [F]ind Vim [O]ptions' })
 vim.keymap.set('n', '<leader>fp', builtin.reloader, { desc = 'Telescope: [F]ind [P]lugins To reload' })
 vim.keymap.set('n', '<leader>fR', builtin.registers, { desc = 'Telescope: [F]ind in [R^]egsiters' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope: [F]ind [B]uffers' })
 
 require('telescope').setup {
 	defaults = {
