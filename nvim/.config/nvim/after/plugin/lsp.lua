@@ -30,7 +30,7 @@ lsp.preset({
 		set_sources = 'recommended',
 		set_basic_mappings = true,
 		set_extra_mappings = false,
-		use_luasnip = true,
+		use_luasnip = false,
 		set_format = true,
 		documentation_window = true,
 	},
@@ -130,7 +130,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 lsp.format_on_save({
 	format_opts = {
 		async = false,
-		timeout_ms = 10000,
+		timeout_ms = 5000,
 	},
 	servers = {
 		['lua_ls']   = { 'lua' },
@@ -169,10 +169,6 @@ cmp.setup({
 		-- Ctrl+Space to trigger completion menu
 		['<C-Space>'] = cmp.mapping.complete(),
 
-		-- Navigate between snippet placeholder
-		['<C-f>'] = cmp_action.luasnip_jump_forward(),
-		['<C-b>'] = cmp_action.luasnip_jump_backward(),
-
 		-- If the completion menu is visible it will navigate to the next item in the list.
 		-- If the cursor is on top of a "snippet trigger" it'll expand it.
 		-- If the cursor can jump to a snippet placeholder, it moves to it.
@@ -187,9 +183,9 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
 		{ name = 'buffer' },
-		{ name = 'luasnip' },
 		{ name = 'nvim_lua' },
-		{ name = 'path' }
+		{ name = 'path' },
+		{ name = 'nvim_lsp_signature_help' },
 	}, {
 		{ name = 'buffer' }
 	}),

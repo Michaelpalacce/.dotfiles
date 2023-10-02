@@ -36,22 +36,10 @@ return require('packer').startup(function(use)
 			{ 'hrsh7th/cmp-nvim-lsp' },
 			{ 'hrsh7th/cmp-nvim-lua' },
 			{ 'hrsh7th/cmp-cmdline' },
+			{ 'hrsh7th/cmp-nvim-lsp-signature-help' },
 			{ 'petertriho/cmp-git' }
 		}
 	}
-
-	use({
-		"L3MON4D3/LuaSnip",
-		-- follow latest release.
-		tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-		-- install jsregexp (optional!:).
-		run = "make install_jsregexp",
-		requires = {
-			{ 'rafamadriz/friendly-snippets' },
-			{ 'saadparwaiz1/cmp_luasnip' },
-			{ 'tamago324/nlsp-settings.nvim' }
-		}
-	})
 
 	use { 'j-hui/fidget.nvim', tag = 'legacy' }                             -- Shows a spinner of lsp loading
 	use { "folke/trouble.nvim", requires = { "nvim-tree/nvim-web-devicons" } } -- Workspace Diagnostics
@@ -66,13 +54,9 @@ return require('packer').startup(function(use)
 	-- ########## Themeing
 	-- ##################################################
 
-	use { 'shaunsingh/nord.nvim', as = 'nord' } -- Theme
 	use { 'Mofiqul/dracula.nvim', as = 'dracula' } -- Theme
 	use { "catppuccin/nvim", as = "catppuccin" } -- Theme
-	use { 'rose-pine/neovim', as = 'rose-pine' } -- Theme
 	use { 'doums/darcula', as = 'darcula' }     -- Theme
-	use 'Mofiqul/vscode.nvim'                   -- Theme
-	use 'AlexvZyl/nordic.nvim'                  -- Theme
 
 	use 'nvim-tree/nvim-web-devicons'           -- Does some magic so we can have icons.
 	use 'nvim-lualine/lualine.nvim'             -- Provides a nice status bar at the bottom of the screen
@@ -115,7 +99,6 @@ return require('packer').startup(function(use)
 	use { "akinsho/toggleterm.nvim", tag = '*' } -- Nice terminal
 	use 'numToStr/Comment.nvim'                -- Easy Commenting
 	use 'RRethy/vim-illuminate'                -- illuminates similar vars
-	use 'nvim-pack/nvim-spectre'               -- Global Search and replace
 	use 'kevinhwang91/nvim-bqf'                -- Better Quickfix
 	use 'windwp/nvim-autopairs'                -- Autopairs
 
