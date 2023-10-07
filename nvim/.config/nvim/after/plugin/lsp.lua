@@ -30,7 +30,7 @@ lsp.preset({
 		set_sources = 'recommended',
 		set_basic_mappings = true,
 		set_extra_mappings = false,
-		use_luasnip = false,
+		use_luasnip = true,
 		set_format = true,
 		documentation_window = true,
 	},
@@ -186,6 +186,7 @@ cmp.setup({
 		{ name = 'nvim_lua' },
 		{ name = 'path' },
 		{ name = 'nvim_lsp_signature_help' },
+		{ name = 'luasnip' },
 	}, {
 		{ name = 'buffer' }
 	}),

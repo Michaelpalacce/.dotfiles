@@ -41,6 +41,19 @@ return require('packer').startup(function(use)
 		}
 	}
 
+	use({
+		"L3MON4D3/LuaSnip",
+		-- follow latest release.
+		tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!:).
+		run = "make install_jsregexp",
+		requires = {
+			{ 'rafamadriz/friendly-snippets' },
+			{ 'saadparwaiz1/cmp_luasnip' },
+			{ 'tamago324/nlsp-settings.nvim' }
+		}
+	})
+
 	use { 'j-hui/fidget.nvim', tag = 'legacy' }                             -- Shows a spinner of lsp loading
 	use { "folke/trouble.nvim", requires = { "nvim-tree/nvim-web-devicons" } } -- Workspace Diagnostics
 
