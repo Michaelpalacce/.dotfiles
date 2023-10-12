@@ -101,12 +101,7 @@ return require('packer').startup(function(use)
 	use { "akinsho/toggleterm.nvim", tag = '*' } -- Nice terminal
 	use 'numToStr/Comment.nvim'                -- Easy Commenting
 	use 'RRethy/vim-illuminate'                -- illuminates similar vars
-	use 'kevinhwang91/nvim-bqf'                -- Better Quickfix
 	use 'windwp/nvim-autopairs'                -- Autopairs
-
-	use { 'junegunn/fzf', run = function()
-		vim.fn['fzf#install']()
-	end }
 
 	-- ##################################################
 	-- ########## Git
