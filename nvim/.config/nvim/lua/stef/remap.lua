@@ -24,13 +24,6 @@ end, { desc = "R[u]n TSUpdate, PackerSync, MasonUpdate" })
 -- General remaps
 ------------------------------------------
 
--- Better Delete
-vim.keymap.set({ 'v', 'n' }, "<leader>D", '"_d', { desc = 'Delete without cutting' })
-
--- Yank me daddy
-vim.keymap.set({ 'v', 'n' }, "<leader>y", '"+y', { desc = 'Copy to system clipboard' })
-vim.keymap.set({ 'v', 'n', 'i', 's' }, "<C-d>", "<Esc>VYp", { desc = 'Dupicate current line' })
-
 -- Move Lines
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
@@ -46,8 +39,8 @@ vim.keymap.set("i", "<A-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 vim.keymap.set("v", "<A-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 vim.keymap.set("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
--- Reload
-vim.keymap.set("n", "<leader>fr", ":e!<CR>", { desc = "[F]ile: [R]eload" })
+-- -- Reload
+-- vim.keymap.set("n", "<leader>fr", ":e!<CR>", { desc = "[F]ile: [R]eload" })
 
 -- Move Between Windows
 vim.keymap.set('n', '<C-Left>', '<C-w>h')
@@ -67,9 +60,6 @@ vim.keymap.set("n", "<leader>cdd", ":cd ~/.dotfiles/<CR>", { desc = "[C]hange [D
 vim.keymap.set("n", "<leader>cfe", ":!%:p<CR>", { desc = "[C]urrent [F]ile [E]xecute", silent = true });
 vim.keymap.set("n", "<leader>cfx", "<cmd>!chmod +x %<CR>", { desc = "[C]urrent [F]ile Make E[x]ecutable", silent = true });
 vim.keymap.set("n", "<leader>cfs", ":so<CR>", { desc = "[C]urrent [F]ile [S]hout out" });
-
--- Folds
-vim.keymap.set({ "n", "v" }, "<leader>zf", "zf%", { desc = "Create a fold on the matching paranthesis" });
 
 -- Quick Fix
 vim.keymap.set("n", "<S-Down>", "<cmd>cnext<CR>zz", { desc = 'Go to the next quickfix item' })

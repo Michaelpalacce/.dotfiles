@@ -84,19 +84,6 @@ require('lspconfig').tsserver.setup({
 	}
 })
 
--- local function organize_imports()
--- 	local params = {
--- 		command = "_typescript.organizeImports",
--- 		arguments = { vim.api.nvim_buf_get_name(0) },
--- 		title = ""
--- 	}
--- 	vim.lsp.buf.execute_command(params)
--- end
---
--- vim.api.nvim_create_autocmd("BufWritePre", {
--- 	pattern = '*.{ts,js}',
--- 	callback = organize_imports,
--- })
 
 -- VOLAR (VUE)
 
@@ -157,11 +144,10 @@ local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
-	-- snippet = {
-	-- 	expand = function(args)
-	-- 		require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-	-- 	end,
-	-- },
+	snippet = {
+		expand = function(args)
+		end,
+	},
 	mapping = {
 		-- `Enter` key to confirm completion
 		['<CR>'] = cmp.mapping.confirm({ select = false }),
@@ -222,6 +208,8 @@ cmp.setup.cmdline('/', {
 		{ name = 'buffer' }
 	}
 })
+
+
 
 -- `:` cmdline setup.
 cmp.setup.cmdline(':', {

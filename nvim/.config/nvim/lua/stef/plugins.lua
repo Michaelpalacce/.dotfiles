@@ -41,8 +41,6 @@ return require('packer').startup(function(use)
 		}
 	}
 
-
-
 	use { 'j-hui/fidget.nvim', tag = 'legacy' }                             -- Shows a spinner of lsp loading
 	use { "folke/trouble.nvim", requires = { "nvim-tree/nvim-web-devicons" } } -- Workspace Diagnostics
 
@@ -95,7 +93,6 @@ return require('packer').startup(function(use)
 	-- ########## Editor
 	-- ##################################################
 
-	use 'tpope/vim-surround'                   -- Magic text surround replacement https://github.com/tpope/vim-surround
 	use 'nvim-treesitter/nvim-treesitter-context' -- Provides a nice context of where you are
 	use 'mbbill/undotree'                      -- Nice undo visualization
 	use { "akinsho/toggleterm.nvim", tag = '*' } -- Nice terminal
