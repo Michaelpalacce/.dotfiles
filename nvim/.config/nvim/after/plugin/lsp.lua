@@ -30,7 +30,7 @@ lsp.preset({
 		set_sources = 'recommended',
 		set_basic_mappings = true,
 		set_extra_mappings = false,
-		use_luasnip = true,
+		use_luasnip = false,
 		set_format = true,
 		documentation_window = true,
 	},
@@ -157,11 +157,11 @@ local cmp_select_opts = { behavior = cmp.SelectBehavior.Select }
 local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
-	snippet = {
-		expand = function(args)
-			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-		end,
-	},
+	-- snippet = {
+	-- 	expand = function(args)
+	-- 		require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+	-- 	end,
+	-- },
 	mapping = {
 		-- `Enter` key to confirm completion
 		['<CR>'] = cmp.mapping.confirm({ select = false }),
@@ -186,7 +186,7 @@ cmp.setup({
 		{ name = 'nvim_lua' },
 		{ name = 'path' },
 		{ name = 'nvim_lsp_signature_help' },
-		{ name = 'luasnip' },
+		-- { name = 'luasnip' },
 	}, {
 		{ name = 'buffer' }
 	}),
