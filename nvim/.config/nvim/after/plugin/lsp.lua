@@ -1,5 +1,10 @@
-require('mason').setup()
 -- First Mason
+require('mason').setup()
+
+
+-- LSP ZERO
+
+local lsp = require('lsp-zero')
 
 require('mason-lspconfig').setup {
 	ensure_installed = {
@@ -11,13 +16,11 @@ require('mason-lspconfig').setup {
 		'vimls',
 		'volar',
 		'lemminx'
+	},
+	handlers = {
+		lsp.default_setup
 	}
 }
-
--- LSP ZERO
-
-local lsp = require('lsp-zero')
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- I need to configure this shit on my own... I don't want the default mappings... stolen from: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#minimal
 lsp.preset({
@@ -145,7 +148,7 @@ local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
 	snippet = {
-		expand = function()
+		expand = function(args)
 			require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
 		end
 	},
