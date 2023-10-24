@@ -1,4 +1,6 @@
 local builtin = require('telescope.builtin')
+local actions = require('telescope.actions')
+
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope: [F]ind [F]iles' })
 vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Telescope: [F]inder [R]esume' })
 vim.keymap.set('n', '<leader>fs', builtin.live_grep, { desc = 'Telescope: [F]ind Word in Project [S]cope (live grep)' })
@@ -13,6 +15,15 @@ vim.keymap.set('n', '<leader>fR', builtin.registers, { desc = 'Telescope: [F]ind
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope: [F]ind [B]uffers' })
 
 require('telescope').setup {
+	pickers = {
+		git_branches = {
+			mappings = {
+				i = {
+					["<cr>"] = actions.git_switch_branch
+				}
+			}
+		}
+	},
 	defaults = {
 		-- This will show enough directories so we can distinguish duplicates easily
 		path_display = { 'smart' },
