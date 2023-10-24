@@ -19,6 +19,7 @@ require('telescope').setup {
 		git_branches = {
 			mappings = {
 				i = {
+					-- This will checkout and track the branch instead of just checking out in detached state
 					["<cr>"] = actions.git_switch_branch
 				}
 			}
