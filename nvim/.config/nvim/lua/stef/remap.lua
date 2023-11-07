@@ -65,3 +65,6 @@ vim.keymap.set("n", "<S-Down>", "<cmd>cnext<CR>zz", { desc = 'Go to the next qui
 vim.keymap.set("n", "<S-Up>", "<cmd>cprev<CR>zz", { desc = 'Go to the previous quickfix item' })
 vim.keymap.set("n", "<S-k>", "<cmd>cnext<CR>zz", { desc = 'Go to the next quickfix item' })
 vim.keymap.set("n", "<S-j>", "<cmd>cprev<CR>zz", { desc = 'Go to the previous quickfix item' })
+
+-- Buffers
+vim.keymap.set("n", "<leader>bD", "<cmd>%bd|e#<CR>", { desc = '[B]uffers [D]elete all but current' })
