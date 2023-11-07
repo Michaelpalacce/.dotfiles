@@ -14,10 +14,10 @@ vim.keymap.set("n", "Q", "<nop>")
 
 -- helpers
 vim.keymap.set('n', "<leader>u", function()
-	vim.cmd.PackerSync()
 	vim.cmd.TSUpdate()
 	vim.cmd.MasonUpdate()
-end, { desc = "R[u]n TSUpdate, PackerSync, MasonUpdate" })
+	vim.cmd.Lazy()
+end, { desc = "R[u]n TSUpdate, MasonUpdate, Lazy" })
 
 ------------------------------------------
 -- General remaps

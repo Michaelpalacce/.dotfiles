@@ -4,7 +4,7 @@ return {
 		build = ':TSUpdate',
 		opts = {
 			-- A list of parser names, or "all"
-			ensure_installed = { "lua", "vim", "vimdoc", "javascript", "typescript" },
+			ensure_installed = { "lua", "vim", "vimdoc", "javascript", "typescript", "bash" },
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
 			sync_install = false,
@@ -37,7 +37,8 @@ return {
 				enable = true,
 			}
 		},
-		config = true
+		config = true,
+		priority = 5000
 	},
 	{
 		'nvim-treesitter/nvim-treesitter-context', -- Provides a nice context of where you are
