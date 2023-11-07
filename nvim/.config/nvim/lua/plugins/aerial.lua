@@ -1,6 +1,7 @@
 return {
 	{
 		'stevearc/aerial.nvim', -- Displays a nice outline of the file
+		event = "LspAttach",
 		config = function()
 			vim.keymap.set("n", "<leader>ta", "<cmd>AerialToggle!<CR>", { desc = "[T]oggle [A]erial" })
 

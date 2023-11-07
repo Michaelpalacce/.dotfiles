@@ -1,3 +1,6 @@
 return {
-	{ 'RRethy/vim-illuminate' }
+	{
+		'RRethy/vim-illuminate',
+		event = "BufRead"
+	}
 }

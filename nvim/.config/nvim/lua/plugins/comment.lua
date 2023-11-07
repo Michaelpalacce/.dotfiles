@@ -1,7 +1,7 @@
 return {
 	{
 		'numToStr/Comment.nvim', -- Easy Commenting
-		event = "LspAttach",
+		event = "BufRead",
 		config = true,
 	},
 }

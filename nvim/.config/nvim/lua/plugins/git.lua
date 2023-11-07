@@ -22,7 +22,7 @@ return {
 	},
 	{
 		'lewis6991/gitsigns.nvim', -- Show Signs in the gutter
-		event = "LspAttach",
+		event = "BufRead",
 		opts = {
 			current_line_blame      = true,
 			current_line_blame_opts = {
