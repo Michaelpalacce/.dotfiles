@@ -1,9 +1,9 @@
 return {
 	{
 		'tpope/vim-fugitive', -- Git operations
+		event = "LspAttach",
 		config = function()
 			local builtin = require('telescope.builtin')
-			-- Yes we depend on telescope boiiiiiiiiiiiiiiiiiii. Yes it is hidden
 
 			vim.keymap.set('n', "<leader>gs", vim.cmd.Git, { desc = '[T]oggle [G]it Status' })
 			vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope: [G]it [B]ranches' })
@@ -16,10 +16,14 @@ return {
 			vim.keymap.set("n", "<leader>gP", function()
 				vim.cmd.Git('pull')
 			end, { remap = false, desc = "Fugitive: [G]it [P]ull" })
-		end
+		end,
+		dependencies = {
+			'nvim-telescope/telescope.nvim'
+		}
 	},
 	{
 		'lewis6991/gitsigns.nvim', -- Show Signs in the gutter
+		event = "LspAttach",
 		opts = {
 			current_line_blame      = true,
 			current_line_blame_opts = {
