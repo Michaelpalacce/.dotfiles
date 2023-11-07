@@ -44,42 +44,4 @@ return {
 		'nvim-treesitter/nvim-treesitter-context', -- Provides a nice context of where you are
 		config = true
 	},
-	{
-		'nvim-lualine/lualine.nvim', -- Provides a nice status bar at the bottom of the screen
-		opts = {
-			options = { theme = 'auto' },
-			sections = {
-				lualine_a = { 'mode' },
-				lualine_b = { 'branch', 'diff', 'diagnostics' },
-				lualine_c = { 'hostname', 'filename', 'progress' },
-				lualine_x = { 'encoding', 'fileformat', 'filetype' },
-				lualine_y = { 'progress' },
-				lualine_z = { 'location' }
-			}
-		}
-	},
-	{
-		'mbbill/undotree',
-		config = function()
-			vim.keymap.set('n', '<leader>tu', vim.cmd.UndotreeToggle, { desc = "[T]oggle [U]ndotree" })
-		end
-	}, -- Nice undo visualization
-	{
-		"akinsho/toggleterm.nvim",
-		config = function()
-			vim.keymap.set('n', '<leader>tn', vim.cmd.ToggleTerm, { desc = "[T]oggle Termi[n]al" })
-			require("toggleterm").setup {
-				direction = 'horizontal'
-				-- direction = 'vertical' | 'horizontal' | 'tab' | 'float',
-			}
-		end
-	},                     -- Nice terminal
-	{
-		'numToStr/Comment.nvim', -- Easy Commenting
-		config = true,
-	},
-	{
-		'windwp/nvim-autopairs', -- Autopairs
-		config = true
-	},
 }
