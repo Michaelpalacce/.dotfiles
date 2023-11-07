@@ -1,7 +1,6 @@
 return {
 	{
 		'tpope/vim-fugitive', -- Git operations
-		event = "LspAttach",
 		config = function()
 			local builtin = require('telescope.builtin')
 
