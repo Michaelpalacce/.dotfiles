@@ -42,9 +42,8 @@ return {
 			}
 		end,
 	},
-	{ 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' }, -- Provides syntax highlighting
 	{
-		'ThePrimeagen/harpoon',                              -- Allows for easier jumping between files
+		'ThePrimeagen/harpoon', -- Allows for easier jumping between files
 		config = function()
 			local mark = require("harpoon.mark")
 			local ui = require("harpoon.ui")

@@ -52,3 +52,7 @@ vim.opt.listchars = {
 vim.diagnostic.config({
 	virtual_text = true
 })
+
+
+vim.o.timeout = true
+vim.o.timeoutlen = 0
