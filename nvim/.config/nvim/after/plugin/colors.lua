@@ -18,3 +18,4 @@ vim.cmd.colorscheme('dracula-soft')
 -- Darcula by Jetbrains
 
 -- vim.cmd.colorscheme('darcula')
+
