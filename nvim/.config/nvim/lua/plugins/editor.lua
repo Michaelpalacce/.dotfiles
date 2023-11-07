@@ -36,9 +36,27 @@ return {
 			autotag = {
 				enable = true,
 			}
+		},
+		config = true
+	},
+	{
+		'nvim-treesitter/nvim-treesitter-context', -- Provides a nice context of where you are
+		config = true
+	},
+	{
+		'nvim-lualine/lualine.nvim', -- Provides a nice status bar at the bottom of the screen
+		opts = {
+			options = { theme = 'auto' },
+			sections = {
+				lualine_a = { 'mode' },
+				lualine_b = { 'branch', 'diff', 'diagnostics' },
+				lualine_c = { 'hostname', 'filename', 'progress' },
+				lualine_x = { 'encoding', 'fileformat', 'filetype' },
+				lualine_y = { 'progress' },
+				lualine_z = { 'location' }
+			}
 		}
 	},
-	{ 'nvim-treesitter/nvim-treesitter-context' }, -- Provides a nice context of where you are
 	{
 		'mbbill/undotree',
 		config = function()
@@ -54,8 +72,13 @@ return {
 				-- direction = 'vertical' | 'horizontal' | 'tab' | 'float',
 			}
 		end
-	},                        -- Nice terminal
-	{ 'numToStr/Comment.nvim' }, -- Easy Commenting
-	{ 'RRethy/vim-illuminate' }, -- illuminates similar vars
-	{ 'windwp/nvim-autopairs' }, -- Autopairs
+	},                     -- Nice terminal
+	{
+		'numToStr/Comment.nvim', -- Easy Commenting
+		config = true,
+	},
+	{
+		'windwp/nvim-autopairs', -- Autopairs
+		config = true
+	},
 }

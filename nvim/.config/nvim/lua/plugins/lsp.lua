@@ -1,9 +1,8 @@
 return {
 	{
 		'williamboman/mason.nvim',
-		config = function()
-			require('mason').setup()
-		end
+		lazy = false,
+		config = true
 	},
 	{
 		'VonHeikemen/lsp-zero.nvim',

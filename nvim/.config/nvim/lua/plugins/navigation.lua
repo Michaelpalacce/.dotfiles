@@ -1,4 +1,5 @@
 return {
+	{ 'nvim-tree/nvim-web-devicons' }, -- Does some magic so we can have icons.
 	{
 		'nvim-telescope/telescope.nvim', -- Provides nice file jumping Capabilities
 		config = function()

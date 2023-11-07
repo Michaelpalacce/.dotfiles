@@ -1,23 +1,16 @@
 return {
-	{ 'nvim-lua/plenary.nvim' },                      -- Set of tools for lua
+	{ 'nvim-lua/plenary.nvim', lazy = false },              -- Set of tools for lua
 
-	{ 'Mofiqul/dracula.nvim',       as = 'dracula' }, -- Theme
-	{ "catppuccin/nvim",            as = "catppuccin" }, -- Theme
-	{ 'doums/darcula',              as = 'darcula' }, -- Theme
-
-	{ 'nvim-tree/nvim-web-devicons' },                -- Does some magic so we can have icons.
+	{ 'Mofiqul/dracula.nvim',  as = 'dracula', lazy = false }, -- Theme
+	-- { "catppuccin/nvim",            as = "catppuccin" },           -- Theme
+	-- { 'doums/darcula',              as = 'darcula' },              -- Theme
 	{
-		'nvim-lualine/lualine.nvim',                  -- Provides a nice status bar at the bottom of the screen
-		opts = {
-			options = { theme = 'auto' },
-			sections = {
-				lualine_a = { 'mode' },
-				lualine_b = { 'branch', 'diff', 'diagnostics' },
-				lualine_c = { 'hostname', 'filename', 'progress' },
-				lualine_x = { 'encoding', 'fileformat', 'filetype' },
-				lualine_y = { 'progress' },
-				lualine_z = { 'location' }
-			}
-		}
+		"dstein64/vim-startuptime",
+		-- lazy-load on a command
+		cmd = "StartupTime",
+		-- init is called during startup. Configuration for vim plugins typically should be set in an init function
+		init = function()
+			vim.g.startuptime_tries = 10
+		end,
 	},
 }
