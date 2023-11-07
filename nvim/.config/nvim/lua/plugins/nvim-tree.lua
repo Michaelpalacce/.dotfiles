@@ -7,10 +7,10 @@ return {
 			vim.opt.termguicolors = true
 			vim.keymap.set("n", "<leader>tt", vim.cmd.NvimTreeToggle, { desc = "[T]oggle Nvim [T]ree" })
 
-			local function change_root_to_global_cwd()
-				local api = require("nvim-tree.api")
-				local global_cwd = vim.fn.getcwd(-1, -1)
-				api.tree.change_root(global_cwd)
+			local function grep_at_current_tree_node()
+				local node = require('nvim-tree.lib').get_node_at_cursor()
+				if not node then return end
+				require('telescope.builtin').live_grep({ search_dirs = { node.absolute_path } })
 			end
 
 			local function my_on_attach(bufnr)
@@ -25,8 +25,7 @@ return {
 
 				-- custom mappings
 				vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-				vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
-				vim.keymap.set('n', '<C-c>', change_root_to_global_cwd, opts('Change Root To Global CWD'))
+				vim.keymap.set('n', '<C-s>', grep_at_current_tree_node, opts('Search under current file'))
 			end
 
 			local api = require("nvim-tree.api")
