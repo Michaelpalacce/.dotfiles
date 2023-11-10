@@ -54,9 +54,10 @@ fi
 
 pushd $DOTFILES_DIR
     FOLDERS=("nvim" "editorconfig" "bashrc")
+    sudo apt-get install -y stow
 
     for dir in ${FOLDERS[@]} ; do
         echo "stow $dir"
-        # stow $dir
+        stow $dir
     done
 popd
