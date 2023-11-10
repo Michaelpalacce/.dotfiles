@@ -142,17 +142,26 @@ complete -C /usr/bin/terraform terraform
 source <(minikube completion bash)
 # END ANSIBLE MANAGED SOURCE COMPLETION BLOCK minikube
 # BEGIN ANSIBLE MANAGED SOURCE COMPLETION BLOCK kubectl
-source <(kubectl completion bash)
-complete -F __start_kubectl k
+if command -v kubectl &> /dev/null
+then
+  source <(kubectl completion bash)
+  complete -F __start_kubectl k
+fi
 # END ANSIBLE MANAGED SOURCE COMPLETION BLOCK kubectl
 # BEGIN ANSIBLE MANAGED SOURCE COMPLETION BLOCK velero
-source <(velero completion bash)
-complete -F __start_velero v
+if command -v velero &> /dev/null
+then
+  source <(velero completion bash)
+  complete -F __start_velero v
+fi
 # END ANSIBLE MANAGED SOURCE COMPLETION BLOCK velero
 # BEGIN ANSIBLE MANAGED SOURCE COMPLETION BLOCK fluxcd
 source <(flux completion bash)
 # END ANSIBLE MANAGED SOURCE COMPLETION BLOCK fluxcd
 # BEGIN ANSIBLE MANAGED SOURCE COMPLETION BLOCK helm
-source <(helm completion bash)
-complete -F __start_helm h
+if command -v helm &> /dev/null
+then
+  source <(helm completion bash)
+  complete -F __start_helm h
+fi
 # END ANSIBLE MANAGED SOURCE COMPLETION BLOCK helm
