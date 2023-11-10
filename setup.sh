@@ -30,13 +30,13 @@ fi
 if ! command_exists nvim; then
     print_color "$GREEN" "nvim not found, installing all dependencies"
     # Install dependencies
-    apt-get install -y git software-properties-common ripgrep fd-find python3-dev python3-pip
-    ln -s $(which fdfind) ~/.local/bin/fd
+    sudo apt-get install -y git software-properties-common ripgrep fd-find python3-dev python3-pip
+    sudo ln -s $(which fdfind) ~/.local/bin/fd
 
-    add-apt-repository ppa:neovim-ppa/unstable -y
+    sudo add-apt-repository ppa:neovim-ppa/unstable -y
 
-    apt-get update
-    apt-get install -y neovim
+    sudo apt-get update
+    sudo apt-get install -y neovim
 else
     print_color "$YELLOW" "nvim already installed, skipping"
 fi
