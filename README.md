@@ -7,7 +7,7 @@ Yes, this do be empty
 Run the setup script as sudo 
 
 ```bash
-sudo curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | bash
+curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | sudo bash
 ```
 
 ### What is `stow`?
