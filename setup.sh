@@ -42,7 +42,7 @@ else
 fi
 
 # Clone repo
-DOTFILES_DIR="$HOME/.dotfiles-test"
+DOTFILES_DIR="$HOME/.dotfiles"
 
 # Checkout .dotfiles if it does not exist
 if [ -d $DOTFILES_DIR ]; then
