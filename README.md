@@ -4,7 +4,7 @@ Yes, this do be empty
 
 ## Setup
 
-Run the setup script as sudo 
+Run the setup script. It will prompt for sudo password 
 
 ```bash
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | bash
