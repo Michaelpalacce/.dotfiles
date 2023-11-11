@@ -53,7 +53,7 @@ else
 fi
 
 pushd $DOTFILES_DIR
-    FOLDERS=("nvim" "editorconfig" "bashrc")
+    FOLDERS=("nvim" "editorconfig")
     sudo apt-get install -y stow
 
     for dir in ${FOLDERS[@]} ; do
