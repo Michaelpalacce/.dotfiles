@@ -1,11 +1,9 @@
--- vim.keymap.set("n", "<leader>fe", vim.cmd.Ex) -- <SPACE> fe -- stands for file explore
-
 ------------------------------------------
 -- Things I hate
 ------------------------------------------
 
 -- disables
-vim.keymap.set("n", "Q", "<nop>")
+-- vim.keymap.set("n", "Q", "<nop>")
 -- vim.keymap.set("n", "q", "<nop>", { desc = 'Remove recording feature' })
 
 ------------------------------------------
@@ -51,14 +49,6 @@ vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-Right>', '<C-w>l')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-q>', '<C-w>q')
-
--- Config
-vim.keymap.set("n", "<leader>cdd", ":cd ~/.dotfiles/<CR>", { desc = "[C]hange [D]irectory To [D]otfiles" });
-
--- Executables
-vim.keymap.set("n", "<leader>cfe", ":!%:p<CR>", { desc = "[C]urrent [F]ile [E]xecute", silent = true });
-vim.keymap.set("n", "<leader>cfx", "<cmd>!chmod +x %<CR>", { desc = "[C]urrent [F]ile Make E[x]ecutable", silent = true });
-vim.keymap.set("n", "<leader>cfs", ":so<CR>", { desc = "[C]urrent [F]ile [S]hout out" });
 
 -- Quick Fix
 vim.keymap.set("n", "<S-Down>", "<cmd>cnext<CR>zz", { desc = 'Go to the next quickfix item' })
