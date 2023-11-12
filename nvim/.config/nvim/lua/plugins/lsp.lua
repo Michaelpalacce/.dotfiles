@@ -36,7 +36,8 @@ return {
 					'yamlls',
 					'vimls',
 					'volar',
-					'lemminx'
+					'lemminx',
+					'gopls'
 				},
 				handlers = {
 					lsp.default_setup
