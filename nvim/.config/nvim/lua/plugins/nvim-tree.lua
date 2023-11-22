@@ -44,8 +44,6 @@ return {
 				},
 				update_focused_file = {
 					enable = true,
-					-- update_root = true,
-					ignore_list = {},
 				},
 				diagnostics = {
 					enable = true,
@@ -64,7 +62,7 @@ return {
 					},
 				},
 				renderer = {
-					group_empty = true,
+					group_empty = false,
 					icons = {
 						webdev_colors = true,
 						git_placement = "before",
