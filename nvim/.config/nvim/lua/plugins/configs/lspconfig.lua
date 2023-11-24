@@ -93,7 +93,8 @@ lspconfig.gopls.setup({
 	settings = {
 		gopls = {
 			completeUnimported = true,
-			usePlaceholders = true,
+			-- This will add placeholders when a function is autocompleted... sucks cause you also get the type... and it's not an easy replace
+			usePlaceholders = false,
 			analyses = {
 				unusedparams = true,
 			},

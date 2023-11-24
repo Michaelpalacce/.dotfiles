@@ -29,11 +29,10 @@ cmp.setup({
 	},
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
-		{ name = 'buffer' },
-		{ name = 'nvim_lua' },
+		{ name = 'luasnip' },
 		{ name = 'path' },
 		{ name = 'nvim_lsp_signature_help' },
-		{ name = 'luasnip' },
+		{ name = 'nvim_lua' },
 	}, {
 		{ name = 'buffer' }
 	}),
@@ -69,8 +68,6 @@ cmp.setup.cmdline('/', {
 		{ name = 'buffer' }
 	}
 })
-
-
 
 -- `:` cmdline setup.
 cmp.setup.cmdline(':', {
