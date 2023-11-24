@@ -27,11 +27,6 @@ On the given folder structure, if you run `stow nvim` from `.dotfiles`, a Symlin
 
 ## Explanations
 
-### QuickFix Navigation
-
-- Utilizing `cnext` and `cprev`
-- If you press `<S-Down> / <S-Up> / <S-j> / <S-k>` we can move up and down the quickfix list no matter if it's open or not. 
-
 ### Moving Lines Up And Down
 
 - This can be done by holding alt and `up/down/j/k`
