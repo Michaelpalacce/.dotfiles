@@ -17,8 +17,6 @@ return {
 			vim.keymap.set("n", "<leader>8", function() ui.nav_file(8) end, { desc = "Harpoon: 8" })
 			vim.keymap.set("n", "<leader>9", function() ui.nav_file(9) end, { desc = "Harpoon: 9" })
 			vim.keymap.set("n", "<leader>0", function() ui.nav_file(0) end, { desc = "Harpoon: 0" })
-			vim.keymap.set("n", "<leader>p", function() ui.nav_prev() end, { desc = "Harpoon: Go To Previous" })
-			vim.keymap.set("n", "<leader>n", function() ui.nav_next() end, { desc = "Harpoon: Go To Next" })
 		end
 	},
 }
