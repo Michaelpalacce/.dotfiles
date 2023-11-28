@@ -1,8 +1,8 @@
 return {
 	{ 'nvim-lua/plenary.nvim', lazy = false },              -- Set of tools for lua
 
-	{ 'Mofiqul/dracula.nvim',  as = 'dracula', lazy = false }, -- Theme
-	-- { "catppuccin/nvim",            as = "catppuccin" },           -- Theme
+	{ 'Mofiqul/dracula.nvim',  as = 'dracula',   lazy = false }, -- Theme
+	{ "catppuccin/nvim",       as = "catppuccin" },         -- Theme
 	-- { 'doums/darcula',              as = 'darcula' },              -- Theme
 	{
 		"dstein64/vim-startuptime",
