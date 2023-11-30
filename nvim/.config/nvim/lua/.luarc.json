@@ -1,3 +1,11 @@
 {
-    "workspace.checkThirdParty": "Disable"
+    "workspace.checkThirdParty": "Disable",
+    "workspace.library": [
+        "/home/stef/.local/share/nvim/lazy/neodev.nvim/types/nightly",
+        "/usr/local/share/nvim/runtime/lua",
+        "/usr/local/share/nvim/runtime/lua",
+        "/home/stef/.config/nvim/lua",
+        "/home/stef/.dotfiles/nvim/.config/nvim/lua",
+        "${3rd}/luv/library"
+    ]
 }
