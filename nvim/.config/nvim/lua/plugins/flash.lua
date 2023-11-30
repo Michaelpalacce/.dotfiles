@@ -3,7 +3,7 @@ return {
 	event = "VeryLazy",
 	opts = {
 		mode = "exact",
-		uppercase = false
+		uppercase = ""
 	},
 	keys = {
 		{ "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
