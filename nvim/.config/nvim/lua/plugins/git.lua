@@ -61,5 +61,8 @@ return {
 			end
 		},
 		config = true,
+	},
+	{
+		'sindrets/diffview.nvim'
 	}
 }
