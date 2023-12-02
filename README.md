@@ -25,10 +25,3 @@ Example:
 
 On the given folder structure, if you run `stow nvim` from `.dotfiles`, a Symlink will be created to `~/.config/nvim` ( aka from the home dir, whatever the structure was inside the `nvim` folder )
 
-## Explanations
-
-### Moving Lines Up And Down
-
-- This can be done by holding alt and `up/down/j/k`
-- This works in `v`, `n`, `i` mode
-
