@@ -13,7 +13,7 @@ return {
 			end, { desc = "Fugitive: [G]it [P]ush", remap = false })
 
 			vim.keymap.set("n", "<leader>gP", function()
-				vim.cmd.Git({ 'pull', '--rebase' })
+				vim.cmd.Git('pull --rebase')
 			end, { remap = false, desc = "Fugitive: [G]it [P]ull" })
 		end,
 		dependencies = {
