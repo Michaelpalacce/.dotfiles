@@ -55,3 +55,12 @@ fi
 pushd $DOTFILES_DIR
     . ./stow.sh
 popd
+
+TPM_DIR="$HOME/.tmux/plugins/tpm"
+
+if [ -d $TPM_DIR ]; then 
+    print_color "$YELLOW" "$TPM_DIR exists, skipping"
+else
+    print_color "$GREEN" "$TPM_DIR does not exist, installing TPM"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi

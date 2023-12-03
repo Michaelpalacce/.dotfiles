@@ -1,0 +1,1 @@
+Setups my NAS bindings to local folders

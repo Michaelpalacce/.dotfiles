@@ -1,0 +1,9 @@
+---
+- name: Ensure /etc/fstab mounts are set
+  blockinfile:
+      path: "/etc/fstab"
+      block: "{{ item.instruction }}"
+      marker: "# {mark} ANSIBLE MANAGED fstab BLOCK {{ item.marker }}"
+  loop:
+      - instruction: "{{ servers.nasIp }}:/volume1  /home/{{ local.username }}/NFS  nfs  defaults  0  0"
+        marker: "general"

@@ -4,9 +4,8 @@ if [[ $# -eq 1 ]]; then
 else
     # selected=$(find ~/projects ~/projects/Dump ~/ -mindepth 1 -maxdepth 1 -type d -name ".git" -prune | fzf)
     # This will search for folders that have `.git` folder in them and show them
-    selected=$(find ~/projects ~/.dotfiles -mindepth 1 -maxdepth 5 -type d -name ".git" -exec dirname {} \;  2>/dev/null | fzf)
+    selected=$(find ~/projects ~/.dotfiles -mindepth 1 -maxdepth 3 -type d -name ".git" -exec dirname {} \;  2>/dev/null | fzf)
 fi
-
 
 if [[ -z $selected ]]; then
     exit 0
@@ -15,13 +14,15 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
-    exit 0
-fi
-
+# Create a new session with the chosen file
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
+    tmux new-session -ds $selected_name -c $selected nvim .
 fi
 
-tmux switch-client -t $selected_name
+if [[ -z $TMUX ]]; then
+    # We are outside of TMUX
+    tmux attach -t $selected_name
+else
+    # We are inside of TMUX
+    tmux switch-client -t $selected_name
+fi

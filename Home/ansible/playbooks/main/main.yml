@@ -1,0 +1,32 @@
+- name: Configure Apps
+  hosts: localhost
+  connection: local
+  become: true
+  vars_files:
+      - ../vars/main.yml
+  tags:
+      - apps
+  roles:
+      - role: apps
+
+- name: Configure k8s
+  hosts: localhost
+  connection: local
+  become: true
+  vars_files:
+      - ../vars/main.yml
+  tags:
+    - kubernetes
+  roles:
+      - role: kubernetes
+
+- name: Configure Others
+  hosts: localhost
+  connection: local
+  become: true
+  vars_files:
+      - ../vars/main.yml
+  tags:
+    - others
+  roles:
+      - role: nas

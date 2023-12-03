@@ -1,0 +1,159 @@
+---
+- name: Ensure we have curl
+  apt:
+    name: curl
+    state: present
+
+- name: Install K9S
+  shell: "curl -sS https://webinstall.dev/k9s | bash"
+
+- name: Install kubent
+  shell: "sh -c \"$(curl -sSL https://git.io/install-kubent)\""
+
+# KUBECTL START
+- name: Save Stable version
+  uri:
+    url: https://storage.googleapis.com/kubernetes-release/release/stable.txt
+    method: GET
+    return_content: yes
+  register: stable_version_result
+
+- name: Save latest release
+  get_url:
+    url: "https://dl.k8s.io/release/{{ stable_version_result.content }}/bin/linux/amd64/kubectl"
+    dest: /usr/bin/kubectl
+    mode: "0755"
+
+# KUBECTL END
+# Kubescape START
+- name: Install kubescape
+  shell:
+      cmd: "curl -s https://raw.githubusercontent.com/kubescape/kubescape/master/install.sh | /bin/bash"
+# Kubescape END
+# VELERO START
+
+- name: Fetch velero latest version
+  shell: curl -s -XGET https://api.github.com/repos/vmware-tanzu/velero/tags | grep name -m 1 | awk '{print $2}' | cut -d'"' -f2
+  register: veleroVersion
+
+- name: Ensure install dir exists
+  file:
+      path: /tmp/velero
+      state: directory
+
+- name: Set velero BaseName
+  set_fact:
+      veleroArchiveBaseName: "velero-{{ veleroVersion.stdout }}-{{ system.os }}-{{ system.architecture }}"
+
+- name: Set velero archive name
+  set_fact:
+      veleroArchive: "{{ veleroArchiveBaseName }}.tar.gz"
+
+- name: Fetch latest velero release
+  get_url:
+      url: "https://github.com/vmware-tanzu/velero/releases/download/{{ veleroVersion.stdout }}/{{ veleroArchive }}"
+      dest: "/tmp/velero/{{ veleroArchive }}"
+
+- name: Extract velero release into /tmp/velero
+  ansible.builtin.unarchive:
+      src: "/tmp/velero/{{ veleroArchive }}"
+      dest: /tmp/velero
+
+- name: "Move velero binary to {{ local.userBin }}"
+  copy:
+      dest: "{{ local.userBin }}/velero"
+      src: "/tmp/velero/{{ veleroArchiveBaseName }}/velero"
+      mode: 0755
+
+# VELERO START
+# FLUX START
+
+- name: Ensure Flux installation file is missing
+  file:
+    path: /tmp/flux.sh
+    state: absent
+
+- name: Fetch fluxcd
+  get_url:
+      url: https://fluxcd.io/install.sh
+      dest: /tmp/flux.sh
+      mode: "0755"
+
+- name: Install flux
+  shell: /tmp/flux.sh
+
+- name: Remove Flux installation file
+  file:
+      path: /tmp/flux.sh
+      state: absent
+
+# FLUX START
+# HELM START
+
+- name: Set Helm Installation path
+  set_fact:
+      helm_install_script_path: "/tmp/helm.sh"
+
+- name: Ensure Helm installation file is missing
+  file:
+      path: "{{ helm_install_script_path }}"
+      state: absent
+
+- name: Get helm installation script
+  get_url:
+      url: https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+      dest: "{{ helm_install_script_path }}"
+      mode: "0755"
+
+- name: Install helm
+  shell: "{{ helm_install_script_path }}"
+
+- name: Ensure Helm installation file is missing
+  file:
+      path: "{{ helm_install_script_path }}"
+      state: absent
+
+- name: Autocompletions
+  blockinfile:
+    path: "/home/{{ local.username }}/.bashrc"
+    block: "{{ item.completion }}"
+    marker: "# {mark} ANSIBLE MANAGED SOURCE COMPLETION BLOCK {{ item.marker }}"
+  loop:
+    - completion: |
+          if command -v kubectl &> /dev/null
+          then
+            source <(kubectl completion bash)
+            complete -F __start_kubectl k
+          fi
+      marker: "kubectl"
+    - completion: |
+          if command -v velero &> /dev/null
+          then
+            source <(velero completion bash)
+            complete -F __start_velero v
+          fi
+      marker: "velero"
+    - completion: |
+          source <(flux completion bash)
+      marker: "fluxcd"
+    - completion: |
+          if command -v helm &> /dev/null
+          then
+            source <(helm completion bash)
+            complete -F __start_helm h
+          fi
+      marker: "helm"
+    - completion: |
+          source <(minikube completion bash)
+      marker: "minikube"
+
+- name: Add aliases to ~/.bash_aliases
+  blockinfile:
+      path: "/home/{{ local.username }}/.bash_aliases"
+      block: "{{ item.alias }}"
+      marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.marker }}"
+  loop:
+      - { alias: "alias k='kubectl'", marker: "kubectl" }
+      - { alias: "alias kubens='kubectl config set-context --current --namespace'", marker: "kubectl-namespace" }
+      - { alias: "alias v='velero'", marker: "velero" }
+      - { alias: "alias h='helm'", marker: "helm" }

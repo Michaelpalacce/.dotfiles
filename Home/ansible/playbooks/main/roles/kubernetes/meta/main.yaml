@@ -1,0 +1,14 @@
+---
+
+dependencies: []
+
+galaxy_info:
+    role_name: kubernetes
+    author: stefangenov
+    licence: "license (BSD, MIT)"
+    min_ansible_version: 2.9
+    description: Installs kubernetes related utilities
+    platforms:
+        - name: Ubuntu
+          versions:
+              - all
