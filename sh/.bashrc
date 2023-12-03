@@ -140,3 +140,4 @@ then
   complete -F __start_helm h
 fi
 # END ANSIBLE MANAGED SOURCE COMPLETION BLOCK helm
+. "$HOME/.cargo/env"

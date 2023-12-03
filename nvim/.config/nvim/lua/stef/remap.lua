@@ -1,5 +1,5 @@
-------------------------------------------
 -- Things I hate
+------------------------------------------
 ------------------------------------------
 
 -- disables
@@ -20,6 +20,14 @@ end, { desc = "R[u]n TSUpdate, MasonUpdate, Lazy" })
 ------------------------------------------
 -- General remaps
 ------------------------------------------
+
+-- QoL
+
+vim.keymap.set("i", "<C-c>", "<Esc>")
+
+-- TMUX
+
+vim.keymap.set("n", "<C-t>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- Move Lines
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
