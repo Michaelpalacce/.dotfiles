@@ -10,7 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-# ZSH_THEME="gentoo"
+# ZSH_THEME="crcandy"
 ZSH_THEME="bira"
 
 # Set list of themes to pick from when loading at random
@@ -44,13 +44,13 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -63,7 +63,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd/mm/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -109,11 +109,9 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+# # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history

@@ -27,7 +27,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- TMUX
 
-vim.keymap.set("n", "<C-t>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<leader>s", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "TMUX sessionizer!" })
 
 -- Move Lines
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
