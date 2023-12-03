@@ -179,3 +179,12 @@ then
   complete -F __start_helm h
 fi
 # END ANSIBLE MANAGED SOURCE COMPLETION BLOCK helm
+
+# BASH STYLE fg
+fg() {
+    if [[ $# -eq 1 && $1 = - ]]; then
+        builtin fg %-
+    else
+        builtin fg %"$@"
+    fi
+}
