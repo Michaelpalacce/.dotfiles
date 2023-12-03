@@ -28,7 +28,7 @@ fi
 
 # Install nvim
 if ! command_exists nvim; then
-    print_color "$GREEN" "nvim not found, installing all dependencies"
+    print_color "$GREEN" "nvim not found, installing"
     # Install dependencies
     sudo apt-get install -y git software-properties-common ripgrep fd-find python3-dev python3-pip
     sudo ln -s $(which fdfind) ~/.local/bin/fd
@@ -38,7 +38,7 @@ if ! command_exists nvim; then
     sudo apt-get update
     sudo apt-get install -y neovim
 else
-    print_color "$YELLOW" "nvim already installed, skipping"
+    print_color "$YELLOW" "nvim exists, skipping"
 fi
 
 # Clone repo
@@ -55,6 +55,21 @@ fi
 pushd $DOTFILES_DIR
     . ./stow.sh
 popd
+
+if ! command_exists zsh; then
+    print_color "$GREEN" "zsh not found, installing"
+    sudo apt install zsh -y
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+    print_color "$YELLOW" "zsh exists, skipping"
+fi
+
+if ! command_exists tmux; then
+    print_color "$GREEN" "tmux not found, installing"
+    sudo apt install tmux -y
+else
+    print_color "$YELLOW" "tmux exists, skipping"
+fi
 
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 
