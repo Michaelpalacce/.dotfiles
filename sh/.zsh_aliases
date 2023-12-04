@@ -23,6 +23,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias ts='tmux-sessionizer'
+alias tS='tmux-sessionizer "nvim ."'
 # END PERSONAL
 
 # BEGIN ANSIBLE MANAGED BLOCK kubectl
