@@ -27,8 +27,9 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- TMUX
 
-vim.keymap.set("n", "<leader>s", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "TMUX sessionizer!" })
-vim.keymap.set("n", "<leader>S", "<cmd>silent !tmux neww tmux-sessionizer 'nvim .'<CR>", { desc = "TMUX sessionizer!" })
+vim.keymap.set("n", "<leader>s", "<cmd>silent !tmux neww tmux-sessionizer 'nvim .'<CR>",
+	{ desc = "TMUX sessionizer, NVIM" })
+vim.keymap.set("n", "<leader>S", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "TMUX sessionizer, terminal" })
 
 -- Move Lines
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })

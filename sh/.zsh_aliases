@@ -22,8 +22,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias ts='tmux-sessionizer'
-alias tS='tmux-sessionizer "nvim ."'
+alias ts='tmux-sessionizer "nvim ."'
+alias tS='tmux-sessionizer'
 # END PERSONAL
 
 # BEGIN ANSIBLE MANAGED BLOCK kubectl
