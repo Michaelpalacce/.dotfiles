@@ -26,6 +26,27 @@ else
     print_color "$GREEN" "Setting up"
 fi
 
+APTS=("fzf" "tmux" "git")
+
+# Basic packages
+for package in ${APTS[@]} ; do
+    if ! command_exists $package; then
+        print_color "$GREEN" "$package not found, installing"
+        sudo apt install $package -y
+    else
+        print_color "$YELLOW" "$package exists, skipping"
+    fi
+done
+
+# Complex packages
+if ! command_exists zsh; then
+    print_color "$GREEN" "zsh not found, installing"
+    sudo apt install zsh -y
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+    print_color "$YELLOW" "zsh exists, skipping"
+fi
+
 # Install nvim
 if ! command_exists nvim; then
     print_color "$GREEN" "nvim not found, installing"
@@ -52,30 +73,16 @@ else
     git clone https://github.com/Michaelpalacce/.dotfiles.git $DOTFILES_DIR
 fi
 
-pushd $DOTFILES_DIR
-    . ./stow.sh
-popd
-
-if ! command_exists zsh; then
-    print_color "$GREEN" "zsh not found, installing"
-    sudo apt install zsh -y
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-    print_color "$YELLOW" "zsh exists, skipping"
-fi
-
-if ! command_exists tmux; then
-    print_color "$GREEN" "tmux not found, installing"
-    sudo apt install tmux -y
-else
-    print_color "$YELLOW" "tmux exists, skipping"
-fi
-
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 
 if [ -d $TPM_DIR ]; then 
     print_color "$YELLOW" "$TPM_DIR exists, skipping"
 else
-    print_color "$GREEN" "$TPM_DIR does not exist, installing TPM"
+    print_color "$GREEN" "$TPM_DIR does not exist, checking the repository out"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+pushd $DOTFILES_DIR
+    . ./stow.sh
+popd
+
