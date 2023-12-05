@@ -5,6 +5,38 @@ command_exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
+installOsSpecific() {
+    if command_exists apt-get; then
+        print_color "$GREEN" "Setting up"
+        sudo apt-get install -y "$1"
+    elif command_exists brew; then 
+        brew install "$1"
+    else
+        print_color "$RED" "Error: No package manager found"
+        exit 1
+    fi
+}
+
+installNeovim() {
+    if command_exists brew; then
+        brew install neovim
+    elif command_exists apt-get; then
+        print_color "$GREEN" "nvim not found, installing"
+        # Install dependencies
+        sudo apt-get install -y git software-properties-common ripgrep fd-find python3-dev python3-pip
+        sudo ln -s $(which fdfind) ~/.local/bin/fd
+
+        sudo add-apt-repository ppa:neovim-ppa/unstable -y
+
+        sudo apt-get update
+        sudo apt-get install -y neovim
+    else
+        print_color "$RED" "Error: No package manager found"
+        exit 1
+    fi
+
+}
+
 # ANSI color codes
 GREEN='\033[0;32m'
 RED='\033[0;31m'
@@ -19,45 +51,41 @@ print_color() {
     echo -e "${color}${message}${NC}"
 }
 
-if ! command_exists apt-get; then
-    print_color "$RED" "Error: apt-get not found, for now that's all that's supported"
+if command_exists apt-get; then
+    print_color "$GREEN" "Setting up"
+elif command_exists brew; then 
+    print_color "$GREEN" "Setting up, working on it..."
     exit 1
 else
-    print_color "$GREEN" "Setting up"
+    print_color "$RED" "Error: apt-get not found, for now that's all that's supported"
+    exit 1
 fi
 
-APTS=("fzf" "tmux" "git")
+APTS=("fzf" "tmux" "git" "zsh")
 
 # Basic packages
 for package in ${APTS[@]} ; do
     if ! command_exists $package; then
         print_color "$GREEN" "$package not found, installing"
-        sudo apt install $package -y
+        installOsSpecific $package
     else
         print_color "$YELLOW" "$package exists, skipping"
     fi
 done
 
-# Complex packages
-if ! command_exists zsh; then
-    print_color "$GREEN" "zsh not found, installing"
-    sudo apt install zsh -y
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+ZSH_DIR="$HOME/.oh-my-zsh"
+
+if [ -d $ZSH_DIR ]; then 
+    print_color "$YELLOW" "$ZSH_DIR exists, skipping"
 else
-    print_color "$YELLOW" "zsh exists, skipping"
+    print_color "$GREEN" "$ZSH_DIR does not exist, running installer"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # Install nvim
 if ! command_exists nvim; then
-    print_color "$GREEN" "nvim not found, installing"
-    # Install dependencies
-    sudo apt-get install -y git software-properties-common ripgrep fd-find python3-dev python3-pip
-    sudo ln -s $(which fdfind) ~/.local/bin/fd
-
-    sudo add-apt-repository ppa:neovim-ppa/unstable -y
-
-    sudo apt-get update
-    sudo apt-get install -y neovim
+    installNeovim
 else
     print_color "$YELLOW" "nvim exists, skipping"
 fi
