@@ -4,8 +4,8 @@ vim.wo.number = true
 
 -- Editor
 vim.opt.swapfile = false
-vim.opt.colorcolumn =
-"160" -- This will add a line to the right after 160 characters, so you know your text is too long :)
+-- This will add a line to the right after 160 characters
+vim.opt.colorcolumn = "160"
 
 -- Don't highlight search
 vim.opt.hlsearch = false
@@ -35,26 +35,24 @@ vim.opt.isfname:append("@-@")
 
 -- Fast Updates
 vim.opt.updatetime = 50
-vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
-
-
--- vim.opt.cursorline = true -- Enable highlighting of the current line
 
 vim.opt.list = true
 -- Set Visible Characters
 vim.opt.listchars = {
-	eol = '⤶',
-	space = '.',
-	tab = '  >',
-	trail = '-',
-	extends = '>',
-	precedes = '<',
+    eol = '⤶',
+    space = '.',
+    tab = '  >',
+    trail = '-',
+    extends = '>',
+    precedes = '<',
 }
 
 vim.diagnostic.config({
-	virtual_text = true
+    virtual_text = true
 })
-
 
 vim.o.timeout = true
 vim.o.timeoutlen = 0
+
+-- Sync with system clipboard
+vim.opt.clipboard = "unnamedplus"
