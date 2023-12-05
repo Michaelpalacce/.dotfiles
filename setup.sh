@@ -54,10 +54,9 @@ print_color() {
 if command_exists apt-get; then
     print_color "$GREEN" "Setting up"
 elif command_exists brew; then 
-    print_color "$GREEN" "Setting up, working on it..."
-    exit 1
+    print_color "$GREEN" "Setting up"
 else
-    print_color "$RED" "Error: apt-get not found, for now that's all that's supported"
+    print_color "$RED" "Error: No package manager found"
     exit 1
 fi
 
