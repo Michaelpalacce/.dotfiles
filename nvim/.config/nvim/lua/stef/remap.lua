@@ -73,3 +73,7 @@ vim.keymap.set({ "n", "i", "v" }, '<C-k>', '<Up>', { desc = "Move cursor up whil
 
 -- Buffers
 vim.keymap.set("n", "<leader>bD", "<cmd>%bd|e#<CR>", { desc = '[B]uffers [D]elete all but current' })
+
+-- Moving
+vim.api.nvim_set_keymap('n', '<C-a>', '<C-b>', { noremap = true, silent = true },
+	{ desc = "Move back (C-b) remapped cause of tmux" })
