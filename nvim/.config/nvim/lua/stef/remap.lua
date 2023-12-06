@@ -27,10 +27,8 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- TMUX
 
-vim.keymap.set("n", "<leader>ts", "<cmd>silent !tmux neww tmux-sessionizer 'nvim .'<CR>",
-	{ desc = "[T]oggle TMUX [s]essionizer, NVIM" })
-vim.keymap.set("n", "<leader>tS", "<cmd>silent !tmux neww tmux-sessionizer<CR>",
-	{ desc = "[T]oggle TMUX [S]essionizer, terminal" })
+vim.keymap.set("n", "<leader>ts", "<cmd>silent !tmux neww tmux-sessionizer 'nvim .'<CR>")
+vim.keymap.set("n", "<leader>tS", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- Move Lines
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
@@ -75,5 +73,5 @@ vim.keymap.set({ "n", "i", "v" }, '<C-k>', '<Up>', { desc = "Move cursor up whil
 vim.keymap.set("n", "<leader>bD", "<cmd>%bd|e#<CR>", { desc = '[B]uffers [D]elete all but current' })
 
 -- Moving
-vim.api.nvim_set_keymap('n', '<C-a>', '<C-b>', { noremap = true, silent = true },
-	{ desc = "Move back (C-b) remapped cause of tmux" })
+vim.api.nvim_set_keymap('n', '<C-a>', '<C-b>',
+	{ desc = "Move back (C-b) remapped cause of tmux", noremap = true, silent = true })
