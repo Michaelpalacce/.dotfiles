@@ -34,7 +34,6 @@ installNeovim() {
         print_color "$RED" "Error: No package manager found"
         exit 1
     fi
-
 }
 
 # ANSI color codes
@@ -72,16 +71,6 @@ for package in ${APTS[@]} ; do
     fi
 done
 
-
-ZSH_DIR="$HOME/.oh-my-zsh"
-
-if [ -d $ZSH_DIR ]; then 
-    print_color "$YELLOW" "$ZSH_DIR exists, skipping"
-else
-    print_color "$GREEN" "$ZSH_DIR does not exist, running installer"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
 # Install nvim
 if ! command_exists nvim; then
     installNeovim
@@ -100,6 +89,11 @@ else
     git clone https://github.com/Michaelpalacce/.dotfiles.git $DOTFILES_DIR
 fi
 
+
+pushd $DOTFILES_DIR
+    . ./stow.sh
+popd
+
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 
 if [ -d $TPM_DIR ]; then 
@@ -109,7 +103,11 @@ else
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-pushd $DOTFILES_DIR
-    . ./stow.sh
-popd
+ZSH_DIR="$HOME/.oh-my-zsh"
 
+if [ -d $ZSH_DIR ]; then 
+    print_color "$YELLOW" "$ZSH_DIR exists, skipping"
+else
+    print_color "$GREEN" "$ZSH_DIR does not exist, running installer"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
