@@ -20,12 +20,26 @@ cmp.setup({
 		-- If the cursor is on top of a "snippet trigger" it'll expand it.
 		-- If the cursor can jump to a snippet placeholder, it moves to it.
 		-- If the cursor is in the middle of a word it displays the completion menu
-		['<Tab>'] = cmp_action.luasnip_supertab(),
+		['<Tab>'] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif require('luasnip').expand_or_jumpable() then
+				vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+			elseif vim.b._copilot_suggestion ~= nil then
+				vim.fn.feedkeys(vim.api.nvim_replace_termcodes(vim.fn['copilot#Accept'](), true, true, true), '')
+			else
+				fallback()
+			end
+		end, {
+			'i',
+			's',
+		}),
 		['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
 
 		-- Disable up and down... I want to move
 		['<Up>'] = cmp.mapping.close(),
 		['<Down>'] = cmp.mapping.close(),
+		['<ESC>'] = cmp.mapping.close(),
 	},
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
