@@ -11,7 +11,7 @@ return {
 				{ desc = 'Telescope: [F]ind Word in Project [S]cope (live grep)' })
 			vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope: [F]ind [H]elp Tags' })
 			vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'Telescope: [F]ind [G]it files' })
-			vim.keymap.set('n', '<leader>ft', builtin.colorscheme,
+			vim.keymap.set('n', '<leader>fT', builtin.colorscheme,
 				{ desc = 'Telescope: [F]ind and Select [T]heme (colorscheme)' })
 			vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = 'Telescope: [F]ind In The [Q]uickfix List' })
 			vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Telescope: [F]ind [K]eymaps' })
