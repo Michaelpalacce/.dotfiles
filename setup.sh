@@ -59,7 +59,7 @@ else
     exit 1
 fi
 
-APTS=("fzf" "tmux" "git" "zsh" "ripgrep")
+APTS=("fzf" "tmux" "git" "zsh" "ripgrep" "gh")
 
 # Basic packages
 for package in ${APTS[@]} ; do
