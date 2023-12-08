@@ -1,21 +1,30 @@
 return {
 	{
 		'ThePrimeagen/harpoon', -- Allows for easier jumping between files
+		branch = 'harpoon2',
+		depedencies = {
+			'nvim-lua/plenary.nvim',
+		},
 		config = function()
-			local mark = require("harpoon.mark")
-			local ui = require("harpoon.ui")
+			local harpoon = require("harpoon")
 
-			vim.keymap.set("n", "<leader>a", mark.add_file, { desc = "[A]dd File To Harpoon" })
-			vim.keymap.set("n", "<leader>th", ui.toggle_quick_menu, { desc = "[T]oggle [H]arpoon" })
-			vim.keymap.set("n", "<leader>1", function() ui.nav_file(1) end, { desc = "Harpoon: 1" })
-			vim.keymap.set("n", "<leader>2", function() ui.nav_file(2) end, { desc = "Harpoon: 2" })
-			vim.keymap.set("n", "<leader>3", function() ui.nav_file(3) end, { desc = "Harpoon: 3" })
-			vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end, { desc = "Harpoon: 4" })
-			vim.keymap.set("n", "<leader>5", function() ui.nav_file(5) end, { desc = "Harpoon: 5" })
-			vim.keymap.set("n", "<leader>6", function() ui.nav_file(6) end, { desc = "Harpoon: 6" })
-			vim.keymap.set("n", "<leader>7", function() ui.nav_file(7) end, { desc = "Harpoon: 7" })
-			vim.keymap.set("n", "<leader>8", function() ui.nav_file(8) end, { desc = "Harpoon: 8" })
-			vim.keymap.set("n", "<leader>9", function() ui.nav_file(9) end, { desc = "Harpoon: 9" })
+			-- REQUIRED
+			harpoon:setup()
+			-- REQUIRED
+
+			vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end, { desc = "[A]dds file to harpoon" })
+			vim.keymap.set("n", "<leader>th", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
+				{ desc = "[T]oggles [H]arpoon menu" })
+
+			vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end,
+				{ desc = "[1] Select 1st harpoon item" })
+			vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end,
+				{ desc = "[2] Select 2nd harpoon item" })
+			vim.keymap.set("n", "<leader>3", function() harpoon:list():select(3) end,
+				{ desc = "[3] Select 3rd harpoon item" })
+			vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end,
+				{ desc = "[4] Select 4th harpoon item" })
 		end
+
 	},
 }
