@@ -1,8 +1,5 @@
 return {
-	{ 'nvim-lua/plenary.nvim', lazy = false }, -- Set of tools for lua
-
-	{ 'Mofiqul/dracula.nvim',  lazy = false }, -- Theme
-	{ "catppuccin/nvim", },                 -- Theme
+	{ "catppuccin/nvim", }, -- Theme
 	{
 		"dstein64/vim-startuptime",
 		-- lazy-load on a command

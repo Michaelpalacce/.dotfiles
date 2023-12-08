@@ -10,8 +10,9 @@ cmp.setup({
 		end
 	},
 	mapping = {
-		-- `Enter` key to confirm completion
-		-- ['<CR>'] = cmp.mapping.confirm({ select = true }),
+		-- `C+y` to confirm completion
+		-- In most cases, tab will be enough to confirm completion
+		['<c-y>'] = cmp.mapping.confirm({ select = true }),
 
 		-- Ctrl+Space to trigger completion menu
 		['<C-Space>'] = cmp.mapping.complete(),
@@ -39,6 +40,7 @@ cmp.setup({
 		-- Disable up and down... I want to move
 		['<Up>'] = cmp.mapping.close(),
 		['<Down>'] = cmp.mapping.close(),
+		-- Escape will close the completion menu, but won't cancel insert mode
 		['<ESC>'] = cmp.mapping.close(),
 	},
 	sources = cmp.config.sources({
