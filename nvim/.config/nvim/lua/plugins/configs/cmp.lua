@@ -9,22 +9,19 @@ cmp.setup({
 		end
 	},
 	mapping = {
-		-- `C+y` to confirm completion
+		-- `Enter` to confirm completion
 		-- In most cases, tab will be enough to confirm completion
-		['<c-y>'] = cmp.mapping.confirm({ select = true }),
+		['<CR>'] = cmp.mapping.confirm({ select = true }),
 
 		-- Ctrl+Space to trigger completion menu
 		['<C-Space>'] = cmp.mapping.complete(),
 
 		-- If the completion menu is visible it will navigate to the next item in the list.
-		-- If the cursor is on top of a "snippet trigger" it'll expand it.
-		-- If the cursor can jump to a snippet placeholder, it moves to it.
 		-- If the cursor is in the middle of a word it displays the completion menu
+		-- If the completion menu is not visible, accept copilot suggestion if available
 		['<Tab>'] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			elseif require('luasnip').expand_or_jumpable() then
-				vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
 			elseif vim.b._copilot_suggestion ~= nil then
 				vim.fn.feedkeys(vim.api.nvim_replace_termcodes(vim.fn['copilot#Accept'](), true, true, true), '')
 			else
@@ -34,7 +31,16 @@ cmp.setup({
 			'i',
 			's',
 		}),
-		['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+		['<S-Tab>'] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			else
+				fallback()
+			end
+		end, {
+			'i',
+			's',
+		}),
 
 		-- Disable up and down... I want to move
 		['<Up>'] = cmp.mapping.close(),
