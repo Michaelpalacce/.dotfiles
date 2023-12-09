@@ -81,15 +81,16 @@ return {
 				},
 			})
 
-			vim.keymap.set({ "i" }, "<C-K>", function() ls.expand() end, { silent = true })
-			vim.keymap.set({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
+			-- GO back to the previous region
 			vim.keymap.set({ "i", "s" }, "<C-J>", function() ls.jump(-1) end, { silent = true })
-
-			vim.keymap.set({ "i", "s" }, "<C-E>", function()
+			-- Toggle between choices
+			vim.keymap.set({ "i", "s" }, "<C-K>", function()
 				if ls.choice_active() then
 					ls.change_choice(1)
 				end
 			end, { silent = true })
+			-- Go forward to the next region
+			vim.keymap.set({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
 
 			-- load vscode style snippets from other plugins
 			require("luasnip.loaders.from_vscode").lazy_load()

@@ -18,28 +18,23 @@ local rep = require("luasnip.extras").rep
 ---#Typescript
 local ts_function_fmt = [[
 {doc}
-{async}{name}({params}): {ret} {{
+{type} {async}{name}({params}): {ret} {{
 	{body}
 }}
 ]]
-local ts_function_snippet = function()
+local ts_function_snippet = function(type)
 	return fmt(ts_function_fmt, {
-		doc = indentSnippetNode(1, {
+		doc = indentSnippetNode(5, {
 			text({ "/**", " " }),
 			insert(1, ""),
-			choice(2, {
-				snippetNode(nil, {
-					text({ "", " @returns " }),
-					insert(1, ""),
-				}),
-				text(""),
-			}),
+			rep(2, text(" ")),
 			text({ "", "/" }),
 		}, "$PARENT_INDENT *"),
-		async = choice(2, { text(""), text("async ") }),
-		name = insert(3, "funcName"),
-		params = insert(4),
-		ret = dynamic(5, function(args)
+		type = text(type),
+		async = choice(1, { text(""), text("async ") }),
+		name = insert(2, "funcName"),
+		params = insert(3),
+		ret = dynamic(4, function(args)
 			local async = string.match(args[1][1], "async")
 			if async == nil then
 				return snippetNode(nil, {
@@ -51,7 +46,7 @@ local ts_function_snippet = function()
 				restore(1, "return_type", insert(nil, "void")),
 				text(">"),
 			})
-		end, { 2 }),
+		end, { 1 }),
 		body = insert(0),
 	}, {
 		stored = {
@@ -60,39 +55,20 @@ local ts_function_snippet = function()
 	})
 end
 
-local ts_loop_fmt = [[
-.{type}({async}({item}) => {{
-	{body}
-}})
-]]
-local ts_loop_snippet = function(type)
-	return fmt(ts_loop_fmt, {
-		type = text(type),
-		async = choice(1, { text(""), text("async ") }),
-		item = choice(2, { insert(1, "item"), snippetNode(nil, { text("{ "), insert(1, "field"), text(" }") }) }),
-		body = insert(0),
-	})
-end
-
 return {
 	typescript = {
 		-- methods
-		snippet("func", ts_function_snippet()),
-		-- array methods
-		snippet({ trig = ".map", wordTrig = false }, ts_loop_snippet("map")),
-		snippet({ trig = ".filter", wordTrig = false }, ts_loop_snippet("filter")),
-		snippet({ trig = ".forEach", wordTrig = false }, ts_loop_snippet("forEach")),
-		snippet({ trig = ".find", wordTrig = false }, ts_loop_snippet("find")),
-		snippet({ trig = ".some", wordTrig = false }, ts_loop_snippet("some")),
-		snippet({ trig = ".every", wordTrig = false }, ts_loop_snippet("every")),
+		snippet("public", ts_function_snippet("public")),
+		snippet("private", ts_function_snippet("private")),
+		snippet("func", ts_function_snippet("function")),
 		-- block comments
 		snippet(
 			{ trig = "/**", snippetType = "autosnippet" },
 			fmt(
 				[[
 /**
- * {comment}
- */
+* {comment}
+*/
         ]],
 				{
 					comment = indentSnippetNode(0, {
