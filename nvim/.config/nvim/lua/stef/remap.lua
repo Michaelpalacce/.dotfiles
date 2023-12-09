@@ -27,8 +27,8 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- TMUX
 
-vim.keymap.set("n", "<leader>tS", "<cmd>silent !tmux neww tmux-sessionizer 'nvim .'<CR>")
-vim.keymap.set("n", "<leader>ts", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<leader>S", "<cmd>silent !tmux neww tmux-sessionizer 'nvim .'<CR>")
+vim.keymap.set("n", "<leader>s", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- Move Lines
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
@@ -59,7 +59,7 @@ vim.keymap.set('n', '<C-q>', '<C-w>q')
 vim.keymap.set("n", "<S-Down>", "<cmd>cnext<CR>zz", { desc = 'Go to the next quickfix item' })
 vim.keymap.set("n", "<S-Up>", "<cmd>cprev<CR>zz", { desc = 'Go to the previous quickfix item' })
 vim.keymap.set("n", "<S-Left>", "<cmd>cclose<CR>zz", { desc = 'Close quickfix' })
-vim.keymap.set("n", "<S-Right>", "<cmd>cclose<CR>zz", { desc = 'Close quickfix' })
+vim.keymap.set("n", "<S-Right>", "<cmd>copen<CR>zz", { desc = 'Open quickfix' })
 
 -- Stop inserting and move cursor, re-enter insert
 -- vim.keymap.set({ "n", "i", "v" }, '<C-h>', '<Left>', { desc = "Move cursor left while editing" })
