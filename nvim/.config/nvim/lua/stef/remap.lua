@@ -58,8 +58,8 @@ vim.keymap.set('n', '<C-q>', '<C-w>q')
 -- Quick Fix
 vim.keymap.set("n", "<S-Down>", "<cmd>cnext<CR>zz", { desc = 'Go to the next quickfix item' })
 vim.keymap.set("n", "<S-Up>", "<cmd>cprev<CR>zz", { desc = 'Go to the previous quickfix item' })
-vim.keymap.set("n", "<S-Left>", "<cmd>cclose<CR>zz", { desc = 'Close quickfix' })
-vim.keymap.set("n", "<S-Right>", "<cmd>copen<CR>zz", { desc = 'Open quickfix' })
+vim.keymap.set("n", "<S-Left>", "<cmd>copen<CR>zz", { desc = 'Open quickfix' })
+vim.keymap.set("n", "<S-Right>", "<cmd>cclose<CR>zz", { desc = 'Close quickfix' })
 
 -- Stop inserting and move cursor, re-enter insert
 -- vim.keymap.set({ "n", "i", "v" }, '<C-h>', '<Left>', { desc = "Move cursor left while editing" })
