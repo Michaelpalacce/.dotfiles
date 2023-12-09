@@ -22,7 +22,12 @@ return {
 			{ 'hrsh7th/cmp-cmdline' },
 			{ 'hrsh7th/cmp-nvim-lsp-signature-help' },
 			{ 'petertriho/cmp-git' },
-			{ "L3MON4D3/LuaSnip" }
+
+			-- Snippets
+			{ "L3MON4D3/LuaSnip" },
+
+			-- Formatting
+			{ 'onsails/lspkind.nvim' }
 		},
 		config = function()
 			-- ##########################################################
