@@ -71,5 +71,5 @@ vim.keymap.set("n", "<S-Right>", "<cmd>cclose<CR>zz", { desc = 'Close quickfix' 
 vim.keymap.set("n", "<leader>bD", "<cmd>%bd|e#<CR>", { desc = '[B]uffers [D]elete all but current' })
 
 -- Moving
-vim.api.nvim_set_keymap('n', '<C-a>', '<C-b>',
+vim.api.nvim_set_keymap('n', '<C-g>', '<C-b>',
 	{ desc = "Move back (C-b) remapped cause of tmux", noremap = true, silent = true })
