@@ -101,7 +101,7 @@ lspconfig.gopls.setup({
 				unreachable = true
 			},
 			-- report vulnerabilities
-			vulncheck = true,
+			vulncheck = "Imports",
 			staticcheck = true,
 			gofumpt = true,
 		},
@@ -109,7 +109,7 @@ lspconfig.gopls.setup({
 })
 
 -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md#imports-and-formatting
-vim.aoi.nvim_create_autocmd("BufWritePre", {
+vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.go",
 	callback = function()
 		local params = vim.lsp.util.make_range_params()
