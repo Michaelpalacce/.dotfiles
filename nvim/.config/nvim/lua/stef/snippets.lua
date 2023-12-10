@@ -56,6 +56,14 @@ local ts_function_snippet = function(type)
 end
 
 return {
+	go = {
+		snippet("print", fmt(
+			[[fmt.Println({print})]],
+			{
+				print = insert(0)
+			}
+		))
+	},
 	typescript = {
 		-- methods
 		snippet("public", ts_function_snippet("public")),

@@ -97,6 +97,7 @@ return {
 
 			-- load my custom snippets
 			ls.add_snippets("typescript", snippets.typescript)
+			ls.add_snippets("go", snippets.go)
 		end,
 	},
 
