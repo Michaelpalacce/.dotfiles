@@ -60,9 +60,9 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
-		{ name = 'path' },
 		{ name = 'nvim_lsp_signature_help' },
 	}, {
+		{ name = 'path' },
 		{ name = 'buffer' }
 	}),
 	window = {
@@ -92,6 +92,7 @@ cmp.setup({
 cmp.setup.filetype('gitcommit', {
 	sources = cmp.config.sources({
 		{ name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+		{ name = 'path' },
 	}, {
 		{ name = 'buffer' },
 	})
@@ -101,6 +102,7 @@ require("cmp_git").setup()
 cmp.setup.filetype('lua', {
 	sources = cmp.config.sources({
 		{ name = 'nvim_lua' },
+		{ name = 'path' },
 	}, {
 		{ name = 'buffer' },
 	})
