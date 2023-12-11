@@ -104,6 +104,13 @@ return {
 					},
 					special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
 					symlink_destination = true,
+					highlight_git = true
+				},
+				actions = {
+					change_dir = {
+						-- Cannot go BACK from root
+						restrict_above_cwd = true
+					}
 				},
 				filters = {
 					dotfiles = false,
