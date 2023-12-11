@@ -3,7 +3,7 @@
 ------------------------------------------
 
 -- disables
--- vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "Q", "<nop>") -- dunno what Q does anyway
 -- vim.keymap.set("n", "q", "<nop>", { desc = 'Remove recording feature' })
 
 ------------------------------------------
@@ -21,12 +21,7 @@ end, { desc = "R[u]n TSUpdate, MasonUpdate, Lazy" })
 -- General remaps
 ------------------------------------------
 
--- QoL
-
-vim.keymap.set("i", "<C-c>", "<Esc>")
-
 -- TMUX
-
 vim.keymap.set("n", "<leader>S", "<cmd>silent !tmux neww tmux-sessionizer 'nvim .'<CR>")
 vim.keymap.set("n", "<leader>s", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
