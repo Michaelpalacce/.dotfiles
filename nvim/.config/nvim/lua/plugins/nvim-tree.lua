@@ -13,6 +13,17 @@ return {
 				require('telescope.builtin').live_grep({ search_dirs = { node.absolute_path } })
 			end
 
+			function autoPreview()
+				local api = require "nvim-tree.api"
+				local node = api.tree.get_node_under_cursor()
+
+				if node.nodes == nil then
+					api.node.open.preview()
+				end
+			end
+
+			debouncedAutoPreview = require("stef.helpers.debounce")(autoPreview, 50)
+
 			local function my_on_attach(bufnr)
 				local api = require "nvim-tree.api"
 
@@ -26,6 +37,10 @@ return {
 				-- custom mappings
 				vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
 				vim.keymap.set('n', '<C-s>', grep_at_current_tree_node, opts('Search under current file'))
+				vim.keymap.set('n', '<Down>', 'j:lua debouncedAutoPreview()<CR>', opts('Auto preview'))
+				vim.keymap.set('n', '<Up>', 'k:lua debouncedAutoPreview()<CR>', opts('Auto preview'))
+
+				-- node.open.preview()                        *nvim-tree-api.node.open.preview()*
 			end
 
 			local api = require("nvim-tree.api")
