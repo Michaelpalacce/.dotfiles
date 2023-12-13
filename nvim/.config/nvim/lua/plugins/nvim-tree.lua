@@ -3,30 +3,40 @@ return {
 	{
 		'nvim-tree/nvim-tree.lua',  -- Shows a nice file tree
 		config = function()
+			local api = require "nvim-tree.api"
+			local lib = require 'nvim-tree.lib'
+			local utils = require "nvim-tree.utils"
+
 			-- set termguicolors to enable highlight groups
 			vim.opt.termguicolors = true
+			-- Remap to easily toggle the tree view
 			vim.keymap.set("n", "<leader>tt", vim.cmd.NvimTreeToggle, { desc = "[T]oggle Nvim [T]ree" })
 
+			-- Do a telescope live_grep under the current node
 			local function grep_at_current_tree_node()
-				local node = require('nvim-tree.lib').get_node_at_cursor()
+				local node = lib.get_node_at_cursor()
 				if not node then return end
 				require('telescope.builtin').live_grep({ search_dirs = { node.absolute_path } })
 			end
 
-			function autoPreview()
-				local api = require "nvim-tree.api"
-				local node = api.tree.get_node_under_cursor()
+			-- Open the preview window when moving the cursor
+			-- only if the node is a file
+			vim.api.nvim_create_autocmd("CursorMoved", {
+				pattern = "NvimTree_*",
+				callback = function()
+					utils.debounce("Buf:modified", 100, function()
+						if utils.is_nvim_tree_buf(0) then
+							local node = api.tree.get_node_under_cursor()
 
-				if node.nodes == nil then
-					api.node.open.preview()
+							if node.nodes == nil then
+								api.node.open.preview()
+							end
+						end
+					end)
 				end
-			end
-
-			debouncedAutoPreview = require("stef.helpers.debounce")(autoPreview, 50)
+			})
 
 			local function my_on_attach(bufnr)
-				local api = require "nvim-tree.api"
-
 				local function opts(desc)
 					return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 				end
@@ -37,13 +47,8 @@ return {
 				-- custom mappings
 				vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
 				vim.keymap.set('n', '<C-s>', grep_at_current_tree_node, opts('Search under current file'))
-				vim.keymap.set('n', '<Down>', 'j:lua debouncedAutoPreview()<CR>', opts('Auto preview'))
-				vim.keymap.set('n', '<Up>', 'k:lua debouncedAutoPreview()<CR>', opts('Auto preview'))
-
-				-- node.open.preview()                        *nvim-tree-api.node.open.preview()*
 			end
 
-			local api = require("nvim-tree.api")
 			api.events.subscribe(api.events.Event.FileCreated, function(file)
 				vim.cmd("edit " .. file.fname)
 			end)
