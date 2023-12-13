@@ -1,5 +1,10 @@
 # `Tis It Folks
 
+## Supported OS
+
+- [x] Ubuntu
+- [x] MacOS
+
 ## Setup
 
 Run the setup script. It will prompt for sudo password if one is needed.
