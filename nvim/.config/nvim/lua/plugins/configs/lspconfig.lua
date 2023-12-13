@@ -136,6 +136,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- GOLANG END
 
+-- JAVA START
+require('lspconfig').jdtls.setup({})
+-- JAVA END
+
 lsp.format_on_save({
 	format_opts = {
 		async = false,

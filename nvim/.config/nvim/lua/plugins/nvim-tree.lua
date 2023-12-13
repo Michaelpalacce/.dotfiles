@@ -36,7 +36,7 @@ return {
 				end
 			})
 
-			local function my_on_attach(bufnr)
+			local function customAttach(bufnr)
 				local function opts(desc)
 					return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 				end
@@ -140,7 +140,7 @@ return {
 					ignore = false,
 					timeout = 500,
 				},
-				on_attach = my_on_attach,
+				on_attach = customAttach,
 			})
 		end
 	},
