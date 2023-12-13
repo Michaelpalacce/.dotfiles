@@ -1,6 +1,5 @@
 -- You need to setup `cmp` after lsp-zero
 local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
 local types = require 'cmp.types'
 
 local mappings = {
