@@ -137,6 +137,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- GOLANG END
 
 -- JAVA START
+-- This may cause issues between different environments
 require('lspconfig').jdtls.setup({})
 -- JAVA END
 
@@ -148,7 +149,8 @@ lsp.format_on_save({
 	servers = {
 		['lua_ls']   = { 'lua' },
 		['gopls']    = { 'go' },
-		['tsserver'] = { 'typescript' }
+		['tsserver'] = { 'typescript' },
+		['jdts']     = { 'java' }
 	}
 })
 
