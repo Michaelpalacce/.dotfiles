@@ -24,7 +24,7 @@ return {
 			vim.api.nvim_create_autocmd("CursorMoved", {
 				pattern = "NvimTree_*",
 				callback = function()
-					utils.debounce("Buf:modified", 100, function()
+					utils.debounce("Buf:modified", 50, function()
 						if utils.is_nvim_tree_buf(0) then
 							local node = api.tree.get_node_under_cursor()
 

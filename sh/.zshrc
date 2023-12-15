@@ -145,38 +145,54 @@ export PATH="$PATH:$PYTHON_BIN_PATH"
 export PATH=$PATH:/usr/local/go/bin
 
 # Rust
-. "$HOME/.cargo/env"
+if [ -d "$HOME/.cargo/bin" ]; then
+    . "$HOME/.cargo/env"
+fi
 
 setopt histignorealldups sharehistory
+
+# Function to check if a command is available
+# https://stackoverflow.com/questions/592620/how-to-check-if-a-program-exists-from-a-bash-script
+command_exists() {
+  command -v "$1" >/dev/null 2>&1
+}
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
-# BEGIN ANSIBLE MANAGED SOURCE COMPLETION BLOCK minikube
-source <(minikube completion zsh)
-# END ANSIBLE MANAGED SOURCE COMPLETION BLOCK minikube
 # BEGIN ANSIBLE MANAGED SOURCE COMPLETION BLOCK kubectl
 if command -v kubectl &> /dev/null
 then
-  source <(kubectl completion zsh)
-  complete -F __start_kubectl k
+    source <(kubectl completion zsh)
+    complete -F __start_kubectl k
 fi
 # END ANSIBLE MANAGED SOURCE COMPLETION BLOCK kubectl
+
+if command_exists minikube; then
+    # BEGIN ANSIBLE MANAGED SOURCE COMPLETION BLOCK minikube
+    source <(minikube completion zsh)
+    # END ANSIBLE MANAGED SOURCE COMPLETION BLOCK minikube
+fi
+
 # BEGIN ANSIBLE MANAGED SOURCE COMPLETION BLOCK velero
 if command -v velero &> /dev/null
 then
-  source <(velero completion zsh)
-  complete -F __start_velero v
+    source <(velero completion zsh)
+    complete -F __start_velero v
 fi
+
 # END ANSIBLE MANAGED SOURCE COMPLETION BLOCK velero
-# BEGIN ANSIBLE MANAGED SOURCE COMPLETION BLOCK fluxcd
-source <(flux completion zsh)
-# END ANSIBLE MANAGED SOURCE COMPLETION BLOCK fluxcd
+if command_exists flux; then
+    # BEGIN ANSIBLE MANAGED SOURCE COMPLETION BLOCK fluxcd
+    source <(flux completion zsh)
+    # END ANSIBLE MANAGED SOURCE COMPLETION BLOCK fluxcd
+fi
+
 # BEGIN ANSIBLE MANAGED SOURCE COMPLETION BLOCK helm
 if command -v helm &> /dev/null
 then
-  source <(helm completion zsh)
-  complete -F __start_helm h
+    source <(helm completion zsh)
+    complete -F __start_helm h
 fi
 # END ANSIBLE MANAGED SOURCE COMPLETION BLOCK helm
 
