@@ -30,7 +30,12 @@ return {
 			{ "L3MON4D3/LuaSnip" },
 
 			-- Formatting
-			{ 'onsails/lspkind.nvim' }
+			{ 'onsails/lspkind.nvim' },
+
+			-- Langauges
+			-- LUA
+			{ "folke/neodev.nvim",                  opts = {} },
+
 		},
 		config = function()
 			-- ##########################################################

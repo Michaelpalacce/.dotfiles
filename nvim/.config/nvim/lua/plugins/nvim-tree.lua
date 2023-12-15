@@ -19,13 +19,30 @@ return {
 				require('telescope.builtin').live_grep({ search_dirs = { node.absolute_path } })
 			end
 
+			-- Get a count of visible buffers outside of the tree
+			function has_multiple_visible_buffers()
+				local count = 0
+				for _, winid in ipairs(vim.api.nvim_list_wins()) do
+					local bufnr = vim.fn.winbufnr(winid)
+					if bufnr ~= -1 then
+						local bufname = vim.fn.bufname(bufnr)
+						if not (vim.fn.fnamemodify(bufname, ":t"):match("^NvimTree_[0-9]+$")
+								and (vim.bo[bufnr].filetype == "NvimTree" or vim.fn.filereadable(bufname) == 0)) then
+							count = count + 1
+						end
+					end
+				end
+				return count
+			end
+
 			-- Open the preview window when moving the cursor
 			-- only if the node is a file
+			-- and only if there is only one visible buffer
 			vim.api.nvim_create_autocmd("CursorMoved", {
 				pattern = "NvimTree_*",
 				callback = function()
 					utils.debounce("Buf:modified", 50, function()
-						if utils.is_nvim_tree_buf(0) then
+						if has_multiple_visible_buffers() == 1 then
 							local node = api.tree.get_node_under_cursor()
 
 							if node.nodes == nil then
