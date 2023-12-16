@@ -43,6 +43,10 @@ vim.keymap.set("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 -- -- Reload
 -- vim.keymap.set("n", "<leader>fr", ":e!<CR>", { desc = "[F]ile: [R]eload" })
 
+-- Save
+vim.keymap.set({ "n", "s", "v" }, "<leader>W", ":wa", { desc = "[W]rite all" })
+vim.keymap.set({ "n", "s", "v" }, "<leader>w", ":w", { desc = "[W]rite file" })
+
 -- Move Between Windows
 vim.keymap.set('n', '<C-Left>', '<C-w>h')
 vim.keymap.set('n', '<C-Down>', '<C-w>j')
@@ -55,12 +59,6 @@ vim.keymap.set("n", "<S-Down>", "<cmd>cnext<CR>zz", { desc = 'Go to the next qui
 vim.keymap.set("n", "<S-Up>", "<cmd>cprev<CR>zz", { desc = 'Go to the previous quickfix item' })
 vim.keymap.set("n", "<S-Left>", "<cmd>copen<CR>zz", { desc = 'Open quickfix' })
 vim.keymap.set("n", "<S-Right>", "<cmd>cclose<CR>zz", { desc = 'Close quickfix' })
-
--- Stop inserting and move cursor, re-enter insert
--- vim.keymap.set({ "n", "i", "v" }, '<C-h>', '<Left>', { desc = "Move cursor left while editing" })
--- vim.keymap.set({ "n", "i", "v" }, '<C-l>', '<Right>', { desc = "Move cursor right while editing" })
--- vim.keymap.set({ "n", "i", "v" }, '<C-j>', '<Down>', { desc = "Move cursor down while editing" })
--- vim.keymap.set({ "n", "i", "v" }, '<C-k>', '<Up>', { desc = "Move cursor up while editing" })
 
 -- Buffers
 vim.keymap.set("n", "<leader>bD", "<cmd>%bd|e#<CR>", { desc = '[B]uffers [D]elete all but current' })
