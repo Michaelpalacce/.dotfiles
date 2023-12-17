@@ -19,6 +19,10 @@ return {
 			vim.keymap.set("n", "<leader>gh", function()
 				vim.cmd.Git('log --follow -- ' .. vim.fn.expand('%'))
 			end, { remap = false, desc = "Fugitive: [G]it [H]istory" })
+
+			vim.keymap.set("n", "<leader>gf", function()
+				vim.cmd.Git('log --follow -- ' .. vim.fn.expand('%'))
+			end, { remap = false, desc = "Fugitive: [G]it [F]ollow" })
 		end,
 		dependencies = {
 			'nvim-telescope/telescope.nvim'
