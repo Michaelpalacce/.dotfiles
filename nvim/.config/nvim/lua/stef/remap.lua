@@ -43,11 +43,6 @@ vim.keymap.set("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 -- -- Reload
 -- vim.keymap.set("n", "<leader>fr", ":e!<CR>", { desc = "[F]ile: [R]eload" })
 
--- Save
-vim.keymap.set({ "n", "s", "v" }, "<C-S>", ":wa<CR>", { desc = "[W]rite all file" })
-vim.keymap.set({ "i" }, "<C-S>", "<cmd><ESC><ESC>:wa<CR>a", { desc = "[W]rite all file" })
-
-
 -- Move Between Windows
 vim.keymap.set('n', '<C-Left>', '<C-w>h')
 vim.keymap.set('n', '<C-Down>', '<C-w>j')
