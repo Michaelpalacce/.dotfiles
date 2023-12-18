@@ -75,6 +75,9 @@ HIST_STAMPS="dd/mm/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+# Remove Auto update to speedup starting up the terminal
+DISABLE_AUTO_UPDATE="true" 
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
