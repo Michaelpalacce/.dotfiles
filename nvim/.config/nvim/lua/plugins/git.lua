@@ -7,6 +7,9 @@ return {
 			vim.keymap.set('n', "<leader>gs", vim.cmd.Git, { desc = '[T]oggle [G]it Status' })
 			vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope: [G]it [B]ranches' })
 			vim.keymap.set('n', '<leader>gd', builtin.git_status, { desc = 'Telescope: [G]it [D]iff' })
+			vim.keymap.set('n', '<leader>gS', builtin.git_stash, { desc = 'Telescope: [G]it [S]tash' })
+			vim.keymap.set('n', '<leader>gc', builtin.git_bcommits, { desc = 'Telescope: [G]it buffer [C]ommits' })
+			vim.keymap.set('n', '<leader>gC', builtin.git_commits, { desc = 'Telescope: [G]it [C]ommits' })
 
 			vim.keymap.set('n', "<leader>gp", function()
 				vim.cmd.Git('push')
@@ -15,14 +18,6 @@ return {
 			vim.keymap.set("n", "<leader>gP", function()
 				vim.cmd.Git('pull --rebase')
 			end, { remap = false, desc = "Fugitive: [G]it [P]ull" })
-
-			vim.keymap.set("n", "<leader>gh", function()
-				vim.cmd.Git('log --follow -- ' .. vim.fn.expand('%'))
-			end, { remap = false, desc = "Fugitive: [G]it [H]istory" })
-
-			vim.keymap.set("n", "<leader>gf", function()
-				vim.cmd.Git('log --follow -- ' .. vim.fn.expand('%'))
-			end, { remap = false, desc = "Fugitive: [G]it [F]ollow" })
 		end,
 		dependencies = {
 			'nvim-telescope/telescope.nvim'
