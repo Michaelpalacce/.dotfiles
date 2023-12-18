@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+CMDS=("vrealize:push" "vrealize:push with dependencies" "test" "install" "package")
+
+choice=$(printf "%s\n" "${CMDS[@]}" | fzf)
+
+if [[ $choice == "test" ]]; then
+    mvn clean test -DskipInstallNodeDeps=true
+fi
+
+if [[ $choice == "install" ]]; then
+    mvn clean install
+fi
+
+if [[ $choice == "package" ]]; then
+    mvn clean package
+fi
+
+if [[ $choice == "vrealize:push" ]]; then
+    read -p "Enter Profile: (should fuzzy find in the future)" profile
+    mvn clean package vrealize:push -P"$profile" -DincludeDependencies=false -DskipInstallNodeDeps=true
+fi
+
+if [[ $choice == "vrealize:push with dependencies" ]]; then
+    read -p "Enter Profile: (should fuzzy find in the future)" profile
+    mvn clean package vrealize:push -P"$profile"
+fi
