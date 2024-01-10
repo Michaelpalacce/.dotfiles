@@ -1,4 +1,7 @@
 return {
+	-- RUN :UpdateRemotePlugins
+	-- Dependencies: pip3 install python-dotenv requests pynvim prompt-toolkit
+	{ 'gptlang/CopilotChat.nvim' },
 	{
 		'github/copilot.vim',
 		config = function()
