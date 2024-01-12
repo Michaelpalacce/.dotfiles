@@ -24,6 +24,7 @@ fi
 
 alias o='tmux-sessionizer "nvim ."'
 alias O='tmux-sessionizer'
+alias vim="nvim"
 # END PERSONAL
 
 # BEGIN ANSIBLE MANAGED BLOCK kubectl
