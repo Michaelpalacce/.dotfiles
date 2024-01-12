@@ -1,4 +1,6 @@
-zmodload zsh/zprof
+# Uncomment below for profiling. Also uncomment last line of the file
+#zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -196,4 +198,6 @@ fg() {
         builtin fg %"$@"
     fi
 }
-zprof
+
+# Profiling
+# zprof
