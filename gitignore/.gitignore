@@ -1,0 +1,36 @@
+# macOS
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Maven
+target/
+
+# VSCode
+.vscode/
+
+# node
+node_modules/
+
+# IntelliJ IDEA
+out/
+dist/
+.idea/
+*.iml
+
+# Eclipse
+.settings/
+.project
+.classpath
+
+# Sonar
+.sonarlint/
+
+#Exclude backup files
+*.bak
+*.bk
+
+# MacOS metadata
+*.DS_Store*
