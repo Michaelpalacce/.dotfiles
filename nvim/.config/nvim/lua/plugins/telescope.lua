@@ -19,6 +19,7 @@ return {
 			vim.keymap.set('n', '<leader>fp', builtin.reloader, { desc = 'Telescope: [F]ind [P]lugins To reload' })
 			vim.keymap.set('n', '<leader>fR', builtin.registers, { desc = 'Telescope: [F]ind in [R^]egsiters' })
 			vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope: [F]ind [B]uffers' })
+			vim.keymap.set("n", "<Leader><tab>", "<Cmd>lua require('telescope.builtin').commands()<CR>", { desc = "Telescope: Commands", noremap = false })
 
 			require('telescope').setup {
 				pickers = {
