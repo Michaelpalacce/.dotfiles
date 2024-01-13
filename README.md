@@ -14,6 +14,10 @@ For MacOs, we need brew installed.
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | bash
 ```
 
+### Minimal Version
+
+- TBD: Create a minimal version to setup JUST neovim for ubuntu
+
 ### What is `stow`?
 
 `stow` is a symlink manager that allows us to create symlinks based on folders.
