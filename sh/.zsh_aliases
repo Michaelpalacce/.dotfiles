@@ -24,10 +24,11 @@ fi
 
 # This allows you to use tmux-sessionizer to open a new tmux session with a specific command
 # or to open a new tmux session with nvim
-alias o='tmux-sessionizer "nvim ."'
-alias O='tmux-sessionizer'
+alias so='tmux-sessionizer "nvim ."'
 # This allows you to use tmux-cht to open a new tmux window with the cheat.sh details for a command
-alias c="tmux-cht"
+alias sc="tmux-cht"
+# Bash-btva allows you to execute maven commands and some specific ones for BTVA
+alias sm="bash-btva"
 # prefer to use nvim instead of vim
 alias vim="nvim"
 # prefer to use just k instead of kubectl

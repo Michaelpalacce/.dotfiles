@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# This script allows you to switch between different identities
+# For example, if you have multiple .npmrc files, you can switch between them
+# Or if you have multiple settings.xml files, you can switch between them
+# This is useful if you have multiple identities for different projects
+# For example, if you have a work and personal identity
+
+identities=(".npmrc" ".m2 settings.xml")
+identity=$(printf "%s\n" "${identities[@]}" | fzf)
+
+case $identity in
+    ".npmrc")
+        selected=$(find ~/. -maxdepth 1 -type f -name '.npmrc*' ! -name ".npmrc"  2>/dev/null | fzf)
+
+        if [[ -z $selected ]]; then
+            exit 0
+        fi
+
+        ln -sf $selected ~/.npmrc
+        ;;
+    ".m2 settings.xml")
+        selected=$(find ~/.m2 -maxdepth 1 -type f -name 'settings*.xml' ! -name "settings.xml"  2>/dev/null | fzf)
+
+        if [[ -z $selected ]]; then
+            exit 0
+        fi
+
+        ln -sf $selected ~/.m2/settings.xml
+        ;;
+    *)
+        echo "Usage: $0 <identity>"
+        exit 1
+        ;;
+esac
+

@@ -5,7 +5,8 @@
 ANSI_GREEN="\033[32m"
 ANSI_RESET="\033[0m"
 
-if [[ -z $1 ]]; then
+# Check if any arguments were passed
+if [[ $# -eq 0 ]]; then
     echo "$ANSI_GREEN tmux-windowizer $ANSI_RESET - A script to run commands in a new tmux window"
     echo "$ANSI_GREEN Usage: $ANSI_RESET $0 <command>"
     exit 1
@@ -20,11 +21,5 @@ if ! tmux has-session -t $target 2> /dev/null; then
     tmux neww -dn $clean_name
 fi
 
-# Check if any arguments were passed
-if [[ $# -eq 0 ]]; then
-    # If no arguments were passed, just switch to the window
-    tmux select-window -t $target
-    exit 0
-fi
 
 tmux send-keys -t $target "$*" Enter

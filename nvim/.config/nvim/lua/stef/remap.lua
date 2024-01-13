@@ -22,10 +22,10 @@ end, { desc = "R[u]n TSUpdate, MasonUpdate, Lazy" })
 ------------------------------------------
 
 -- TMUX
-vim.keymap.set("n", "<leader>o", "<cmd>silent !tmux neww tmux-sessionizer 'nvim .'<CR>")
-vim.keymap.set("n", "<leader>O", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>c", "<cmd>silent !tmux neww tmux-cht<CR>")
-vim.keymap.set("n", "<leader>m", "<cmd>silent !tmux neww bash-btva<CR>")
+vim.keymap.set("n", "<leader>so", "<cmd>silent !tmux neww tmux-sessionizer 'nvim .'<CR>")
+vim.keymap.set("n", "<leader>sc", "<cmd>silent !tmux neww tmux-cht<CR>", { desc = "[S]cripts [C]heatsheet" })
+vim.keymap.set("n", "<leader>sm", "<cmd>silent !tmux neww bash-btva<CR>", { desc = "[S]cripts [M]aven" })
+vim.keymap.set("n", "<leader>si", "<cmd>silent !tmux neww identity-theft<CR>", { desc = "[S]cripts Switch [I]dentity" })
 
 -- Move Lines
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
