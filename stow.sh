@@ -17,9 +17,21 @@ command_exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
+installOsSpecific() {
+    if command_exists apt-get; then
+        sudo apt-get install -y "$1"
+    elif command_exists brew; then 
+        brew install "$1"
+    else
+        print_color "$RED" "Error: No package manager found"
+        exit 1
+    fi
+}
+
+
 if ! command_exists stow; then
     print_color "$GREEN" "stow not found, installing"
-    sudo apt install stow -y
+    installOsSpecific stow
 else
     print_color "$YELLOW" "stow exists, skipping"
 fi
