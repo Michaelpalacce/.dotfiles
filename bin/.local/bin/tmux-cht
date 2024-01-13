@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+file_path="$HOME/.cache/cheat-sheets"
+# If the cache is older than 1 day, update it
+if [[ ! -f $file_path ]] || [[ $(find $file_path -mtime +1 -print) ]]; then
+    echo "Updating cheat sheets..."
+    results="curl https://cheat.sh/:list"
+    $results > $file_path
+else
+    echo "Using cached cheat sheets..."
+    results="cat $file_path"
+fi
+
+selected=`$results | fzf`
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+
+selected_name="$selected"
+tmux_running=$(pgrep tmux)
+
+# Create a new session with the chosen file
+if ! tmux has-session -t=$selected_name 2> /dev/null; then
+    tmux new-session -ds $selected_name "curl \"https://cheat.sh/$selected\" | less"
+fi
+
+if [[ -z $TMUX ]]; then
+    # We are outside of TMUX
+    tmux attach -t $selected_name
+else
+    # We are inside of TMUX
+    tmux switch-client -t $selected_name
+fi
