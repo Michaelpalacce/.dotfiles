@@ -1,27 +1,41 @@
 #!/usr/bin/env bash
+# This script is meant to be used with tmux
+# It will create a new window with the name 'bash-btva' and run the command you select
+# If the window already exists, it will just run the command in that window
+# Essentially it can also be used as a maven wrapper
 
 CMDS=("vrealize:push" "vrealize:push with dependencies" "test" "install" "package")
 
 choice=$(printf "%s\n" "${CMDS[@]}" | fzf)
 
 if [[ $choice == "test" ]]; then
-    mvn clean test -DskipInstallNodeDeps=true
+    selected="mvn clean test -DskipInstallNodeDeps=true"
 fi
 
 if [[ $choice == "install" ]]; then
-    mvn clean install
+    selected="mvn clean install"
 fi
 
 if [[ $choice == "package" ]]; then
-    mvn clean package
+    selected="mvn clean package"
 fi
 
 if [[ $choice == "vrealize:push" ]]; then
     read -p "Enter Profile: (should fuzzy find in the future)" profile
-    mvn clean package vrealize:push -P"$profile" -DincludeDependencies=false -DskipInstallNodeDeps=true
+    selected="mvn clean package vrealize:push -P$profile -DincludeDependencies=false -DskipInstallNodeDeps=true"
 fi
 
 if [[ $choice == "vrealize:push with dependencies" ]]; then
     read -p "Enter Profile: (should fuzzy find in the future)" profile
-    mvn clean package vrealize:push -P"$profile"
+    selected="mvn clean package vrealize:push -P$profile"
 fi
+
+# Create a new window if it doesn't exist with the name 'bash-btva' and index 100...
+# ignore the error if it already exists
+tmux new-window -d -t 100 -n 'bash-btva' 2> /dev/null
+
+# Spawn it in a window, since I want to be able to quit it easily and go back to my previous window
+tmux send-keys -t 'bash-btva' "$selected" Enter
+
+# Switch to the window
+tmux select-window -t 'bash-btva'

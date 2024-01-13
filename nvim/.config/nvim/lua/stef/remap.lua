@@ -25,6 +25,7 @@ end, { desc = "R[u]n TSUpdate, MasonUpdate, Lazy" })
 vim.keymap.set("n", "<leader>o", "<cmd>silent !tmux neww tmux-sessionizer 'nvim .'<CR>")
 vim.keymap.set("n", "<leader>O", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>c", "<cmd>silent !tmux neww tmux-cht<CR>")
+vim.keymap.set("n", "<leader>m", "<cmd>silent !tmux neww bash-btva<CR>")
 
 -- Move Lines
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
@@ -40,9 +41,6 @@ vim.keymap.set("i", "<A-Down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" 
 vim.keymap.set("i", "<A-Up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 vim.keymap.set("v", "<A-Down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 vim.keymap.set("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
-
--- -- Reload
--- vim.keymap.set("n", "<leader>fr", ":e!<CR>", { desc = "[F]ile: [R]eload" })
 
 -- Move Between Windows
 vim.keymap.set('n', '<C-Left>', '<C-w>h')
