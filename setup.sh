@@ -20,7 +20,7 @@ installOsSpecific() {
 
 installNeovim() {
     if command_exists brew; then
-        brew install neovim
+        brew install neovim ripgrep fd
     elif command_exists apt-get; then
         print_color "$GREEN" "nvim not found, installing"
         # Install dependencies
