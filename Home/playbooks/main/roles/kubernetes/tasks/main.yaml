@@ -146,14 +146,3 @@
     - completion: |
           source <(minikube completion bash)
       marker: "minikube"
-
-- name: Add aliases to ~/.bash_aliases
-  blockinfile:
-      path: "/home/{{ local.username }}/.bash_aliases"
-      block: "{{ item.alias }}"
-      marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.marker }}"
-  loop:
-      - { alias: "alias k='kubectl'", marker: "kubectl" }
-      - { alias: "alias kubens='kubectl config set-context --current --namespace'", marker: "kubectl-namespace" }
-      - { alias: "alias v='velero'", marker: "velero" }
-      - { alias: "alias h='helm'", marker: "helm" }
