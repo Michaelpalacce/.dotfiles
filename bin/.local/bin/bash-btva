@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # This script is meant to be used with tmux
 # It will create a new window with the name 'bash-btva' and run the command you select
 # If the window already exists, it will just run the command in that window
 # Essentially it can also be used as a maven wrapper
-CMDS=("vrealize:push" "vrealize:push with dependencies" "test" "install" "package and install node dependencies")
+CMDS=("vrealize:push" "vrealize:push with dependencies" "test" "install" "package")
 
 choice=$(printf "%s\n" "${CMDS[@]}" | fzf)
 if [[ $choice == "package" ]]; then
@@ -35,6 +35,5 @@ tmux new-window -d -t 100 -n 'bash-btva' 2> /dev/null
 # Spawn it in a window, since I want to be able to quit it easily and go back to my previous window
 tmux send-keys -t 'bash-btva' "$selected" Enter
 
-# Switch to the window
-tmux select-window -t 'bash-btva'
-
+# # Switch to the window
+# tmux select-window -t 'bash-btva'

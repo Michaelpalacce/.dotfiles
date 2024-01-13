@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # selected=$(find ~/projects ~/projects/Dump ~/ -mindepth 1 -maxdepth 1 -type d -name ".git" -prune | fzf)
 # This will search for folders that have `.git` folder in them and show them

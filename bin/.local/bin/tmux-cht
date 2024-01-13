@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 file_path="$HOME/.cache/cheat-sheets"
+
 # If the cache is older than 1 day, update it
 if [[ ! -f $file_path ]] || [[ $(find $file_path -mtime +1 -print) ]]; then
     echo "Updating cheat sheets..."
