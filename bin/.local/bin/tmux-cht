@@ -17,4 +17,4 @@ fi
 
 selected_name="$selected"
 # Spawn it in a window, since I want to be able to quit it easily and go back to my previous window
-tmux new-window "curl \"https://cheat.sh/$selected\" | less"
+tmux new-window "curl \"https://cheat.sh/$selected\" | less -r"
