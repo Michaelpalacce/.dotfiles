@@ -15,19 +15,6 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
-
 selected_name="$selected"
-tmux_running=$(pgrep tmux)
-
-# Create a new session with the chosen file
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name "curl \"https://cheat.sh/$selected\" | less"
-fi
-
-if [[ -z $TMUX ]]; then
-    # We are outside of TMUX
-    tmux attach -t $selected_name
-else
-    # We are inside of TMUX
-    tmux switch-client -t $selected_name
-fi
+# Spawn it in a window, since I want to be able to quit it easily and go back to my previous window
+tmux new-window "curl \"https://cheat.sh/$selected\" | less"
