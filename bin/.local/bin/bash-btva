@@ -3,7 +3,6 @@
 # It will create a new window with the name 'bash-btva' and run the command you select
 # If the window already exists, it will just run the command in that window
 # Essentially it can also be used as a maven wrapper
-
 CMDS=("vrealize:push" "vrealize:push with dependencies" "test" "install" "package and install node dependencies")
 
 choice=$(printf "%s\n" "${CMDS[@]}" | fzf)
@@ -29,7 +28,6 @@ if [[ $choice == "vrealize:push with dependencies" ]]; then
     selected="mvn clean package vrealize:push -P$profile -DskipInstallNodeDeps=true"
 fi
 
-:wa
 # Create a new window if it doesn't exist with the name 'bash-btva' and index 100...
 # ignore the error if it already exists
 tmux new-window -d -t 100 -n 'bash-btva' 2> /dev/null
