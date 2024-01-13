@@ -26,6 +26,8 @@ fi
 # or to open a new tmux session with nvim
 alias o='tmux-sessionizer "nvim ."'
 alias O='tmux-sessionizer'
+# This allows you to use tmux-cht to open a new tmux window with the cheat.sh details for a command
+alias c="tmux-cht"
 # prefer to use nvim instead of vim
 alias vim="nvim"
 # prefer to use just k instead of kubectl
