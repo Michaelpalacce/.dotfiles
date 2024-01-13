@@ -6,7 +6,11 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Kubernetes aliases
 alias kubens="kubectl get ns | fzf | awk '{print \$1}' | xargs -o kubectl config set-context --current --namespace"
+alias kns="kubens"
+alias klog="k get po -o wide -A | awk '{print \$1,\$2}' | fzf | xargs -o kubectl logs -f -n"
+alias klogs="klog"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
