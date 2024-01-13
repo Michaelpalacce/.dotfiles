@@ -61,3 +61,10 @@ vim.keymap.set("n", "<leader>bD", "<cmd>%bd|e#<CR>", { desc = '[B]uffers [D]elet
 -- Moving
 vim.api.nvim_set_keymap('n', '<C-g>', '<C-b>',
 	{ desc = "Move back (C-b) remapped cause of tmux", noremap = true, silent = true })
+
+-- Files
+vim.api.nvim_set_keymap("n", "QQ", ":qa!<CR>", { noremap = false, desc = "Quit without saving" })
+vim.api.nvim_set_keymap("n", "WW", ":wa<CR>", { noremap = false, desc = "Write all" })
+vim.api.nvim_set_keymap("n", "Ww", ":w<CR>", { noremap = false, desc = "Write current file" })
+vim.api.nvim_set_keymap("n", "E", "$", { noremap = false })
+vim.api.nvim_set_keymap("n", "B", "^", { noremap = false })
