@@ -30,7 +30,7 @@ alias si='tmux-identity-theft'
 # This allows you to use tmux-cht to open a new tmux window with the cheat.sh details for a command
 alias sc="tmux-cht"
 # tmux-exxegutor allows you to execute differnt build commands in different tmux windows
-alias sm="tmux-exxegutor"
+alias sb="tmux-exxegutor"
 # prefer to use nvim instead of vim
 alias vim="nvim"
 # prefer to use just k instead of kubectl

@@ -3,11 +3,25 @@
 # It will create a new window with the name 'tmux-exxegutor' and run the command you select
 # If the window already exists, it will just run the command in that window
 # Essentially it can also be used as a maven wrapper
-CMDS=("btva vrealize:push" "btva vrealize:push with dependencies" "mvn test" "mvn install" "mvn package")
+CMDS=(
+    "btva vrealize:push" 
+    "btva vrealize:push with dependencies"
+    "mvn test"
+    "mvn install"
+    "mvn package"
+    "tsc --watch"
+)
+
+# This flag determines if the session is dedicated to that process and will 
+# exit when the process is done. Furthermore, the focus will not be switched to
+# the window.
+#
+# This is useful for commands like `tsc --watch` or `nodemon` where the process is 
+# long running and you want to keep the focus on the current window
+# In case of mvn clean package, you may want to see the output as it's a one and done process.
+detached=0
 
 choice=$(printf "%s\n" "${CMDS[@]}" | fzf)
-echo "You chose: $choice"
-
 case $choice in
     "btva vrealize:push")
         read -p "Enter Profile: (should fuzzy find in the future)" profile
@@ -26,18 +40,27 @@ case $choice in
     "mvn package")
         selected="mvn clean package -DskipTests"
         ;;
+    "tsc --watch")
+        selected="tsc --watch"
+        detached=1
+        ;;
     *)
         echo "Invalid choice"
         exit 1
         ;;
 esac
 
-# Create a new window if it doesn't exist with the name 'tmux-exxegutor' and index 100...
-# ignore the error if it already exists
-tmux new-window -d -t 100 -n 'tmux-exxegutor' 2> /dev/null
+if [ $detached -eq 1 ] ; then
+    tmux new-window -d "$selected"
+else
+    # Create a new window if it doesn't exist with the name 'tmux-exxegutor' and index 100...
+    # ignore the error if it already exists
+    tmux new-window -d -t 100 -n 'tmux-exxegutor' 2> /dev/null
 
-# Spawn it in a window, since I want to be able to quit it easily and go back to my previous window
-tmux send-keys -t 'tmux-exxegutor' "$selected" Enter
+    # Spawn it in a window, since I want to be able to quit it easily and go back to my previous window
+    tmux send-keys -t 'tmux-exxegutor' "$selected" Enter
 
-# Switch to the window
-tmux select-window -t 'tmux-exxegutor'
+    # Switch to the window
+    tmux select-window -t 'tmux-exxegutor'
+fi
+
