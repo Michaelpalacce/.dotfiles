@@ -20,7 +20,7 @@ case $identity in
         ln -sf $selected ~/.npmrc
         ;;
     ".m2 settings.xml")
-        selected=$(find ~/.m2 -maxdepth 1 -type f -name 'settings*.xml' ! -name "settings.xml"  2>/dev/null | fzf)
+        selected=$(find ~/.m2 -maxdepth 1 -type f -name 'settings*' ! -name "settings.xml"  2>/dev/null | fzf)
 
         if [[ -z $selected ]]; then
             exit 0
