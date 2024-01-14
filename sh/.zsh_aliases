@@ -24,7 +24,9 @@ fi
 
 # This allows you to use tmux-sessionizer to open a new tmux session with a specific command
 # or to open a new tmux session with nvim
-alias ss='tmux-sessionizer "nvim ."'
+alias so='tmux-sessionizer "nvim ."'
+# Identity-theft allows me to switch between different identities of different programs. Example: .m2 .npmrc
+alias si='identity-theft'
 # This allows you to use tmux-cht to open a new tmux window with the cheat.sh details for a command
 alias sc="tmux-cht"
 # Bash-btva allows you to execute maven commands and some specific ones for BTVA
