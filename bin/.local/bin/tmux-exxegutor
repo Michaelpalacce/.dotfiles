@@ -1,0 +1,43 @@
+#!/usr/bin/env zsh
+# This script is meant to be used with tmux
+# It will create a new window with the name 'tmux-exxegutor' and run the command you select
+# If the window already exists, it will just run the command in that window
+# Essentially it can also be used as a maven wrapper
+CMDS=("btva vrealize:push" "btva vrealize:push with dependencies" "mvn test" "mvn install" "mvn package")
+
+choice=$(printf "%s\n" "${CMDS[@]}" | fzf)
+echo "You chose: $choice"
+
+case $choice in
+    "btva vrealize:push")
+        read -p "Enter Profile: (should fuzzy find in the future)" profile
+        selected="mvn clean package vrealize:push -P$profile -DincludeDependencies=false -DskipInstallNodeDeps=false -DskipTests"
+        ;;
+    "btva vrealize:push with dependencies")
+        read -p "Enter Profile: (should fuzzy find in the future)" profile
+        selected="mvn clean package vrealize:push -P$profile -DskipInstallNodeDeps=true -DskipTests"
+        ;;
+    "mvn test")
+        selected="mvn clean test -DskipInstallNodeDeps=true"
+        ;;
+    "mvn install")
+        selected="mvn clean install -DskipInstallNodeDeps=true -DskipTests"
+        ;;
+    "mvn package")
+        selected="mvn clean package -DskipTests"
+        ;;
+    *)
+        echo "Invalid choice"
+        exit 1
+        ;;
+esac
+
+# Create a new window if it doesn't exist with the name 'tmux-exxegutor' and index 100...
+# ignore the error if it already exists
+tmux new-window -d -t 100 -n 'tmux-exxegutor' 2> /dev/null
+
+# Spawn it in a window, since I want to be able to quit it easily and go back to my previous window
+tmux send-keys -t 'tmux-exxegutor' "$selected" Enter
+
+# Switch to the window
+tmux select-window -t 'tmux-exxegutor'
