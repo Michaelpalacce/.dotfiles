@@ -35,5 +35,5 @@ tmux new-window -d -t 100 -n 'bash-btva' 2> /dev/null
 # Spawn it in a window, since I want to be able to quit it easily and go back to my previous window
 tmux send-keys -t 'bash-btva' "$selected" Enter
 
-# # Switch to the window
+# Switch to the window
 # tmux select-window -t 'bash-btva'
