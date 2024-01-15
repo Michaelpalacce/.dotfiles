@@ -38,7 +38,7 @@ obsidian_cheatsheets_content=$(get_files_recursive "$obsidian_cheatsheets" "")
 # Get relative paths of files in the additional lines directory
 additional_lines_content=""
 additional_lines_content+="META: Create cheatsheet\n"
-additional_lines_content+="META Delete cheatsheet\n"
+additional_lines_content+="META: Delete cheatsheet\n"
 additional_lines_content+="\n"
 additional_lines_content+=$local_cheetsheets_content
 additional_lines_content+="\n"
