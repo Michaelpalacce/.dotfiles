@@ -77,7 +77,11 @@ HIST_STAMPS="dd/mm/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 zstyle ':omz:plugins:git' autoload yes
 zstyle ':omz:plugins:nvm' autoload yes
-plugins=(git nvm)
+plugins=(
+    git 
+    zsh-autosuggestions 
+    nvm
+)
 
 # Remove Auto update to speedup starting up the terminal
 DISABLE_AUTO_UPDATE="true" 
