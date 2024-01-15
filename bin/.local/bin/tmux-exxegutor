@@ -6,6 +6,7 @@
 CMDS=(
     "btva vrealize:push" 
     "btva vrealize:push with dependencies"
+    "nat watch"
     "mvn test"
     "mvn install"
     "mvn package"
@@ -52,6 +53,10 @@ case $choice in
         ;;
     "npm run build")
         selected="npm run build"
+        ;;
+    "nat watch")
+        selected="nat --watch --watchMs=2000"
+        detached=1
         ;;
     *)
         echo "Invalid choice"
