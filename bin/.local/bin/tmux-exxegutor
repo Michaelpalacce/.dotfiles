@@ -10,6 +10,8 @@ CMDS=(
     "mvn install"
     "mvn package"
     "tsc --watch"
+    "nodemon"
+    "npm run build"
 )
 
 # This flag determines if the session is dedicated to that process and will 
@@ -43,6 +45,13 @@ case $choice in
     "tsc --watch")
         selected="tsc --watch"
         detached=1
+        ;;
+    "nodemon")
+        selected="nodemon"
+        detached=1
+        ;;
+    "npm run build")
+        selected="npm run build"
         ;;
     *)
         echo "Invalid choice"
