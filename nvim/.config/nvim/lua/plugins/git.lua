@@ -22,11 +22,11 @@ return {
 
 			vim.keymap.set("n", "<leader>gh", function()
 				vim.cmd.Git('log --follow -- ' .. vim.fn.expand('%'))
-			end, { remap = false, desc = "Fugitive: [G]it [H]istory" })
+			end, { remap = false, desc = "Fugitive: [G]it [H]istory --follow" })
 
 			vim.keymap.set("n", "<leader>gH", function()
-				vim.cmd.Git('log --follow -- ' .. vim.fn.expand('%'))
-			end, { remap = false, desc = "Fugitive: [G]it [H]istory --follow" })
+				vim.cmd.Git('log')
+			end, { remap = false, desc = "Fugitive: [G]it [H]istory" })
 		end,
 		dependencies = {
 			'nvim-telescope/telescope.nvim'
