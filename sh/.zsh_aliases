@@ -35,5 +35,13 @@ alias sb="tmux-exxegutor"
 alias vim="nvim"
 # prefer to use just k instead of kubectl
 alias k='kubectl'
+
+# exa
+alias l='exa -l'
+alias la='exa -la'
+alias ll='exa -l --git'
+alias lla='exa -la --git'
+alias lt='exa --tree --level=2'
+
 # END PERSONAL
 
