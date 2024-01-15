@@ -8,7 +8,6 @@ return {
 			vim.keymap.set('n', "<leader>gs", "<cmd>G <CR><C-w>7-", { desc = '[T]oggle [G]it Status' })
 			vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope: [G]it [B]ranches' })
 			vim.keymap.set('n', '<leader>gd', builtin.git_status, { desc = 'Telescope: [G]it [D]iff' })
-			vim.keymap.set('n', '<leader>gS', builtin.git_stash, { desc = 'Telescope: [G]it [S]tash' })
 			vim.keymap.set('n', '<leader>gc', builtin.git_bcommits, { desc = 'Telescope: [G]it buffer [C]ommits' })
 			vim.keymap.set('n', '<leader>gC', builtin.git_commits, { desc = 'Telescope: [G]it [C]ommits' })
 
