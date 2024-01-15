@@ -22,7 +22,6 @@ get_files_recursive() {
     local dir="$1"
     local relative_path="$2"
     local files=""
-    shopt -s nullglob
     for file in "$dir"/*; do
         if [[ -f $file ]]; then
             files+="$relative_path/$(basename "$file")\n"
@@ -30,7 +29,7 @@ get_files_recursive() {
             files+=$(get_files_recursive "$file" "$relative_path/$(basename "$file")")
         fi
     done
-    echo -e "$files"
+    printf "%s" "$files"
 }
 
 local_cheetsheets_content=$(get_files_recursive "$local_cheatsheets_dir" "")
@@ -38,9 +37,8 @@ obsidian_cheatsheets_content=$(get_files_recursive "$obsidian_cheatsheets" "")
 
 # Get relative paths of files in the additional lines directory
 additional_lines_content=""
-additional_lines_content+="Create new cheat sheet\n"
-additional_lines_content+="\n"
-additional_lines_content+="Delete cheat sheet\n"
+additional_lines_content+="META: Create cheatsheet\n"
+additional_lines_content+="META Delete cheatsheet\n"
 additional_lines_content+="\n"
 additional_lines_content+=$local_cheetsheets_content
 additional_lines_content+="\n"
@@ -54,12 +52,12 @@ selected=$(echo -e "$content_with_additional_lines" | fzf)
 
 if [[ -z $selected ]]; then
     exit 0
-elif [[ $selected == "Create new cheat sheet" ]]; then
+elif [[ $selected == "META: Create cheatsheet" ]]; then
     # Create a new cheat sheet
     read -p "Enter the name of the new cheat sheet: " cheat_sheet_name
     nvim "$local_cheatsheets_dir/$cheat_sheet_name"
     exit 0
-elif [[ $selected == "Delete cheat sheet" ]]; then
+elif [[ $selected == "META: Delete cheatsheet" ]]; then
     # Delete a cheat sheet
     selected=$(echo -e "$local_cheetsheets_content" | fzf)
     if [[ -z $selected ]]; then
