@@ -28,7 +28,6 @@ installOsSpecific() {
     fi
 }
 
-
 if ! command_exists stow; then
     print_color "$GREEN" "stow not found, installing"
     installOsSpecific stow
@@ -36,7 +35,7 @@ else
     print_color "$YELLOW" "stow exists, skipping"
 fi
 
-FOLDERS=("nvim" "editorconfig" "sh" "tmux" "bin" "gitignore")
+FOLDERS=("nvim" "editorconfig" "sh" "tmux" "bin" "gitignore" "cheatsheets")
 
 for dir in ${FOLDERS[@]} ; do
     echo "stow $dir"

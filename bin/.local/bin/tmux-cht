@@ -1,18 +1,42 @@
 #!/usr/bin/env bash
 file_path="$HOME/.cache/cheat-sheets"
+local_cheatsheets="$HOME/.config/cheatsheets"
 
 # If the cache is older than 1 day, update it
 if [[ ! -f $file_path ]] || [[ $(find $file_path -mtime +1 -print) ]]; then
     echo "Updating cheat sheets..."
-    results="curl https://cheat.sh/:list"
-    $results > $file_path
+    curl https://cheat.sh/:list > $file_path
 else
     echo "Using cached cheat sheets..."
-    results="cat $file_path"
 fi
 
-selected=`$results | fzf`
+# Get basenames of files in the additional lines directory
+additional_lines_content=""
+for file in "$local_cheatsheets"/*; do
+    if [[ -f $file ]]; then
+        additional_lines_content+="$(basename "$file")\n"
+    fi
+done
+
+# Concatenate additional lines with file contents
+file_contents=$(cat "$file_path")
+content_with_additional_lines=$(printf "%s\n%s" "$additional_lines_content" "$file_contents")
+
+selected=$(echo -e "$content_with_additional_lines" | fzf)
+
 if [[ -z $selected ]]; then
+    exit 0
+fi
+
+
+if grep -qs $selected $additional_lines_content; then
+    selected=""
+    exit 0
+fi
+
+if echo -e "$additional_lines_content" | grep -q -E "(^|\n)$selected($|\n)"; then
+    # If the selected line is in the additional lines directory, cat it
+    tmux new-window "nvim \"$local_cheatsheets/$selected\""
     exit 0
 fi
 
