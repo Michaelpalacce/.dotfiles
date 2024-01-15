@@ -4,7 +4,8 @@ return {
 		config = function()
 			local builtin = require('telescope.builtin')
 
-			vim.keymap.set('n', "<leader>gs", vim.cmd.Git, { desc = '[T]oggle [G]it Status' })
+			-- Note: <C-w>7- is a hack to make the window smaller
+			vim.keymap.set('n', "<leader>gs", "<cmd>G <CR><C-w>7-", { desc = '[T]oggle [G]it Status' })
 			vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope: [G]it [B]ranches' })
 			vim.keymap.set('n', '<leader>gd', builtin.git_status, { desc = 'Telescope: [G]it [D]iff' })
 			vim.keymap.set('n', '<leader>gS', builtin.git_stash, { desc = 'Telescope: [G]it [S]tash' })
