@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 file_path="$HOME/.cache/cheat-sheets"
 local_cheatsheets="$HOME/.config/cheatsheets"
+obsidian_cheatsheets="$HOME/Documents/Obsidian"
 
 # If the cache is older than 1 day, update it
 if [[ ! -f $file_path ]] || [[ $(find $file_path -mtime +1 -print) ]]; then
@@ -9,14 +10,26 @@ if [[ ! -f $file_path ]] || [[ $(find $file_path -mtime +1 -print) ]]; then
 else
     echo "Using cached cheat sheets..."
 fi
+#
+# Function to recursively get files from a directory
+get_files_recursive() {
+    local dir="$1"
+    local files=""
+    shopt -s nullglob
+    for file in "$dir"/*; do
+        if [[ -f $file ]]; then
+            files+="$(basename "$file")\n"
+        elif [[ -d $file ]]; then
+            files+=$(get_files_recursive "$file")
+        fi
+    done
+    echo -e "$files"
+}
 
 # Get basenames of files in the additional lines directory
 additional_lines_content=""
-for file in "$local_cheatsheets"/*; do
-    if [[ -f $file ]]; then
-        additional_lines_content+="$(basename "$file")\n"
-    fi
-done
+additional_lines_content+=$(get_files_recursive "$local_cheatsheets")
+additional_lines_content+=$(get_files_recursive "$obsidian_cheatsheets")
 
 # Concatenate additional lines with file contents
 file_contents=$(cat "$file_path")
@@ -27,7 +40,6 @@ selected=$(echo -e "$content_with_additional_lines" | fzf)
 if [[ -z $selected ]]; then
     exit 0
 fi
-
 
 if grep -qs $selected $additional_lines_content; then
     selected=""
