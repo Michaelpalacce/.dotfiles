@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
+
+# This script is used to search cheat sheets from cheat.sh and open them in a new tmux window
+# It also searches for additional cheat sheets in the local_cheatsheets_dir and obsidian_cheatsheets directories
+# The additional cheatsheets will be opened in nvim, so you can edit them
+# @TODO: Add a way to add new cheat sheets from the command line
+
 file_path="$HOME/.cache/cheat-sheets"
-local_cheatsheets="$HOME/.config/cheatsheets"
+local_cheatsheets_dir="$HOME/.config/cheatsheets"
 obsidian_cheatsheets="$HOME/Documents/Obsidian"
 
 # If the cache is older than 1 day, update it
@@ -11,25 +17,34 @@ else
     echo "Using cached cheat sheets..."
 fi
 #
-# Function to recursively get files from a directory
+# Function to recursively get files from a directory with relative paths
 get_files_recursive() {
     local dir="$1"
+    local relative_path="$2"
     local files=""
     shopt -s nullglob
     for file in "$dir"/*; do
         if [[ -f $file ]]; then
-            files+="$(basename "$file")\n"
+            files+="$relative_path/$(basename "$file")\n"
         elif [[ -d $file ]]; then
-            files+=$(get_files_recursive "$file")
+            files+=$(get_files_recursive "$file" "$relative_path/$(basename "$file")")
         fi
     done
     echo -e "$files"
 }
 
-# Get basenames of files in the additional lines directory
+local_cheetsheets_content=$(get_files_recursive "$local_cheatsheets_dir" "")
+obsidian_cheatsheets_content=$(get_files_recursive "$obsidian_cheatsheets" "")
+
+# Get relative paths of files in the additional lines directory
 additional_lines_content=""
-additional_lines_content+=$(get_files_recursive "$local_cheatsheets")
-additional_lines_content+=$(get_files_recursive "$obsidian_cheatsheets")
+additional_lines_content+="Create new cheat sheet\n"
+additional_lines_content+="\n"
+additional_lines_content+="Delete cheat sheet\n"
+additional_lines_content+="\n"
+additional_lines_content+=$local_cheetsheets_content
+additional_lines_content+="\n"
+additional_lines_content+=$obsidian_cheatsheets_content
 
 # Concatenate additional lines with file contents
 file_contents=$(cat "$file_path")
@@ -39,19 +54,26 @@ selected=$(echo -e "$content_with_additional_lines" | fzf)
 
 if [[ -z $selected ]]; then
     exit 0
-fi
-
-if grep -qs $selected $additional_lines_content; then
-    selected=""
+elif [[ $selected == "Create new cheat sheet" ]]; then
+    # Create a new cheat sheet
+    read -p "Enter the name of the new cheat sheet: " cheat_sheet_name
+    nvim "$local_cheatsheets_dir/$cheat_sheet_name"
     exit 0
-fi
-
-if echo -e "$additional_lines_content" | grep -q -E "(^|\n)$selected($|\n)"; then
+elif [[ $selected == "Delete cheat sheet" ]]; then
+    # Delete a cheat sheet
+    selected=$(echo -e "$local_cheetsheets_content" | fzf)
+    if [[ -z $selected ]]; then
+        exit 0
+    else
+        rm "$local_cheatsheets_dir/$selected"
+        exit 0
+    fi
+elif echo -e "$additional_lines_content" | grep -q -E "(^|\n)$selected($|\n)"; then
     # If the selected line is in the additional lines directory, cat it
-    tmux new-window "nvim \"$local_cheatsheets/$selected\""
+    tmux new-window "nvim \"$local_cheatsheets_dir/$selected\""
     exit 0
+else 
+    # Spawn it in a window, since I want to be able to quit it easily and go back to my previous window
+    tmux new-window "curl \"https://cheat.sh/$selected\" | less -r"
 fi
 
-selected_name="$selected"
-# Spawn it in a window, since I want to be able to quit it easily and go back to my previous window
-tmux new-window "curl \"https://cheat.sh/$selected\" | less -r"
