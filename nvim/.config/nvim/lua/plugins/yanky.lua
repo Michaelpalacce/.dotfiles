@@ -1,7 +1,6 @@
 return {
 	{
 		-- Yanky - Yank History
-		-- Toggle with C-n and C-p
 		"gbprod/yanky.nvim",
 		opts = {
 			-- your configuration comes here
