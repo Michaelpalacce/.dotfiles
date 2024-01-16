@@ -8,6 +8,7 @@
 
 file_path="$HOME/.cache/cheat-sheets"
 local_cheatsheets_dir="$HOME/.config/cheatsheets"
+obsidian_cheatsheets_dir="$HOME/Documents/Obsidian"
 
 # If the cache is older than 1 day, update it
 if [[ ! -f $file_path ]] || [[ $(find $file_path -mtime +1 -print) ]]; then
@@ -16,20 +17,11 @@ if [[ ! -f $file_path ]] || [[ $(find $file_path -mtime +1 -print) ]]; then
 else
     echo "Using cached cheat sheets..."
 fi
-#
-# Function to recursively get files from a directory with relative paths
+
+# Function to recursively get relative paths of files from a directory
 get_files_recursive() {
     local dir="$1"
-    local relative_path="$2"
-    local files=""
-    for file in "$dir"/*; do
-        if [[ -f $file ]]; then
-            files+="$relative_path/$(basename "$file")\n"
-        elif [[ -d $file ]]; then
-            files+=$(get_files_recursive "$file" "$relative_path/$(basename "$file")")
-        fi
-    done
-    printf "%s" "$files"
+    fd -H -I -0 -t f . "$dir" --exec bash -c 'echo "${0#'"$dir/"'}"' {} \;
 }
 
 local_cheetsheets_content=$(get_files_recursive "$local_cheatsheets_dir" "")
@@ -38,16 +30,21 @@ local_cheetsheets_content=$(get_files_recursive "$local_cheatsheets_dir" "")
 additional_lines_content=""
 additional_lines_content+="META: Create cheatsheet\n"
 additional_lines_content+="META: Delete cheatsheet\n"
-additional_lines_content+="\n"
-additional_lines_content+=$local_cheetsheets_content
+additional_lines_content+="META: Obsidian\n"
 
 # Concatenate additional lines with file contents
 file_contents=$(cat "$file_path")
-content_with_additional_lines=$(printf "%s\n%s" "$additional_lines_content" "$file_contents")
+content_with_additional_lines=$(printf "%s\n%s\n%s\n%s" "$additional_lines_content" "$local_cheetsheets_content" "$file_contents")
 
 selected=$(echo -e "$content_with_additional_lines" | fzf)
 
 if [[ -z $selected ]]; then
+    exit 0
+elif [[ $selected == "META: Obsidian" ]]; then
+    obsidian_cheetsheets_content=$(get_files_recursive "$obsidian_cheatsheets_dir" "")
+    selected=$(echo -e "$obsidian_cheetsheets_content" | fzf)
+    # If the selected line is in the additional lines directory, cat it
+    tmux new-window "nvim \"$obsidian_cheatsheets_dir/$selected\""
     exit 0
 elif [[ $selected == "META: Create cheatsheet" ]]; then
     # Create a new cheat sheet
@@ -63,7 +60,7 @@ elif [[ $selected == "META: Delete cheatsheet" ]]; then
         rm "$local_cheatsheets_dir/$selected"
         exit 0
     fi
-elif echo -e "$additional_lines_content" | grep -q -E "(^|\n)$selected($|\n)"; then
+elif echo -e "$local_cheetsheets_content" | grep -q -E "(^|\n)$selected($|\n)"; then
     # If the selected line is in the additional lines directory, cat it
     tmux new-window "nvim \"$local_cheatsheets_dir/$selected\""
     exit 0
