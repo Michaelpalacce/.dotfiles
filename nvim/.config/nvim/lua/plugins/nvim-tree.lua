@@ -93,7 +93,7 @@ return {
 
 				sort_by = "case_sensitive",
 				view = {
-					width = 45,
+					width = 30,
 				},
 				update_focused_file = {
 					enable = true,
