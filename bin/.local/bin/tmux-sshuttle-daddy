@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Dependencies: fzf, sshuttle
+
 # This script allows you to connect to a remote server using sshuttle
 # It will show a list of IPs from your known_hosts file
 # If you select "New One", you can enter a new IP to connect to

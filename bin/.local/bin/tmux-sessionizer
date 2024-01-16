@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# Dependencies: fzf, tmux
+
 # This will search for folders that have `.git` folder in them and show them
 selected=$(find ~/projects ~/projects/clients ~/.dotfiles -mindepth 1 -maxdepth 3 -type d -name ".git" -exec dirname {} \;  2>/dev/null | fzf)
 

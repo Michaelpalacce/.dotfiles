@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# Dependencies: tmux
+
 # This script is meant to be used with tmux
 # It will create a new window and pass the command you select to it
 ANSI_GREEN="\033[32m"

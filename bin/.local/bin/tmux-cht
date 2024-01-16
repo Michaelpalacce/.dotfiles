@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Dependencies: fzf, curl, tmux, nvim
+
 # This script is used to search cheat sheets from cheat.sh and open them in a new tmux window
 # It also searches for additional cheat sheets in the local_cheatsheets_dir and obsidian_cheatsheets directories
 # The additional cheatsheets will be opened in nvim, so you can edit them

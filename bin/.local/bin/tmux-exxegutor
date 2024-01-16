@@ -1,4 +1,7 @@
 #!/usr/bin/env zsh
+
+# Dependencies: fzf, tmux
+
 # This script is meant to be used with tmux
 # It will create a new window with the name 'tmux-exxegutor' and run the command you select
 # If the window already exists, it will just run the command in that window

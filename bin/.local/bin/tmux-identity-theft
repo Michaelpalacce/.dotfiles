@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Dependencies: fzf
+
 # This script allows you to switch between different identities
 # For example, if you have multiple .npmrc files, you can switch between them
 # Or if you have multiple settings.xml files, you can switch between them
