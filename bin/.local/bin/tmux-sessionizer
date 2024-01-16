@@ -20,7 +20,7 @@ if ! tmux has-session -t=$selected_name 2> /dev/null; then
     tmux switch-client -t $selected_name:0.0
     # tmux send-keys -t $selected_name:0.1 'git pull' Enter
     # This will do a git pull in a second pane and it will quit, so you won't probably see it
-    tmux new-window -t $selected_name -c $selected 'git pull'
+    tmux new-window -d -t $selected_name -c $selected 'git pull'
 fi
 
 if [[ -z $TMUX ]]; then
