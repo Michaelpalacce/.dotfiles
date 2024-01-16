@@ -3,11 +3,9 @@
 # This script is used to search cheat sheets from cheat.sh and open them in a new tmux window
 # It also searches for additional cheat sheets in the local_cheatsheets_dir and obsidian_cheatsheets directories
 # The additional cheatsheets will be opened in nvim, so you can edit them
-# @TODO: Add a way to add new cheat sheets from the command line
 
 file_path="$HOME/.cache/cheat-sheets"
 local_cheatsheets_dir="$HOME/.config/cheatsheets"
-obsidian_cheatsheets="$HOME/Documents/Obsidian"
 
 # If the cache is older than 1 day, update it
 if [[ ! -f $file_path ]] || [[ $(find $file_path -mtime +1 -print) ]]; then
@@ -33,7 +31,6 @@ get_files_recursive() {
 }
 
 local_cheetsheets_content=$(get_files_recursive "$local_cheatsheets_dir" "")
-obsidian_cheatsheets_content=$(get_files_recursive "$obsidian_cheatsheets" "")
 
 # Get relative paths of files in the additional lines directory
 additional_lines_content=""
@@ -41,8 +38,6 @@ additional_lines_content+="META: Create cheatsheet\n"
 additional_lines_content+="META: Delete cheatsheet\n"
 additional_lines_content+="\n"
 additional_lines_content+=$local_cheetsheets_content
-additional_lines_content+="\n"
-additional_lines_content+=$obsidian_cheatsheets_content
 
 # Concatenate additional lines with file contents
 file_contents=$(cat "$file_path")
