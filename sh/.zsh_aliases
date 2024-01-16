@@ -25,6 +25,8 @@ fi
 # # This allows you to use tmux-sessionizer to open a new tmux session with a specific command
 # # or to open a new tmux session with nvim
 # alias so='tmux-sessionizer "nvim ."'
+# tmux-sshuttle-daddy allows me to sshuttle into a remote server easily
+alias ss='tmux-sshuttle-daddy'
 # tmux-identity-theft allows me to switch between different identities of different programs. Example: .m2 .npmrc
 alias si='tmux-identity-theft'
 # This allows you to use tmux-cht to open a new tmux window with the cheat.sh details for a command
