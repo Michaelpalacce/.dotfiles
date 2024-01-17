@@ -23,10 +23,18 @@ if [[ "$machine" = "Linux" ]]; then
         apt update
         apt install timer
     fi
+
+    if ! command_exists exa; then
+        brew install exa
+    fi
 fi
 
 if [[ "$machine" = "Mac" ]]; then
     if ! command_exists timer; then
         brew install caarlos0/tap/timer terminal-notifier
+    fi
+
+    if ! command_exists exa; then
+        curl https://sh.rustup.rs -sSf | sh -s -- -y
     fi
 fi
