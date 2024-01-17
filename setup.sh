@@ -123,5 +123,5 @@ else
     git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS_DIR
 fi
 
-
-
+# Extra configuration
+. ./extra.sh

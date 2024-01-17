@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Dependencies: tmux, timer, terminal-notifier (Mac), spd-say (Linux)
+
+# This script is used to start a timer in a new tmux window
+# When the timer is up, a notification will be sent to the user
+# If the user is on a Mac, terminal-notifier will be used to send a notification
+# If the user is on Linux, spd-say will be used to send a notification
+
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    MSYS_NT*)   machine=Git;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
+# Start a timer, prompt user for a message and length of timer
+
+# If the user is on a Mac, use terminal-notifier to send a notification
+# If the user is on Linux, use spd-say to send a notification
+
+read -p "Enter a message for the timer: " message
+read -p "Enter the length of the timer (e.g. 45m): " timerLength
+
+echo "Starting timer for $timerLength with message: $message for $machine"
+
+if [ "$machine" = "Mac" ]; then
+    tmux new-window -d -n "Timer" "timer ${timerLength} && terminal-notifier -message \"$message\" -title 'Timer Is Up' -sound 'Crystal'"
+fi
+
+if [ "$machine" = "Linux" ]; then
+    tmux new-window -d -n "Timer" "timer ${timerLength} && spd-say \"$message\" && notify-send 'Timer Is Up' '$message'"
+fi
+
