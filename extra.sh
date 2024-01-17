@@ -17,6 +17,10 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 
+if ! command_exists cargo; then
+    curl https://sh.rustup.rs -sSf | sh -s -- -y
+fi
+
 if [[ "$machine" = "Linux" ]]; then
     if ! command_exists timer; then
         echo 'deb [trusted=yes] https://repo.caarlos0.dev/apt/ /' | sudo tee /etc/apt/sources.list.d/caarlos0.list
@@ -29,12 +33,13 @@ if [[ "$machine" = "Linux" ]]; then
     fi
 fi
 
+
 if [[ "$machine" = "Mac" ]]; then
     if ! command_exists timer; then
         brew install caarlos0/tap/timer terminal-notifier
     fi
 
     if ! command_exists exa; then
-        curl https://sh.rustup.rs -sSf | sh -s -- -y
+        cargo install exa
     fi
 fi
