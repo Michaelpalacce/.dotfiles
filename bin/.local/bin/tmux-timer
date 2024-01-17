@@ -31,7 +31,8 @@ if [ "$machine" = "Mac" ]; then
     tmux new-window -d -n "Timer" "timer ${timerLength} && terminal-notifier -message \"$message\" -title 'Timer Is Up' -sound 'Crystal'"
 fi
 
+
 if [ "$machine" = "Linux" ]; then
-    tmux new-window -d -n "Timer" "timer ${timerLength} && spd-say \"$message\" && notify-send 'Timer Is Up' '$message'"
+    tmux new-window -d -n "Timer" "timer ${timerLength} && notify-send -u critical \"Timer Is Up\" \"$message\" && paplay /usr/share/sounds/freedesktop/stereo/bell.oga"
 fi
 
