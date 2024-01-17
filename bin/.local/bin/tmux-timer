@@ -22,8 +22,16 @@ esac
 # If the user is on a Mac, use terminal-notifier to send a notification
 # If the user is on Linux, use spd-say to send a notification
 
-read -p "Enter a message for the timer: " message
-read -p "Enter the length of the timer (e.g. 45m): " timerLength
+# Check if the user added any arguments and prompt then
+#
+
+if [ "$#" -eq 2 ]; then
+    message="$1"
+    timerLength="$2"
+else
+    read -p "Enter a message for the timer: " message
+    read -p "Enter the length of the timer (e.g. 45m): " timerLength
+fi
 
 echo "Starting timer for $timerLength with message: $message for $machine"
 
