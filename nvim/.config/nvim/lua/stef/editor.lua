@@ -29,7 +29,7 @@ vim.opt.wrap = false
 vim.opt.whichwrap = '<,>,h,l'
 
 -- Always keep n lines of code visible on the bottom and top
-vim.opt.scrolloff = 32
+vim.opt.scrolloff = 999
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
