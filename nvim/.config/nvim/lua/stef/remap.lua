@@ -61,10 +61,11 @@ vim.keymap.set("n", "<S-Right>", "<cmd>cclose<CR>zz", { desc = 'Close quickfix' 
 vim.keymap.set("n", "<leader>bD", "<cmd>%bd|e#<CR>", { desc = '[B]uffers [D]elete all but current' })
 
 -- Files
-vim.keymap.set("n", "QQ", ":qa!<CR>", { noremap = false, desc = "Quit without saving" })
-vim.keymap.set("n", "WA", ":wa<CR>", { noremap = false, desc = "Write all" })
-vim.keymap.set("n", "WW", ":w<CR>", { noremap = false, desc = "Write current file" })
-vim.keymap.set("n", "Wq", ":wq<CR>", { noremap = false, desc = "Write current file and exit" })
+vim.keymap.set("n", "QA", ":qa!<CR>", { noremap = false, desc = "Quit without saving" })
+vim.keymap.set("n", "Qa", ":qa<CR>", { noremap = false, desc = "Quit all" })
 vim.keymap.set("n", "WQ", ":wq!<CR>", { noremap = false, desc = "Write current file force exit" })
+vim.keymap.set("n", "Wq", ":wq<CR>", { noremap = false, desc = "Write current file and exit" })
+vim.keymap.set("n", "Wa", ":wa<CR>", { noremap = false, desc = "Write all" })
+vim.keymap.set("n", "Ww", ":w<CR>", { noremap = false, desc = "Write current file" })
 vim.keymap.set({ "n", "v" }, "E", "$", { noremap = false })
 vim.keymap.set({ "n", "v" }, "B", "^", { noremap = false })
