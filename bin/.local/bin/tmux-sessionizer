@@ -12,10 +12,23 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
 # Create a new session with the chosen file
 # Create a new window in the session too, so we can go to it if we need to run a command
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected $1
+    # Not sure why this does not work on Linux, but it does on Mac
+    if [[ $machine == "Linux" ]]; then
+        tmux new-session -ds $selected_name -c $selected "zsh -i -c '$1'"
+    else
+        tmux new-session -ds $selected_name -c $selected $1
+    fi
+
     tmux split-window -v -t $selected_name -p 10 -c $selected
     tmux switch-client -t $selected_name:0.0
     # tmux send-keys -t $selected_name:0.1 'git pull' Enter
