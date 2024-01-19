@@ -61,7 +61,6 @@ return {
 		dependencies = {
 			{ 'rafamadriz/friendly-snippets' },
 			{ 'saadparwaiz1/cmp_luasnip' },
-			{ 'tamago324/nlsp-settings.nvim' },
 		},
 		config = function()
 			require "plugins.lsp.luasnip"

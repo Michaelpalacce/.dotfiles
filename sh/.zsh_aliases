@@ -45,6 +45,6 @@ alias l='exa -l'
 alias la='exa -la'
 alias ll='exa -l --git'
 alias lla='exa -la --git'
-alias lt='exa --tree --level=2'
+alias lt='exa --tree --level'
 
 # END PERSONAL
