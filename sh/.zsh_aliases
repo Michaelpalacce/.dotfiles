@@ -42,4 +42,12 @@ alias ll='exa -l --git'
 alias lla='exa -la --git'
 alias lt='exa --tree --level'
 
+
+# GIT
+
+# Alias to set the current repo's git author to my personal email
+alias gp='git config user.name "Stefan Genov" && git config user.email "stefantigro@gmail.com"'
+# Alias to set the current repo's git author to my work email
+alias gw='git config user.name "Stefan Genov" && git config user.email "stefan.genov@broadcom.com"'
+
 # END PERSONAL
