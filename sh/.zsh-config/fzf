@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+
+# ------------------------------------------------------------------------------
+# ZSH Configuration for FZF (Fuzzy Finder)
+#
+# This script configures FZF to use 'fd' for file and directory listing.
+#
+# Dependencies: fd, fzf
+# ------------------------------------------------------------------------------
+
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND='fd --type d --hidden --follow'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

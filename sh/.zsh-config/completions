@@ -1,0 +1,53 @@
+# ------------------------------------------------------------------------------
+# Zsh Configuration for Command Completions
+#
+# This file contains configurations for command completions in Zsh.
+# It includes completions for various tools like kubectl, minikube, velero, flux, and helm.
+# It also includes a function to lazy load completions for a command.
+#
+# Dependencies: The tools mentioned above must be installed and properly set up in your environment.
+# ------------------------------------------------------------------------------
+
+# Function to check if a command is available
+command_exists() {
+  command -v "$1" >/dev/null 2>&1
+}
+
+# Absolute magic
+# Function to lazy load completions for a command
+lazy_load_completion() {
+  local cmd=$1
+  local completion_func=$2
+  local short_cmd=$3
+
+  if command_exists $cmd; then
+    eval "
+    $cmd() {
+      unfunction $cmd
+      source <(command $cmd completion zsh)
+      if [[ -n $completion_func ]]; then
+        complete -F $completion_func $short_cmd
+      fi
+      $cmd \"\$@\"
+    }
+    "
+    # Define a dummy completion function that runs the command
+    eval "
+    _$cmd() {
+      $cmd
+    }
+    "
+    # Associate the dummy completion function with the command
+    compdef _$cmd $cmd
+  fi
+}
+
+# Function to initialize the completion system
+autoload -Uz compinit
+compinit
+
+# Lazy load completions for various commands
+lazy_load_completion "kubectl" "__start_kubectl" "k"
+lazy_load_completion "velero" "__start_velero" "v"
+lazy_load_completion "flux"
+lazy_load_completion "helm" "__start_helm" "h"
