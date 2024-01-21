@@ -29,14 +29,12 @@ defaults write com.apple.screencapture type -string "png"
 
 # ------------------------ KEYBOARD ----------------------------
 
-# Disable press-and-hold for keys in favor of key repeat.
-# Nobody cares about those special characters
-defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write -g ApplePressAndHoldEnabled -bool true
 # Set a really fast key repeat.
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 7
 
 # ------------------------- OTHER ------------------------------
 
