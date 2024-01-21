@@ -124,4 +124,4 @@ else
 fi
 
 # Extra configuration
-. ./extra.sh
+. ./scripts/extra.sh

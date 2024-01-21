@@ -20,6 +20,26 @@ For MacOs, we need brew installed.
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | bash
 ```
 
+## Structure
+
+- `Home` - this contains a bunch of ansible recipes that can be used to install a few tools for Ubuntu.
+    - Used to like ansible, but I much preffer things being as native as possible and I am not setting up a server, so I would say they are deprecated
+- `bin` - Check out the [#Scripts] section for this,
+- `cheatsheets` - this contains some local cheatsheets that I can access at any time with `sc`
+- `editorconfig` - this contains my default editorconfig that gets used everywhere
+- `gitignore` - Default gitignore for common directories/files you want to ignore
+- `iterm2` - I am having an existential crisis here, I kidna wanna migrate to `alacritty` everywhere
+- `nvim` - Personalized Development Environment in NeoVim
+- `scripts` - Extra scripts I need to run
+- `sh` - `zsh` configuration
+- `tmux` - `tmux` configuration
+
+## Aliases
+
+I am not a big fan of using aliases, cause honestly I tend to forget what I set. My methodology includes using aliases for as little as possible.
+
+The main aliases that get added would also be remaps in Neovim (this can be observed in the `remaps.lua` and `.zsh_aliases`).
+
 ### What is `stow`?
 
 `stow` is a symlink manager that allows us to create symlinks based on folders.
@@ -35,11 +55,13 @@ Example:
 
 On the given folder structure, if you run `stow nvim` from `.dotfiles`, a Symlink will be created to `~/.config/nvim` ( aka from the home dir, whatever the structure was inside the `nvim` folder )
 
-## Installing brew
+### Installing brew
+
+For MacOS, we need homebrew installed... this is outside of the install script, so run this manually
 
 > bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-## Features
+## Scripts
 
 ### tmux-exxegutor
 
