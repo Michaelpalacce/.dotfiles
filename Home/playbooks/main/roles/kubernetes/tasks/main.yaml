@@ -113,36 +113,3 @@
       path: "{{ helm_install_script_path }}"
       state: absent
 
-- name: Autocompletions
-  blockinfile:
-    path: "/home/{{ local.username }}/.bashrc"
-    block: "{{ item.completion }}"
-    marker: "# {mark} ANSIBLE MANAGED SOURCE COMPLETION BLOCK {{ item.marker }}"
-  loop:
-    - completion: |
-          if command -v kubectl &> /dev/null
-          then
-            source <(kubectl completion bash)
-            complete -F __start_kubectl k
-          fi
-      marker: "kubectl"
-    - completion: |
-          if command -v velero &> /dev/null
-          then
-            source <(velero completion bash)
-            complete -F __start_velero v
-          fi
-      marker: "velero"
-    - completion: |
-          source <(flux completion bash)
-      marker: "fluxcd"
-    - completion: |
-          if command -v helm &> /dev/null
-          then
-            source <(helm completion bash)
-            complete -F __start_helm h
-          fi
-      marker: "helm"
-    - completion: |
-          source <(minikube completion bash)
-      marker: "minikube"
