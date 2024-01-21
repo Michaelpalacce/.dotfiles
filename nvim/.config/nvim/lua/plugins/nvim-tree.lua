@@ -76,7 +76,7 @@ return {
 
 				-- custom mappings
 				vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-				vim.keymap.set('n', '<C-s>', grep_at_current_tree_node, opts('Search under current file'))
+				vim.keymap.set('n', '<C-f>', grep_at_current_tree_node, opts('Search under current file'))
 			end
 
 			api.events.subscribe(api.events.Event.FileCreated, function(file)
