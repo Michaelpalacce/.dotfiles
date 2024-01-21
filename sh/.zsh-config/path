@@ -1,0 +1,12 @@
+# ------------------------------------------------------------------------------
+#
+# ZSH Configuration for PATH
+#
+# Dependencies: none
+#
+# ------------------------------------------------------------------------------
+
+# This is needed since MacOS does not read ~/.local/bin, Linux does
+# Add ~/.dotfiles/bin/.local/bin to the path
+export DOTFILES_BIN_LOCAL_BIN="$HOME/.dotfiles/bin/.local/bin"
+export PATH="$DOTFILES_BIN_LOCAL_BIN:$PATH"

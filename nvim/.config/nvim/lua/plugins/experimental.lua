@@ -1,4 +1,5 @@
 return {
+	-- This plugin changes the line colors
 	{
 		'rasulomaroff/reactive.nvim',
 		config = function()
@@ -10,5 +11,5 @@ return {
 				}
 			}
 		end
-	}
+	},
 }
