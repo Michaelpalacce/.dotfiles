@@ -28,6 +28,8 @@ COMPLETION_WAITING_DOTS="true"
 
 zstyle ':omz:plugins:git' lazy yes
 zstyle ':omz:plugins:nvm' lazy yes
+# you need nvim in there since Copilot uses node...
+zstyle ':omz:plugins:nvm' lazy-cmd nvim
 
 export NVM_LAZY_LOAD=true
 plugins=(

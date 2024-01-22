@@ -12,6 +12,7 @@ return {
 			vim.keymap.set('n', '<leader>gC', builtin.git_commits, { desc = 'Telescope: [G]it [C]ommits' })
 
 			vim.keymap.set('n', "<leader>gp", function()
+				-- This is silent, keep that in mind
 				vim.cmd('silent Git push')
 			end, { desc = "Fugitive: [G]it [P]ush", remap = false })
 

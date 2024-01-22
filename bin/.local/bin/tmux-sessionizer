@@ -22,10 +22,17 @@ esac
 # Create a new session with the chosen file
 # Create a new window in the session too, so we can go to it if we need to run a command
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    # Not sure why this does not work on Linux, but it does on Mac
     if [[ $machine == "Linux" ]]; then
+        # Some interactive/login shell magic to make sure that nvm is loaded
         tmux new-session -ds $selected_name -c $selected "zsh -i -c '$1'"
+    elif [[ $machine == "Mac" ]]; then
+        # This will start nvm in the background, so it can lazy load fricking nodejs, cause 
+        # Copilot is a nodejs using bastard
+        # I hate this, but I don't know how to fix it
+        tmux new-session -ds $selected_name -c $selected "nohup nvm &> /dev/null & && zsh -i -c '$1'"
     else
+        # Guess this is not needed since I don't use anything else
+        # But I'll leave it here just in case nvm fix their loading times and I can use this instead...
         tmux new-session -ds $selected_name -c $selected $1
     fi
 
