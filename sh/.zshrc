@@ -40,15 +40,15 @@ plugins=(
 
 # ------------------------------ HACKS --------------------------------
 
-autoload -Uz compinit
-
-() {
-  if [[ $# -gt 0 ]]; then
-    compinit
-  else
-    compinit -C
-  fi
-} ${ZDOTDIR:-$HOME}/.zcompdump(N.mh+24)
+# autoload -Uz compinit
+#
+# () {
+#   if [[ $# -gt 0 ]]; then
+#     compinit
+#   else
+#     compinit -C
+#   fi
+# } ${ZDOTDIR:-$HOME}/.zcompdump(N.mh+24)
 
 # ------------------------------ Source modules ---------------------------------
 

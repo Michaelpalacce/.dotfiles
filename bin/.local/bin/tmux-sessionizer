@@ -22,19 +22,10 @@ esac
 # Create a new session with the chosen file
 # Create a new window in the session too, so we can go to it if we need to run a command
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    if [[ $machine == "Linux" ]]; then
-        # Some interactive/login shell magic to make sure that nvm is loaded
-        tmux new-session -ds $selected_name -c $selected "zsh -i -c '$1'"
-    elif [[ $machine == "Mac" ]]; then
-        # This will start nvm in the background, so it can lazy load fricking nodejs, cause 
-        # Copilot is a nodejs using bastard
-        # I hate this, but I don't know how to fix it
-        tmux new-session -ds $selected_name -c $selected "nohup nvm &> /dev/null & && zsh -i -c '$1'"
-    else
-        # Guess this is not needed since I don't use anything else
-        # But I'll leave it here just in case nvm fix their loading times and I can use this instead...
-        tmux new-session -ds $selected_name -c $selected $1
-    fi
+    # I hate this, but I don't know how to fix it... I need my stuff to be lazy loaded ;/
+    tmux new-session -ds $selected_name -c $selected
+    # Send the selected command to the tmux window
+    tmux send-keys -t $selected_name $1 Enter
 
     tmux split-window -v -t $selected_name -p 10 -c $selected
     tmux switch-client -t $selected_name:0.0
