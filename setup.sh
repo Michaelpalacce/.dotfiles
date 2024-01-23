@@ -20,6 +20,7 @@ installOsSpecific() {
 
 installNeovim() {
     if command_exists brew; then
+        print_color "$GREEN" "nvim not found, installing"
         brew install neovim ripgrep fd
     elif command_exists apt-get; then
         print_color "$GREEN" "nvim not found, installing"
@@ -31,6 +32,21 @@ installNeovim() {
 
         sudo apt-get update
         sudo apt-get install -y neovim
+    else
+        print_color "$RED" "Error: No package manager found"
+        exit 1
+    fi
+}
+
+installAlacritty() {
+    if command_exists brew; then
+        print_color "$GREEN" "alacritty not found, installing"
+        brew install --cask alacritty
+    elif command_exists apt-get; then
+        print_color "$GREEN" "alacritty not found, installing"
+        sudo add-apt-repository ppa:aslatter/ppa -y
+        sudo apt update
+        sudo apt install -y alacritty
     else
         print_color "$RED" "Error: No package manager found"
         exit 1
@@ -71,6 +87,13 @@ for package in ${APTS[@]} ; do
         print_color "$YELLOW" "$package exists, skipping"
     fi
 done
+
+if ! command_exists alacritty; then
+    print_color "$GREEN" "alacritty not found, installing"
+    installAlacritty
+else
+    print_color "$YELLOW" "alacritty exists, skipping"
+fi
 
 # Install nvim
 if ! command_exists nvim; then
