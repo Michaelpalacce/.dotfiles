@@ -1,15 +1,8 @@
 return {
-	-- This plugin changes the line colors
 	{
-		'rasulomaroff/reactive.nvim',
-		config = function()
-			require('reactive').setup {
-				builtin = {
-					cursorline = true,
-					cursor = true,
-					modemsg = true
-				}
-			}
-		end
+		'b0o/incline.nvim',
+		opts = {},
+		-- Optional: Lazy load Incline
+		event = 'VeryLazy',
 	},
 }
