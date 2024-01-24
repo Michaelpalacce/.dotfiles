@@ -1,59 +1,20 @@
 return {
 	{ 'nvim-tree/nvim-web-devicons' }, -- Does some magic so we can have icons.
 	{
-		'nvim-tree/nvim-tree.lua',  -- Shows a nice file tree
+		"antosha417/nvim-lsp-file-operations",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-tree.lua",
+		},
+		config = function()
+			require("lsp-file-operations").setup()
+		end,
+	},
+	{
+		'nvim-tree/nvim-tree.lua', -- Shows a nice file tree
 		config = function()
 			local api = require "nvim-tree.api"
 			local lib = require 'nvim-tree.lib'
-			local utils = require "nvim-tree.utils"
-
-			-- -- Auto Preview Start
-			-- -- Get a count of visible buffers outside of the tree
-			-- function has_multiple_visible_buffers()
-			-- 	local count = 0
-			-- 	for _, winid in ipairs(vim.api.nvim_list_wins()) do
-			-- 		local bufnr = vim.fn.winbufnr(winid)
-			-- 		if bufnr ~= -1 then
-			-- 			local bufname = vim.fn.bufname(bufnr)
-			-- 			if not (vim.fn.fnamemodify(bufname, ":t"):match("^NvimTree_[0-9]+$")
-			-- 					and (vim.bo[bufnr].filetype == "NvimTree" or vim.fn.filereadable(bufname) == 0)) then
-			-- 				count = count + 1
-			-- 			end
-			-- 		end
-			-- 	end
-			-- 	return count
-			-- end
-			--
-			-- local forbidden_preview_dirs = { "node_modules", ".git", "target" }
-			--
-			-- -- Open the preview window when moving the cursor
-			-- -- only if the node is a file
-			-- -- and only if there is only one visible buffer
-			-- -- Also, make sure that we don't preview folders in the forbidden_preview_dirs
-			-- vim.api.nvim_create_autocmd("CursorMoved", {
-			-- 	pattern = "NvimTree_*",
-			-- 	callback = function()
-			-- 		utils.debounce("Buf:modified", 50, function()
-			-- 			if has_multiple_visible_buffers() == 1 then
-			-- 				local node = api.tree.get_node_under_cursor()
-			--
-			-- 				if node.nodes == nil then
-			-- 					local preview = true
-			-- 					for _, forbidden_preview_dir in ipairs(forbidden_preview_dirs) do
-			-- 						if string.find(node.absolute_path, forbidden_preview_dir) then
-			-- 							preview = false
-			-- 						end
-			-- 					end
-			--
-			-- 					if preview then
-			-- 						api.node.open.preview()
-			-- 					end
-			-- 				end
-			-- 			end
-			-- 		end)
-			-- 	end
-			-- })
-			-- -- Auto Preview End
 
 			-- set termguicolors to enable highlight groups
 			vim.opt.termguicolors = true
