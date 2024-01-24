@@ -28,6 +28,7 @@ vim.keymap.set("n", "<leader>sc", "<cmd>silent !tmux neww tmux-cht<CR>", { desc 
 vim.keymap.set("n", "<leader>sb", "<cmd>silent !tmux neww tmux-exxegutor<CR>", { desc = "[S]cripts [B]uild" })
 vim.keymap.set("n", "<leader>si", "<cmd>silent !tmux neww tmux-identity-theft<CR>", { desc = "[S]cripts Switch [I]dentity" })
 vim.keymap.set("n", "<leader>ss", "<cmd>silent !tmux neww tmux-sshuttle-daddy<CR>", { desc = "[S]cripts Select [S]shuttle Server To Connect To" })
+vim.keymap.set("n", "<leader>sw", "<cmd>silent !tmux neww tmux-wttr<CR>", { desc = "[S]cripts Get [W]eather Info" })
 
 -- Move Lines
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })

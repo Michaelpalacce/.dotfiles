@@ -17,19 +17,14 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# # This allows you to use tmux-sessionizer to open a new tmux session with a specific command
-# # or to open a new tmux session with nvim
 # alias so='tmux-sessionizer "nvim ."'
-# tmux-timer allows me to set a timer in a tmux window
 alias st='tmux-timer'
-# tmux-sshuttle-daddy allows me to sshuttle into a remote server easily
 alias ss='tmux-sshuttle-daddy'
-# tmux-identity-theft allows me to switch between different identities of different programs. Example: .m2 .npmrc
 alias si='tmux-identity-theft'
-# This allows you to use tmux-cht to open a new tmux window with the cheat.sh details for a command
 alias sc="tmux-cht"
-# tmux-exxegutor allows you to execute differnt build commands in different tmux windows
 alias sb="tmux-exxegutor"
+alias sw="tmux-wttr"
+
 # prefer to use nvim instead of vim
 alias vim="nvim"
 alias vi="nvim"

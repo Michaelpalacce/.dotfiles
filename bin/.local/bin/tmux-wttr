@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Dependencies: curl, less, tmux
+#
+# Usage: tmux-wttr
+#
+# Allows you to view the weather in a new tmux window.
+# Uses wttr.in to get the weather information.
+
+
+weather=$(curl -s "wttr.in")
+
+tmux new-window -n "wttr" "echo '$weather' | less"
