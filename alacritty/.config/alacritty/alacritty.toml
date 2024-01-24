@@ -2,6 +2,7 @@ import = [
   # "~/.config/alacritty/catppuccin-latte.toml"
   # "~/.config/alacritty/catppuccin-frappe.toml"
   "~/.config/alacritty/catppuccin-macchiato.toml",
-  "~/.config/alacritty/window.toml"
+  "~/.config/alacritty/window.toml",
+  "~/.config/alacritty/font.toml",
   # "~/.config/alacritty/catppuccin-mocha.toml"
 ]
