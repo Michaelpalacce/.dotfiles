@@ -1,14 +1,6 @@
 return {
 	{
 		'nvim-telescope/telescope.nvim', -- Provides nice file jumping Capabilities
-		dependencies = {
-			{
-				"nvim-telescope/telescope-live-grep-args.nvim",
-				-- This will not install any breaking changes.
-				-- For major updates, this must be adjusted manually.
-				version = "^1.0.0",
-			}
-		},
 		config = function()
 			local builtin = require('telescope.builtin')
 			local actions = require('telescope.actions')
@@ -30,7 +22,8 @@ return {
 			vim.keymap.set('n', '<leader>fp', builtin.reloader, { desc = 'Telescope: [F]ind [P]lugins To reload' })
 			vim.keymap.set('n', '<leader>fR', builtin.registers, { desc = 'Telescope: [F]ind in [R^]egsiters' })
 			vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope: [F]ind [B]uffers' })
-			vim.keymap.set("n", "<Leader><tab>", "<Cmd>lua require('telescope.builtin').commands()<CR>", { desc = "Telescope: Commands", noremap = false })
+			vim.keymap.set("n", "<Leader><tab>", "<Cmd>lua require('telescope.builtin').commands()<CR>",
+				{ desc = "Telescope: Commands", noremap = false })
 
 			require('telescope').setup {
 				pickers = {
