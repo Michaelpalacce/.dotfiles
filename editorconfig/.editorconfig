@@ -9,7 +9,7 @@ end_of_line = lf
 insert_final_newline = true
 
 # I HATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTEEEE auto wrapping
-max_line_length=160
+max_line_length=140
 
 # Matches multiple files with brace expansion notation
 # Set default charset
