@@ -45,14 +45,15 @@ return function(opts)
 				table.insert(args, prompt_split[1])
 			end
 
-			if prompt_split[2] then
+			-- Any other prompts are treated as globs
+			for i = 2, #prompt_split do
 				table.insert(args, "-g")
 
 				local pattern
-				if opts.shortcuts[prompt_split[2]] then
-					pattern = opts.shortcuts[prompt_split[2]]
+				if opts.shortcuts[prompt_split[i]] then
+					pattern = opts.shortcuts[prompt_split[i]]
 				else
-					pattern = prompt_split[2]
+					pattern = prompt_split[i]
 				end
 
 				table.insert(args, string.format(opts.pattern, pattern))
@@ -67,7 +68,8 @@ return function(opts)
 					'--with-filename',
 					'--line-number',
 					'--column',
-					'--smart-case'
+					'--smart-case',
+					'--glob=!.git',
 				},
 			}
 		end,
