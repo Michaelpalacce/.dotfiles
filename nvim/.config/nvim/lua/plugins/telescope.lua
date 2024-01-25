@@ -1,14 +1,25 @@
 return {
 	{
 		'nvim-telescope/telescope.nvim', -- Provides nice file jumping Capabilities
+		dependencies = {
+			{
+				"nvim-telescope/telescope-live-grep-args.nvim",
+				-- This will not install any breaking changes.
+				-- For major updates, this must be adjusted manually.
+				version = "^1.0.0",
+			}
+		},
 		config = function()
 			local builtin = require('telescope.builtin')
 			local actions = require('telescope.actions')
 
+			local multi_rg = require "plugins.telescope.multi-rg"
+
 			vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope: [F]ind [F]iles' })
 			vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Telescope: [F]inder [R]esume' })
 			vim.keymap.set('n', '<leader>fs', builtin.live_grep,
-				{ desc = 'Telescope: [F]ind Word in Project [S]cope (live grep)' })
+				{ desc = 'Telescope: [F]ind [S]tring' })
+			vim.keymap.set('n', '<leader>fS', multi_rg, { desc = 'Telescope: [F]ind [S]tring With Superpowers' })
 			vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope: [F]ind [H]elp Tags' })
 			vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'Telescope: [F]ind [G]it files' })
 			vim.keymap.set('n', '<leader>fT', builtin.colorscheme,
@@ -43,7 +54,17 @@ return {
 					path_display = { 'smart' },
 					dynamic_preview_title = true,
 					results_title = 'Your Results Milord',
-					vimgrep_arguments = { 'rg', '--hidden', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' },
+					vimgrep_arguments = {
+						'rg',
+						'--hidden',
+						'--ignore',
+						'--color=never',
+						'--no-heading',
+						'--with-filename',
+						'--line-number',
+						'--column',
+						'--smart-case'
+					},
 					layout_config = {
 						horizontal = {
 							width = 0.95
