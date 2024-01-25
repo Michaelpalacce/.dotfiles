@@ -63,7 +63,8 @@ return {
 						'--with-filename',
 						'--line-number',
 						'--column',
-						'--smart-case'
+						'--smart-case',
+						'--glob=!.git',
 					},
 					layout_config = {
 						horizontal = {
