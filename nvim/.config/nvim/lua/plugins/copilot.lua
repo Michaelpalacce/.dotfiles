@@ -9,7 +9,7 @@ return {
 				-- Code related prompts
 				Explain = "Please explain how the following code works.",
 				Review = "Please review the following code and provide suggestions for improvement.",
-				Tests = "Please explain how the selected code works, then generate unit tests for it.",
+				Tests = "Please explain how the selected code works briefly, then generate unit tests for it.",
 				Refactor = "Please refactor the following code to improve its clarity and readability.",
 				Documentation =
 				"Please add documentation to the following code adhering to the standard for the language. Please keep it short and to the point so it's easier to read. Remember to only add information that is not apparent form the method signature.",
