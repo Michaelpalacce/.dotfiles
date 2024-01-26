@@ -1,6 +1,6 @@
 local ls = require("luasnip")
 local types = require("luasnip.util.types")
-local snippets = require("stef.snippets")
+local snippets = require("plugins.lsp.luasnip.snippets")
 
 ---#Config
 ls.config.set_config({
