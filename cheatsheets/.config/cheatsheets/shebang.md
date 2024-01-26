@@ -2,5 +2,7 @@ I can never remember these...
 
 # Bash
 
-`#!/usr/bin/env bash`
+```bash
+#!/usr/bin/env bash
+```
 
