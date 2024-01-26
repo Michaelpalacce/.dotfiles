@@ -27,7 +27,8 @@ vim.keymap.set("n", "<leader>st", "<cmd>silent !tmux neww tmux-timer<CR>", { des
 vim.keymap.set("n", "<leader>sc", "<cmd>silent !tmux neww tmux-cht<CR>", { desc = "[S]cripts [C]heatsheet" })
 vim.keymap.set("n", "<leader>sb", "<cmd>silent !tmux neww tmux-exxegutor<CR>", { desc = "[S]cripts [B]uild" })
 vim.keymap.set("n", "<leader>si", "<cmd>silent !tmux neww tmux-identity-theft<CR>", { desc = "[S]cripts Switch [I]dentity" })
-vim.keymap.set("n", "<leader>ss", "<cmd>silent !tmux neww tmux-sshuttle-daddy<CR>", { desc = "[S]cripts Select [S]shuttle Server To Connect To" })
+vim.keymap.set("n", "<leader>ss", "<cmd>silent !tmux neww tmux-sshuttle-daddy<CR>",
+	{ desc = "[S]cripts Select [S]shuttle Server To Connect To" })
 vim.keymap.set("n", "<leader>sw", "<cmd>silent !tmux neww tmux-wttr<CR>", { desc = "[S]cripts Get [W]eather Info" })
 
 -- Move Lines
@@ -57,9 +58,6 @@ vim.keymap.set("n", "<S-Down>", "<cmd>cnext<CR>zz", { desc = 'Go to the next qui
 vim.keymap.set("n", "<S-Up>", "<cmd>cprev<CR>zz", { desc = 'Go to the previous quickfix item' })
 vim.keymap.set("n", "<S-Left>", "<cmd>copen<CR>zz", { desc = 'Open quickfix' })
 vim.keymap.set("n", "<S-Right>", "<cmd>cclose<CR>zz", { desc = 'Close quickfix' })
-
--- Buffers
-vim.keymap.set("n", "<leader>bD", "<cmd>%bd|e#<CR>", { desc = '[B]uffers [D]elete all but current' })
 
 -- Files
 vim.keymap.set("n", "QA", ":qa!<CR>", { noremap = false, desc = "Quit without saving" })

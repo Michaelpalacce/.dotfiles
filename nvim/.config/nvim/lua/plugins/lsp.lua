@@ -14,7 +14,13 @@ return {
 			{ 'williamboman/mason-lspconfig.nvim' },
 
 			-- Debugging capabilities
-			{ 'mfussenegger/nvim-dap' },
+			{
+				'mfussenegger/nvim-dap',
+				dependencies = {
+					'rcarriga/nvim-dap-ui',
+					'leoluz/nvim-dap-go'
+				}
+			},
 
 			-- Autocompletion
 			{ 'hrsh7th/nvim-cmp' },
@@ -44,47 +50,17 @@ return {
 					"nvim-neotest/neotest-go",
 				},
 				config = function()
-					-- get neotest namespace (api call creates or returns namespace)
-					local neotest_ns = vim.api.nvim_create_namespace("neotest")
-					vim.diagnostic.config({
-						virtual_text = {
-							format = function(diagnostic)
-								local message =
-									diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
-								return message
-							end,
-						},
-					}, neotest_ns)
-
-					vim.keymap.set("n", "<leader>Tr", "<cmd>lua require'neotest'.run.run()<CR>",
-						{ silent = true, desc = "Neotest: [R]un nearest" })
-
-					vim.keymap.set("n", "<leader>Tf", "<cmd>lua require'neotest'.run.run(vim.fn.expand('%'))<CR>",
-						{ silent = true, desc = "Neotest: Run [F]ile" })
-
-					vim.keymap.set("n", "<leader>Ts", "<cmd>lua require'neotest'.summary.toggle()<CR>",
-						{ silent = true, desc = "Neotest: Toggle [S]ummary" })
-
-					vim.keymap.set("n", "<leader>To", "<cmd>lua require('neotest').output.open({ enter = true })<CR>",
-						{ silent = true, desc = "Neotest: Toggle [O]utput" })
-
-					vim.keymap.set('n', '[n', '<cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>',
-						{ noremap = true, silent = true, desc = "Neotest: Jump to [N]ext failed" })
-					vim.keymap.set('n', ']n', '<cmd>lua require("neotest").jump.next({ status = "failed" })<CR>',
-						{ noremap = true, silent = true, desc = "Neotest: Jump to [N]ext failed" })
-
-					require("neotest").setup({
-						adapters = {
-							require("neotest-go"),
-							require("neotest-vim-test")({ ignore_filetypes = { "go", "golang" } }),
-						},
-					})
 				end
 			},
 
 			-- Langauges
 			-- LUA
-			{ "folke/neodev.nvim", opts = {} },
+			{
+				"folke/neodev.nvim",
+				opts = {},
+				-- Lazy load only when needed
+				ft = "lua",
+			},
 
 		},
 		config = function()
@@ -99,7 +75,19 @@ return {
 			-- Completion
 			-- ##########################################################
 
-			require "plugins.lsp.cmp"
+			require "plugins.lsp.cmp" -- Contains all the completion configs
+
+			-- ##########################################################
+			-- Testing
+			-- ##########################################################
+
+			require "plugins.lsp.testing" -- Contains all the testing configs
+
+			-- ##########################################################
+			-- Debugging
+			-- ##########################################################
+
+			require "plugins.lsp.dap" -- Contains all the debugging configs
 		end
 	},
 	{
