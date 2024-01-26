@@ -1,5 +1,21 @@
 # `Tis It Folks
 
+## Showcase
+
+<p align="center">
+<img src="images/Layout.png" alt="Layout">
+</p>
+
+<details>
+    <summary>Debugging</summary>
+    <img src="images/Debugging.png"/>
+</details>
+
+<details>
+    <summary>Scripts</summary>
+    <img src="images/Scripts.png"/>
+</details>
+
 ## Supported OS
 
 - [x] Ubuntu
@@ -8,7 +24,7 @@
 
 ## Roadmap
 
-- [ ] Lazy loading as many Plugins as possible
+- [x] Lazy loading as many Plugins as possible
 - [ ] Higher stability for Plugins... Should be more mindful of errors 
 
 ## Setup
