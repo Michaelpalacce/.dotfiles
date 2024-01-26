@@ -16,6 +16,16 @@
     <img src="images/Scripts.png"/>
 </details>
 
+<details>
+    <summary>Cheatsheets</summary>
+    <img src="images/cheatsheets.png"/>
+</details>
+
+<details>
+    <summary>Automated idempotent setup</summary>
+    <img src="images/Setup.png"/>
+</details>
+
 ## Supported OS
 
 - [x] Ubuntu
@@ -35,6 +45,14 @@ For MacOs, we need brew installed.
 ```bash
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | bash
 ```
+
+## Philosophy
+
+- Be as native as possible with keybindings. Don't rely too much on remaps, know how to do without plugins.
+- Lazy Load everything. Commands/completions/etc need to be lazy loaded if possible.
+- Good separation of resources. Make sure things make sense and it's understood what x is for.
+- Document as much as possilbe. You won't remember in a few days let alone a few months.
+- Speed is the number one factor always.
 
 ## Structure
 
@@ -106,8 +124,11 @@ alternative identities with the originals. Example:
 It requires sshuttle to be installed. 
 The utility reads your ~/.ssh/known_hosts file and prompts you to either select from the existing IPs or specify a new one."
 
-### tmuxtimer
+### tmux-timer
 
 Starts a new timer in a separate tmux window. Will prompt you for 2 arguments if they are not given.
 
+### tmux-wttr
+
+Shows the weather forecast in another tmux windows.
 
