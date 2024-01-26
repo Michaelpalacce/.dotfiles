@@ -26,6 +26,11 @@
     <img src="images/Setup.png"/>
 </details>
 
+<details>
+    <summary>tmux-sessionizer</summary>
+    <img src="images/Sessionizer.png"/>
+</details>
+
 ## Supported OS
 
 - [x] Ubuntu
