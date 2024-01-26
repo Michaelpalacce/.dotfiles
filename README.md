@@ -8,8 +8,8 @@
 
 ## Roadmap
 
-- [ ] Linting https://github.com/mfussenegger/nvim-lint
-- [ ] Go DAP
+- [ ] Lazy loading as many Plugins as possible
+- [ ] Higher stability for Plugins... Should be more mindful of errors 
 
 ## Setup
 
