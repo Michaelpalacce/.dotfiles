@@ -41,6 +41,7 @@
 
 - [x] Lazy loading as many Plugins as possible
 - [ ] Higher stability for Plugins... Should be more mindful of errors 
+- [ ] Better documentation
 
 ## Setup
 
