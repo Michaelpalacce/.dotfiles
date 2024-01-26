@@ -1,6 +1,7 @@
 return {
 	{
 		'nvim-telescope/telescope.nvim', -- Provides nice file jumping Capabilities
+		event = 'VeryLazy',
 		config = function()
 			local builtin = require('telescope.builtin')
 			local actions = require('telescope.actions')

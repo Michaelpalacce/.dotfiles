@@ -28,7 +28,7 @@ return {
 				vim.notify("CopilotChat - Updated remote plugins. Please restart Neovim.")
 			end, 3000)
 		end,
-		event = "VeryLazy",
+		event = "TextYankPost",
 		keys = {
 			-- Code related keys (default: <leader>cc)
 			{ "<leader>cce", "<cmd>CopilotChatExplain<cr>",       desc = "CopilotChat - Explain code" },
@@ -47,6 +47,7 @@ return {
 	},
 	{
 		'github/copilot.vim',
+		event = "BufRead",
 		config = function()
 			vim.g.copilot_no_tab_map = true
 			vim.g.copilot_assume_mapped = true

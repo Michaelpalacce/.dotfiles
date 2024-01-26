@@ -1,17 +1,7 @@
 return {
 	{ 'nvim-tree/nvim-web-devicons' }, -- Does some magic so we can have icons.
 	{
-		"antosha417/nvim-lsp-file-operations",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-tree.lua",
-		},
-		config = function()
-			require("lsp-file-operations").setup()
-		end,
-	},
-	{
-		'nvim-tree/nvim-tree.lua', -- Shows a nice file tree
+		'nvim-tree/nvim-tree.lua',  -- Shows a nice file tree
 		config = function()
 			local api = require "nvim-tree.api"
 			local lib = require 'nvim-tree.lib'

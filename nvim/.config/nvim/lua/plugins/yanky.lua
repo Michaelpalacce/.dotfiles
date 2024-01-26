@@ -7,6 +7,7 @@ return {
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below
 		},
+		event = "BufRead",
 		config = function()
 			require("telescope").load_extension("yank_history")
 			vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
