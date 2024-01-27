@@ -35,8 +35,8 @@ end, { silent = true })
 -- Go forward to the next region
 vim.keymap.set({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
 
--- load vscode style snippets from other plugins
-require("luasnip.loaders.from_vscode").lazy_load()
+-- -- load vscode style snippets from other plugins
+-- require("luasnip.loaders.from_vscode").lazy_load()
 
 -- load my custom snippets
 ls.add_snippets("typescript", snippets.typescript)
