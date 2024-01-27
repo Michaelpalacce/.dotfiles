@@ -47,6 +47,7 @@ local mappings = {
 	['<ESC>'] = cmp.mapping.close(),
 }
 
+
 cmp.setup({
 	-- I don't want anything in the completion preview to be highlighted
 	preselect = types.cmp.PreselectMode.None,
@@ -57,13 +58,13 @@ cmp.setup({
 	},
 	mapping = mappings,
 	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
-		{ name = 'luasnip' },
-		{ name = 'nvim_lsp_signature_help' },
-		{ name = 'nvim_lua' },
+		{ name = 'nvim_lsp', max_item_count = 10 },
+		{ name = 'luasnip',  max_item_count = 5 },
 	}, {
+		{ name = 'nvim_lua' },
+		{ name = 'nvim_lsp_signature_help' },
 		{ name = 'path' },
-		{ name = 'buffer' }
+		{ name = 'buffer',                 max_item_count = 5 }
 	}),
 	window = {
 		completion = require("stef.helpers.lsp").bordered({
