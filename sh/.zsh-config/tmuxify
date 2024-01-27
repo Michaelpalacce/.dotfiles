@@ -1,0 +1,3 @@
+if [[ ! -v TMUX ]]; then
+	tmux-chooser
+fi
