@@ -47,7 +47,6 @@ local mappings = {
 	['<ESC>'] = cmp.mapping.close(),
 }
 
-
 cmp.setup({
 	-- I don't want anything in the completion preview to be highlighted
 	preselect = types.cmp.PreselectMode.None,
@@ -67,11 +66,11 @@ cmp.setup({
 		{ name = 'buffer',                 max_item_count = 5 }
 	}),
 	window = {
-		completion = require("stef.helpers.lsp").bordered({
+		completion = require("plugins.lsp.helpers.bordered").bordered({
 			max_width = 3000,
 			max_height = 3000
 		}),
-		documentation = require("stef.helpers.lsp").bordered({
+		documentation = require("plugins.lsp.helpers.bordered").bordered({
 			max_width = 3000,
 			max_height = 3000
 		}),
