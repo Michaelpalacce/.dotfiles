@@ -15,7 +15,7 @@ additional_lines_content=""
 additional_lines_content+="New One\n"
 content_with_additional_lines=$(printf "%s\n%s" "$additional_lines_content" "$ipList")
 
-selected=$(echo -e "$content_with_additional_lines" | fzf)
+selected=$(echo -e "$content_with_additional_lines" | fzf --height 60% --layout=reverse --border --prompt="Choose an IP to connect to: ")
 
 if [[ -z $selected ]]; then
     exit 0

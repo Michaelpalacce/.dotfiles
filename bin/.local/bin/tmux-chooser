@@ -21,7 +21,7 @@ elif [[ $no_of_terminals -eq 1 ]]; then
     tmux attach
     exit 0
 else
-    selected=$(printf '%s\n' "${output[@]}" | fzf --height 40% --layout=reverse --border --prompt="Choose the terminal to attach: ")
+    selected=$(printf '%s\n' "${output[@]}" | fzf --height 60% --layout=reverse --border --prompt="Choose the terminal to attach: ")
     index=$(echo $selected | cut -d':' -f1)
     tmux attach -t "$index"
 fi

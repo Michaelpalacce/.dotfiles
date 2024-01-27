@@ -27,7 +27,7 @@ CMDS=(
 # In case of mvn clean package, you may want to see the output as it's a one and done process.
 detached=0
 
-choice=$(printf "%s\n" "${CMDS[@]}" | fzf)
+choice=$(printf "%s\n" "${CMDS[@]}" | fzf --height 60% --layout=reverse --border --prompt="Select a command: ")
 case $choice in
     "btva vrealize:push")
         read -p "Enter Profile: (should fuzzy find in the future)" profile
