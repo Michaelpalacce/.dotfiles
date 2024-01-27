@@ -122,7 +122,7 @@ return {
 				git = {
 					enable = true,
 					ignore = false,
-					timeout = 500,
+					timeout = 1000,
 				},
 				on_attach = customAttach,
 			})
