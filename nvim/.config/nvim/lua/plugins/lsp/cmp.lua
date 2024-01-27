@@ -41,8 +41,22 @@ local mappings = {
 	['<C-f>'] = cmp.mapping.scroll_docs(4),
 
 	-- Disable up and down... I want to move
-	['<Up>'] = cmp.mapping.close(),
-	['<Down>'] = cmp.mapping.close(),
+	['<Up>'] = function(fallback)
+		if cmp.visible() then
+			cmp.close()
+			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Up>', true, true, true), 'n', true)
+		else
+			fallback()
+		end
+	end,
+	['<Down>'] = function(fallback)
+		if cmp.visible() then
+			cmp.close()
+			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Down>', true, true, true), 'n', true)
+		else
+			fallback()
+		end
+	end,
 	-- Escape will close the completion menu, but won't cancel insert mode
 	['<ESC>'] = cmp.mapping.close(),
 }
