@@ -10,8 +10,8 @@ return {
 		event = "BufRead",
 		config = function()
 			require("telescope").load_extension("yank_history")
-			vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
-			vim.keymap.set({ "n", "x" }, "P", ":Telescope yank_history<CR>", { desc = '[T]oggle [Y]ank History' })
+			vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", { desc = '[P]aste' })
+			vim.keymap.set({ "n", "x" }, "P", ":Telescope yank_history<CR>", { desc = 'Telescope: Toggle Yank [P]aste History' })
 
 			require("yanky").setup {
 				highlight = {

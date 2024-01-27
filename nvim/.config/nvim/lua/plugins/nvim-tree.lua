@@ -35,7 +35,7 @@ return {
 			end)
 
 			-- Remap to easily toggle the tree view
-			vim.keymap.set("n", "<leader>tt", vim.cmd.NvimTreeToggle, { desc = "[T]oggle Nvim [T]ree" })
+			vim.keymap.set("n", "<leader>tt", vim.cmd.NvimTreeToggle, { desc = "Telescope: [T]oggle Nvim [T]ree" })
 
 			-- OR setup with some options
 			require("nvim-tree").setup({

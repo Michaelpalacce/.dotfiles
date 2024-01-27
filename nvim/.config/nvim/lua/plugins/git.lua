@@ -5,7 +5,7 @@ return {
 			local builtin = require('telescope.builtin')
 
 			-- Note: <C-w>7- is a hack to make the window smaller
-			vim.keymap.set('n', "<leader>gs", "<cmd>G <CR><C-w>7-", { desc = '[T]oggle [G]it Status' })
+			vim.keymap.set('n', "<leader>gs", "<cmd>G <CR><C-w>7-", { desc = 'Fugitive: [G]it [S]tatus' })
 			vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope: [G]it [B]ranches' })
 			vim.keymap.set('n', '<leader>gd', builtin.git_status, { desc = 'Telescope: [G]it [D]iff' })
 			vim.keymap.set('n', '<leader>gc', builtin.git_bcommits, { desc = 'Telescope: [G]it buffer [C]ommits' })
@@ -69,19 +69,18 @@ return {
 				end, { expr = true })
 
 				-- Actions
-				map('n', '<leader>hs', gs.stage_hunk, { desc = '[H]unk [S]tage' })
-				map('n', '<leader>hr', gs.reset_hunk, { desc = '[H]unk [R]eset' })
+				map('n', '<leader>hs', gs.stage_hunk, { desc = 'GitSigns: [H]unk [S]tage' })
+				map('n', '<leader>hr', gs.reset_hunk, { desc = 'GitSigns: [H]unk [R]eset' })
 				map('v', '<leader>hs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
-					{ desc = '[H]unk [S]tage' })
+					{ desc = 'GitSigns: [H]unk [S]tage' })
 				map('v', '<leader>hr', function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
-					{ desc = '[H]unk [R]eset' })
-				map('n', '<leader>hS', gs.stage_buffer, { desc = "[H]unk [S]tage buffer" })
-				map('n', '<leader>hu', gs.undo_stage_hunk, { desc = "[H]unk [U]ndo stage hunk" })
-				map('n', '<leader>hR', gs.reset_buffer, { desc = "[H]unk [R]eset buffer" })
-				map('n', '<leader>hp', gs.preview_hunk, { desc = "[H]unk [P]review" })
-				map('n', '<leader>hb', function() gs.blame_line { full = true } end)
-				map('n', '<leader>hd', gs.diffthis)
-				map('n', '<leader>hD', function() gs.diffthis('~') end)
+					{ desc = 'GistSigns: [H]unk [R]eset' })
+				map('n', '<leader>hS', gs.stage_buffer, { desc = "GitSigns: [H]unk [S]tage buffer" })
+				map('n', '<leader>hu', gs.undo_stage_hunk, { desc = "GitSigns: [H]unk [U]ndo stage hunk" })
+				map('n', '<leader>hR', gs.reset_buffer, { desc = "GitSigns: [H]unk [R]eset buffer" })
+				map('n', '<leader>hp', gs.preview_hunk, { desc = "GitSigns: [H]unk [P]review" })
+				map('n', '<leader>hb', function() gs.blame_line { full = true } end, { desc = "GitSigns: [H]unk [B]lame" })
+				map('n', '<leader>hd', gs.diffthis, { desc = "GitSigns: [H]unk [D]iff" })
 			end
 		},
 		config = true,
