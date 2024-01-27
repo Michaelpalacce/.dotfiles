@@ -9,6 +9,7 @@ return {
 			local multi_rg = require "plugins.telescope.multi-rg"
 
 			vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope: [F]ind [F]iles' })
+			vim.keymap.set('n', '<leader>fF', builtin.oldfiles, { desc = 'Telescope: [F]ind [O]ldfiles' })
 			vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Telescope: [F]inder [R]esume' })
 			vim.keymap.set('n', '<leader>fs', builtin.live_grep,
 				{ desc = 'Telescope: [F]ind [S]tring' })
