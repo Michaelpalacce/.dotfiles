@@ -31,18 +31,18 @@ return {
 		event = "TextYankPost",
 		keys = {
 			-- Code related keys (default: <leader>cc)
-			{ "<leader>cce", "<cmd>CopilotChatExplain<cr>",       desc = "CopilotChat - Explain code" },
-			{ "<leader>cct", "<cmd>CopilotChatTests<cr>",         desc = "CopilotChat - Generate tests" },
-			{ "<leader>ccr", "<cmd>CopilotChatReview<cr>",        desc = "CopilotChat - Review code" },
-			{ "<leader>ccR", "<cmd>CopilotChatRefactor<cr>",      desc = "CopilotChat - Refactor code" },
-			{ "<leader>ccd", "<cmd>CopilotChatDocumentation<cr>", desc = "CopilotChat - Add documentation" },
-			{ "<leader>ccs", "<cmd>CopilotChatSimplify<cr>",      desc = "CopilotChat - Simplify code" },
+			{ "<leader>cce", "<cmd>CopilotChatExplain<cr>",       desc = "[C]opilotChat: [C]ode [E]xplain" },
+			{ "<leader>cct", "<cmd>CopilotChatTests<cr>",         desc = "[C]opilotChat: [C]ode Generate [T]ests" },
+			{ "<leader>ccr", "<cmd>CopilotChatReview<cr>",        desc = "[C]opilotChat: [C]ode [R]eview" },
+			{ "<leader>ccR", "<cmd>CopilotChatRefactor<cr>",      desc = "[C]opilotChat: [C]ode [R]efactor" },
+			{ "<leader>ccd", "<cmd>CopilotChatDocumentation<cr>", desc = "[C]opilotChat: [C]ode Add [D]ocumentation" },
+			{ "<leader>ccs", "<cmd>CopilotChatSimplify<cr>",      desc = "[C]opilotChat: [C]ode [S]implify" },
 
 			-- Text related keys (default: <leader>ct)
-			{ "<leader>cts", "<cmd>CopilotChatSummarize<cr>",     desc = "CopilotChat - Summarize text" },
-			{ "<leader>ctS", "<cmd>CopilotChatSpelling<cr>",      desc = "CopilotChat - Correct spelling" },
-			{ "<leader>ctw", "<cmd>CopilotChatWording<cr>",       desc = "CopilotChat - Improve wording" },
-			{ "<leader>ctc", "<cmd>CopilotChatConcise<cr>",       desc = "CopilotChat - Make text concise" },
+			{ "<leader>cts", "<cmd>CopilotChatSummarize<cr>",     desc = "[C]opilotChat: [T]ext [S]ummarize" },
+			{ "<leader>ctS", "<cmd>CopilotChatSpelling<cr>",      desc = "[C]opilotChat: [T]ext Correct [S]pelling" },
+			{ "<leader>ctw", "<cmd>CopilotChatWording<cr>",       desc = "[C]opilotChat: [T]ext Improve [W]ording" },
+			{ "<leader>ctc", "<cmd>CopilotChatConcise<cr>",       desc = "[C]opilotChat: [T]ext Make text [C]oncise" },
 		},
 	},
 	{
