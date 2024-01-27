@@ -9,7 +9,6 @@
 # Should be ran on startup for terminals.
 #
 
-
 no_of_terminals=$(tmux list-sessions | wc -l)
 output=$(tmux list-sessions)
 # echo $output
@@ -23,7 +22,7 @@ elif [[ $no_of_terminals -eq 1 ]]; then
     exit 0
 else
     selected=$(printf '%s\n' "${output[@]}" | fzf --height 40% --layout=reverse --border --prompt="Choose the terminal to attach: ")
-    index=$(printf '%s\n' "${output[@]}" | grep -n "$selected" | cut -d: -f1)
+    index=$(echo $selected | cut -d':' -f1)
     tmux attach -t "$index"
 fi
 
