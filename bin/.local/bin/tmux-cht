@@ -3,12 +3,11 @@
 # Dependencies: fzf, curl, tmux, nvim
 
 # This script is used to search cheat sheets from cheat.sh and open them in a new tmux window
-# It also searches for additional cheat sheets in the local_cheatsheets_dir and obsidian_cheatsheets directories
+# It also searches for additional cheat sheets in the local_cheatsheets_dir
 # The additional cheatsheets will be opened in nvim, so you can edit them
 
 file_path="$HOME/.cache/cheat-sheets"
 local_cheatsheets_dir="$HOME/.config/cheatsheets"
-obsidian_cheatsheets_dir="$HOME/Documents/Obsidian"
 
 # If the cache is older than 1 day, update it
 if [[ ! -f $file_path ]] || [[ $(find $file_path -mtime +1 -print) ]]; then
@@ -30,21 +29,14 @@ local_cheetsheets_content=$(get_files_recursive "$local_cheatsheets_dir" "")
 additional_lines_content=""
 additional_lines_content+="META: Create cheatsheet\n"
 additional_lines_content+="META: Delete cheatsheet\n"
-additional_lines_content+="META: Obsidian\n"
 
 # Concatenate additional lines with file contents
 file_contents=$(cat "$file_path")
 content_with_additional_lines=$(printf "%s\n%s\n%s\n%s" "$additional_lines_content" "$local_cheetsheets_content" "$file_contents")
 
-selected=$(echo -e "$content_with_additional_lines" | fzf)
+selected=$(echo -e "$content_with_additional_lines" | fzf --height 60% --layout=reverse --border --prompt="Choose a Cheatsheet: ")
 
 if [[ -z $selected ]]; then
-    exit 0
-elif [[ $selected == "META: Obsidian" ]]; then
-    obsidian_cheetsheets_content=$(get_files_recursive "$obsidian_cheatsheets_dir" "")
-    selected=$(echo -e "$obsidian_cheetsheets_content" | fzf)
-    # If the selected line is in the additional lines directory, cat it
-    tmux new-window "nvim \"$obsidian_cheatsheets_dir/$selected\""
     exit 0
 elif [[ $selected == "META: Create cheatsheet" ]]; then
     # Create a new cheat sheet
