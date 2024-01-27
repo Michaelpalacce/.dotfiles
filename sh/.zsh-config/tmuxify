@@ -1,3 +1,5 @@
+# If we are not in a TMUX terminal, open it up
+
 if [[ ! -v TMUX ]]; then
 	tmux-chooser
 fi

@@ -1,33 +1,29 @@
 #!/usr/bin/bash
 
-# Doesn't let you press Ctrl-C
-function ctrl_c() {
-	echo -e "\renter nil to drop to normal prompt"
-}
+# Dependencies: fzf, tmux
+#
+# This script is a wrapper around tmux attach. If there is only one tmux session
+# running, it attaches to it. If there are multiple sessions, it shows a fzf
+# menu to choose the session to attach to.
+# If there are no sessions, it creates a new session.
+# Should be ran on startup for terminals.
+#
 
-trap ctrl_c SIGINT
 
 no_of_terminals=$(tmux list-sessions | wc -l)
-IFS=$'\n'
-output=($(tmux list-sessions))
-output_names=($(tmux list-sessions -F\#S))
-k=1
-echo "Choose the terminal to attach: "
-for i in "${output[@]}"; do
-	echo "$k - $i"
-	((k++))
-done
-echo
-echo "Create a new session by entering a name for it"
-read -r input
-if [[ $input == "" ]]; then
-	tmux new-session
-elif [[ $input == 'nil' ]]; then
-	exit 1
-elif [[ $input =~ ^[0-9]+$ ]] && [[ $input -le $no_of_terminals ]]; then
-	terminal_name="${output_names[input - 1]}"
-	tmux attach -t "$terminal_name"
+output=$(tmux list-sessions)
+# echo $output
+echo $no_of_terminals
+
+if [[ $no_of_terminals -eq 0 ]]; then
+    tmux new-session
+    exit 0
+elif [[ $no_of_terminals -eq 1 ]]; then
+    tmux attach
+    exit 0
 else
-	tmux new-session -s "$input"
+    selected=$(printf '%s\n' "${output[@]}" | fzf --height 40% --layout=reverse --border --prompt="Choose the terminal to attach: ")
+    index=$(printf '%s\n' "${output[@]}" | grep -n "$selected" | cut -d: -f1)
+    tmux attach -t "$index"
 fi
-exit 0
+
