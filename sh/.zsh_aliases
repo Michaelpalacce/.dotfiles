@@ -28,6 +28,7 @@ alias sw="tmux-wttr"
 # prefer to use nvim instead of vim
 alias vim="nvim"
 alias vi="nvim"
+alias n="nvim ."
 # prefer to use just k instead of kubectl
 alias k='kubectl'
 
