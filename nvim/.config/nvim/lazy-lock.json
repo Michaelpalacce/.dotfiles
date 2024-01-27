@@ -16,7 +16,6 @@
   "copilot.vim": { "branch": "release", "commit": "a8142d44602f1b3f7b5c03c52b55f8f5d3453bf0" },
   "fidget.nvim": { "branch": "main", "commit": "0ba1e16d07627532b6cae915cc992ecac249fb97" },
   "flash.nvim": { "branch": "main", "commit": "48817af25f51c0590653bbc290866e4890fe1cbe" },
-  "friendly-snippets": { "branch": "main", "commit": "aced40b66b7bae9bc2c37fd7b11841d54727a7b0" },
   "gitsigns.nvim": { "branch": "main", "commit": "0a2a93f687ec051292943a4d139366332ac93688" },
   "harpoon": { "branch": "harpoon2", "commit": "2cd4e03372f7ee5692c8caa220f479ea07970f17" },
   "incline.nvim": { "branch": "main", "commit": "84344c45a0b9b42e294a97966164bca379c86f4c" },
