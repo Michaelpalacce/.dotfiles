@@ -64,6 +64,24 @@ return {
 			}
 		))
 	},
+	javascript = {
+		-- methods
+		snippet(
+			{ trig = "/**", snippetType = "autosnippet" },
+			fmt(
+				[[
+/**
+* {comment}
+*/
+        ]],
+				{
+					comment = indentSnippetNode(0, {
+						insert(1),
+					}, "$PARENT_INDENT *"),
+				}
+			)
+		),
+	},
 	typescript = {
 		-- methods
 		snippet("public", ts_function_snippet("public")),

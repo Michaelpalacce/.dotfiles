@@ -40,4 +40,5 @@ vim.keymap.set({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true
 
 -- load my custom snippets
 ls.add_snippets("typescript", snippets.typescript)
+ls.add_snippets("javascript", snippets.javascript)
 ls.add_snippets("go", snippets.go)
