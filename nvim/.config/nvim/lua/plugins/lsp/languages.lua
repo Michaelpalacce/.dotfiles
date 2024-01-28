@@ -28,6 +28,9 @@ lspconfig.lua_ls.setup({
 		Lua = {
 			completion = {
 				callSnippet = "Replace"
+			},
+			diagnostics = {
+				globals = { 'vim' }
 			}
 		}
 	}
