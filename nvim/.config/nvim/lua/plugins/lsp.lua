@@ -64,16 +64,6 @@ return {
 					require "plugins.lsp.testing"
 				end
 			},
-
-			-- Langauges
-			-- LUA
-			{
-				"folke/neodev.nvim",
-				opts = {},
-				-- Lazy load only when needed
-				ft = "lua",
-			},
-
 		},
 		config = function()
 			-- ##########################################################

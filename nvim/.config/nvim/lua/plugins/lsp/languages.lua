@@ -22,11 +22,6 @@ require('mason-lspconfig').setup {
 	}
 }
 
--- LUA
-require("neodev").setup({
-	-- add any options here, or leave empty to use the default settings
-})
-
 -- (Optional) Configure lua language server for neovim
 lspconfig.lua_ls.setup({
 	settings = {
