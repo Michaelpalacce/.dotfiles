@@ -16,6 +16,8 @@ CMDS=(
     "tsc --watch"
     "nodemon"
     "npm run build"
+    "pm2-runtime"
+    "pm2-runtime dev.ecosystem.config.js"
 )
 
 # This flag determines if the session is dedicated to that process and will 
@@ -59,6 +61,14 @@ case $choice in
         ;;
     "nat watch")
         selected="nat --watch --watchMs=2000"
+        detached=1
+        ;;
+    "pm2-runtime")
+        selected="pm2-runtime"
+        detached=1
+        ;;
+    "pm2-runtime dev.ecosystem.config.js")
+        selected="pm2-runtime dev.ecosystem.config.js"
         detached=1
         ;;
     *)
