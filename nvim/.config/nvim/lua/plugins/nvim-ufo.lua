@@ -33,6 +33,9 @@ return {
 				close_fold_kinds = {
 					'imports',
 				},
+				provider_selector = function(bufnr, filetype, buftype)
+					return { 'lsp', 'treesitter' }
+				end
 			})
 		end
 	}
