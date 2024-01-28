@@ -11,7 +11,11 @@ require('mason-lspconfig').setup {
 		'vimls',
 		'volar',
 		'lemminx',
-		'gopls'
+		'gopls',
+		'cmake',
+		'gopls',
+		'html',
+		'tailwindcss'
 	},
 	handlers = {
 		lsp.default_setup
