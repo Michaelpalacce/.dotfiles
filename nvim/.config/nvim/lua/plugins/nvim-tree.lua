@@ -120,7 +120,7 @@ return {
 					dotfiles = false,
 				},
 				git = {
-					enable = true,
+					enable = false,
 					ignore = false,
 					timeout = 1000,
 				},
