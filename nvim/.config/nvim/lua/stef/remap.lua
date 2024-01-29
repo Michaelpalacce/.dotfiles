@@ -30,13 +30,15 @@ vim.keymap.set("n", "<leader>si", "<cmd>silent !tmux neww tmux-identity-theft<CR
 vim.keymap.set("n", "<leader>ss", "<cmd>silent !tmux neww tmux-sshuttle-daddy<CR>",
 	{ desc = "[S]cripts Select [S]shuttle Server To Connect To" })
 vim.keymap.set("n", "<leader>sw", "<cmd>silent !tmux neww tmux-wttr<CR>", { desc = "[S]cripts Get [W]eather Info" })
-
--- Indentation with Tab / Shift Tab
-vim.keymap.set("v", "<tab>", ">gv", { noremap = false, desc = "Indent right" })
-vim.keymap.set("v", "<S-tab>", "<gv", { noremap = false, desc = "Indent left" })
-
-vim.keymap.set("n", "<tab>", ">>", { noremap = false, desc = "Indent right" })
-vim.keymap.set("n", "<S-tab>", "<<", { noremap = false, desc = "Indent left" })
+--
+-- -- Indentation with Tab / Shift Tab
+-- FUCK MACOS............ for some fucking unbelievable reason, setting this
+-- makes FUCKING ctrl+I PUT A TAB???????????????????????????????????????????
+-- vim.keymap.set("v", "<tab>", ">gv", { noremap = false, desc = "Indent right" })
+-- vim.keymap.set("v", "<S-tab>", "<gv", { noremap = false, desc = "Indent left" })
+--
+-- vim.keymap.set("n", "<tab>", ">>", { noremap = false, desc = "Indent right" })
+-- vim.keymap.set("n", "<S-tab>", "<<", { noremap = false, desc = "Indent left" })
 
 -- Move Lines
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
