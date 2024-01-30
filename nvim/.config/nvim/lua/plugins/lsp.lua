@@ -35,6 +35,7 @@ return {
 					'rcarriga/nvim-dap-ui',
 					'leoluz/nvim-dap-go'
 				},
+				ft = { "go", "gomod" },
 				config = function()
 					-- ##########################################################
 					-- Debugging
