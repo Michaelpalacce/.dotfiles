@@ -23,11 +23,11 @@ return {
 						alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
 						-- signs = false, -- configure signs for some keywords individually
 					},
-					TODO = { icon = " ", color = "info", alt = { "todo" } },
+					TODO = { icon = " ", color = "info", alt = { "todo", "Todo" } },
 					HACK = { icon = " ", color = "warning" },
-					WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+					WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX", "Warn", "Warning" } },
 					PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-					NOTE = { icon = " ", color = "hint", alt = { "INFO", "info" } },
+					NOTE = { icon = " ", color = "hint", alt = { "INFO", "info", "Note", "NOTE", "note" } },
 					TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED", "test" } },
 				},
 				search = {
