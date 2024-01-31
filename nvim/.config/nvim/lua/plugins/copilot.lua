@@ -45,12 +45,70 @@ return {
 			{ "<leader>ctc", "<cmd>CopilotChatConcise<cr>",       desc = "[C]opilotChat: [T]ext Make text [C]oncise" },
 		},
 	},
+	-- {
+	-- 	'github/copilot.vim',
+	-- 	event = "BufRead",
+	-- 	config = function()
+	-- 		vim.g.copilot_no_tab_map = true
+	-- 		vim.g.copilot_assume_mapped = true
+	-- 	end
+	-- },
 	{
-		'github/copilot.vim',
-		event = "BufRead",
+		'zbirenbaum/copilot.lua',
+		cmd = "Copilot",
+		event = "InsertEnter",
 		config = function()
-			vim.g.copilot_no_tab_map = true
-			vim.g.copilot_assume_mapped = true
+			require("copilot").setup {
+				panel = {
+					enabled = true,
+					auto_refresh = false,
+					keymap = {
+						jump_prev = "[[",
+						jump_next = "]]",
+						accept = "<CR>",
+						refresh = "cr",
+						open = "<M-CR>"
+					},
+					layout = {
+						position = "top", -- | top | left | right
+						ratio = 0.3
+					},
+				},
+				suggestion = {
+					enabled = true,
+					auto_trigger = true,
+					debounce = 50,
+					keymap = {
+						accept = "<M-l>",
+						accept_word = "<M-Right>",
+						accept_line = false,
+						next = "<M-]>",
+						prev = "<M-[>",
+						dismiss = "<C-]>",
+					},
+				},
+				filetypes = {
+					-- yaml = false,
+					-- markdown = true,
+					-- help = false,
+					-- gitcommit = true,
+					-- gitrebase = false,
+					-- hgcommit = false,
+					-- svn = false,
+					-- cvs = false,
+					-- ["."] = false,
+					["*"] = true
+				},
+				copilot_node_command = 'node', -- Node.js version must be > 18.x
+				server_opts_overrides = {
+					settings = {
+						advanced = {
+							listCount = 10, -- #completions for panel
+							inlineSuggestCount = 5, -- #completions for getCompletions
+						}
+					},
+				},
+			}
 		end
-	},
+	}
 }
