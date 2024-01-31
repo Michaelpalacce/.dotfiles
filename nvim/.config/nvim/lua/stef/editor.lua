@@ -55,7 +55,7 @@ vim.o.timeout = true
 vim.o.timeoutlen = 0
 
 -- Sync with system clipboard
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamed,unnamedplus"
 
 -- Highlight cursor line
 vim.wo.cursorline = true
