@@ -17,26 +17,10 @@ return {
 			vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
 			vim.keymap.set('n', 'zz', require('ufo').enableFold)
 
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities.textDocument.foldingRange = {
-				dynamicRegistration = false,
-				lineFoldingOnly = true
-			}
-			local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
-			for _, ls in ipairs(language_servers) do
-				require('lspconfig')[ls].setup({
-					capabilities = capabilities
-					-- you can add other fields for setting up lsp server in this table
-				})
-			end
-
 			require('ufo').setup({
 				open_fold_hl_timeout = 150,
-				close_fold_kinds = {
-					'imports',
-				},
 				provider_selector = function(bufnr, filetype, buftype)
-					return { 'lsp', 'treesitter' }
+					return { 'treesitter' }
 				end
 			})
 		end
