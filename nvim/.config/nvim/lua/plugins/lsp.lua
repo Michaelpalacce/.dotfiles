@@ -65,6 +65,11 @@ return {
 					require "plugins.lsp.testing"
 				end
 			},
+
+			{
+				"folke/neodev.nvim",
+				opts = {}
+			}
 		},
 		config = function()
 			-- ##########################################################
