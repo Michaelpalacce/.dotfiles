@@ -1,6 +1,7 @@
 # MacOs is shit, but we can make it better...
 # This is a continuous effort
 
+brew install gsed
 
 # ------------------------ FINDER ----------------------------
 
