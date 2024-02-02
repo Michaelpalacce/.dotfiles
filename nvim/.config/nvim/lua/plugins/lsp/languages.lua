@@ -38,6 +38,25 @@ lspconfig.lua_ls.setup({
 -- LUA END
 
 -- TSSERVER
+
+local function organize_imports()
+	local params = {
+		command = "_typescript.organizeImports",
+		arguments = { vim.api.nvim_buf_get_name(0) },
+		title = ""
+	}
+	vim.lsp.buf.execute_command(params)
+end
+
+local function add_missing_imports()
+	local params = {
+		command = "_typescript.addMissingImports",
+		arguments = { vim.api.nvim_buf_get_name(0) },
+		title = ""
+	}
+	vim.lsp.buf.execute_command(params)
+end
+
 lspconfig.tsserver.setup({
 	settings = {
 		completions = {
@@ -54,6 +73,16 @@ lspconfig.tsserver.setup({
 		javascript = {
 			inlayHints = {},
 		},
+	},
+	commands = {
+		OrganizeImports = {
+			organize_imports,
+			description = "Organize Imports"
+		},
+		AddMissingImports = {
+			add_missing_imports,
+			description = "Add Missing Imports"
+		}
 	}
 })
 
