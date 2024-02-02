@@ -5,6 +5,7 @@ return {
 		"jellydn/CopilotChat.nvim",
 		opts = {
 			mode = "split", -- newbuffer or split  , default: newbuffer
+			show_help = "yes",
 			prompts = {
 				-- Code related prompts
 				Explain = "Please explain how the following code works.",
@@ -23,12 +24,9 @@ return {
 			}
 		},
 		build = function()
-			vim.defer_fn(function()
-				vim.cmd("UpdateRemotePlugins")
-				vim.notify("CopilotChat - Updated remote plugins. Please restart Neovim.")
-			end, 3000)
+			vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
 		end,
-		event = "TextYankPost",
+		event = "VeryLazy",
 		keys = {
 			-- Code related keys (default: <leader>cc)
 			{ "<leader>cce", "<cmd>CopilotChatExplain<cr>",       desc = "[C]opilotChat: [C]ode [E]xplain" },
@@ -43,6 +41,12 @@ return {
 			{ "<leader>ctS", "<cmd>CopilotChatSpelling<cr>",      desc = "[C]opilotChat: [T]ext Correct [S]pelling" },
 			{ "<leader>ctw", "<cmd>CopilotChatWording<cr>",       desc = "[C]opilotChat: [T]ext Improve [W]ording" },
 			{ "<leader>ctc", "<cmd>CopilotChatConcise<cr>",       desc = "[C]opilotChat: [T]ext Make text [C]oncise" },
+			{
+				"<leader>cx",
+				":CopilotChatInPlace<cr>",
+				mode = "x",
+				desc = "[C]opilotChat: Run in-place code",
+			},
 		},
 	},
 	-- {
