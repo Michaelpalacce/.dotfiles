@@ -33,10 +33,12 @@ fi
 
 if [[ "$machine" = "Mac" ]]; then
     if ! command_exists timer; then
-        brew install caarlos0/tap/timer terminal-notifier
+        brew install caarlos0/tap/timer terminal-notifier 
     fi
 
     if ! command_exists exa; then
         cargo install exa
     fi
+
+    brew install gsed
 fi
