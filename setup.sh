@@ -76,7 +76,7 @@ else
     exit 1
 fi
 
-APTS=("fzf" "tmux" "git" "zsh" "ripgrep" "gh")
+APTS=("fzf" "tmux" "git" "zsh" "gh")
 
 # Basic packages
 for package in ${APTS[@]} ; do
@@ -87,6 +87,7 @@ for package in ${APTS[@]} ; do
         print_color "$YELLOW" "$package exists, skipping"
     fi
 done
+
 
 if ! command_exists alacritty; then
     print_color "$GREEN" "alacritty not found, installing"
