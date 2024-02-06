@@ -2,7 +2,7 @@ return {
 	-- RUN :UpdateRemotePlugins
 	-- Dependencies: pip3 install python-dotenv requests pynvim prompt-toolkit
 	{
-		"jellydn/CopilotChat.nvim",
+		"CopilotC-Nvim/CopilotChat.nvim",
 		opts = {
 			mode = "split", -- newbuffer or split  , default: newbuffer
 			show_help = "yes",
