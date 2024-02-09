@@ -26,7 +26,7 @@ if [[ "$machine" = "Linux" ]]; then
     fi
 
     if ! command_exists exa; then
-        brew install exa
+        cargo install exa
     fi
 fi
 

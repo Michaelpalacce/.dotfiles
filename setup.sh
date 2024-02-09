@@ -148,4 +148,4 @@ else
 fi
 
 # Extra configuration
-. ./scripts/extra.sh
+. $HOME/.dotfiles/scripts/extra.sh
