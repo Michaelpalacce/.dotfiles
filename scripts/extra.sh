@@ -18,6 +18,10 @@ if ! command_exists cargo; then
     curl https://sh.rustup.rs -sSf | sh -s -- -y
 fi
 
+if ! command_exists fnm; then
+    cargo install fnm
+fi
+
 if [[ "$machine" = "Linux" ]]; then
     if ! command_exists timer; then
         echo 'deb [trusted=yes] https://repo.caarlos0.dev/apt/ /' | sudo tee /etc/apt/sources.list.d/caarlos0.list
@@ -41,4 +45,5 @@ if [[ "$machine" = "Mac" ]]; then
     fi
 
     brew install gsed
+
 fi
