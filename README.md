@@ -54,9 +54,12 @@ In the `$HOME/.dotfiles` folder, execute:
 
 ## Supported OS
 
+I use these dotfiles on the following Operating Systems
+
 - [x] Ubuntu
 - [x] MacOS
-- [ ] Arch
+
+Note: Will support whatever I work on.
 
 ## Philosophy
 
