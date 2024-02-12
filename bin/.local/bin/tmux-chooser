@@ -11,8 +11,6 @@
 
 no_of_terminals=$(tmux list-sessions | wc -l)
 output=$(tmux list-sessions)
-# echo $output
-echo $no_of_terminals
 
 if [[ $no_of_terminals -eq 0 ]]; then
     tmux new-session
