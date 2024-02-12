@@ -18,6 +18,7 @@ CMDS=(
     "npm run build"
     "pm2-runtime"
     "pm2-runtime dev.ecosystem.config.js"
+    "npm install"
 )
 
 # This flag determines if the session is dedicated to that process and will 
@@ -58,6 +59,9 @@ case $choice in
         ;;
     "npm run build")
         selected="npm run build"
+        ;;
+    "npm install")
+        selected="npm install"
         ;;
     "nat watch")
         selected="nat --watch --watchMs=2000"
