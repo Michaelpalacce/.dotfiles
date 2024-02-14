@@ -3,19 +3,6 @@ local lspconfig = require("lspconfig")
 
 require('mason-lspconfig').setup {
 	ensure_installed = {
-		'tsserver',
-		'eslint',
-		'lua_ls',
-		'jsonls',
-		'yamlls',
-		'vimls',
-		'volar',
-		'lemminx',
-		'gopls',
-		'cmake',
-		'gopls',
-		'html',
-		'tailwindcss'
 	},
 	handlers = {
 		lsp.default_setup
