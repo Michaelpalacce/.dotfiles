@@ -43,9 +43,6 @@
     state: present
     update_cache: true
 
-- name: Use the correct fd
-  shell: ln -s $(which fdfind) ~/.local/bin/fd
-
 - name: Ensure pip apps are installed
   pip:
     name:
@@ -80,7 +77,3 @@
 - name: Install Docker
   shell:
     cmd: curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
-
-- name: Install ohmyzsh
-  shell:
-    cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

@@ -11,4 +11,4 @@ local:
     userBin: /usr/bin # Where the OS usr bin folder is ( so we can put the binary there )
 
 servers:
-    nasIp: "192.168.1.20"
+    nasIp: "192.168.1.39"
