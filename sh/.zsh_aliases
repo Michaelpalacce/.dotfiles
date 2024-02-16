@@ -41,7 +41,7 @@ alias la='exa -la'
 alias ll='exa -l --git'
 alias lla='exa -la --git'
 alias lt='exa --tree --level'
-
+alias ls='exa'
 
 # GIT
 
