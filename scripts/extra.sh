@@ -22,15 +22,15 @@ if ! command_exists fnm; then
     cargo install fnm
 fi
 
+if ! command_exists exa; then
+    cargo install exa
+fi
+
 if [[ "$machine" = "Linux" ]]; then
     if ! command_exists timer; then
         echo 'deb [trusted=yes] https://repo.caarlos0.dev/apt/ /' | sudo tee /etc/apt/sources.list.d/caarlos0.list
         apt update
         apt install timer
-    fi
-
-    if ! command_exists exa; then
-        cargo install exa
     fi
 fi
 
@@ -40,10 +40,5 @@ if [[ "$machine" = "Mac" ]]; then
         brew install caarlos0/tap/timer terminal-notifier 
     fi
 
-    if ! command_exists exa; then
-        cargo install exa
-    fi
-
     brew install gsed
-
 fi
