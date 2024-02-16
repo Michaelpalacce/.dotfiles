@@ -31,6 +31,9 @@ alias vi="nvim"
 alias n="nvim ."
 # prefer to use just k instead of kubectl
 alias k='kubectl'
+alias v='velero'
+alias f='flux'
+alias h='helm'
 
 # exa
 alias l='exa -l'

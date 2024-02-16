@@ -49,5 +49,5 @@ compinit
 # Lazy load completions for various commands
 lazy_load_completion "kubectl" "__start_kubectl" "k"
 lazy_load_completion "velero" "__start_velero" "v"
-lazy_load_completion "flux"
+lazy_load_completion "flux" "__start_flux" "f"
 lazy_load_completion "helm" "__start_helm" "h"
