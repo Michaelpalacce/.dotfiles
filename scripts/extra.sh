@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # Extra contains some extra tools to make everything work right, but these are not critical
 
 # Function to check if a command is available
@@ -20,6 +20,16 @@ esac
 if ! command_exists cargo; then
     curl https://sh.rustup.rs -sSf | sh -s -- -y
     source "$HOME/.cargo/env"
+fi
+
+if ! command_exists go; then
+    zsh <(curl -sL https://git.io/go-installer)
+    source "$HOME/.zshrc"
+    rm -rf go*.tar.gz
+
+    if [[ "$machine" = "Linux" ]]; then
+        ln -sf $HOME/.dotfiles/sh/.zshenv.d/linux $HOME/.zshenv
+    fi
 fi
 
 if ! command_exists fnm; then
