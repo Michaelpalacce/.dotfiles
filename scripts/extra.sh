@@ -3,8 +3,6 @@
 
 # Function to check if a command is available
 # https://stackoverflow.com/questions/592620/how-to-check-if-a-program-exists-from-a-bash-script
-#
-# Dependencies: go
 
 command_exists() {
   command -v "$1" >/dev/null 2>&1

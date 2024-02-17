@@ -146,3 +146,6 @@ else
     print_color "$GREEN" "zsh-autosuggestions does not exist, checking the repository out"
     git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS_DIR
 fi
+
+# Extra configuration
+. $HOME/.dotfiles/scripts/extra.sh
