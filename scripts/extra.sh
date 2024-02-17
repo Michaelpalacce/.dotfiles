@@ -3,6 +3,9 @@
 
 # Function to check if a command is available
 # https://stackoverflow.com/questions/592620/how-to-check-if-a-program-exists-from-a-bash-script
+#
+# Dependencies: go
+
 command_exists() {
   command -v "$1" >/dev/null 2>&1
 }
@@ -16,6 +19,7 @@ esac
 
 if ! command_exists cargo; then
     curl https://sh.rustup.rs -sSf | sh -s -- -y
+    source "$HOME/.cargo/env"
 fi
 
 if ! command_exists fnm; then
@@ -24,6 +28,11 @@ fi
 
 if ! command_exists exa; then
     cargo install exa
+fi
+
+if ! command_exists fzf; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install --completion --key-bindings --no-update-rc
 fi
 
 if [[ "$machine" = "Linux" ]]; then
