@@ -19,13 +19,13 @@ return {
 				vim.cmd.Git('pull --rebase')
 			end, { remap = false, desc = "Fugitive: [G]it [P]ull" })
 
-			vim.keymap.set("n", "<leader>gh", function()
+			vim.keymap.set("n", "<leader>gl", function()
 				vim.cmd.Git('log --follow -- ' .. vim.fn.expand('%'))
-			end, { remap = false, desc = "Fugitive: [G]it [H]istory --follow" })
+			end, { remap = false, desc = "Fugitive: [G]it [L]og --follow (per file)" })
 
 			vim.keymap.set("n", "<leader>gH", function()
 				vim.cmd.Git('log')
-			end, { remap = false, desc = "Fugitive: [G]it [H]istory" })
+			end, { remap = false, desc = "Fugitive: [G]it [L]og (per repo)" })
 		end,
 		dependencies = {
 			'nvim-telescope/telescope.nvim'
@@ -79,7 +79,8 @@ return {
 				map('n', '<leader>hu', gs.undo_stage_hunk, { desc = "GitSigns: [H]unk [U]ndo stage hunk" })
 				map('n', '<leader>hR', gs.reset_buffer, { desc = "GitSigns: [H]unk [R]eset buffer" })
 				map('n', '<leader>hp', gs.preview_hunk, { desc = "GitSigns: [H]unk [P]review" })
-				map('n', '<leader>hb', function() gs.blame_line { full = true } end, { desc = "GitSigns: [H]unk [B]lame" })
+				map('n', '<leader>hb', function() gs.blame_line { full = true } end,
+					{ desc = "GitSigns: [H]unk [B]lame" })
 				map('n', '<leader>hd', gs.diffthis, { desc = "GitSigns: [H]unk [D]iff" })
 			end
 		},
