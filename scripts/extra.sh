@@ -25,9 +25,9 @@ if ! command_exists go; then
     source "$HOME/.zshrc"
     rm -rf go*.tar.gz
 
-    if [[ "$machine" = "Linux" ]]; then
-        ln -sf $HOME/.dotfiles/sh/.zshenv.d/linux $HOME/.zshenv
-    fi
+    # if [[ "$machine" = "Linux" ]]; then
+    #     ln -sf $HOME/.dotfiles/sh/.zshenv.d/linux $HOME/.zshenv
+    # fi
 fi
 
 if ! command_exists fnm; then
