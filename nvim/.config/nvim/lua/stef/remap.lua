@@ -82,3 +82,23 @@ vim.keymap.set("n", "Wa", ":wa<CR>", { noremap = false, desc = "Write all" })
 vim.keymap.set("n", "Ww", ":w<CR>", { noremap = false, desc = "Write current file" })
 vim.keymap.set({ "n", "v" }, "E", "$", { noremap = false })
 vim.keymap.set({ "n", "v" }, "B", "^", { noremap = false })
+
+-- SOPS
+local sopsAgeKey = "age1mq6usjzvvxvcp7tl03yjdqd0kgjhhvhz48kmg86p43nhx0jc75jssw0kfn"
+vim.keymap.set("n", "<leader>esd", function()
+	vim.cmd(
+		"!sops --age "
+		.. sopsAgeKey
+		.. " --decrypt --encrypted-regex '^(data|stringData|annotations|host)$' --in-place "
+		.. vim.fn.expand('%')
+	)
+end, { noremap = true, desc = "[E]xecute: [S]ops [D]ecrypt", silent = true })
+
+vim.keymap.set("n", "<leader>ese", function()
+	vim.cmd(
+		"!sops --age "
+		.. sopsAgeKey
+		.. " --encrypt --encrypted-regex '^(data|stringData|annotations|host)$' --in-place "
+		.. vim.fn.expand('%')
+	)
+end, { noremap = true, desc = "[E]xecute: [S]ops [E]ncrypt", silent = true })
