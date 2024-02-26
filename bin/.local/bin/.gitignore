@@ -1,0 +1,5 @@
+# Some ignores, since on linux .local/bin is in the path
+identify-cli
+nodeenv
+pre-commit
+virtualenv
