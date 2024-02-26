@@ -23,7 +23,7 @@ return {
 				vim.cmd.Git('log --follow -- ' .. vim.fn.expand('%'))
 			end, { remap = false, desc = "Fugitive: [G]it [L]og --follow (per file)" })
 
-			vim.keymap.set("n", "<leader>gH", function()
+			vim.keymap.set("n", "<leader>gL", function()
 				vim.cmd.Git('log')
 			end, { remap = false, desc = "Fugitive: [G]it [L]og (per repo)" })
 		end,
