@@ -2,8 +2,7 @@ local lsp = require('lsp-zero')
 local lspconfig = require("lspconfig")
 
 require('mason-lspconfig').setup {
-	ensure_installed = {
-	},
+	ensure_installed = {},
 	handlers = {
 		lsp.default_setup
 	}
