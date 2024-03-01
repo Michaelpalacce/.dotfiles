@@ -28,48 +28,48 @@ return {
 			-- Icons
 			{ 'onsails/lspkind.nvim' },
 
-			-- Debugging capabilities
-			{
-				'mfussenegger/nvim-dap',
-				dependencies = {
-					'rcarriga/nvim-dap-ui',
-					'leoluz/nvim-dap-go'
-				},
-				ft = { "go", "gomod" },
-				config = function()
-					-- ##########################################################
-					-- Debugging
-					-- ##########################################################
+			-- -- Debugging capabilities
+			-- {
+			-- 	'mfussenegger/nvim-dap',
+			-- 	dependencies = {
+			-- 		'rcarriga/nvim-dap-ui',
+			-- 		'leoluz/nvim-dap-go'
+			-- 	},
+			-- 	ft = { "go", "gomod" },
+			-- 	config = function()
+			-- 		-- ##########################################################
+			-- 		-- Debugging
+			-- 		-- ##########################################################
+			--
+			-- 		require "plugins.lsp.dap" -- Contains all the debugging configs
+			-- 	end
+			-- },
 
-					require "plugins.lsp.dap" -- Contains all the debugging configs
-				end
-			},
+			-- -- Testing
+			-- {
+			-- 	"nvim-neotest/neotest",
+			-- 	dependencies = {
+			-- 		'vim-test/vim-test',
+			-- 		'nvim-neotest/neotest-vim-test',
+			-- 		"nvim-lua/plenary.nvim",
+			-- 		"antoinemadec/FixCursorHold.nvim",
+			-- 		"nvim-treesitter/nvim-treesitter",
+			-- 		"nvim-neotest/neotest-go",
+			-- 	},
+			-- 	event = "VeryLazy",
+			-- 	config = function()
+			-- 		-- ##########################################################
+			-- 		-- Testing
+			-- 		-- ##########################################################
+			--
+			-- 		require "plugins.lsp.testing"
+			-- 	end
+			-- },
 
-			-- Testing
-			{
-				"nvim-neotest/neotest",
-				dependencies = {
-					'vim-test/vim-test',
-					'nvim-neotest/neotest-vim-test',
-					"nvim-lua/plenary.nvim",
-					"antoinemadec/FixCursorHold.nvim",
-					"nvim-treesitter/nvim-treesitter",
-					"nvim-neotest/neotest-go",
-				},
-				event = "VeryLazy",
-				config = function()
-					-- ##########################################################
-					-- Testing
-					-- ##########################################################
-
-					require "plugins.lsp.testing"
-				end
-			},
-
-			{
-				"folke/neodev.nvim",
-				opts = {}
-			}
+			-- {
+			-- 	"folke/neodev.nvim",
+			-- 	opts = {}
+			-- }
 		},
 		config = function()
 			-- ##########################################################
