@@ -25,6 +25,17 @@ return {
 		},
 		build = function()
 			vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
+			-- Install python dependencies needed for CopilotChat to work
+			print("Installing python dependencies")
+			vim.fn.system({
+				"pip",
+				"install",
+				"python-dotenv",
+				"requests",
+				"pynvim",
+				"prompt-toolkit",
+			})
+			print("Python dependencies installed")
 		end,
 		event = "VeryLazy",
 		keys = {
