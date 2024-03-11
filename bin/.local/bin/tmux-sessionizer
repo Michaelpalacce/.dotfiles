@@ -29,8 +29,9 @@ if ! tmux has-session -t=$selected_name 2> /dev/null; then
         tmux new-session -ds $selected_name -c $selected $1
     fi
 
-    tmux split-window -v -t $selected_name -p 10 -c $selected
-    tmux switch-client -t $selected_name:0.0
+    # This will open a window at the bottom
+    # tmux split-window -v -t $selected_name -p 10 -c $selected
+    # tmux switch-client -t $selected_name:0.0
 
     # # This will do a git pull in a second pane and it will quit, so you won't probably see it
     # tmux new-window -d -t $selected_name -c $selected 'git pull'
