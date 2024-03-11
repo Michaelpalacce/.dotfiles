@@ -3,9 +3,13 @@ return {
 	-- Dependencies: pip3 install python-dotenv requests pynvim prompt-toolkit
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
+		branch = "canary",
+		depedencies = {
+			'nvim-lua/plenary.nvim',
+			'zbirenbaum/copilot.lua'
+		},
 		opts = {
 			mode = "split", -- newbuffer or split  , default: newbuffer
-			show_help = "yes",
 			prompts = {
 				-- Code related prompts
 				Explain = "Please explain how the following code works.",
@@ -23,20 +27,6 @@ return {
 				Concise = "Please rewrite the following text to make it more concise.",
 			}
 		},
-		build = function()
-			vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
-			-- Install python dependencies needed for CopilotChat to work
-			print("Installing python dependencies")
-			vim.fn.system({
-				"pip",
-				"install",
-				"python-dotenv",
-				"requests",
-				"pynvim",
-				"prompt-toolkit",
-			})
-			print("Python dependencies installed")
-		end,
 		event = "VeryLazy",
 		keys = {
 			-- Code related keys (default: <leader>cc)
@@ -46,18 +36,22 @@ return {
 			{ "<leader>ccR", "<cmd>CopilotChatRefactor<cr>",      desc = "[C]opilotChat: [C]ode [R]efactor" },
 			{ "<leader>ccd", "<cmd>CopilotChatDocumentation<cr>", desc = "[C]opilotChat: [C]ode Add [D]ocumentation" },
 			{ "<leader>ccs", "<cmd>CopilotChatSimplify<cr>",      desc = "[C]opilotChat: [C]ode [S]implify" },
+			{
+				"<leader>cci",
+				function()
+					local input = vim.fn.input("Ask Copilot: ")
+					if input ~= "" then
+						vim.cmd("CopilotChat " .. input)
+					end
+				end,
+				desc = "[C]opilot[C]hat: Ask [I]nput",
+			},
 
 			-- Text related keys (default: <leader>ct)
-			{ "<leader>cts", "<cmd>CopilotChatSummarize<cr>",     desc = "[C]opilotChat: [T]ext [S]ummarize" },
-			{ "<leader>ctS", "<cmd>CopilotChatSpelling<cr>",      desc = "[C]opilotChat: [T]ext Correct [S]pelling" },
-			{ "<leader>ctw", "<cmd>CopilotChatWording<cr>",       desc = "[C]opilotChat: [T]ext Improve [W]ording" },
-			{ "<leader>ctc", "<cmd>CopilotChatConcise<cr>",       desc = "[C]opilotChat: [T]ext Make text [C]oncise" },
-			{
-				"<leader>cx",
-				":CopilotChatInPlace<cr>",
-				mode = "x",
-				desc = "[C]opilotChat: Run in-place code",
-			},
+			{ "<leader>cts", "<cmd>CopilotChatSummarize<cr>", desc = "[C]opilotChat: [T]ext [S]ummarize" },
+			{ "<leader>ctS", "<cmd>CopilotChatSpelling<cr>",  desc = "[C]opilotChat: [T]ext Correct [S]pelling" },
+			{ "<leader>ctw", "<cmd>CopilotChatWording<cr>",   desc = "[C]opilotChat: [T]ext Improve [W]ording" },
+			{ "<leader>ctc", "<cmd>CopilotChatConcise<cr>",   desc = "[C]opilotChat: [T]ext Make text [C]oncise" },
 		},
 	},
 	-- {
