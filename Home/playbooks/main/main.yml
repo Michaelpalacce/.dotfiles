@@ -19,14 +19,3 @@
     - kubernetes
   roles:
       - role: kubernetes
-
-- name: Configure Others
-  hosts: localhost
-  connection: local
-  become: true
-  vars_files:
-      - ../vars/main.yml
-  tags:
-    - others
-  roles:
-      - role: nas

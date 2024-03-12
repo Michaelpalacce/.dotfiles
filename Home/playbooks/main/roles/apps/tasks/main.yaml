@@ -43,11 +43,6 @@
     state: present
     update_cache: true
 
-- name: Ensure pip apps are installed
-  pip:
-    name:
-      - kube-hunter
-
 - name: KVM Pre-Reqs
   apt:
       name: "{{ item }}"
