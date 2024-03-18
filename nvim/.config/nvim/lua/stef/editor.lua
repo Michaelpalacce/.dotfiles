@@ -24,8 +24,8 @@ vim.opt.autoindent = true
 vim.opt.smarttab = true
 vim.opt.smartindent = true
 
--- Disable word wrap
-vim.opt.wrap = false
+-- Word wrap
+vim.opt.wrap = true
 -- Whichwrap allows for overflowing to a new line with h and l as well as left and right arrow
 vim.opt.whichwrap = '<,>,h,l'
 
