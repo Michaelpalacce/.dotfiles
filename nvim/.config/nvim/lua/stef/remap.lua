@@ -102,3 +102,12 @@ vim.keymap.set("n", "<leader>ese", function()
 		.. vim.fn.expand('%')
 	)
 end, { noremap = true, desc = "[E]xecute: [S]ops [E]ncrypt", silent = true })
+
+-- Base64 encode/decode
+
+vim.api.nvim_set_keymap('v', '<leader>bd', 'c<c-r>=system(\'base64 --decode\', @")<cr><esc>',
+	{ noremap = true, desc = "[B]ase64 [D]ecode" })
+
+-- Only issue is it adds a newline at the end...
+vim.api.nvim_set_keymap('v', '<leader>be', 'c<c-r>=system(\'base64\', @")<esc>',
+	{ noremap = true, desc = "[B]ase64 [E]ncode" })
