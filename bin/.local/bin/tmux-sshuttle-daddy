@@ -28,4 +28,10 @@ elif [[ $selected == "New One" ]]; then
     fi
 fi
 
-sshuttle --dns --to-ns=$nameServer -r root@$selected 192.168.0.0/16
+read -p "Enter the username to connect with (default root): " username
+
+if [[ -z $username ]]; then
+    username="root"
+fi
+
+sshuttle --dns --to-ns=$nameServer -r $username@$selected 192.168.0.0/16
