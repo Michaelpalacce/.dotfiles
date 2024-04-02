@@ -60,3 +60,7 @@ vim.opt.clipboard = "unnamed,unnamedplus"
 
 -- Highlight cursor line
 vim.wo.cursorline = true
+
+-- Spelling
+vim.opt_local.spell = true
+vim.opt_local.spelllang = "en"
