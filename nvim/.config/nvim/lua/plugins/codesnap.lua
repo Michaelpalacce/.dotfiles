@@ -9,7 +9,7 @@ return {
 				code_font_family = "CaskaydiaCove Nerd Font",
 				watermark_font_family = "Pacifico",
 				watermark = "",
-				bg_theme = "default",
+				bg_theme = "grape",
 				breadcrumbs_separator = "/",
 				has_breadcrumbs = true,
 			})
