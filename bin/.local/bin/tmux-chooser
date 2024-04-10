@@ -13,13 +13,18 @@ no_of_terminals=$(tmux list-sessions | wc -l)
 output=$(tmux list-sessions)
 
 if [[ $no_of_terminals -eq 0 ]]; then
-    tmux new-session
+    tmux new-session -c $(pwd) $1
     exit 0
 elif [[ $no_of_terminals -eq 1 ]]; then
     tmux attach
     exit 0
 else
     selected=$(printf '%s\n' "${output[@]}" | fzf --height 60% --layout=reverse --border --prompt="Choose the terminal to attach: ")
+
+    if [[ -z $selected ]]; then
+        exit 0
+    fi
+
     index=$(echo $selected | cut -d':' -f1)
     tmux attach -t "$index"
 fi
