@@ -71,8 +71,8 @@ return {
 			fmt(
 				[[
 /**
-* {comment}
-*/
+ * {comment}
+ */
         ]],
 				{
 					comment = indentSnippetNode(0, {
@@ -93,8 +93,8 @@ return {
 			fmt(
 				[[
 /**
-* {comment}
-*/
+ * {comment}
+ */
         ]],
 				{
 					comment = indentSnippetNode(0, {
