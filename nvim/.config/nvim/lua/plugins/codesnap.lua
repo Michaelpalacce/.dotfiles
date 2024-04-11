@@ -2,7 +2,7 @@ return {
 	{
 		"mistricky/codesnap.nvim",
 		build = "make",
-		commit = "8d210e272e04528e1205c1606f428575603bbabc",
+		version = "v1.1.9",
 		config = function()
 			require("codesnap").setup({
 				mac_window_bar = true,
