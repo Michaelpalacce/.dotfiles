@@ -121,6 +121,8 @@ in
    wget
    curl
    git
+   gcc
+   make
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
