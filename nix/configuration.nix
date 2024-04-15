@@ -123,8 +123,11 @@ in
    git
    gcc
    make
+
    alacritty
    fnm
+   zsh
+   tmux
 
    rustc
    go
