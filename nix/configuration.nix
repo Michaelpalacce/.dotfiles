@@ -7,12 +7,12 @@
 let
   unstableTarball =
     fetchTarball
-      "https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz";
+      "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
 in
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -106,7 +106,7 @@ in
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
-    packageOverrides = pkgs: with pkgs; {
+    packageOverrides = pkgs: {
       unstable = import unstableTarball {
         config = config.nixpkgs.config;
       };
