@@ -45,4 +45,4 @@ done
 # Check if /etc/nixos exists first
 if [[ -d "/etc/nixos" ]]; then
     sudo stow --target "/etc/nixos" nix
-else
+fi
