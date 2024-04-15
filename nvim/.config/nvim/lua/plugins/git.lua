@@ -6,6 +6,7 @@ return {
 
 			-- Note: <C-w>7- is a hack to make the window smaller
 			vim.keymap.set('n', "<leader>gs", "<cmd>G <CR><C-w>7-", { desc = 'Fugitive: [G]it [S]tatus' })
+
 			vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope: [G]it [B]ranches' })
 			vim.keymap.set('n', '<leader>gd', builtin.git_status, { desc = 'Telescope: [G]it [D]iff' })
 			vim.keymap.set('n', '<leader>gc', builtin.git_bcommits, { desc = 'Telescope: [G]it buffer [C]ommits' })
@@ -20,11 +21,11 @@ return {
 			end, { remap = false, desc = "Fugitive: [G]it [P]ull" })
 
 			vim.keymap.set("n", "<leader>gl", function()
-				vim.cmd.Git('log --follow -- ' .. vim.fn.expand('%'))
+				vim.cmd.GcLog('--follow -- ' .. vim.fn.expand('%'))
 			end, { remap = false, desc = "Fugitive: [G]it [L]og --follow (per file)" })
 
 			vim.keymap.set("n", "<leader>gL", function()
-				vim.cmd.Git('log')
+				vim.cmd.GcLog()
 			end, { remap = false, desc = "Fugitive: [G]it [L]og (per repo)" })
 		end,
 		dependencies = {
