@@ -123,6 +123,12 @@ in
    git
    gcc
    make
+   alacritty
+   fnm
+
+   rustc
+   go
+
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
