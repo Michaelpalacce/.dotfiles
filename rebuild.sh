@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-pushd ~/dotfiles/nix/
+pushd ~/.dotfiles/nix/
 nvim configuration.nix
 alejandra . &>/dev/null
 git diff -U0 *.nix
