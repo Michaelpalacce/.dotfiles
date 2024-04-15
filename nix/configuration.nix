@@ -5,7 +5,9 @@
 { config, pkgs, ... }:
 
 let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  unstableTarball =
+    fetchTarball
+      "https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz";
 in
 {
   imports =
@@ -104,17 +106,21 @@ in
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
+    packageOverrides = pkgs: with pkgs; {
+      unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
+    };
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs;[
    unstable.neovim
-   pkgs.stow
-   pkgs.wget
-   pkgs.lf
-   pkgs.curl
-   pkgs.git
+   stow
+   wget
+   curl
+   git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
