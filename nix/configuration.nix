@@ -101,6 +101,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable the NixOS unstable channel
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
