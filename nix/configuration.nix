@@ -4,6 +4,12 @@
 
 { config, pkgs, ... }:
 
+let
+  unstableTarball =
+    fetchTarball
+      "https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz";
+in
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -98,11 +104,15 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # Enable the NixOS unstable channel
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  # Allow unfree packages and enable unstable channel.
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      unstable = import unstableTarball {
+          config = config.nixpkgs.config;
+      };
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
