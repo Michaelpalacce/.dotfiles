@@ -20,6 +20,7 @@ in
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
 
+  # ######################### Networking #########################
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -29,6 +30,9 @@ in
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+
+  # ######################### Timezone #########################
 
   # Set your time zone.
   time.timeZone = "Europe/Sofia";
@@ -47,6 +51,8 @@ in
     LC_TELEPHONE = "bg_BG.UTF-8";
     LC_TIME = "bg_BG.UTF-8";
   };
+
+  # ######################### Services #########################
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -84,14 +90,20 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # ######################### Users #########################
+
+  # Global user settings
+
+  users.defaultUserShell=pkgs.zsh;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.stefan = {
+    shell = pkgs.zsh;
     isNormalUser = true;
     description = "Stefan Genov";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-    #  thunderbird
     ];
   };
 
@@ -102,6 +114,8 @@ in
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
+
+  # ######################### Packages #########################
 
   # Allow unfree packages
   nixpkgs.config = {
@@ -135,6 +149,31 @@ in
 
   ];
 
+  # ####################### Programs #######################
+
+# enable zsh and oh my zsh
+  # programs = {
+  #    zsh = {
+  #       enable = true;
+  #       enableCompletion = true;
+  #       autosuggestions.enable = true;
+  #       zsh-autoenv.enable = true;
+  #       syntaxHighlighting.enable = true;
+  #       ohMyZsh = {
+  #          enable = true;
+  #          theme = "robbyrussell";
+  #          plugins = [
+  #            "git"
+  #            "npm"
+  #            "history"
+  #            "node"
+  #            "rust"
+  #            "deno"
+  #          ];
+  #       };
+  #    };
+  # };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -161,5 +200,4 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
