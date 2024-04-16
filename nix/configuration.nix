@@ -122,7 +122,6 @@ in
    curl
    git
    gcc
-   make
 
    alacritty
    fnm
