@@ -161,14 +161,10 @@ in
        syntaxHighlighting.enable = true;
        ohMyZsh = {
           enable = true;
-          theme = "robbyrussell";
+          theme = "bira";
           plugins = [
             "git"
-            "npm"
-            "history"
-            "node"
-            "rust"
-            "deno"
+            "zsh-autosuggestions"
           ];
        };
     };
