@@ -151,28 +151,28 @@ in
 
   # ####################### Programs #######################
 
-# enable zsh and oh my zsh
-  # programs = {
-  #    zsh = {
-  #       enable = true;
-  #       enableCompletion = true;
-  #       autosuggestions.enable = true;
-  #       zsh-autoenv.enable = true;
-  #       syntaxHighlighting.enable = true;
-  #       ohMyZsh = {
-  #          enable = true;
-  #          theme = "robbyrussell";
-  #          plugins = [
-  #            "git"
-  #            "npm"
-  #            "history"
-  #            "node"
-  #            "rust"
-  #            "deno"
-  #          ];
-  #       };
-  #    };
-  # };
+ # enable zsh and oh my zsh
+ programs = {
+    zsh = {
+       enable = true;
+       enableCompletion = true;
+       autosuggestions.enable = true;
+       zsh-autoenv.enable = true;
+       syntaxHighlighting.enable = true;
+       ohMyZsh = {
+          enable = true;
+          theme = "robbyrussell";
+          plugins = [
+            "git"
+            "npm"
+            "history"
+            "node"
+            "rust"
+            "deno"
+          ];
+       };
+    };
+ };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
