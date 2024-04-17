@@ -85,14 +85,14 @@ vim.keymap.set({ "n", "v" }, "B", "^", { noremap = false })
 
 -- SOPS
 local sopsAgeKey = "age1mq6usjzvvxvcp7tl03yjdqd0kgjhhvhz48kmg86p43nhx0jc75jssw0kfn"
-vim.keymap.set("n", "<leader>esds", function()
+vim.keymap.set("n", "<leader>esda", function()
 	vim.cmd(
 		"!sops --age "
 		.. sopsAgeKey
-		.. " --decrypt --encrypted-regex '^(data|stringData|annotations|)$' --in-place "
+		.. " --decrypt --encrypted-regex '^(rules|data|stringData|annotations|values)$' --in-place "
 		.. vim.fn.expand('%')
 	)
-end, { noremap = true, desc = "[E]xecute: [S]ops [D]ecrypt [S]ecret", silent = true })
+end, { noremap = true, desc = "[E]xecute: [S]ops [D]ecrypt [A]ll", silent = true })
 
 vim.keymap.set("n", "<leader>eses", function()
 	vim.cmd(
@@ -103,15 +103,6 @@ vim.keymap.set("n", "<leader>eses", function()
 	)
 end, { noremap = true, desc = "[E]xecute: [S]ops [E]ncrypt [S]ecret", silent = true })
 
-vim.keymap.set("n", "<leader>esdi", function()
-	vim.cmd(
-		"!sops --age "
-		.. sopsAgeKey
-		.. " --decrypt --encrypted-regex '^(rules|annotations|)$' --in-place "
-		.. vim.fn.expand('%')
-	)
-end, { noremap = true, desc = "[E]xecute: [S]ops [D]ecrypt [I]ngress", silent = true })
-
 vim.keymap.set("n", "<leader>esei", function()
 	vim.cmd(
 		"!sops --age "
@@ -121,15 +112,6 @@ vim.keymap.set("n", "<leader>esei", function()
 	)
 end, { noremap = true, desc = "[E]xecute: [S]ops [E]ncrypt [I]ngress", silent = true })
 
-vim.keymap.set("n", "<leader>esdc", function()
-	vim.cmd(
-		"!sops --age "
-		.. sopsAgeKey
-		.. " --decrypt --encrypted-regex '^(data|stringData|annotations|)$' --in-place "
-		.. vim.fn.expand('%')
-	)
-end, { noremap = true, desc = "[E]xecute: [S]ops [D]ecrypt [C]onfig", silent = true })
-
 vim.keymap.set("n", "<leader>esec", function()
 	vim.cmd(
 		"!sops --age "
@@ -138,15 +120,6 @@ vim.keymap.set("n", "<leader>esec", function()
 		.. vim.fn.expand('%')
 	)
 end, { noremap = true, desc = "[E]xecute: [S]ops [E]ncrypt [C]onfig", silent = true })
-
-vim.keymap.set("n", "<leader>esdh", function()
-	vim.cmd(
-		"!sops --age "
-		.. sopsAgeKey
-		.. " --decrypt --encrypted-regex '^(values)$' --in-place "
-		.. vim.fn.expand('%')
-	)
-end, { noremap = true, desc = "[E]xecute: [S]ops [D]ecrypt [H]elm Release", silent = true })
 
 vim.keymap.set("n", "<leader>eseh", function()
 	vim.cmd(
