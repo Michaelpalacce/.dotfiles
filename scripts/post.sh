@@ -11,6 +11,7 @@ command_exists() {
 if command_exists home-manager; then
     echo "Home Manager already installed"
 else
+    source /etc/profile && nix-env --install --attr nixpkgs.lua
     nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
     nix-channel --update
     nix-shell '<home-manager>' -A install

@@ -73,6 +73,5 @@ fi
 pushd $DOTFILES_DIR
     . ./scripts/extra.sh
     . ./scripts/stow.sh
-    # For now this should be ran manually... nix is not available in the active shell
-    #. ./scripts/post.sh
+    . ./scripts/post.sh
 popd
