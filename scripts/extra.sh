@@ -75,7 +75,6 @@ if ! command_exists go; then
     zsh <(curl -sL https://git.io/go-installer)
     source "$HOME/.zshrc"
     rm -rf go*.tar.gz
-
 fi
 
 # Install fnm
@@ -108,7 +107,7 @@ else
     print_color "$YELLOW" "alacritty exists, skipping"
 fi
 
-APTS=("tmux" "git" "zsh" "gh")
+APTS=("tmux" "git" "zsh" "gh" "stow")
 
 # Linux specifics
 if [[ "$machine" = "Linux" ]]; then
