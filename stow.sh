@@ -35,7 +35,7 @@ else
     print_color "$YELLOW" "stow exists, skipping"
 fi
 
-FOLDERS=("nvim" "editorconfig" "sh" "tmux" "bin" "gitignore" "cheatsheets" "alacritty")
+FOLDERS=("nvim" "editorconfig" "sh" "tmux" "bin" "gitignore" "cheatsheets" "alacritty" "home-manager")
 
 for dir in ${FOLDERS[@]} ; do
     echo "stow $dir"

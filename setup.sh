@@ -147,5 +147,13 @@ else
     git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS_DIR
 fi
 
+if [[ ! -d "$HOME/.config/home-manager/home.nix" ]]; then
+    echo "Home Manager already installed"
+else
+    nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+    nix-channel --update
+    nix-shell '<home-manager>' -A install
+fi
+
 # Extra configuration
 . $HOME/.dotfiles/scripts/extra.sh
