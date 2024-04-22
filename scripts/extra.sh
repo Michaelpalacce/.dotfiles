@@ -110,7 +110,6 @@ fi
 
 APTS=("tmux" "git" "zsh" "gh")
 
-
 # Linux specifics
 if [[ "$machine" = "Linux" ]]; then
     if ! command_exists timer; then
@@ -143,7 +142,6 @@ if [[ "$machine" = "Mac" ]]; then
     if ! command_exists nix; then
         sh <(curl -L https://nixos.org/nix/install) --yes
     fi
-
 
     # Run macos.sh for some nice defaults
     . $HOME/.dotfiles/scripts/macos.sh

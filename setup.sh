@@ -73,4 +73,5 @@ fi
 pushd $DOTFILES_DIR
     . ./scripts/extra.sh
     . ./scripts/stow.sh
+    . ./scripts/post.sh
 popd
