@@ -6,53 +6,6 @@ command_exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
-installOsSpecific() {
-    if command_exists apt-get; then
-        print_color "$GREEN" "Setting up"
-        sudo apt-get install -y "$1"
-    elif command_exists brew; then 
-        brew install "$1"
-    else
-        print_color "$RED" "Error: No package manager found"
-        exit 1
-    fi
-}
-
-installNeovim() {
-    if command_exists brew; then
-        print_color "$GREEN" "nvim not found, installing"
-        brew install neovim ripgrep fd
-    elif command_exists apt-get; then
-        print_color "$GREEN" "nvim not found, installing"
-        # Install dependencies
-        sudo apt-get install -y git software-properties-common ripgrep fd-find python3-dev python3-pip
-        sudo ln -s $(which fdfind) ~/.local/bin/fd
-
-        sudo add-apt-repository ppa:neovim-ppa/unstable -y
-
-        sudo apt-get update
-        sudo apt-get install -y neovim
-    else
-        print_color "$RED" "Error: No package manager found"
-        exit 1
-    fi
-}
-
-installAlacritty() {
-    if command_exists brew; then
-        print_color "$GREEN" "alacritty not found, installing"
-        brew install --cask alacritty
-    elif command_exists apt-get; then
-        print_color "$GREEN" "alacritty not found, installing"
-        sudo add-apt-repository ppa:aslatter/ppa -y
-        sudo apt update
-        sudo apt install -y alacritty
-    else
-        print_color "$RED" "Error: No package manager found"
-        exit 1
-    fi
-}
-
 # ANSI color codes
 GREEN='\033[0;32m'
 RED='\033[0;31m'
@@ -76,33 +29,6 @@ else
     exit 1
 fi
 
-APTS=("tmux" "git" "zsh" "gh")
-
-# Basic packages
-for package in ${APTS[@]} ; do
-    if ! command_exists $package; then
-        print_color "$GREEN" "$package not found, installing"
-        installOsSpecific $package
-    else
-        print_color "$YELLOW" "$package exists, skipping"
-    fi
-done
-
-
-if ! command_exists alacritty; then
-    print_color "$GREEN" "alacritty not found, installing"
-    installAlacritty
-else
-    print_color "$YELLOW" "alacritty exists, skipping"
-fi
-
-# Install nvim
-if ! command_exists nvim; then
-    installNeovim
-else
-    print_color "$YELLOW" "nvim exists, skipping"
-fi
-
 # Clone repo
 DOTFILES_DIR="$HOME/.dotfiles"
 
@@ -114,9 +40,6 @@ else
     git clone https://github.com/Michaelpalacce/.dotfiles.git $DOTFILES_DIR
 fi
 
-pushd $DOTFILES_DIR
-    . ./stow.sh
-popd
 
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 
@@ -148,4 +71,7 @@ else
 fi
 
 # Extra configuration
-. $HOME/.dotfiles/scripts/extra.sh
+pushd $DOTFILES_DIR
+    . ./scripts/extra.sh
+    . ./scripts/stow.sh
+popd
