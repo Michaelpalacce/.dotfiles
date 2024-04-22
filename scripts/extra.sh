@@ -71,6 +71,8 @@ if [[ "$machine" = "Mac" ]]; then
     fi
 
     brew install gsed
+
+    . $HOME/.dotfiles/scripts/macos.sh
 fi
 
 if [[ ! -d "$HOME/.config/home-manager/home.nix" ]]; then
