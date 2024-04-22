@@ -37,6 +37,7 @@ in
     pkgs.git
     pkgs.tmux
     pkgs.alacritty
+    pkgs.eza
     pkgs.stow
     pkgs.gh
 
