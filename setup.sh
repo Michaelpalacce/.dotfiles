@@ -40,7 +40,6 @@ else
     git clone https://github.com/Michaelpalacce/.dotfiles.git $DOTFILES_DIR
 fi
 
-
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 
 if [ -d $TPM_DIR ]; then 
