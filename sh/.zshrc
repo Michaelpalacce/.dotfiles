@@ -68,6 +68,21 @@ for config_file in ~/.zsh-config/*; do
     . $config_file
 done
 
+# ------------------------------ OS SPECIFIC ---------------------------------
+
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
+if [ $machine = "Linux" ]; then
+    . $HOME/.dotfiles/sh/.zshenv.d/linux
+elif [ $machine = "Mac" ]; then
+    . $HOME/.dotfiles/sh/.zshenv.d/mac
+fi
+
 # ------------------------------ HISTORY ---------------------------------
 
 # Keep 10000 lines of history within the shell and save it to ~/.zsh_history:

@@ -123,8 +123,6 @@ if [[ "$machine" = "Linux" ]]; then
         sh <(curl -L https://nixos.org/nix/install) --daemon --yes
     fi
 
-    ln -sf $HOME/.dotfiles/sh/.zshenv.d/linux $HOME/.zshenv
-
     # Basic packages
     for package in ${APTS[@]} ; do
         if ! command_exists $package; then
@@ -146,8 +144,6 @@ if [[ "$machine" = "Mac" ]]; then
         sh <(curl -L https://nixos.org/nix/install) --yes
     fi
 
-    # Setup zshenv
-    ln -sf $HOME/.dotfiles/sh/.zshenv.d/linux $HOME/.zshenv
 
     # Run macos.sh for some nice defaults
     . $HOME/.dotfiles/scripts/macos.sh
