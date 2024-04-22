@@ -1,15 +1,17 @@
 { config, pkgs, ... }:
 
+# @TODO: Migrate to using home-manager, currently stuff is installed during setup
 let
   unstableTarball =
     fetchTarball
       "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
+    isDarwin = builtins.currentSystem == "x86_64-darwin" || builtins.currentSystem == "aarch64-darwin";
 in
 {
   # Make this work on macOS too
   # Home Manager needs a bit of information about you and the paths it should
-  home.username = if builtins.currentSystem == "x86_64-darwin" then "sgenov" else "stefan";
-  home.homeDirectory = if builtins.currentSystem == "x86_64-darwin" then "/Users/sgenov" else "/home/stefan";
+  home.username = if isDarwin then "sgenov" else "stefan";
+  home.homeDirectory = if isDarwin then "/Users/sgenov" else "/home/stefan";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
