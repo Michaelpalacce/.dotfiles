@@ -82,11 +82,6 @@ if ! command_exists fnm; then
     cargo install fnm
 fi
 
-# Install exa
-if ! command_exists exa; then
-    cargo install exa
-fi
-
 # Install fzf
 if ! command_exists fzf; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -164,5 +159,4 @@ else
     nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
     nix-channel --update
     nix-shell '<home-manager>' -A install
-    rm -rf $HOME/.config/home-manager/*
 fi
