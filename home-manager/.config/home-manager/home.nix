@@ -35,6 +35,8 @@ in
     # General
     pkgs.htop
     pkgs.git
+    pkgs.tmux
+    pkgs.alacritty
 
     # Neovim
     pkgs.ripgrep
