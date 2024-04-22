@@ -1,0 +1,27 @@
+# ------------------------------------------------------------------------------
+#
+# ZSH Configuration for Rust
+# This will lazy load the Rust environment when the `rustc` command is used.
+#
+# Dependencies: rustc
+#
+# ------------------------------------------------------------------------------
+
+# Function to check if a command is available
+command_exists() {
+  command -v "$1" >/dev/null 2>&1
+}
+
+# Function to lazy load Rust environment
+rustc() {
+  if [ -d "$HOME/.cargo/bin" ]; then
+    . "$HOME/.cargo/env"
+  fi
+  unfunction rustc
+  command rustc "$@"
+}
+
+# Check if rustc is installed and if so, override it with the function
+if command_exists rustc; then
+  functions[rustc]=rustc
+fi
