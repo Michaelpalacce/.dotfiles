@@ -72,3 +72,11 @@ if [[ "$machine" = "Mac" ]]; then
 
     brew install gsed
 fi
+
+if [[ ! -d "$HOME/.config/home-manager/home.nix" ]]; then
+    echo "Home Manager already installed"
+else
+    nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+    nix-channel --update
+    nix-shell '<home-manager>' -A install
+fi
