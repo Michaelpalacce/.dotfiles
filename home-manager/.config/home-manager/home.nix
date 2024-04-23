@@ -35,6 +35,16 @@ in
   home.packages = [
     # General
     pkgs.htop
+    pkgs.vlc
+    pkgs.python311Packages.openrazer
+    pkgs.sshpass
+    pkgs.unzip
+    pkgs.wine64
+    pkgs.awscli
+    pkgs.xclip
+    pkgs.zsh
+
+    # Development
     pkgs.git
     pkgs.tmux
     pkgs.alacritty
