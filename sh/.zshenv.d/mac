@@ -1,6 +1,4 @@
 # Mac Configuration
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
-export JAVA_HOME="/opt/homebrew/opt/openjdk@17/"
 
 # Run this manually if homebrew fucks up
 # eval "$(/opt/homebrew/bin/brew shellenv)"
