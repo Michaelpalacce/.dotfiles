@@ -7,9 +7,6 @@
 #
 # ------------------------------------------------------------------------------
 
-# Load Rust environment
-[ -d "$HOME/.cargo/bin" ] && . "$HOME/.cargo/env"
-
 # Function to check if a command is available
 command_exists() {
   command -v "$1" >/dev/null 2>&1
