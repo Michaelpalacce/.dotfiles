@@ -49,6 +49,7 @@ in
     pkgs.stow
     pkgs.gh
     pkgs.docker
+    pkgs.unstable.fzf
 
     # Kubernetes
     pkgs.k9s
@@ -72,6 +73,9 @@ in
 
     # Python
     pkgs.python3
+
+    # Rust
+    pkgs.rustup
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
