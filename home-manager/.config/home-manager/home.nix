@@ -63,10 +63,6 @@ in
     pkgs.fd
     pkgs.unstable.neovim
 
-    # Java
-    pkgs.jdk17
-    pkgs.maven
-
     # Node
     pkgs.fnm
 
