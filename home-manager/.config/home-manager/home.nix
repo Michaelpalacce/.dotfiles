@@ -40,17 +40,27 @@ in
     pkgs.sshpass
     pkgs.unzip
     pkgs.wine64
-    pkgs.awscli
-    pkgs.xclip
-    pkgs.zsh
 
     # Development
     pkgs.git
+    pkgs.awscli
+    pkgs.xclip
+    pkgs.zsh
     pkgs.tmux
     pkgs.alacritty
     pkgs.eza
     pkgs.stow
     pkgs.gh
+    pkgs.docker
+
+    # Kubernetes
+    pkgs.k9s
+    pkgs.kubent
+    pkgs.kubectl
+    pkgs.kubescape
+    pkgs.velero
+    pkgs.fluxcd
+    pkgs.kubernetes-helm
 
     # Neovim
     pkgs.ripgrep
