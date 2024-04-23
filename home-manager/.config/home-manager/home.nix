@@ -73,6 +73,7 @@ in
 
     # Python
     pkgs.python3
+    pkgs.python312Packages.pip
 
     # Rust
     pkgs.rustup
