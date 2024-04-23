@@ -5,13 +5,12 @@ let
   unstableTarball =
     fetchTarball
       "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
-    isDarwin = builtins.currentSystem == "x86_64-darwin" || builtins.currentSystem == "aarch64-darwin";
+  homeDir = builtins.getEnv "HOME";
+  username = builtins.getEnv "USER";
 in
 {
-  # Make this work on macOS too
-  # Home Manager needs a bit of information about you and the paths it should
-  home.username = if isDarwin then "sgenov" else "stefan";
-  home.homeDirectory = if isDarwin then "/Users/sgenov" else "/home/stefan";
+  home.username = username;
+  home.homeDirectory = homeDir;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
