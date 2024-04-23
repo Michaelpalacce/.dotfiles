@@ -83,6 +83,7 @@ if ! command_exists fnm; then
 fi
 
 # Install fzf
+# If you want to update, run the install command again, no need to git clone again of course
 if ! command_exists fzf; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install --completion --key-bindings --no-update-rc
