@@ -126,6 +126,10 @@ in
     # EDITOR = "emacs";
   };
 
+  home.sessionPath = [
+    "$HOME/.nix-profile/bin" #binaries
+    "$HOME/.nix-profile/share/applications" #.desktop files
+  ];
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
