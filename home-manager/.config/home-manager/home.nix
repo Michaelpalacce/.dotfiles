@@ -35,11 +35,8 @@ in
   home.packages = [
     # General
     pkgs.htop
-    pkgs.vlc
-    pkgs.python311Packages.openrazer
     pkgs.sshpass
     pkgs.unzip
-    pkgs.wine64
 
     # Development
     pkgs.git
@@ -57,7 +54,6 @@ in
     pkgs.k9s
     pkgs.kubent
     pkgs.kubectl
-    pkgs.kubescape
     pkgs.velero
     pkgs.fluxcd
     pkgs.kubernetes-helm
