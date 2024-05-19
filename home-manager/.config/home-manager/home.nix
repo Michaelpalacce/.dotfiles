@@ -66,7 +66,7 @@ in
     pkgs.kubent
     pkgs.kubectl
     pkgs.velero
-    pkgs.fluxcd
+    pkgs.unstable.fluxcd
     pkgs.kubernetes-helm
 
     # Neovim
