@@ -45,9 +45,6 @@ in
     pkgs.sshpass
 
 
-    # Gaming
-    pkgs.wine64Packages.unstableFull
-
     # Development
     pkgs.git
     pkgs.awscli
@@ -115,6 +112,7 @@ in
 
     # Gaming
     pkgs.python311Packages.openrazer
+    pkgs.wine64Packages.unstableFull
 
     # KVM
     pkgs.qemu
