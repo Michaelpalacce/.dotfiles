@@ -14,7 +14,6 @@ FOLDERS=(
     "sh" 
     "tmux"
     "bin"
-    "gitignore"
     "cheatsheets"
     "alacritty"
     "home-manager"

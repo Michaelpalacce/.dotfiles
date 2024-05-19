@@ -126,6 +126,7 @@ in
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    ".gitignore".source = git/.gitignore;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -153,14 +154,14 @@ in
   #
   #  /etc/profiles/per-user/stefan/etc/profile.d/hm-session-vars.sh
   #
-home.sessionVariables = (if isLinux then {
-  LINUX_VAR = "some_value";
-} else if isDarwin then {
-  MACOS_VAR = "another_value";
-} else {}) // {
-  # Common environment variables
-  EDITOR = "nvim";
-};
+# home.sessionVariables = (if isLinux then {
+#   LINUX_VAR = "some_value";
+# } else if isDarwin then {
+#   MACOS_VAR = "another_value";
+# } else {}) // {
+#   # Common environment variables
+#   EDITOR = "nvim";
+# };
 
   home.sessionPath = [
     "$HOME/.nix-profile/bin" #binaries
@@ -174,8 +175,12 @@ home.sessionVariables = (if isLinux then {
     enable = true;
     userName = "Stefan Genov";
     userEmail = "sgenov94@gmail.com";
+  
     extraConfig = {
-      core = { editor = "nvim"; };
+      core = {
+        editor = "nvim";
+        excludesFile = "${homeDir}/.gitignore";
+      };
       push = { autoSetupRemote = true; };
       credential = { helper = "store"; };
     };
