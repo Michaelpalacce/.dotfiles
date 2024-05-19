@@ -27,10 +27,6 @@ fi
 
 # Mac specifics
 if [[ "$machine" = "Mac" ]]; then
-    if ! command_exists terminal-notifier; then
-        brew install terminal-notifier 
-    fi
-
     if ! command_exists nix; then
         sh <(curl -L https://nixos.org/nix/install) --yes
     fi

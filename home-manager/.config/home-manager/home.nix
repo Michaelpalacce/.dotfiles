@@ -7,6 +7,8 @@ let
       "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz";
   homeDir = builtins.getEnv "HOME";
   username = builtins.getEnv "USER";
+  isLinux = pkgs.stdenv.isLinux;
+  isDarwin = pkgs.stdenv.isDarwin;
 in
 {
   home.username = username;
@@ -34,9 +36,17 @@ in
   # environment.
   home.packages = [
     # General
+    pkgs.curl
     pkgs.htop
     pkgs.sshpass
     pkgs.unzip
+    pkgs.dos2unix
+    pkgs.gnupg
+    pkgs.sshpass
+
+
+    # Gaming
+    pkgs.wine64Packages.unstableFull
 
     # Development
     pkgs.git
@@ -60,9 +70,9 @@ in
     pkgs.kubernetes-helm
 
     # Neovim
+    pkgs.unstable.neovim
     pkgs.ripgrep
     pkgs.fd
-    pkgs.unstable.neovim
 
     # Go
     pkgs.unstable.go
@@ -93,7 +103,28 @@ in
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-  ];
+  ] 
+  ++ (if isLinux then [
+    # Kubernetes
+    pkgs.kubescape
+
+    # General
+    pkgs.vlc
+    pkgs.nfs-utils
+    pkgs.lsb-release
+
+    # Gaming
+    pkgs.python311Packages.openrazer
+
+    # KVM
+    pkgs.qemu
+    pkgs.libvirt
+    pkgs.virt-manager
+    pkgs.bridge-utils
+  ] else [])
+  ++ (if isDarwin then [
+      pkgs.terminal-notifier
+  ] else []);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -125,9 +156,14 @@ in
   #
   #  /etc/profiles/per-user/stefan/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
+home.sessionVariables = (if isLinux then {
+  LINUX_VAR = "some_value";
+} else if isDarwin then {
+  MACOS_VAR = "another_value";
+} else {}) // {
+  # Common environment variables
+  EDITOR = "nvim";
+};
 
   home.sessionPath = [
     "$HOME/.nix-profile/bin" #binaries

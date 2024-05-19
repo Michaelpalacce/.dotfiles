@@ -12,34 +12,11 @@
 - name: Ensure apps are installed
   apt:
     name:
-        - curl
-        - neovim
-        - fd-find
-        - python3-dev
-        - python3-pip
-        - git
-        - vlc
-        - nfs-common
         - apt-transport-https
         - chrome-gnome-shell
-        - bash-completion
-        - gnupg
-        - lsb-release
-        - ca-certificates
-        - openrazer-meta
-        - sshpass
-        - dos2unix
-        - unzip
-        - wine64
         - flatpak
         - gnome-software-plugin-flatpak
-        - ripgrep 
-        - awscli
-        - xclip
-        - stow
-        - fd-find
         - libssl-dev
-        - zsh
     state: present
     update_cache: true
 
@@ -52,8 +29,6 @@
       - cpu-checker
       - libvirt-clients
       - libvirt-daemon
-      - qemu
-      - qemu-kvm
 
 - name: Check if Virtualization Capabilities exist
   shell: kvm-ok
@@ -63,12 +38,3 @@
 
 - name: Add Flathub
   shell: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-- name: Ensure bash_aliases exists
-  file:
-    path: "/home/{{ local.username }}/.bash_aliases"
-    state: touch
-
-- name: Install Docker
-  shell:
-    cmd: curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
