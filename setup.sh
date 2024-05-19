@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# ------------------------ Helper Functions -------------------------------
+
 # Function to check if a command is available
 # https://stackoverflow.com/questions/592620/how-to-check-if-a-program-exists-from-a-bash-script
 command_exists() {
@@ -20,10 +22,12 @@ print_color() {
     echo -e "${color}${message}${NC}"
 }
 
+# ------------------------ Setup -------------------------------
+
 if command_exists apt-get; then
-    print_color "$GREEN" "Setting up"
+    print_color "$GREEN" "Setting up for Debian based systems"
 elif command_exists brew; then 
-    print_color "$GREEN" "Setting up"
+    print_color "$GREEN" "Setting up for MacOS"
 else
     print_color "$RED" "Error: No package manager found"
     exit 1
@@ -71,7 +75,6 @@ fi
 
 # Extra configuration
 pushd $DOTFILES_DIR
-    . ./scripts/extra.sh
     . ./scripts/stow.sh
     . ./scripts/post.sh
 popd
