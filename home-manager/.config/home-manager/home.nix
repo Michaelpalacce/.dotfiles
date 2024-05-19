@@ -44,7 +44,6 @@ in
     pkgs.gnupg
     pkgs.sshpass
 
-
     # Development
     pkgs.git
     pkgs.awscli
@@ -176,9 +175,17 @@ home.sessionVariables = (if isLinux then {
     userName = "Stefan Genov";
     userEmail = "sgenov94@gmail.com";
     extraConfig = {
-      credential = {
-        helper = "store";
-      };
+      core = { editor = "nvim"; };
+      push = { autoSetupRemote = true; };
+      credential = { helper = "store"; };
+    };
+    aliases = {
+      co = "checkout";
+      ci = "commit";
+      st = "status";
+      br = "branch";
+      df = "diff";
+      lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit";
     };
   };
 }
