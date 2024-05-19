@@ -51,7 +51,6 @@ fi
 
 # Mac specifics
 if [[ "$machine" = "Mac" ]]; then
-    # @TODO: Manage this with nix
     if ! command_exists terminal-notifier; then
         brew install terminal-notifier 
     fi
