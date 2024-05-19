@@ -29,13 +29,6 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 
-# Install GOlang
-if ! command_exists go; then
-    zsh <(curl -sL https://git.io/go-installer)
-    source "$HOME/.zshrc"
-    rm -rf go*.tar.gz
-fi
-
 # If something is not in nix... (stow is, just leaving it here for reference)
 APTS=("stow")
 

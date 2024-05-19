@@ -64,6 +64,9 @@ in
     pkgs.fd
     pkgs.unstable.neovim
 
+    # Go
+    pkgs.unstable.go
+
     # Java
     pkgs.jdk17
     pkgs.maven
