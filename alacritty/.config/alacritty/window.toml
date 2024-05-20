@@ -1,9 +1,6 @@
 # MacOs ...
 [window]
-# option_as_alt = "Both"
-padding = { x = 5, y = 5 }
-# dynamic_padding = true
-# opacity = 0.9
+dynamic_padding = true
 
 # Idk how I feel about this, but it's a thing
 startup_mode = "Maximized"
