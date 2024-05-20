@@ -105,7 +105,7 @@ lspconfig.gopls.setup({
 -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md#imports-and-formatting
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.go",
-	callback = function()
+	callback = function(args)
 		local params = vim.lsp.util.make_range_params()
 		params.context = { only = { "source.organizeImports" } }
 		local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
@@ -117,7 +117,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 				end
 			end
 		end
-		vim.lsp.buf.format({ async = false })
+
+		require("conform").format({ bufnr = args.buf })
 	end
 })
 

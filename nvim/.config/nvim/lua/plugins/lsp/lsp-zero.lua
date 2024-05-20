@@ -28,7 +28,6 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
 	vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
 	vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-	vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
 	vim.keymap.set({ 'n', 'v' }, '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
 
 	vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
@@ -36,18 +35,6 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
 end)
 
-lsp.format_on_save({
-	format_opts = {
-		async = false,
-		timeout_ms = 5000,
-	},
-	servers = {
-		['lua_ls']   = { 'lua' },
-		['gopls']    = { 'go' },
-		['tsserver'] = { 'typescript' },
-		['jdts']     = { 'java' }
-	}
-})
 
 lsp.set_sign_icons({
 	error = '✘',
