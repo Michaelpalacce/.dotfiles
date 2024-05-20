@@ -5,7 +5,3 @@ dynamic_padding = true
 # Idk how I feel about this, but it's a thing
 startup_mode = "Maximized"
 decorations = "None"
-
-# Opacity
-opacity = 0.8
-blur = true
