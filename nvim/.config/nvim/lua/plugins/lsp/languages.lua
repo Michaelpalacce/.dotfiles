@@ -2,7 +2,16 @@ local lsp = require('lsp-zero')
 local lspconfig = require("lspconfig")
 
 require('mason-lspconfig').setup {
-	ensure_installed = {},
+	ensure_installed = {
+		"lua_ls",
+		"tsserver",
+		"vimls",
+		"volar",
+		"lemminx",
+		"gopls",
+		"prettierd",
+		"jsonls",
+	},
 	handlers = {
 		lsp.default_setup
 	}
