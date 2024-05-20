@@ -8,8 +8,6 @@ require('mason-lspconfig').setup {
 		"vimls",
 		"volar",
 		"lemminx",
-		"gopls",
-		"prettierd",
 		"jsonls",
 	},
 	handlers = {

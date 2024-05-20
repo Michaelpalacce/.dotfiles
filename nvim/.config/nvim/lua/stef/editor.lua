@@ -3,6 +3,8 @@ vim.wo.relativenumber = true
 vim.wo.number = true
 
 -- Editor
+-- This will set file type detection to on
+vim.opt.filetype = "on"
 vim.opt.swapfile = false
 -- This will add a line to the right after 160 characters
 vim.opt.colorcolumn = "160"
