@@ -12,7 +12,7 @@ return {
 			{ 'saadparwaiz1/cmp_luasnip' },
 		},
 		config = function()
-			require "plugins.lsp.luasnip"
+			require "plugins.lsp.snippets"
 		end,
 	},
 }
