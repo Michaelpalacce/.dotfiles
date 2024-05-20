@@ -1,6 +1,14 @@
-[window]
 # MacOs ...
+[window]
 # option_as_alt = "Both"
-# padding = { x = 3, y = 3 }
+padding = { x = 5, y = 5 }
 # dynamic_padding = true
 # opacity = 0.9
+
+# Idk how I feel about this, but it's a thing
+startup_mode = "Maximized"
+decorations = "None"
+
+# Opacity
+opacity = 0.8
+blur = true
