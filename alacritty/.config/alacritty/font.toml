@@ -1,3 +1,4 @@
-font.normal.family = "JetBrainsMono Nerd Font"
-font.normal.style = "Regular"
-font.size = 14
+[font]
+normal.family = "JetBrainsMono Nerd Font"
+normal.style = "Regular"
+size = 14

@@ -14,6 +14,7 @@ DISABLE_AUTO_UPDATE="true"
 # ------------------------------ THEME ---------------------------------
 
 ZSH_THEME="bira"
+export TERM="xterm-256color"
 
 # ------------------------------ Completion ---------------------------------
 # Uncomment the following line to use case-sensitive completion.

@@ -1,5 +1,4 @@
 # PERSONAL
-export TERM="xterm-256color"
 
 # some more ls aliases
 alias ll='ls -alF'
