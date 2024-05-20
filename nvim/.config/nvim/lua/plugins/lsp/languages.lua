@@ -103,6 +103,7 @@ lspconfig.gopls.setup({
 })
 
 -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md#imports-and-formatting
+-- This function will auto source imports
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*.go",
 	callback = function(args)
