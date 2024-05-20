@@ -27,7 +27,6 @@ return {
 				Concise = "Please rewrite the following text to make it more concise.",
 			}
 		},
-		event = "VeryLazy",
 		keys = {
 			-- Code related keys (default: <leader>cc)
 			{ "<leader>cce", "<cmd>CopilotChatExplain<cr>",       desc = "[C]opilotChat: [C]ode [E]xplain" },
@@ -53,6 +52,9 @@ return {
 			{ "<leader>ctw", "<cmd>CopilotChatWording<cr>",   desc = "[C]opilotChat: [T]ext Improve [W]ording" },
 			{ "<leader>ctc", "<cmd>CopilotChatConcise<cr>",   desc = "[C]opilotChat: [T]ext Make text [C]oncise" },
 		},
+		cmds = {
+			"CopilotChat",
+		}
 	},
 	-- {
 	-- 	'github/copilot.vim',
