@@ -9,27 +9,8 @@ let
   username = builtins.getEnv "USER";
   isLinux = pkgs.stdenv.isLinux;
   isDarwin = pkgs.stdenv.isDarwin;
-
-  commonConfig = {
-    home.sessionVariables = {
-      EDITOR = "nvim";
-      JAVA_HOME = "${pkgs.zulu17}";
-    };
-  };
-
-  darwinConfig = {
-  };
-
-  linuxConfig = {
-  };
 in
 {
-  imports = [
-    commonConfig
-    (if isDarwin then darwinConfig else {})
-    (if isLinux then linuxConfig else {})
-  ];
-
   home.username = username;
   home.homeDirectory = homeDir;
 
@@ -159,24 +140,31 @@ in
     # '';
   };
 
-  # # Home Manager can also manage your environment variables through
-  # # 'home.sessionVariables'. If you don't want to manage your shell through Home
-  # # Manager then you have to manually source 'hm-session-vars.sh' located at
-  # # either
-  # #
-  # #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  # #
-  # # or
-  # #
-  # #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  # #
-  # # or
-  # #
-  # #  /etc/profiles/per-user/stefan/etc/profile.d/hm-session-vars.sh
-  # #
-  # home.sessionVariables = {
-  #     JAVA_HOME = "${pkgs.zulu17}";
-  # };
+  # Home Manager can also manage your environment variables through
+  # 'home.sessionVariables'. If you don't want to manage your shell through Home
+  # Manager then you have to manually source 'hm-session-vars.sh' located at
+  # either
+  #
+  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  /etc/profiles/per-user/stefan/etc/profile.d/hm-session-vars.sh
+  #
+  home.sessionVariables = 
+  (if isLinux then {
+    # Linux specific environment variables
+  } else if isDarwin then {
+    # Darwin specific environment variables
+  } else {}) // {
+    # Common environment variables
+    EDITOR = "nvim";
+    JAVA_HOME = "${pkgs.zulu17}";
+  };
 
   home.sessionPath = [
     "$HOME/.nix-profile/bin" #binaries
