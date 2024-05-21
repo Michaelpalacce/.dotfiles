@@ -14,7 +14,7 @@ return {
 			-- Debugging
 			-- ##########################################################
 
-			require "plugins.lsp.debuggin" -- Contains all the debugging configs
+			require "plugins.lsp.debugging" -- Contains all the debugging configs
 		end
 	},
 }
