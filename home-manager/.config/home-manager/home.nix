@@ -43,6 +43,7 @@ in
     pkgs.dos2unix
     pkgs.gnupg
     pkgs.sshpass
+    pkgs.sshuttle
     pkgs.wget
 
     # Development
@@ -57,6 +58,11 @@ in
     pkgs.gh
     pkgs.docker
     pkgs.unstable.fzf
+    pkgs.ansible
+
+    # Encryption And Security
+    pkgs.sops
+    pkgs.age
 
     # Kubernetes
     pkgs.k9s
@@ -122,6 +128,7 @@ in
   ] else [])
   ++ (if isDarwin then [
       pkgs.terminal-notifier
+      pkgs.gnused
   ] else []);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
