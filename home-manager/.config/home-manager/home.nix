@@ -155,6 +155,7 @@ in
   #
   #  /etc/profiles/per-user/stefan/etc/profile.d/hm-session-vars.sh
   #
+# Session variables hold variables needed specifically since things were installed via nix
   home.sessionVariables = 
   (if isLinux then {
     # Linux specific environment variables
