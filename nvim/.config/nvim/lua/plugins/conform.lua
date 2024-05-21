@@ -19,8 +19,8 @@ return {
 		opts = {
 			-- Define your formatters
 			formatters_by_ft = {
-				javascript = { { "prettierd" } },
-				typescript = { { "prettierd" } }
+				-- javascript = { { "prettierd" } },
+				-- typescript = { { "prettierd" } }
 			},
 			-- Set up format-on-save
 			format_on_save = { timeout_ms = 500, lsp_fallback = true },
