@@ -1,36 +1,68 @@
 return {
 	{
 		'tpope/vim-fugitive', -- Git operations
-		config = function()
-			local builtin = require('telescope.builtin')
-
-			-- Note: <C-w>7- is a hack to make the window smaller
-			vim.keymap.set('n', "<leader>gs", "<cmd>G <CR><C-w>7-", { desc = 'Fugitive: [G]it [S]tatus' })
-
-			vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope: [G]it [B]ranches' })
-			vim.keymap.set('n', '<leader>gd', builtin.git_status, { desc = 'Telescope: [G]it [D]iff' })
-			vim.keymap.set('n', '<leader>gc', builtin.git_bcommits, { desc = 'Telescope: [G]it buffer [C]ommits' })
-			vim.keymap.set('n', '<leader>gC', builtin.git_commits, { desc = 'Telescope: [G]it [C]ommits' })
-
-			vim.keymap.set('n', "<leader>gp", function()
-				vim.cmd.Git('push')
-			end, { desc = "Fugitive: [G]it [P]ush", remap = false })
-
-			vim.keymap.set("n", "<leader>gP", function()
-				vim.cmd.Git('pull --rebase')
-			end, { remap = false, desc = "Fugitive: [G]it [P]ull" })
-
-			vim.keymap.set("n", "<leader>gl", function()
-				vim.cmd.GcLog('--follow -- ' .. vim.fn.expand('%'))
-			end, { remap = false, desc = "Fugitive: [G]it [L]og --follow (per file)" })
-
-			vim.keymap.set("n", "<leader>gL", function()
-				vim.cmd.GcLog()
-			end, { remap = false, desc = "Fugitive: [G]it [L]og (per repo)" })
-		end,
 		dependencies = {
 			'nvim-telescope/telescope.nvim'
-		}
+		},
+		keys = {
+			{ "<leader>gs", "<cmd>G <CR><C-w>7-", desc = "Fugitive: [G]it [S]tatus" },
+			{
+				"<leader>gb",
+				function()
+					require('telescope.builtin').git_branches()
+				end,
+				desc = "Telescope: [G]it [B]ranches"
+			},
+			{
+				"<leader>gd",
+				function()
+					require('telescope.builtin').git_status()
+				end,
+				desc = "Telescope: [G]it [D]iff"
+			},
+			{
+				"<leader>gc",
+				function()
+					require('telescope.builtin').git_bcommits()
+				end,
+				desc = "Telescope: [G]it buffer [C]ommits"
+			},
+			{
+				"<leader>gC",
+				function()
+					require('telescope.builtin').git_commits()
+				end,
+				desc = "Telescope: [G]it [C]ommits"
+			},
+			{
+				"<leader>gp",
+				function()
+					vim.cmd.Git('push')
+				end,
+				desc = "Fugitive: [G]it [P]ush"
+			},
+			{
+				"<leader>gP",
+				function()
+					vim.cmd.Git('pull --rebase')
+				end,
+				desc = "Fugitive: [G]it [P]ull"
+			},
+			{
+				"<leader>gl",
+				function()
+					vim.cmd.GcLog('--follow -- ' .. vim.fn.expand('%'))
+				end,
+				desc = "Fugitive: [G]it [L]og --follow (per file)"
+			},
+			{
+				"<leader>gL",
+				function()
+					vim.cmd.GcLog()
+				end,
+				desc = "Fugitive: [G]it [L]og (per repo)"
+			},
+		},
 	},
 	{
 		'lewis6991/gitsigns.nvim', -- Show Signs in the gutter
