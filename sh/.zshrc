@@ -64,6 +64,10 @@ if [ -f ~/.zsh_secrets ]; then
     . ~/.zsh_secrets 
 fi
 
+if [ -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then
+    . ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+fi
+
 # Source all files under ~/.zsh-config
 for config_file in ~/.zsh-config/*; do
     . $config_file
