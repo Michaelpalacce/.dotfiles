@@ -64,6 +64,7 @@ if [ -f ~/.zsh_secrets ]; then
     . ~/.zsh_secrets 
 fi
 
+# Source nix session vars...
 if [ -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then
     . ~/.nix-profile/etc/profile.d/hm-session-vars.sh
 fi

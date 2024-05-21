@@ -9,8 +9,27 @@ let
   username = builtins.getEnv "USER";
   isLinux = pkgs.stdenv.isLinux;
   isDarwin = pkgs.stdenv.isDarwin;
+
+  commonConfig = {
+    home.sessionVariables = {
+      EDITOR = "nvim";
+      JAVA_HOME = "${pkgs.zulu17}";
+    };
+  };
+
+  darwinConfig = {
+  };
+
+  linuxConfig = {
+  };
 in
 {
+  imports = [
+    commonConfig
+    (if isDarwin then darwinConfig else {})
+    (if isLinux then linuxConfig else {})
+  ];
+
   home.username = username;
   home.homeDirectory = homeDir;
 
@@ -43,6 +62,7 @@ in
     pkgs.dos2unix
     pkgs.gnupg
     pkgs.sshpass
+    pkgs.wget
 
     # Development
     pkgs.git
@@ -74,7 +94,7 @@ in
     pkgs.unstable.go
 
     # Java
-    pkgs.jdk17
+    pkgs.zulu17
     pkgs.maven
 
     # Node
@@ -139,29 +159,24 @@ in
     # '';
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. If you don't want to manage your shell through Home
-  # Manager then you have to manually source 'hm-session-vars.sh' located at
-  # either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/stefan/etc/profile.d/hm-session-vars.sh
-  #
-# home.sessionVariables = (if isLinux then {
-#   LINUX_VAR = "some_value";
-# } else if isDarwin then {
-#   MACOS_VAR = "another_value";
-# } else {}) // {
-#   # Common environment variables
-#   EDITOR = "nvim";
-# };
+  # # Home Manager can also manage your environment variables through
+  # # 'home.sessionVariables'. If you don't want to manage your shell through Home
+  # # Manager then you have to manually source 'hm-session-vars.sh' located at
+  # # either
+  # #
+  # #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+  # #
+  # # or
+  # #
+  # #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
+  # #
+  # # or
+  # #
+  # #  /etc/profiles/per-user/stefan/etc/profile.d/hm-session-vars.sh
+  # #
+  # home.sessionVariables = {
+  #     JAVA_HOME = "${pkgs.zulu17}";
+  # };
 
   home.sessionPath = [
     "$HOME/.nix-profile/bin" #binaries
