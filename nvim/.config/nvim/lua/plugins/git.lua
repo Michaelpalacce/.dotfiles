@@ -5,7 +5,7 @@ return {
 			'nvim-telescope/telescope.nvim'
 		},
 		keys = {
-			{ "<leader>gs", "<cmd>G <CR><C-w>7-", desc = "Fugitive: [G]it [S]tatus" },
+			{ "<leader>gs", vim.cmd.Git, desc = "Fugitive: [G]it [S]tatus" },
 			{
 				"<leader>gb",
 				function()
