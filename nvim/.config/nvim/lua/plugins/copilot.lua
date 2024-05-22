@@ -90,24 +90,15 @@ return {
 					auto_trigger = true,
 					debounce = 50,
 					keymap = {
-						accept = "<M-l>",
+						accept = "<M-a>",
 						accept_word = "<M-Right>",
-						accept_line = false,
+						accept_line = "<M-Left>",
 						next = "<M-]>",
 						prev = "<M-[>",
 						dismiss = "<C-]>",
 					},
 				},
 				filetypes = {
-					-- yaml = false,
-					-- markdown = true,
-					-- help = false,
-					-- gitcommit = true,
-					-- gitrebase = false,
-					-- hgcommit = false,
-					-- svn = false,
-					-- cvs = false,
-					-- ["."] = false,
 					["*"] = true
 				},
 				copilot_node_command = 'node', -- Node.js version must be > 18.x

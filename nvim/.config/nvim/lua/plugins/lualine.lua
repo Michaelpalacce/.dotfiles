@@ -13,9 +13,12 @@ return {
 				lualine_a = { 'mode' },
 				lualine_b = { 'branch', 'diff', 'diagnostics' },
 				lualine_c = { { 'filename', path = 1 } },
-				lualine_x = { {
-					'copilot', show_colors = true
-				} },
+				lualine_x = {
+					{
+						'copilot',
+						show_colors = true
+					}
+				},
 				lualine_y = { 'filetype' },
 				lualine_z = { 'location' }
 			}
