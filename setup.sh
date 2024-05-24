@@ -27,6 +27,18 @@ print_color() {
     echo -e "${color}${message}${NC}"
 }
 
+installOsSpecific() {
+    if command_exists apt-get; then
+        print_color "$GREEN" "Setting up"
+        sudo apt-get install -y "$1"
+    elif command_exists brew; then 
+        brew install "$1"
+    else
+        print_color "$RED" "Error: No package manager found"
+        exit 1
+    fi
+}
+
 # ------------------------ Setup -------------------------------
 
 if command_exists apt-get; then
@@ -37,6 +49,20 @@ else
     print_color "$RED" "Error: No package manager found"
     exit 1
 fi
+
+# Apps that cannot be managed with home-manager
+APPS=(
+    "git"
+    "alacritty"
+)
+
+for app in "${APPS[@]}"; do
+    if ! command_exists $app; then
+        installOsSpecific $app
+    else
+        print_color "$YELLOW" "$app exists, skipping"
+    fi
+done
 
 # Clone repo
 DOTFILES_DIR="$HOME/.dotfiles"
