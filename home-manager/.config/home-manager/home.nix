@@ -46,6 +46,7 @@ in
     pkgs.sshpass
     pkgs.sshuttle
     pkgs.wget
+    pkgs.gnumake
 
     # Development
     pkgs.libgcc
