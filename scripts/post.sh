@@ -37,18 +37,8 @@ if [[ "$machine" = "Mac" ]]; then
     . $HOME/.dotfiles/scripts/os/mac.sh
 fi
 
-# ------------------------ Home Manager and Nix------------------------
+# Install node if not
 
-
-# This is done in the post since we want the configuration
-if command_exists home-manager; then
-    echo "Home Manager already installed"
-else
-    source /etc/profile && nix-env --install --attr nixpkgs.lua
-    nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-    nix-channel --update
-    nix-shell '<home-manager>' -A install
+if ! command_exists node; then
+    fnm install 18
 fi
-
-echo "Home Manager installed, switching to configuration (home-manager switch). This is always triggered."
-home-manager switch
