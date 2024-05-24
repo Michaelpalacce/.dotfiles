@@ -38,7 +38,6 @@ in
   # environment.
   home.packages = [
     # General
-    pkgs.curl
     pkgs.htop
     pkgs.sshpass
     pkgs.unzip
@@ -49,12 +48,9 @@ in
     pkgs.wget
 
     # Development
-    pkgs.git
     pkgs.awscli
     pkgs.xclip
-    pkgs.zsh
     pkgs.tmux
-    pkgs.alacritty
     pkgs.eza
     pkgs.stow
     pkgs.gh
@@ -114,7 +110,6 @@ in
     pkgs.kubescape
 
     # General
-    pkgs.vlc
     pkgs.nfs-utils
     pkgs.lsb-release
 
