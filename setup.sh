@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Dependencies
+#
+# - git
+# - curl
+
 # ------------------------ Helper Functions -------------------------------
 
 # Function to check if a command is available
@@ -44,6 +49,15 @@ else
     git clone https://github.com/Michaelpalacce/.dotfiles.git $DOTFILES_DIR
 fi
 
+ZSH_DIR="$HOME/.oh-my-zsh"
+
+if [ -d $ZSH_DIR ]; then 
+    print_color "$YELLOW" "$ZSH_DIR exists, skipping"
+else
+    print_color "$GREEN" "$ZSH_DIR does not exist, running installer"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+fi
+
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 
 if [ -d $TPM_DIR ]; then 
@@ -51,15 +65,6 @@ if [ -d $TPM_DIR ]; then
 else
     print_color "$GREEN" "$TPM_DIR does not exist, checking the repository out"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
-
-ZSH_DIR="$HOME/.oh-my-zsh"
-
-if [ -d $ZSH_DIR ]; then 
-    print_color "$YELLOW" "$ZSH_DIR exists, skipping"
-else
-    print_color "$GREEN" "$ZSH_DIR does not exist, running installer"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # Install zsh plugins
@@ -75,6 +80,7 @@ fi
 
 # Extra configuration
 pushd $DOTFILES_DIR
+    . ./scripts/nix.sh
     . ./scripts/stow.sh
     . ./scripts/post.sh
 popd
