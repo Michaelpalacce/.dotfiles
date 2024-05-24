@@ -1,8 +1,0 @@
-# ------------------------------------------------------------------------------
-# Zsh Configuration for fnm
-#
-# fnm is a Node.js version manager that allows you to install and switch between different versions of Node.js.
-# nvm is slow, fnm is fast.
-# ------------------------------------------------------------------------------
-
-eval "$(fnm env --use-on-cd)"
