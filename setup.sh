@@ -52,6 +52,7 @@ fi
 
 # Apps that cannot be managed with home-manager
 APPS=(
+    "zsh"
     "git"
     "alacritty"
 )
