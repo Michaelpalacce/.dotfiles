@@ -9,14 +9,16 @@ require('mason-lspconfig').setup {
 		"volar",
 		"lemminx",
 		"jsonls",
-		"yamlls"
+		"yamlls",
+		"jdtls",
+		"gopls"
 	},
 	handlers = {
 		lsp.default_setup
 	}
 }
 
--- (Optional) Configure lua language server for neovim
+-- LUA
 lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
@@ -32,7 +34,8 @@ lspconfig.lua_ls.setup({
 -- LUA END
 
 -- TSSERVER
-
+-- organize_imports and add_missing_imports are functions
+-- that handle imports in the scripts
 local function organize_imports()
 	local params = {
 		command = "_typescript.organizeImports",
@@ -79,17 +82,13 @@ lspconfig.tsserver.setup({
 		}
 	}
 })
-
 -- TSSERVER END
 
 -- VOLAR (VUE)
-
 lspconfig.volar.setup {}
-
 -- VUE END
 
 -- GOLANG
-
 lspconfig.gopls.setup({
 	cmd = { "gopls" },
 	settings = {
@@ -130,10 +129,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		require("conform").format({ bufnr = args.buf })
 	end
 })
-
 -- GOLANG END
 
 -- JAVA START
 -- This may cause issues between different environments
-require('lspconfig').jdtls.setup({})
+lspconfig.jdtls.setup({})
 -- JAVA END

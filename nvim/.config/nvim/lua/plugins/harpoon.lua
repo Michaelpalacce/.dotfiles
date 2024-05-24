@@ -12,10 +12,10 @@ return {
 			harpoon:setup()
 			-- REQUIRED
 
-			vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end, { desc = "Harpoon: [A]dds file to harpoon" })
+			vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end,
+				{ desc = "Harpoon: [A]dds file to harpoon" })
 			vim.keymap.set("n", "<leader>th", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
 				{ desc = "Harpoon: [T]oggles [H]arpoon menu" })
-
 			vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end,
 				{ desc = "Harpoon: [1] Select 1st harpoon item" })
 			vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end,

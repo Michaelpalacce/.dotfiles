@@ -51,66 +51,54 @@ return {
 			{ "<leader>ctS", "<cmd>CopilotChatSpelling<cr>",  desc = "[C]opilotChat: [T]ext Correct [S]pelling" },
 			{ "<leader>ctw", "<cmd>CopilotChatWording<cr>",   desc = "[C]opilotChat: [T]ext Improve [W]ording" },
 			{ "<leader>ctc", "<cmd>CopilotChatConcise<cr>",   desc = "[C]opilotChat: [T]ext Make text [C]oncise" },
-		},
-		cmds = {
-			"CopilotChat",
 		}
 	},
-	-- {
-	-- 	'github/copilot.vim',
-	-- 	event = "BufRead",
-	-- 	config = function()
-	-- 		vim.g.copilot_no_tab_map = true
-	-- 		vim.g.copilot_assume_mapped = true
-	-- 	end
-	-- },
 	{
 		'zbirenbaum/copilot.lua',
 		cmd = "Copilot",
 		event = "InsertEnter",
-		config = function()
-			require("copilot").setup {
-				panel = {
-					enabled = true,
-					auto_refresh = false,
-					keymap = {
-						jump_prev = "[[",
-						jump_next = "]]",
-						accept = "<CR>",
-						refresh = "cr",
-						open = "<M-CR>"
-					},
-					layout = {
-						position = "top", -- | top | left | right
-						ratio = 0.3
-					},
+		opts = {
+			panel = {
+				enabled = true,
+				auto_refresh = false,
+				keymap = {
+					jump_prev = "[[",
+					jump_next = "]]",
+					accept = "<CR>",
+					refresh = "cr",
+					open = "<M-CR>"
 				},
-				suggestion = {
-					enabled = true,
-					auto_trigger = true,
-					debounce = 50,
-					keymap = {
-						accept = "<M-a>",
-						accept_word = "<M-Right>",
-						accept_line = "<M-Left>",
-						next = "<M-]>",
-						prev = "<M-[>",
-						dismiss = "<C-]>",
-					},
+				layout = {
+					position = "top", -- | top | left | right
+					ratio = 0.3
 				},
-				filetypes = {
-					["*"] = true
+			},
+			suggestion = {
+				enabled = true,
+				auto_trigger = true,
+				debounce = 50,
+				keymap = {
+					accept = "<M-a>",
+					accept_word = "<M-Right>",
+					accept_line = "<M-Left>",
+					next = "<M-]>",
+					prev = "<M-[>",
+					dismiss = "<C-]>",
 				},
-				copilot_node_command = 'node', -- Node.js version must be > 18.x
-				server_opts_overrides = {
-					settings = {
-						advanced = {
-							listCount = 10, -- #completions for panel
-							inlineSuggestCount = 5, -- #completions for getCompletions
-						}
-					},
+			},
+			filetypes = {
+				["*"] = true
+			},
+			copilot_node_command = 'node', -- Node.js version must be > 18.x
+			server_opts_overrides = {
+				settings = {
+					advanced = {
+						listCount = 10, -- #completions for panel
+						inlineSuggestCount = 5, -- #completions for getCompletions
+					}
 				},
-			}
-		end
+			},
+		},
+		config = true
 	}
 }

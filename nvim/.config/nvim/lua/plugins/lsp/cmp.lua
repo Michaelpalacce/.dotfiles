@@ -24,43 +24,30 @@ local mappings = {
 			cmp.select_next_item()
 		elseif require("copilot.suggestion").is_visible() then
 			require("copilot.suggestion").accept()
-			-- elseif vim.b._copilot_suggestion ~= nil then
-			-- 	vim.fn.feedkeys(vim.api.nvim_replace_termcodes(vim.fn['copilot#Accept'](), true, true, true), '')
 		else
 			fallback()
 		end
-	end, {
-		'i',
-		's',
-	}),
+	end, { 'i', 's' }),
 	['<C-Y>'] = cmp.mapping(function(fallback)
 		if require("copilot.suggestion").is_visible() then
 			require("copilot.suggestion").accept()
 		else
 			fallback()
 		end
-	end, {
-		'i',
-		'v',
-		'n',
-		's',
-	}),
+	end, { 'i', 'v', 'n', 's' }),
 	['<S-Tab>'] = cmp.mapping(function(fallback)
 		if cmp.visible() then
 			cmp.select_prev_item()
 		else
 			fallback()
 		end
-	end, {
-		'i',
-		's',
-	}),
+	end, { 'i', 's' }),
 
 	-- Documentation
 	['<C-d>'] = cmp.mapping.scroll_docs(-4),
 	['<C-f>'] = cmp.mapping.scroll_docs(4),
 
-	-- Disable up and down... I want to move
+	-- Disable up and down... I want to move around if I press them
 	['<Up>'] = function(fallback)
 		if cmp.visible() then
 			cmp.close()
@@ -82,7 +69,9 @@ local mappings = {
 }
 
 cmp.setup({
-	-- I don't want anything in the completion preview to be highlighted
+	-- I don't want anything in the completion preview to be highlighted/Preselected
+	-- Preselected means that the first item in the completion menu is selected by default
+	-- so pressing `Enter` will confirm the completion
 	preselect = types.cmp.PreselectMode.None,
 	snippet = {
 		expand = function(args)
