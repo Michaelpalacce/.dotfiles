@@ -91,7 +91,7 @@ cmp.setup({
 	},
 	mapping = mappings,
 	sources = cmp.config.sources({
-		{ name = 'nvim_lsp', max_item_count = 25 },
+		{ name = 'nvim_lsp', max_item_count = 50 },
 		{ name = 'luasnip',  max_item_count = 5 },
 	}, {
 		{ name = 'nvim_lua' },
