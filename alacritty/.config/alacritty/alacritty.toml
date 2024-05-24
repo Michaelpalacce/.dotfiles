@@ -6,3 +6,7 @@ import = [
   "~/.config/alacritty/font.toml",
   # "~/.config/alacritty/catppuccin-mocha.toml"
 ]
+
+[shell]
+program = "/bin/zsh"
+args = ["-l"]
