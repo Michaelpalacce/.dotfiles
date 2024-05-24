@@ -9,6 +9,7 @@ require('mason-lspconfig').setup {
 		"volar",
 		"lemminx",
 		"jsonls",
+		"yamlls"
 	},
 	handlers = {
 		lsp.default_setup
