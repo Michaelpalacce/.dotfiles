@@ -64,12 +64,6 @@ if [ -f ~/.zsh_secrets ]; then
     . ~/.zsh_secrets 
 fi
 
-# Nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-# End Nix
-
 # Source nix session vars...
 if [ -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then
     . ~/.nix-profile/etc/profile.d/hm-session-vars.sh
