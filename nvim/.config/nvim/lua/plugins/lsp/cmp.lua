@@ -2,6 +2,12 @@
 local cmp = require('cmp')
 local types = require 'cmp.types'
 
+-- Options
+-- Set the number of lines to show in the popup menu
+vim.opt.pumheight = 10
+
+-- Rest
+
 local mappings = {
 	-- `Enter` to confirm completion
 	-- In most cases, tab will be enough to confirm completion
@@ -85,7 +91,7 @@ cmp.setup({
 	},
 	mapping = mappings,
 	sources = cmp.config.sources({
-		{ name = 'nvim_lsp', max_item_count = 10 },
+		{ name = 'nvim_lsp', max_item_count = 25 },
 		{ name = 'luasnip',  max_item_count = 5 },
 	}, {
 		{ name = 'nvim_lua' },
