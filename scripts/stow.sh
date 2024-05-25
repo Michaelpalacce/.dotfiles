@@ -18,6 +18,7 @@ FOLDERS=(
     "alacritty"
     "home-manager"
     "nix"
+    "gitignore"
 )
 
 for dir in ${FOLDERS[@]} ; do
