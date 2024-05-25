@@ -1,4 +1,5 @@
 ---
+# Apps
 - name: Add specified repository into sources list
   ansible.builtin.apt_repository:
     repo: "{{ item.repo }}"
@@ -7,18 +8,33 @@
     - repo: ppa:graphics-drivers/ppa
       state: present
 
-- name: Ensure apps are installed
+- name: Ensure general apps are installed
   apt:
     name:
-        - curl
-        - apt-transport-https
-        - chrome-gnome-shell
-        - flatpak
-        - gnome-software-plugin-flatpak
-        - libssl-dev
-        - vlc
+      - curl
+      - apt-transport-https
+      - libssl-dev
+      - libgl1-mesa-dri:i386
+      - libgl1:i386
+      - libc6-i386
     state: present
     update_cache: true
+
+- name: Ensure GUI apps are installed
+  apt:
+    name:
+      - vlc
+      - chrome-gnome-shell
+      - flatpak
+      - gnome-software-plugin-flatpak
+    state: present
+
+# Flatpak
+
+- name: Add Flathub
+  shell: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# KVM Section
 
 - name: KVM Pre-Reqs
   apt:
@@ -29,9 +45,6 @@
       - cpu-checker
       - libvirt-clients
       - libvirt-daemon
-      - libgl1-mesa-dri:i386
-      - libgl1:i386
-      - libc6-i386
 
 - name: Check if Virtualization Capabilities exist
   shell: kvm-ok
@@ -39,8 +52,7 @@
   failed_when: '"KVM acceleration can NOT be used" in kvm_status.stdout'
   changed_when: false
 
-- name: Add Flathub
-  shell: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# Brave Browser
 
 - name: Check if `/usr/share/keyrings/brave-browser-archive-keyring.gpg` exists
   stat:
@@ -65,3 +77,6 @@
         - brave-browser
     state: present
     update_cache: true
+
+# 
+

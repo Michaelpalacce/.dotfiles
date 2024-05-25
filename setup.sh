@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # Dependencies
-#
 # - git
 # - curl
 
