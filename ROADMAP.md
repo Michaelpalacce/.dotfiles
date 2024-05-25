@@ -1,5 +1,4 @@
 # Roadmap
 
-- [ ] Utilize `home-manager` even more
-
+- [x] Utilize `home-manager` even more
 

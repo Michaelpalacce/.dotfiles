@@ -10,8 +10,8 @@
 
 FOLDERS=(
     "nvim"
-    "editorconfig" 
-    "sh" 
+    "editorconfig"
+    "sh"
     "tmux"
     "bin"
     "cheatsheets"

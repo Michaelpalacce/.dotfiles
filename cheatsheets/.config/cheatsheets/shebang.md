@@ -6,3 +6,9 @@ I can never remember these...
 #!/usr/bin/env bash
 ```
 
+# ZSH
+
+```bash
+#!/usr/bin/env zsh
+```
+
