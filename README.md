@@ -76,17 +76,27 @@ changing with it.
 
 I try to keep the native capabilities of vim and use them as much as possible, however a lot of quality of life changes are done.
 
+## Home-Manager
+
+I use `home-manager` to manage my development environment in a declarative way.
+
+`home-manager swtich` to set up the environment.
+
+Since I use `home-manager` for darwin and linux, my `home.nix` contains logic around that matter. 
+I don't really see this behaviour that often with people's configurations, which is why I am mentioning it.
+
 ## Details
 
 ### Structure
 
 - `Home` - this contains a bunch of ansible recipes that can be used to install a few tools for Ubuntu.
-    - Used to like ansible, but I much preffer things being as native as possible and I am not setting up a server, so I would say they are deprecated
 - `alacritty` - Contains my alacritty configurations
 - `bin` - Check out the [#Scripts](#scripts) section for this,
 - `cheatsheets` - this contains some local cheatsheets that I can access at any time with `sc`
 - `editorconfig` - this contains my default editorconfig that gets used everywhere
 - `gitignore` - Default gitignore for common directories/files you want to ignore
+- `home-manager` - Contains my home-manager configuration. Used to setup dev tools primarily
+- `nix` - Contains some nix configuration, `.config/nix` to be exact. I don't use NixOS
 - `nvim` - Personalized Development Environment in NeoVim
 - `scripts` - Extra scripts I need to run
 - `sh` - `zsh` configuration
@@ -155,4 +165,8 @@ Starts a new timer in a separate tmux window. Will prompt you for 2 arguments if
 ### tmux-wttr
 
 Shows the weather forecast in another tmux windows.
+
+### tmux-chooser
+
+Forces `tmux` if a normal terminal is opened. It will also ask which tmux session to attach to if there are multiple.
 
