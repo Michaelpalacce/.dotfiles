@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
-# @TODO: Migrate to using home-manager, currently stuff is installed during setup
+# Philosophy:
+# - Nix and Home Manager are used mainly to install and manage development tools and packages
+# - Home Manager will not be used to manage any GUI applications or settings, since it doesn't work well outside of NixOS
+# - When it comes to `.zshrc` and other sourced files, these are also not the responsibility of Home Manager
 let
   unstableTarball =
     fetchTarball
@@ -129,22 +132,6 @@ in
       pkgs.terminal-notifier
       pkgs.gnused
   ] else []);
-
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    ".gitignore".source = git/.gitignore;
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-  };
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
