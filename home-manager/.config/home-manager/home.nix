@@ -50,6 +50,7 @@ in
     pkgs.sshuttle
     pkgs.wget
     pkgs.gnumake
+    pkgs.libuv
 
     # Development
     pkgs.awscli
