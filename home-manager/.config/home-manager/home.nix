@@ -52,7 +52,6 @@ in
     pkgs.gnumake
 
     # Development
-    pkgs.libgcc
     pkgs.awscli
     pkgs.xclip
     pkgs.tmux
@@ -113,6 +112,7 @@ in
   ++ (if isLinux then [
     # Kubernetes
     pkgs.kubescape
+    pkgs.libgcc
 
     # General
     pkgs.nfs-utils
