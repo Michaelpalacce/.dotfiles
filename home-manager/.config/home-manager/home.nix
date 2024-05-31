@@ -59,7 +59,6 @@ in
     pkgs.eza
     pkgs.stow
     pkgs.gh
-    pkgs.docker
     pkgs.unstable.fzf
     pkgs.ansible
 

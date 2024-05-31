@@ -20,20 +20,12 @@ esac
 
 # Linux specifics
 if [[ "$machine" = "Linux" ]]; then
-    if ! command_exists nix; then
-        sh <(curl -L https://nixos.org/nix/install) --daemon --yes
-    fi
-
     # Set alacritty as default terminal
     sudo update-alternatives --set x-terminal-emulator /usr/bin/alacritty
 fi
 
 # Mac specifics
 if [[ "$machine" = "Mac" ]]; then
-    if ! command_exists nix; then
-        sh <(curl -L https://nixos.org/nix/install) --yes
-    fi
-
     brew install gsed
 
     # Run macos.sh for some nice defaults
