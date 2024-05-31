@@ -51,7 +51,6 @@ fi
 
 # Apps that cannot be managed with home-manager
 APPS=(
-    "zsh"
     "git"
     "alacritty"
 )
@@ -63,6 +62,17 @@ for app in "${APPS[@]}"; do
         print_color "$YELLOW" "$app exists, skipping"
     fi
 done
+
+# ZSH
+
+# Check if zsh is installed
+
+if ! command_exists zsh; then
+    rm -rf $HOME/.zshrc
+    installOsSpecific zsh
+else
+    print_color "$YELLOW" "zsh exists, skipping"
+fi
 
 # Clone repo
 DOTFILES_DIR="$HOME/.dotfiles"
