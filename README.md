@@ -10,6 +10,10 @@ Run the setup script. It will prompt for sudo password if one is needed.
 For MacOs, we need brew installed. Note: This is not done automatically for now.
 
 ```bash
+# Either install dependencies, or run:
+curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-deps.sh | bash
+
+# Restart the shell and run
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | bash
 ```
 
