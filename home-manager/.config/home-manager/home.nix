@@ -41,57 +41,34 @@ in
   # environment.
   home.packages = [
     # General
-    pkgs.htop
-    pkgs.sshpass
-    pkgs.unzip
-    pkgs.dos2unix
-    pkgs.gnupg
-    pkgs.sshpass
-    pkgs.sshuttle
-    pkgs.wget
-    pkgs.gnumake
-    pkgs.libuv
+    pkgs.htop               pkgs.sshpass        pkgs.unzip      pkgs.dos2unix       pkgs.gnupg
+    pkgs.sshpass            pkgs.sshuttle       pkgs.wget       pkgs.gnumake        pkgs.libuv
 
     # Development
-    pkgs.awscli
-    pkgs.xclip
-    pkgs.tmux
-    pkgs.eza
-    pkgs.stow
-    pkgs.gh
-    pkgs.unstable.fzf
-    pkgs.ansible
+    pkgs.awscli             pkgs.xclip          pkgs.tmux       pkgs.eza            pkgs.stow
+    pkgs.gh                 pkgs.unstable.fzf   pkgs.ansible
 
     # Encryption And Security
-    pkgs.sops
-    pkgs.age
+    pkgs.sops               pkgs.age
 
     # Kubernetes
-    pkgs.k9s
-    pkgs.kubent
-    pkgs.kubectl
-    pkgs.velero
-    pkgs.unstable.fluxcd
+    pkgs.k9s                pkgs.kubent         pkgs.kubectl    pkgs.velero         pkgs.unstable.fluxcd
     pkgs.kubernetes-helm
 
     # Neovim
-    pkgs.unstable.neovim
-    pkgs.ripgrep
-    pkgs.fd
+    pkgs.unstable.neovim    pkgs.ripgrep        pkgs.fd
 
     # Go
     pkgs.unstable.go
 
     # Java
-    pkgs.zulu17
-    pkgs.maven
+    pkgs.zulu17             pkgs.maven
 
     # Node
     pkgs.fnm
 
     # Python
-    pkgs.python3
-    pkgs.python312Packages.pip
+    pkgs.python3            pkgs.python312Packages.pip
 
     # Rust
     pkgs.rustup
@@ -111,44 +88,23 @@ in
   ] 
   ++ (if isLinux then [
     # Kubernetes
-    pkgs.kubescape
-    pkgs.libgcc
+    pkgs.kubescape                      pkgs.libgcc
 
     # General
-    pkgs.nfs-utils
-    pkgs.lsb-release
+    pkgs.nfs-utils                      pkgs.lsb-release
 
     # Gaming
-    pkgs.python311Packages.openrazer
-    pkgs.wine64Packages.unstableFull
+    pkgs.python311Packages.openrazer    pkgs.wine64Packages.unstableFull
 
     # KVM
-    pkgs.qemu
-    pkgs.libvirt
-    pkgs.virt-manager
-    pkgs.bridge-utils
+    pkgs.qemu                           pkgs.libvirt                        pkgs.virt-manager   pkgs.bridge-utils
   ] else [])
   ++ (if isDarwin then [
       pkgs.terminal-notifier
       pkgs.gnused
   ] else []);
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. If you don't want to manage your shell through Home
-  # Manager then you have to manually source 'hm-session-vars.sh' located at
-  # either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/stefan/etc/profile.d/hm-session-vars.sh
-  #
-# Session variables hold variables needed specifically since things were installed via nix
+  # Session variables hold variables needed specifically since things were installed via nix
   home.sessionVariables = 
   (if isLinux then {
     # Linux specific environment variables
@@ -166,7 +122,6 @@ in
   ];
 
   # Fonts
-
   fonts.fontconfig.enable = true;
 
   # Programs
