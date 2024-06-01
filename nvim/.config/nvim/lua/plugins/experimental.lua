@@ -5,7 +5,7 @@ return {
 		event = "VeryLazy",
 		opts = {
 			notifications = true,
-			grace_period = 30
+			grace_period = 180
 		}
 	},
 }
