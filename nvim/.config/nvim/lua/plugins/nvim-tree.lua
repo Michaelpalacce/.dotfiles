@@ -120,9 +120,9 @@ return {
 					dotfiles = false,
 				},
 				git = {
-					enable = false,
+					enable = true,
 					ignore = false,
-					timeout = 1000,
+					timeout = 250,
 				},
 				on_attach = customAttach,
 			})
