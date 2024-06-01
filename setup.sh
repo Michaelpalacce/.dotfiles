@@ -28,18 +28,6 @@ print_color() {
     echo -e "${color}${message}${NC}"
 }
 
-installOsSpecific() {
-    if command_exists apt-get; then
-        print_color "$GREEN" "Setting up"
-        sudo apt-get install -y "$1"
-    elif command_exists brew; then 
-        brew install "$1"
-    else
-        print_color "$RED" "Error: No package manager found"
-        exit 1
-    fi
-}
-
 # ------------------------ Setup -------------------------------
 
 if command_exists apt-get; then
