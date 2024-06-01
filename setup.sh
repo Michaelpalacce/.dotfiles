@@ -51,6 +51,7 @@ else
     exit 1
 fi
 
+print_color "$YELLOW" "Notice: This script has dependencies that need to be installed. If you have not done so already, run 'setup-deps.sh'"
 
 # Clone repo
 DOTFILES_DIR="$HOME/.dotfiles"
