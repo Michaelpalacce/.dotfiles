@@ -49,10 +49,8 @@ else
     exit 1
 fi
 
-# Apps that cannot be managed with home-manager
 APPS=(
     "git"
-    "alacritty"
 )
 
 for app in "${APPS[@]}"; do
@@ -62,18 +60,6 @@ for app in "${APPS[@]}"; do
         print_color "$YELLOW" "$app exists, skipping"
     fi
 done
-
-# ZSH
-
-# Check if zsh is installed
-
-if ! command_exists zsh; then
-    installOsSpecific zsh
-    # Clean up zshrc, since I have my own
-    rm -rf $HOME/.zshrc
-else
-    print_color "$YELLOW" "zsh exists, skipping"
-fi
 
 # Clone repo
 DOTFILES_DIR="$HOME/.dotfiles"
@@ -86,17 +72,7 @@ else
     git clone https://github.com/Michaelpalacce/.dotfiles.git $DOTFILES_DIR
 fi
 
-ZSH_DIR="$HOME/.oh-my-zsh"
-
-if [ -d $ZSH_DIR ]; then 
-    print_color "$YELLOW" "$ZSH_DIR exists, skipping"
-else
-    print_color "$GREEN" "$ZSH_DIR does not exist, running installer"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
-fi
-
 TPM_DIR="$HOME/.tmux/plugins/tpm"
-
 if [ -d $TPM_DIR ]; then 
     print_color "$YELLOW" "$TPM_DIR exists, skipping"
 else
@@ -104,20 +80,16 @@ else
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-# Install zsh plugins
-ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+# Apps
 
-ZSH_AUTOSUGGESTIONS_DIR="${ZSH_CUSTOM}/plugins/zsh-autosuggestions"
-if [ -d $ZSH_AUTOSUGGESTIONS_DIR ]; then 
-    print_color "$YELLOW" "zsh-autosuggestions exists, skipping"
-else
-    print_color "$GREEN" "zsh-autosuggestions does not exist, checking the repository out"
-    git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_AUTOSUGGESTIONS_DIR
-fi
+pushd $DOTFILES_DIR
+    . ./scripts/zsh.sh
+    . ./scripts/alacritty.sh
+    . ./scripts/nix.sh
+popd
 
 # Extra configuration
 pushd $DOTFILES_DIR
-    . ./scripts/nix.sh
     . ./scripts/stow.sh
     . ./scripts/post.sh
 popd
