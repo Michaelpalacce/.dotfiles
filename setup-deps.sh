@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-# This is used to install home-manager and setup all the programs I need
+
+# This file contains dependencies that are needed for the setup.sh file to be ran.
+# You can satisfy these yourself however needed if you don't want to run this script:
+# - nix
+# - home-manager
 
 # Helper functions
 command_exists() {
@@ -41,9 +45,4 @@ else
     nix-channel --update
     nix-shell '<home-manager>' -A install
     rm -rf $HOME/.config/home-manager
-    echo "Home Manager installed, exiting. Run the script again from a new shell."
-    exit 0
 fi
-
-echo "Home Manager installed, switching to configuration (home-manager switch). This is always triggered."
-home-manager -f $HOME/.dotfiles/home-manager/.config/home-manager/home.nix switch

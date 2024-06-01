@@ -2,7 +2,7 @@
 
 # Dependencies
 # - git
-# - curl
+#
 
 # ------------------------ Helper Functions -------------------------------
 
@@ -51,6 +51,7 @@ fi
 
 APPS=(
     "git"
+    "curl"
 )
 
 for app in "${APPS[@]}"; do
@@ -85,7 +86,6 @@ fi
 pushd $DOTFILES_DIR
     . ./scripts/zsh.sh
     . ./scripts/alacritty.sh
-    . ./scripts/nix.sh
 popd
 
 # Extra configuration
