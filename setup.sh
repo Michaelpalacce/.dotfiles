@@ -2,7 +2,9 @@
 
 # Dependencies
 # - git
-#
+# - curl
+# - nix
+# - home-manager
 
 # ------------------------ Helper Functions -------------------------------
 
@@ -49,18 +51,6 @@ else
     exit 1
 fi
 
-APPS=(
-    "git"
-    "curl"
-)
-
-for app in "${APPS[@]}"; do
-    if ! command_exists $app; then
-        installOsSpecific $app
-    else
-        print_color "$YELLOW" "$app exists, skipping"
-    fi
-done
 
 # Clone repo
 DOTFILES_DIR="$HOME/.dotfiles"
