@@ -39,6 +39,8 @@ else
     nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
     nix-channel --update
     nix-shell '<home-manager>' -A install
+    echo "Home Manager installed, exiting. Run the script again from a new shell."
+    exit 0
 fi
 
 echo "Home Manager installed, switching to configuration (home-manager switch). This is always triggered."
