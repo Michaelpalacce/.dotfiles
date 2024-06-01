@@ -23,5 +23,5 @@ FOLDERS=(
 
 for dir in ${FOLDERS[@]} ; do
     echo "Stowing $dir"
-    stow $dir
+    stow --restow $dir
 done
