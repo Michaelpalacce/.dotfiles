@@ -68,8 +68,9 @@ done
 # Check if zsh is installed
 
 if ! command_exists zsh; then
-    rm -rf $HOME/.zshrc
     installOsSpecific zsh
+    # Clean up zshrc, since I have my own
+    rm -rf $HOME/.zshrc
 else
     print_color "$YELLOW" "zsh exists, skipping"
 fi
