@@ -73,10 +73,9 @@ else
 fi
 
 # Apps
-
 pushd $DOTFILES_DIR
-    . ./scripts/zsh.sh
-    . ./scripts/alacritty.sh
+    . ./scripts/apps/zsh.sh
+    . ./scripts/apps/alacritty.sh
 popd
 
 # Extra configuration
