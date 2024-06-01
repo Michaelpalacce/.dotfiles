@@ -39,7 +39,7 @@ else
     source /etc/profile && nix-env --install --attr nixpkgs.lua
     nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
     nix-channel --update
-    USER=root nix-shell '<home-manager>' -A install
+    nix-shell '<home-manager>' -A install
     rm -rf $HOME/.config/home-manager
     echo "Home Manager installed, exiting. Run the script again from a new shell."
     exit 0
