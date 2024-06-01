@@ -33,6 +33,7 @@ fi
 if command_exists home-manager; then
     echo "Home Manager already installed"
 else
+    echo "Installing Home Manager"
     rm -rf $HOME/.config/home-manager
     source /etc/profile && nix-env --install --attr nixpkgs.lua
     nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
