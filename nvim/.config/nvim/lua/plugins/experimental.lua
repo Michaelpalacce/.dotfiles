@@ -8,4 +8,8 @@ return {
 			grace_period = 180
 		}
 	},
+	{
+		'NvChad/nvim-colorizer.lua',
+		config = true
+	}
 }
