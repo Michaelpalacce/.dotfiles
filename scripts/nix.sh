@@ -18,7 +18,7 @@ esac
 # Linux specifics
 if [[ "$machine" = "Linux" ]]; then
     if ! command_exists nix-shell; then
-        echp "Nix not found, installing it now."
+        echo "Nix not found, installing it now."
         sh <(curl -L https://nixos.org/nix/install) --daemon --yes
     fi
 fi
@@ -26,7 +26,7 @@ fi
 # Mac specifics
 if [[ "$machine" = "Mac" ]]; then
     if ! command_exists nix-shell; then
-        echp "Nix not found, installing it now."
+        echo "Nix not found, installing it now."
         sh <(curl -L https://nixos.org/nix/install) --yes
     fi
 fi
