@@ -4,6 +4,6 @@ dynamic_padding = true
 
 # Idk how I feel about this, but it's a thing
 startup_mode = "Maximized"
-decorations = "None"
+decorations = "Full"
 
 option_as_alt = "Both"  
