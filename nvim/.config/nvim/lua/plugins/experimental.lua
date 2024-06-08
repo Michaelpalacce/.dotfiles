@@ -6,7 +6,8 @@ return {
 		event = "VeryLazy",
 		opts = {
 			notifications = true,
-			grace_period = 360
+			grace_period = 360,
+			excluded_lsp_clients = { "copilot" },
 		}
 	},
 }

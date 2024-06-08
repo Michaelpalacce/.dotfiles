@@ -56,10 +56,10 @@ return {
 	{
 		'zbirenbaum/copilot.lua',
 		cmd = "Copilot",
-		event = "InsertEnter",
+		event = "VeryLazy",
 		opts = {
 			panel = {
-				enabled = true,
+				enabled = false,
 				auto_refresh = false,
 				keymap = {
 					jump_prev = "[[",
@@ -76,7 +76,7 @@ return {
 			suggestion = {
 				enabled = true,
 				auto_trigger = true,
-				debounce = 50,
+				debounce = 75,
 				keymap = {
 					accept = "<M-a>",
 					accept_word = "<M-Right>",
@@ -90,14 +90,6 @@ return {
 				["*"] = true
 			},
 			copilot_node_command = 'node', -- Node.js version must be > 18.x
-			server_opts_overrides = {
-				settings = {
-					advanced = {
-						listCount = 10, -- #completions for panel
-						inlineSuggestCount = 5, -- #completions for getCompletions
-					}
-				},
-			},
 		},
 		config = true
 	}
