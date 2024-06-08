@@ -43,6 +43,7 @@ in
     # General
     pkgs.htop               pkgs.sshpass        pkgs.unzip      pkgs.dos2unix       pkgs.gnupg
     pkgs.sshpass            pkgs.sshuttle       pkgs.wget       pkgs.gnumake        pkgs.libuv
+    pkgs.smartmontools
 
     # Development
     pkgs.awscli             pkgs.xclip          pkgs.tmux       pkgs.eza            pkgs.stow
