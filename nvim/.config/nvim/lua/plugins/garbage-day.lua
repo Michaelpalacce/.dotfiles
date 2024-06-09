@@ -7,6 +7,7 @@ return {
 		opts = {
 			notifications = true,
 			grace_period = 360,
+			-- Taken from: https://github.com/Zeioth/garbage-day.nvim/blob/main/lua/garbage-day/config.lua
 			excluded_lsp_clients = { "copilot", "null-ls", "jdtls", "marksman" }
 		}
 	},
