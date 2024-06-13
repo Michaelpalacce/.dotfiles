@@ -4,7 +4,7 @@ return {
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
 		branch = "canary",
-		depedencies = {
+		dependencies = {
 			'nvim-lua/plenary.nvim',
 			'zbirenbaum/copilot.lua'
 		},

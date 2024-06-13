@@ -2,7 +2,7 @@ return {
 	{
 		'ThePrimeagen/harpoon', -- Allows for easier jumping between files
 		branch = 'harpoon2',
-		depedencies = {
+		dependencies = {
 			'nvim-lua/plenary.nvim',
 		},
 		config = function()
