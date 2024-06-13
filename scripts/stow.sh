@@ -17,7 +17,6 @@ FOLDERS=(
     "cheatsheets"
     "alacritty"
     "home-manager"
-    "nix"
     "gitignore"
 )
 
