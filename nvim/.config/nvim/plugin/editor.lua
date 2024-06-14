@@ -28,6 +28,9 @@ vim.opt.smartindent = true
 
 -- Word wrap
 vim.opt.wrap = true
+-- Break indent will keep the indent of the previous line
+vim.opt.breakindent = true
+
 -- Whichwrap allows for overflowing to a new line with h and l as well as left and right arrow
 vim.opt.whichwrap = '<,>,h,l'
 
