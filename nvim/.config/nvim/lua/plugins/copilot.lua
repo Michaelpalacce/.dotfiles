@@ -27,6 +27,7 @@ return {
 				Concise = "Please rewrite the following text to make it more concise.",
 			}
 		},
+		cmd = "CopilotChat",
 		keys = {
 			-- Code related keys (default: <leader>cc)
 			{ "<leader>cce", "<cmd>CopilotChatExplain<cr>",       desc = "[C]opilotChat: [C]ode [E]xplain" },

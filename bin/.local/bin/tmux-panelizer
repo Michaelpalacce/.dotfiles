@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+
+# Dependencies: tmux
+
+# This will search for folders that have `.git` folder in them and show them
+selected=$(find ~/projects ~/projects/clients ~/.dotfiles -mindepth 1 -maxdepth 3 -type d -name ".git" -not -path "*node_modules*" -exec dirname {} \;  2>/dev/null | fzf --height 60% --border --reverse --prompt="Select a project: ")
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
+cd "$selected" && eval $1
