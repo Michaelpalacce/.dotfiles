@@ -53,7 +53,7 @@ in
 
     # Development
     pkgs.awscli             pkgs.xclip          pkgs.tmux       pkgs.eza            pkgs.stow
-    pkgs.gh                 pkgs.unstable.fzf   pkgs.ansible
+    pkgs.gh                 pkgs.unstable.fzf   pkgs.ansible    pkgs.direnv
 
     # Encryption And Security
     pkgs.sops               pkgs.age

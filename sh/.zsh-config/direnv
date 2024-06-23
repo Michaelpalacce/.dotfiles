@@ -1,0 +1,9 @@
+# ------------------------------------------------------------------------------
+# ZSH Configuration for direnv
+#
+# This file is sourced by zsh when direnv is enabled. It sets up the shell
+#
+# Dependencies: direnv
+# ------------------------------------------------------------------------------
+
+eval "$(direnv hook zsh)"
