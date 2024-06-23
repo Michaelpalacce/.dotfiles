@@ -14,6 +14,7 @@
       - curl
       - apt-transport-https
       - libssl-dev
+      - openssh-server
     state: present
     update_cache: true
 
