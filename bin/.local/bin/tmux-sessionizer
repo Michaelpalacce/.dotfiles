@@ -25,11 +25,8 @@ esac
 # Create a new window in the session too, so we can go to it if we need to run a command
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
     # Not sure why this does not work on Linux, but it does on Mac
-    if [[ $machine == "Linux" ]]; then
-        tmux new-session -ds $selected_name -c $selected "zsh -i -c '$1'"
-    else
-        tmux new-session -ds $selected_name -c $selected $1
-    fi
+    tmux new-session -ds $selected_name -c $selected zsh
+    tmux send-keys -t $selected_name $1 Enter
 
     # This will open a window at the bottom
     # tmux split-window -v -t $selected_name -p 10 -c $selected
