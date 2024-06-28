@@ -8,6 +8,7 @@ return {
 			'nvim-lua/plenary.nvim',
 			'zbirenbaum/copilot.lua'
 		},
+		event = "VeryLazy",
 		opts = {
 			mode = "split", -- newbuffer or split  , default: newbuffer
 			prompts = {
@@ -27,7 +28,6 @@ return {
 				Concise = "Please rewrite the following text to make it more concise.",
 			}
 		},
-		cmd = "CopilotChat",
 		keys = {
 			-- Code related keys (default: <leader>cc)
 			{ "<leader>cce", "<cmd>CopilotChatExplain<cr>",       desc = "[C]opilotChat: [C]ode [E]xplain" },
