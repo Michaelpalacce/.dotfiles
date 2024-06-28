@@ -1,3 +1,4 @@
+local defaultFormatOpts = { async = false, timeout_ms = 5000, lsp_fallback = true }
 return {
 	-- Foramtting
 	{
@@ -9,7 +10,7 @@ return {
 				-- Customize or remove this keymap to your liking
 				"<F3>",
 				function()
-					require("conform").format({ async = true, lsp_fallback = true })
+					require("conform").format(defaultFormatOpts)
 				end,
 				mode = "",
 				desc = "Format buffer",
@@ -23,7 +24,7 @@ return {
 				-- typescript = { { "prettierd" } }
 			},
 			-- Set up format-on-save
-			format_on_save = { timeout_ms = 500, lsp_fallback = true },
+			format_on_save = defaultFormatOpts,
 			-- Customize formatters
 			formatters = {
 				-- shfmt = {
