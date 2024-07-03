@@ -34,8 +34,13 @@ return {
 
 					{
 						file_pattern = { 'settings*.xml' },
-						cloak_pattern = { '<password>.+</password>' },
-						replace = nil,
+						cloak_pattern = { '(<password>).+', '(<vroKeyPass>).+' },
+						replace = "%1",
+					},
+					{
+						file_pattern = { 'env-properties.json' },
+						cloak_pattern = { '("password":).+' },
+						replace = "%1",
 					},
 				},
 			})
