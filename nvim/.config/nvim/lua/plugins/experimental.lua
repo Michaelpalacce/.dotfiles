@@ -31,6 +31,12 @@ return {
 						-- If left empty the legacy behavior of keeping the first character is retained.
 						replace = nil,
 					},
+
+					{
+						file_pattern = { 'settings*.xml' },
+						cloak_pattern = { '<password>.+</password>' },
+						replace = nil,
+					},
 				},
 			})
 		end,
