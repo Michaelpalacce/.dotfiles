@@ -15,6 +15,14 @@ local clients_lsp = function()
 	return '\u{f085}  LSP: ' .. table.concat(c, ',')
 end
 
+local lint_progress = function()
+	local linters = require("lint").get_running()
+	if #linters == 0 then
+		return "󰦕"
+	end
+	return "󱉶 " .. table.concat(linters, ", ")
+end
+
 return {
 	{
 		'nvim-lualine/lualine.nvim', -- Provides a nice status bar at the bottom of the screen
@@ -37,7 +45,7 @@ return {
 						show_colors = true
 					},
 				},
-				lualine_y = {},
+				lualine_y = { lint_progress },
 				lualine_z = {}
 			}
 		}
