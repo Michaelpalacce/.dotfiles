@@ -15,6 +15,7 @@
       - apt-transport-https
       - libssl-dev
       - openssh-server
+      - nfs-common
     state: present
     update_cache: true
 
