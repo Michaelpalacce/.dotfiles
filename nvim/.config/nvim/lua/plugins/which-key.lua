@@ -2,6 +2,7 @@ return {
 	{
 		"folke/which-key.nvim", -- Shows a popup of key combinations
 		event = "VeryLazy",
+		commit = "af4ded85542d40e190014c732fa051bdbf88be3d",
 		init = function()
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
