@@ -57,8 +57,11 @@ vim.diagnostic.config({
 	virtual_text = true
 })
 
-vim.o.timeout = true
-vim.o.timeoutlen = 100
+-- Set the timeout for keybindings
+-- Timeout is essentially, wait n milliseconds for the next key press
+-- If the next key press is not received, then the key is treated as a single key press
+vim.o.timeout = false
+vim.o.timeoutlen = 300
 
 -- Sync with system clipboard
 vim.opt.clipboard = "unnamed,unnamedplus"
