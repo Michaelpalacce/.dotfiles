@@ -58,7 +58,7 @@ vim.diagnostic.config({
 })
 
 vim.o.timeout = true
-vim.o.timeoutlen = 0
+vim.o.timeoutlen = 100
 
 -- Sync with system clipboard
 vim.opt.clipboard = "unnamed,unnamedplus"

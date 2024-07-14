@@ -1,6 +1,7 @@
 return {
 	{
 		'tpope/vim-fugitive', -- Git operations
+		event = "VeryLazy",
 		dependencies = {
 			'nvim-telescope/telescope.nvim'
 		},
