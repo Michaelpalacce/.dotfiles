@@ -36,9 +36,6 @@ plugins=(
 
 # ------------------------------ HACKS --------------------------------
 
-# Disable caps lock
-setxkbmap -option ctrl:nocaps
-
 # autoload -Uz compinit
 #
 # () {
