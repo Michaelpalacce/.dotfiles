@@ -1,1 +1,5 @@
-return {}
+return {
+	{
+		'aquasecurity/vim-trivy'
+	}
+}
