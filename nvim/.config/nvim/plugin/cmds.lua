@@ -4,5 +4,5 @@ vim.api.nvim_create_user_command('WipeReg', function()
 end, { nargs = 0 })
 
 vim.api.nvim_create_user_command('DelBuffers', function()
-	vim.cmd([[ %bd|e# ]])
+	vim.cmd([[ %bd!|e# ]])
 end, { nargs = 0 })
