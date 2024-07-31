@@ -1,5 +1,5 @@
--- Enable Hybrid Line Numbering
 vim.wo.relativenumber = true
+-- Enable Hybrid Line Numbering
 vim.wo.number = true
 
 -- Editor
@@ -9,8 +9,8 @@ vim.opt.swapfile = false
 -- This will add a line to the right after 160 characters
 vim.opt.colorcolumn = "160"
 
--- Don't highlight search
-vim.opt.hlsearch = false
+-- Highlight search
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 -- Persistent UNDO
