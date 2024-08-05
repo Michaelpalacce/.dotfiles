@@ -30,6 +30,11 @@ return {
 					-- If left empty the legacy behavior of keeping the first character is retained.
 					replace = nil,
 				},
+				{
+					file_pattern = { '.zsh_secrets', '.zprofile' },
+					cloak_pattern = { '=.+' },
+					replace = nil,
+				},
 
 				{
 					file_pattern = { '.npmrc*' },
