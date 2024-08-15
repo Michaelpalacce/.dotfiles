@@ -64,7 +64,6 @@ fi
 pushd $DOTFILES_DIR
     . ./scripts/apps/zsh.sh
     . ./scripts/apps/alacritty.sh
-    . ./scripts/apps/kitty.sh
 popd
 
 # Extra configuration
