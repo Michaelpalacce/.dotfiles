@@ -27,6 +27,9 @@ return {
 
 			-- Icons
 			{ 'onsails/lspkind.nvim' },
+
+			-- Language Specifics
+			{ 'towolf/vim-helm',                    ft = 'helm' },
 		},
 		config = function()
 			-- ##########################################################

@@ -10,6 +10,7 @@ require('mason-lspconfig').setup {
 		"lemminx",
 		"jsonls",
 		"yamlls",
+		"helm_ls",
 		"jdtls",
 		"gopls"
 	},
@@ -82,6 +83,23 @@ lspconfig.gopls.setup({
 	},
 })
 -- GOLANG END
+
+-- HELM/YAML START
+
+lspconfig.helm_ls.setup {
+	settings = {
+		['helm-ls'] = {
+			yamlls = {
+				path = "yaml-language-server",
+			}
+		}
+	}
+}
+
+-- setup yamlls
+lspconfig.yamlls.setup {}
+
+-- HELM/YAML END
 
 -- JAVA START
 -- This may cause issues between different environments
