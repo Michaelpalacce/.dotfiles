@@ -46,7 +46,7 @@ return {
 					},
 				},
 				lualine_y = { lint_progress },
-				lualine_z = {}
+				lualine_z = { 'filetype' }
 			}
 		}
 	},
