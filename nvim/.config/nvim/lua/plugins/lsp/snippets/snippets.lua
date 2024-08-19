@@ -62,7 +62,35 @@ return {
 			{
 				print = insert(0)
 			}
-		))
+		)),
+		snippet(
+			{
+				trig = "errnil",
+			},
+			fmt(
+				[[
+if err != nil {{
+	{}
+}}
+			]],
+				{
+					insert(1, "// handle error"),
+				}
+			)
+		),
+		-- funcs
+		snippet("func", fmt(
+			[[func {name}({params}) {ret} {{
+	{body}
+}}
+			]],
+			{
+				name = insert(1, "funcName"),
+				params = insert(2),
+				ret = insert(3),
+				body = insert(0),
+			}
+		)),
 	},
 	javascript = {
 		-- methods

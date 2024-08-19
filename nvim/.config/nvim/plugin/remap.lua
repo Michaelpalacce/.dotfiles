@@ -62,12 +62,6 @@ vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', '<C-q>', '<C-w>q')
 
--- Move in Insert Mode
-vim.keymap.set("i", "<C-h>", "<Left>", { noremap = false })
-vim.keymap.set("i", "<C-j>", "<Down>", { noremap = false })
-vim.keymap.set("i", "<C-k>", "<Up>", { noremap = false })
-vim.keymap.set("i", "<C-l>", "<Right>", { noremap = false })
-
 -- Quick Fix
 vim.keymap.set("n", "<S-Down>", "<cmd>cnext<CR>zz", { desc = 'Go to the next quickfix item' })
 vim.keymap.set("n", "<S-Up>", "<cmd>cprev<CR>zz", { desc = 'Go to the previous quickfix item' })
