@@ -1,0 +1,45 @@
+name: "Update nvim plugins to latest versions"
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      id-token: write
+      contents: write
+      repository-projects: write
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: oleksiyrudenko/gha-git-credentials@v2-latest
+      with:
+        token: '${{ secrets.GITHUB_TOKEN }}'
+
+    - name: "Update nvim plugins with Lazy"
+      run: nvim --headless "+Lazy! sync" +qa
+
+    - name: "Check if update branch exists"
+      id: check_branch
+      run: |
+        git fetch origin
+        if git branch -r | grep -q "origin/plugin-updates"; then echo "exists=true" >> $GITHUB_ENV; else echo "exists=false" >> $GITHUB_ENV; fi
+
+    - name: "Create or switch to update branch"
+      run: git checkout -b plugin-updates || git checkout plugin-updates
+
+    - name: "Commit and push changes"
+      run: |
+        git add .
+        git commit -m "Update nvim plugins to latest versions"
+        git push origin plugin-updates
+
+    - name: "Create Pull Request"
+      if: github.event_name == 'workflow_dispatch' && env.exists == 'false'
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        branch: plugin-updates
+        title: "Update nvim plugins to latest versions"
+        body: "This PR updates the nvim plugins to their latest versions."
+        labels: 'automation'
