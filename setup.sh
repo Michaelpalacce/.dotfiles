@@ -65,18 +65,18 @@ pushd $DOTFILES_DIR
     . ./scripts/stow.sh
 popd
 
-# Call home-manager switch after a debounce period
-pushd $DOTFILES_DIR
-    . ./scripts/home-manager-debounced.sh
-popd
-
 # Extra apps
 pushd $DOTFILES_DIR
     . ./scripts/apps/zsh.sh
     . ./scripts/apps/alacritty.sh
 popd
 
-# Extra configuration
+# Call home-manager switch after a debounce period
+pushd $DOTFILES_DIR
+    . ./scripts/home-manager-debounced.sh
+popd
+
+# Extra configuration after we have everything installed
 pushd $DOTFILES_DIR
     . ./scripts/post.sh
 popd
