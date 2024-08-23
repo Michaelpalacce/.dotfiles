@@ -4,15 +4,28 @@ These are my personal dotfiles. They are heavily opinionated and they are not me
 but I am open to suggestions and improvements. I am not using any fancy dotfile manager, 
 but instead I am using a bunch of bash scripts and `stow` to create symlinks to the appropriate locations.
 
+## Dependencies
+
+The following dependencies are needed to run the setup script:
+
+- `stow` - symlink manager
+- `curl` - for downloading the setup script
+- `git` - for cloning the repositoryA
+- `nix` - for home-manager
+- `home-manager` - for setting up the development environment
+
+You can install these dependencies by running the following command:
+
+```bash
+curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-deps.sh | bash
+```
+
 ## Setup
 
 Run the setup script. It will prompt for sudo password if one is needed.
 For MacOs, we need brew installed. Note: This is not done automatically for now.
 
 ```bash
-# Either install dependencies, or run:
-curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-deps.sh | bash
-
 # Restart the shell and run
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | bash
 ```
