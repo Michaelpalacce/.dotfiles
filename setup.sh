@@ -14,7 +14,7 @@ TPM_DIR="$HOME/.tmux/plugins/tpm"
 # ------------------------ Helper Functions -------------------------------
 
 pushd $DOTFILES_DIR
-    for helper in ./scripts/helpers/*; do
+    for helper in ./scripts/00-helpers/*; do
         . $helper
     done
 
@@ -50,22 +50,22 @@ fi
 
 pushd $DOTFILES_DIR
     # Run pre scripts
-    for pre_script in ./scripts/pre/*; do
+    for pre_script in ./scripts/10-pre/*; do
         . $pre_script
     done
 
     # Run install scripts
-    for install_script in ./scripts/install/*; do
+    for install_script in ./scripts/20-install/*; do
         . $install_script
     done
 
     # Run app scripts
-    for apps_file in ./scripts/apps/*; do
+    for apps_file in ./scripts/30-apps/*; do
         . $apps_file
     done
 
     # Run post scripts
-    for post_script in ./scripts/post/*; do
+    for post_script in ./scripts/40-post/*; do
         . $post_script
     done
 popd
