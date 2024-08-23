@@ -87,4 +87,6 @@ else
     nix-channel --update
     nix-shell '<home-manager>' -A install
     rm -rf $HOME/.config/home-manager
+
+    print_color "$RED" "YOU HAVE TO RESTART YOUR SHELL TO USE HOME MANAGER"
 fi
