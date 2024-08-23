@@ -4,6 +4,9 @@
 # You can satisfy these yourself however needed if you don't want to run this script:
 # - nix
 # - home-manager
+# - git
+# - curl
+# - stow
 #
 
 # ANSI color codes
