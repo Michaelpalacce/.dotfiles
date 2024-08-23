@@ -60,11 +60,15 @@ else
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-home-manager switch
-
 # Stow everything
 pushd $DOTFILES_DIR
     . ./scripts/stow.sh
+popd
+
+# Call home-manager switch after a debounce period
+pushd $DOTFILES_DIR
+    . ./scripts/home-manager-debounced.sh
+popd
 
 # Extra apps
 pushd $DOTFILES_DIR
