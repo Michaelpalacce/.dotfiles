@@ -28,11 +28,11 @@ if [[ "$machine" = "Linux" ]]; then
         echo "zsh is already the default shell"
     else
         # Set zsh as default shell
-        sudo chsh -s $(which zsh)
+        chsh -s $(which zsh)
     fi
 
     # Needed for nvim
-    apt install -y gcc
+    sudo apt install -y gcc
 fi
 
 # Mac specifics
