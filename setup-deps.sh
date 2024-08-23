@@ -5,13 +5,17 @@
 # - nix
 # - home-manager
 #
-# ------------------------ Helper Functions -------------------------------
+# ------------------------ Variables -------------------------------
+DOTFILES_DIR="$HOME/.dotfiles"
 
+# ------------------------ Helper Functions -------------------------------
 pushd $DOTFILES_DIR
     for helper in ./.scripts/helpers/*; do
         . $helper
     done
 popd
+
+# ------------------------ Setup -------------------------------
 
 APPS=(
     "git"
