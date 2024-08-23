@@ -9,7 +9,6 @@
 
 # ------------------------ Variables -------------------------------
 DOTFILES_DIR="$HOME/.dotfiles"
-TPM_DIR="$HOME/.tmux/plugins/tpm"
 
 # ------------------------ Helper Functions -------------------------------
 
@@ -40,13 +39,6 @@ if [ -d $DOTFILES_DIR ]; then
 else 
     print_color "$GREEN" "$DOTFILES_DIR does not exist, checking the repository out"
     git clone https://github.com/Michaelpalacce/.dotfiles.git $DOTFILES_DIR
-fi
-
-if [ -d $TPM_DIR ]; then 
-    print_color "$YELLOW" "$TPM_DIR exists, skipping"
-else
-    print_color "$GREEN" "$TPM_DIR does not exist, checking the repository out"
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 pushd $DOTFILES_DIR
