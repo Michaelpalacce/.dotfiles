@@ -22,6 +22,17 @@ esac
 if [[ "$machine" = "Linux" ]]; then
     # Set alacritty as default terminal
     sudo update-alternatives --set x-terminal-emulator /usr/bin/alacritty
+
+
+    if echo $SHELL | grep -q zsh; then
+        echo "zsh is already the default shell"
+    else
+        # Set zsh as default shell
+        chsh -s $(which zsh)
+    fi
+
+    # Needed for nvim
+    apt install -y gcc
 fi
 
 # Mac specifics
