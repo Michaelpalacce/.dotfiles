@@ -18,11 +18,10 @@ if [[ "$machine" = "Mac" ]]; then
     brew install gsed
 
     # Run macos.sh for some nice defaults
-    . $HOME/.dotfiles/scripts/os/mac.sh
+    . $HOME/.dotfiles/scripts/os/Mac.sh
 fi
 
 # Install node if not
-
 if ! command_exists node; then
     fnm install 18
 fi

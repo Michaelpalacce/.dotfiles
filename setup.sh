@@ -17,6 +17,7 @@ pushd $DOTFILES_DIR
     for helper in ./scripts/00-helpers/*; do
         . $helper
     done
+popd
 
 # ------------------------ Setup -------------------------------
 
