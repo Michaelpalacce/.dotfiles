@@ -10,6 +10,16 @@
 # ------------------------ Variables -------------------------------
 DOTFILES_DIR="$HOME/.dotfiles"
 
+# ------------------------ Clone repo -------------------------------
+
+# Checkout .dotfiles if it does not exist
+if [ -d $DOTFILES_DIR ]; then
+    print_color "$YELLOW" "$DOTFILES_DIR exists, skipping"
+else 
+    print_color "$GREEN" "$DOTFILES_DIR does not exist, checking the repository out"
+    git clone https://github.com/Michaelpalacce/.dotfiles.git $DOTFILES_DIR
+fi
+
 # ------------------------ Helper Functions -------------------------------
 
 pushd $DOTFILES_DIR
@@ -31,15 +41,6 @@ fi
 
 print_color "$YELLOW" "Notice: This script has dependencies that need to be installed. If you have not done so already, run 'setup-deps.sh'"
 
-# Clone repo
-
-# Checkout .dotfiles if it does not exist
-if [ -d $DOTFILES_DIR ]; then
-    print_color "$YELLOW" "$DOTFILES_DIR exists, skipping"
-else 
-    print_color "$GREEN" "$DOTFILES_DIR does not exist, checking the repository out"
-    git clone https://github.com/Michaelpalacce/.dotfiles.git $DOTFILES_DIR
-fi
 
 pushd $DOTFILES_DIR
     # Run pre scripts
