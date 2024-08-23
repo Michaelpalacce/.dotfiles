@@ -58,7 +58,6 @@ if [ -d $TPM_DIR ]; then
 else
     print_color "$GREEN" "$TPM_DIR does not exist, checking the repository out"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 fi
 
 # Stow everything

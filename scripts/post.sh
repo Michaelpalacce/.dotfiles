@@ -37,3 +37,6 @@ fi
 if ! command_exists node; then
     fnm install 18
 fi
+
+# Install tpm plugins
+~/.tmux/plugins/tpm/scripts/install_plugins.sh
