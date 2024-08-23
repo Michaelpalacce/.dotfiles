@@ -20,13 +20,14 @@ You can install these dependencies by running the following command:
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-deps.sh | bash
 ```
 
+It is important to restart the terminal after running the setup-deps script... nix just doesn't work otherwise.
+
 ## Setup
 
 Run the setup script. It will prompt for sudo password if one is needed.
 For MacOs, we need brew installed. Note: This is not done automatically for now.
 
 ```bash
-# Restart the shell and run
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | bash
 ```
 
