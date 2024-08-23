@@ -60,6 +60,8 @@ else
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
+home-manager switch
+
 # Stow everything
 pushd $DOTFILES_DIR
     . ./scripts/stow.sh

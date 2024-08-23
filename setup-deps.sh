@@ -48,6 +48,7 @@ esac
 APPS=(
     "git"
     "curl"
+    "stow"
 )
 
 for app in "${APPS[@]}"; do
