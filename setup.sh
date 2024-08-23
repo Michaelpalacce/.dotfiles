@@ -7,27 +7,16 @@
 # - nix
 # - home-manager
 
+# ------------------------ Variables -------------------------------
+DOTFILES_DIR="$HOME/.dotfiles"
+TPM_DIR="$HOME/.tmux/plugins/tpm"
+
 # ------------------------ Helper Functions -------------------------------
 
-# Function to check if a command is available
-# https://stackoverflow.com/questions/592620/how-to-check-if-a-program-exists-from-a-bash-script
-command_exists() {
-  command -v "$1" >/dev/null 2>&1
-}
-
-# ANSI color codes
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m' # No color
-
-# Function to print colored text
-print_color() {
-    local color="$1"
-    local message="$2"
-    echo -e "${color}${message}${NC}"
-}
+pushd $DOTFILES_DIR
+    for helper in ./scripts/helpers/*; do
+        . $helper
+    done
 
 # ------------------------ Setup -------------------------------
 
@@ -43,7 +32,6 @@ fi
 print_color "$YELLOW" "Notice: This script has dependencies that need to be installed. If you have not done so already, run 'setup-deps.sh'"
 
 # Clone repo
-DOTFILES_DIR="$HOME/.dotfiles"
 
 # Checkout .dotfiles if it does not exist
 if [ -d $DOTFILES_DIR ]; then
@@ -53,7 +41,6 @@ else
     git clone https://github.com/Michaelpalacce/.dotfiles.git $DOTFILES_DIR
 fi
 
-TPM_DIR="$HOME/.tmux/plugins/tpm"
 if [ -d $TPM_DIR ]; then 
     print_color "$YELLOW" "$TPM_DIR exists, skipping"
 else
@@ -61,23 +48,24 @@ else
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-# Stow everything
 pushd $DOTFILES_DIR
-    . ./scripts/stow.sh
-popd
+    # Run pre scripts
+    for pre_script in ./scripts/pre/*; do
+        . $pre_script
+    done
 
-# Extra apps
-pushd $DOTFILES_DIR
-    . ./scripts/apps/zsh.sh
-    . ./scripts/apps/alacritty.sh
-popd
+    # Run install scripts
+    for install_script in ./scripts/install/*; do
+        . $install_script
+    done
 
-# Call home-manager switch after a debounce period
-pushd $DOTFILES_DIR
-    . ./scripts/home-manager-debounced.sh
-popd
+    # Run app scripts
+    for apps_file in ./scripts/apps/*; do
+        . $apps_file
+    done
 
-# Extra configuration after we have everything installed
-pushd $DOTFILES_DIR
-    . ./scripts/post.sh
+    # Run post scripts
+    for post_script in ./scripts/post/*; do
+        . $post_script
+    done
 popd

@@ -4,20 +4,6 @@
 # This script is run after the main setup script. 
 # It contains OS specific setup and other things that should be run after the main setup script.
 
-# Helper functions
-command_exists() {
-  command -v "$1" >/dev/null 2>&1
-}
-
-unameOut="$(uname -s)"
-case "${unameOut}" in
-    Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
-    *)          machine="UNKNOWN:${unameOut}"
-esac
-
-# ------------------------ OS Specific --------------------------------
-
 # Linux specifics
 if [[ "$machine" = "Linux" ]]; then
     # Set alacritty as default terminal

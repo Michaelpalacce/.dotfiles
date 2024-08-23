@@ -2,7 +2,6 @@
 
 # Responsible for calling `home-manager switch` after a debounce period of 1 day
 
-
 # Path to the timestamp file
 TIMESTAMP_FILE="$HOME/.last_home_manager_switch"
 
