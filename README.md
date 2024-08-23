@@ -31,14 +31,6 @@ For MacOs, we need brew installed. Note: This is not done automatically for now.
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | bash
 ```
 
-### MacOS Additional Setup
-
-In the `$HOME/.dotfiles` folder, execute:
-
-```bash
-./scripts/macos.sh
-```
-
 ## Showcase
 
 <p align="center">
