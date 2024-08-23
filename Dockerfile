@@ -16,10 +16,7 @@ ENV USER=root
 # Set the working directory to /root instead of `/`
 WORKDIR /root
 
-RUN curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | bash
-
-# Dunno why this is needed `.zshrc` is not getting removed
-RUN rm -rf $HOME/.zshrc
+RUN zsh -i -c 'curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-deps.sh | bash'
 
 # We need to run the script in a new shell to make sure the environment is set up correctly 
 RUN zsh -i -c 'curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | bash'

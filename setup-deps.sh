@@ -56,5 +56,7 @@ else
     nix-shell '<home-manager>' -A install
     rm -rf $HOME/.config/home-manager
 
-    print_color "$RED" "YOU HAVE TO RESTART YOUR SHELL TO USE HOME MANAGER"
+    print_color "$RED" "--------------------------------- IMPORTANT ---------------------------------"
+    print_color "$RED" "YOU HAVE TO RESTART YOUR SHELL TO USE HOME MANAGER AND CONTINUE SETUP"
+    print_color "$RED" "--------------------------------- IMPORTANT ---------------------------------"
 fi
