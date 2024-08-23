@@ -60,7 +60,11 @@ else
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-# Apps
+# Stow everything
+pushd $DOTFILES_DIR
+    . ./scripts/stow.sh
+
+# Extra apps
 pushd $DOTFILES_DIR
     . ./scripts/apps/zsh.sh
     . ./scripts/apps/alacritty.sh
@@ -68,6 +72,5 @@ popd
 
 # Extra configuration
 pushd $DOTFILES_DIR
-    . ./scripts/stow.sh
     . ./scripts/post.sh
 popd
