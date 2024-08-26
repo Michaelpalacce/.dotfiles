@@ -21,6 +21,9 @@ end, { desc = "R[u]n TSUpdate, MasonUpdate, Lazy" })
 -- General remaps
 ------------------------------------------
 
+-- No highlight
+vim.keymap.set("n", "<leader>H", "<cmd>noh<CR>", { desc = "Clear [H]ighlights" })
+
 -- TMUX
 vim.keymap.set("n", "<leader>st", "<cmd>silent !tmux neww tmux-timer<CR>", { desc = "[S]cripts [T]imer" })
 vim.keymap.set("n", "<leader>sc", "<cmd>silent !tmux neww tmux-cht<CR>", { desc = "[S]cripts [C]heatsheet" })
@@ -30,7 +33,8 @@ vim.keymap.set("n", "<leader>si", "<cmd>silent !tmux neww tmux-identity-theft<CR
 vim.keymap.set("n", "<leader>ss", "<cmd>silent !tmux neww tmux-sshuttle-daddy<CR>",
 	{ desc = "[S]cripts Select [S]shuttle Server To Connect To" })
 vim.keymap.set("n", "<leader>sw", "<cmd>silent !tmux neww tmux-wttr<CR>", { desc = "[S]cripts Get [W]eather Info" })
---
+
+-- Easy indent
 vim.keymap.set("v", ">", ">gv", { remap = true, desc = "Indent right" })
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })
 
