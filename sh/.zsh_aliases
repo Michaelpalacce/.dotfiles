@@ -10,9 +10,9 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # Kubernetes aliases
-alias kubens="kubectl get ns | fzf | awk '{print \$1}' | xargs -o kubectl config set-context --current --namespace"
-alias kns="kubens"
-alias klog="k get po -o wide -A | awk '{print \$1,\$2}' | fzf | xargs -o kubectl logs -f -n"
+alias kcu="kubectl config get-contexts | awk 'NR>1 {print $1}' | fzf | xargs -o kubectl config use-context"
+alias kns="kubectl get ns | fzf | awk '{print \$1}' | xargs -o kubectl config set-context --current --namespace"
+alias klog="kubectl get po -o wide -A | awk '{print \$1,\$2}' | fzf | xargs -o kubectl logs -f -n"
 alias klogs="klog"
 
 alias ls='ls --color=auto'
