@@ -56,7 +56,7 @@ in
     pkgs.gh                 pkgs.unstable.fzf   pkgs.ansible    pkgs.direnv
 
     # Encryption And Security
-    pkgs.sops               pkgs.age
+    pkgs.sops               pkgs.age            pkgs.crowdsec
 
     # Kubernetes
     pkgs.k9s                pkgs.kubent         pkgs.kubectl    pkgs.velero         pkgs.unstable.fluxcd
