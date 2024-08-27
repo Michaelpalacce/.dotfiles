@@ -55,8 +55,8 @@ in
     pkgs.awscli             pkgs.xclip          pkgs.tmux       pkgs.eza            pkgs.stow
     pkgs.gh                 pkgs.unstable.fzf   pkgs.ansible    pkgs.direnv
 
-    # Encryption And Security                                   # has htpasswd
-    pkgs.sops               pkgs.age            pkgs.crowdsec   pkgs.thttpd
+    # Encryption And Security
+    pkgs.sops               pkgs.age            pkgs.crowdsec
 
     # Kubernetes
     pkgs.k9s                pkgs.kubent         pkgs.kubectl    pkgs.velero         pkgs.unstable.fluxcd
