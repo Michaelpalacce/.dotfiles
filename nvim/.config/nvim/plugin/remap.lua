@@ -22,7 +22,7 @@ end, { desc = "R[u]n TSUpdate, MasonUpdate, Lazy" })
 ------------------------------------------
 
 -- No highlight
-vim.keymap.set("n", "<leader>H", "<cmd>noh<CR>", { desc = "Clear [H]ighlights" })
+vim.keymap.set("n", "H", "<cmd>noh<CR>", { desc = "Clear [H]ighlights" })
 
 -- TMUX
 vim.keymap.set("n", "<leader>st", "<cmd>silent !tmux neww tmux-timer<CR>", { desc = "[S]cripts [T]imer" })
