@@ -8,7 +8,7 @@
 # This is useful if you have multiple identities for different projects
 # For example, if you have a work and personal identity
 
-identities=(".npmrc" ".m2 settings.xml")
+identities=(".npmrc" ".m2 settings.xml" "kube")
 identity=$(printf "%s\n" "${identities[@]}" | fzf --height 60% --layout=reverse --border --prompt="Choose identity to change: ")
 
 case $identity in
@@ -29,6 +29,15 @@ case $identity in
         fi
 
         ln -sf $selected ~/.m2/settings.xml
+        ;;
+    "kube")
+        selected=$(find ~/.kube -maxdepth 1 -type f -name 'config*' ! -name "config"  2>/dev/null | fzf --height 60% --layout=reverse --border --prompt="Choose kube config to use: ")
+
+        if [[ -z $selected ]]; then
+            exit 0
+        fi
+
+        ln -sf $selected ~/.kube/config
         ;;
     *)
         echo "Usage: $0 <identity>"
