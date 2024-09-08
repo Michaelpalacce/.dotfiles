@@ -4,9 +4,8 @@ local lspconfig = require("lspconfig")
 require('mason-lspconfig').setup {
 	ensure_installed = {
 		"lua_ls",
-		"tsserver",
+		"ts_ls",
 		"vimls",
-		"volar",
 		"lemminx",
 		"jsonls",
 		"yamlls",
@@ -35,8 +34,7 @@ lspconfig.lua_ls.setup({
 -- LUA END
 
 -- TSSERVER
-
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
 	settings = {
 		completions = {
 			completeFunctionCalls = true
@@ -57,10 +55,6 @@ lspconfig.tsserver.setup({
 	}
 })
 -- TSSERVER END
-
--- VOLAR (VUE)
-lspconfig.volar.setup {}
--- VUE END
 
 -- GOLANG
 lspconfig.gopls.setup({
