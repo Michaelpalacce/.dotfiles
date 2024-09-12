@@ -39,8 +39,21 @@ else
     exit 1
 fi
 
-print_color "$YELLOW" "Notice: This script has dependencies that need to be installed. If you have not done so already, run 'setup-deps.sh'"
+DEPS=("stow" "home-manager" "git" "curl" "nix")
 
+for dep in ${DEPS[@]}; do
+    if ! command_exists $dep; then
+        print_color "$RED" "Error: $dep not found"
+        exit 1
+    fi
+done
+
+echo "Do you want to continue? (y/n)" 
+read -n 1 -r
+
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    exit 1
+fi
 
 pushd $DOTFILES_DIR
     # Run pre scripts
