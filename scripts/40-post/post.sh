@@ -8,9 +8,6 @@
 if [[ "$machine" = "Linux" ]]; then
     # Set alacritty as default terminal
     sudo update-alternatives --set x-terminal-emulator /usr/bin/alacritty
-
-    # Needed for nvim
-    sudo apt install -y gcc
 fi
 
 # Mac specifics

@@ -53,7 +53,7 @@ in
 
     # Development
     pkgs.awscli             pkgs.xclip          pkgs.tmux       pkgs.eza            pkgs.stow
-    pkgs.gh                 pkgs.unstable.fzf   pkgs.ansible    pkgs.direnv
+    pkgs.gh                 pkgs.unstable.fzf   pkgs.ansible    pkgs.direnv         pkgs.gcc
 
     # Encryption And Security
     pkgs.sops               pkgs.age            pkgs.crowdsec
@@ -95,7 +95,7 @@ in
   ] 
   ++ (if isLinux then [
     # Kubernetes
-    pkgs.kubescape                      pkgs.libgcc
+    pkgs.kubescape
 
     # General
     pkgs.nfs-utils                      pkgs.lsb-release
