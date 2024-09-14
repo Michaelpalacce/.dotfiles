@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Path to the encrypted SSH files
+enc_dir="$HOME/.dotfiles/ssh/.ssh-test/"
+
+# Decrypt the SSH identity files using age
+sops --age age1mq6usjzvvxvcp7tl03yjdqd0kgjhhvhz48kmg86p43nhx0jc75jssw0kfn --decrypt --encrypted-regex '.*' "$enc_dir/id_rsa.enc" > "$HOME/.ssh/id_rsa"
+sops --age age1mq6usjzvvxvcp7tl03yjdqd0kgjhhvhz48kmg86p43nhx0jc75jssw0kfn --decrypt --encrypted-regex '.*' "$enc_dir/id_rsa.pub.enc" > "$HOME/.ssh/id_rsa.pub"
+
+# Set the correct permissions for the private key
+chmod 600 "$HOME/.ssh/id_rsa"
+chmod 644 "$HOME/.ssh/id_rsa.pub"
