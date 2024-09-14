@@ -1,0 +1,6 @@
+creation_rules:
+    # Secrets
+  - encrypted_regex: '.*'
+    # This is the public age key for the user who will be able to decrypt the secrets
+    # It's not a secret
+    pgp: age1mq6usjzvvxvcp7tl03yjdqd0kgjhhvhz48kmg86p43nhx0jc75jssw0kfn
