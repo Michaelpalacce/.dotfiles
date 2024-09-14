@@ -31,6 +31,16 @@ For MacOs, we need brew installed. Note: This is not done automatically for now.
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | bash
 ```
 
+## Setup Identity
+
+After running the setup script, you will need to run the following command to setup your ssh identity.
+As this may contain sensitive information, it is not included in the main setup script.
+Note: you need to have the correct `age` private key in `~/.config/sops/age/keys.txt` for this to work. This is stored in a private place
+
+```bash
+curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-identity.sh | bash
+```
+
 ## Showcase
 
 <p align="center">
