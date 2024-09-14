@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to the encrypted SSH files
-enc_dir="$HOME/.dotfiles/ssh/.ssh-test/"
+enc_dir="$HOME/.dotfiles/ssh/.ssh"
 
 # Decrypt the SSH identity files using age
 sops --age age1mq6usjzvvxvcp7tl03yjdqd0kgjhhvhz48kmg86p43nhx0jc75jssw0kfn --decrypt --encrypted-regex '.*' "$enc_dir/id_rsa.enc" > "$HOME/.ssh/id_rsa"
