@@ -105,7 +105,6 @@ lspconfig.gopls.setup({
 -- GOLANG END
 
 -- HELM/YAML START
-
 lspconfig.helm_ls.setup {
 	settings = {
 		['helm-ls'] = {
