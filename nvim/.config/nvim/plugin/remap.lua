@@ -80,6 +80,13 @@ vim.keymap.set("n", "Ww", ":w<CR>", { noremap = false, desc = "Write current fil
 vim.keymap.set({ "n", "v" }, "E", "$", { noremap = false })
 vim.keymap.set({ "n", "v" }, "B", "^", { noremap = false })
 
+-- Inlay Hints
+vim.keymap.set("n", '<leader>ti',
+	function()
+		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ 0 }), { 0 })
+	end, { noremap = true, desc = "[T]oggle [I]nlay Hints", silent = true }
+)
+
 -- SOPS
 local sopsAgeKey = "age1mq6usjzvvxvcp7tl03yjdqd0kgjhhvhz48kmg86p43nhx0jc75jssw0kfn"
 vim.keymap.set("n", "<leader>esda", function()
