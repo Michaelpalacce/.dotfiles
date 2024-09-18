@@ -72,9 +72,6 @@ vim.keymap.set("n", "<S-Up>", "<cmd>cprev<CR>zz", { desc = 'Go to the previous q
 vim.keymap.set("n", "<S-Left>", "<cmd>copen<CR>zz", { desc = 'Open quickfix' })
 vim.keymap.set("n", "<S-Right>", "<cmd>cclose<CR>zz", { desc = 'Close quickfix' })
 
-vim.keymap.set("n", "<S-H>", "<cmd>cprev<CR>zz", { desc = 'Go to the previous quickfix item' })
-vim.keymap.set("n", "<S-L>", "<cmd>cnext<CR>zz", { desc = 'Go to the next quickfix item' })
-
 -- Files
 vim.keymap.set("n", "Qa", ":qa<CR>", { noremap = false, desc = "Quit all" })
 vim.keymap.set("n", "Wq", ":wq<CR>", { noremap = false, desc = "Write current file and exit" })
