@@ -8,5 +8,8 @@ return {
 				-- Configuration here, or leave empty to use defaults
 			})
 		end
+	},
+	{
+		"Eandrju/cellular-automaton.nvim"
 	}
 }
