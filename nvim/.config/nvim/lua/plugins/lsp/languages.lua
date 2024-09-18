@@ -115,7 +115,6 @@ lspconfig.helm_ls.setup {
 	}
 }
 
--- setup yamlls
 lspconfig.yamlls.setup {}
 
 -- HELM/YAML END
