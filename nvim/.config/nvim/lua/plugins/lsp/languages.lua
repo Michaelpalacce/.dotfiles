@@ -121,5 +121,6 @@ lspconfig.yamlls.setup {}
 
 -- JAVA START
 -- This may cause issues between different environments
+-- // Remember guys :JdtWipeDataAndRestart is your friend
 lspconfig.jdtls.setup({})
 -- JAVA END
