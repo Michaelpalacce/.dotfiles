@@ -93,7 +93,7 @@ vim.keymap.set("n", "<leader>esda", function()
 	vim.cmd(
 		"!sops --age "
 		.. sopsAgeKey
-		.. " --decrypt --encrypted-regex '^(rules|data|stringData|annotations|values)$' --in-place "
+		.. " --decrypt --ignore-mac --encrypted-regex '^(rules|data|stringData|annotations|values)$' --in-place "
 		.. vim.fn.expand('%')
 	)
 end, { noremap = true, desc = "[E]xecute: [S]ops [D]ecrypt [A]ll", silent = true })
