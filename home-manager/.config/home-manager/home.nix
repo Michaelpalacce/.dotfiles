@@ -60,7 +60,7 @@ in
 
     # Kubernetes
     pkgs.k9s                pkgs.kubent         pkgs.kubectl    pkgs.velero         pkgs.unstable.fluxcd
-    pkgs.kubernetes-helm    pkgs.kind
+    pkgs.kubernetes-helm    pkgs.kind           pkgs.talosctl
 
     # Neovim
     pkgs.unstable.neovim    pkgs.ripgrep        pkgs.fd
