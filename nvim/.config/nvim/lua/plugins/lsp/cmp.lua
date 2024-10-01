@@ -44,7 +44,7 @@ local mappings = {
 	end, { 'i', 's' }),
 
 	-- Documentation
-	['<C-d>'] = cmp.mapping.scroll_docs(-4),
+	['<C-b>'] = cmp.mapping.scroll_docs(-4),
 	['<C-f>'] = cmp.mapping.scroll_docs(4),
 
 	-- Disable up and down... I want to move around if I press them
