@@ -30,6 +30,7 @@ return {
 				vim.keymap.set('n', '<C-f>', grep_at_current_tree_node, opts('Search under current file'))
 			end
 
+			-- Open a file when it's created
 			api.events.subscribe(api.events.Event.FileCreated, function(file)
 				vim.cmd("edit " .. file.fname)
 			end)
@@ -44,7 +45,10 @@ return {
 
 				sort_by = "case_sensitive",
 				view = {
-					width = 45,
+					width = {
+						min = 45,
+						max = 90
+					}
 				},
 				update_focused_file = {
 					enable = true,
