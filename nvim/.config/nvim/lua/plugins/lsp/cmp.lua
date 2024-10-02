@@ -80,8 +80,8 @@ cmp.setup({
 	},
 	mapping = mappings,
 	sources = cmp.config.sources({
-		{ name = 'nvim_lsp', max_item_count = 50 },
-		{ name = 'luasnip',  max_item_count = 5 },
+		{ name = 'nvim_lsp', group_index = 5 },
+		{ name = 'luasnip',  group_index = 5 },
 	}, {
 		{ name = 'nvim_lua' },
 		{ name = 'nvim_lsp_signature_help' },
@@ -108,6 +108,7 @@ cmp.setup({
 			mode = 'symbol_text', -- show only symbol annotations
 			maxwidth = 50, -- prevent the popup from showing more than provided characters
 			ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
+			symbol_map = { Copilot = "" }
 		})
 	}
 })
