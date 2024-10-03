@@ -8,7 +8,29 @@
 # - home-manager
 
 # ------------------------ Variables -------------------------------
+
 DOTFILES_DIR="$HOME/.dotfiles"
+
+# ANSI color codes
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No color
+
+# Function to print colored text
+print_color() {
+    local color="$1"
+    local message="$2"
+    echo -e "${color}${message}${NC}"
+}
+
+# Function to check if a command is available
+# https://stackoverflow.com/questions/592620/how-to-check-if-a-program-exists-from-a-bash-script
+command_exists() {
+  command -v "$1" >/dev/null 2>&1
+}
+
 
 # ------------------------ Clone repo -------------------------------
 
