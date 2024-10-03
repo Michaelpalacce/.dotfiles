@@ -70,13 +70,6 @@ for dep in ${DEPS[@]}; do
     fi
 done
 
-echo "Do you want to continue? (y/n)" 
-read -n 1 -r
-
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-    exit 1
-fi
-
 pushd $DOTFILES_DIR
     # Run pre scripts
     for pre_script in ./scripts/10-pre/*; do
