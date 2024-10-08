@@ -42,7 +42,9 @@ return {
 					cmp = true,
 					fidget = true,
 					harpoon = true,
-					-- treesitter_context = true,
+					treesitter_context = true,
+					mason = true,
+					neotest = true,
 					ufo = true,
 					telescope = {
 						enabled = true,
