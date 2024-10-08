@@ -6,8 +6,6 @@ return {
 			local api = require "nvim-tree.api"
 			local lib = require 'nvim-tree.lib'
 
-			-- set termguicolors to enable highlight groups
-			vim.opt.termguicolors = true
 
 			-- Do a telescope live_grep under the current node
 			local function grep_at_current_tree_node()
