@@ -80,10 +80,13 @@ lspconfig.gopls.setup({
 		-- https://github.com/golang/tools/blob/master/gopls/doc/settings.md#completion
 		gopls = {
 			completeUnimported = true,
-			-- This will add placeholders when a function is autocompleted... sucks cause you also get the type... and it's not an easy replace
-			usePlaceholders = false,
+			experimentalPostfixCompletions = true,
+			init_options = {
+				usePlaceholders = true,
+			},
 			analyses = {
 				unusedparams = true,
+				shadow = true,
 				unreachable = true
 			},
 			-- report vulnerabilities
