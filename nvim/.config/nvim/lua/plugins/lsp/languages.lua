@@ -81,11 +81,11 @@ lspconfig.gopls.setup({
 		gopls = {
 			completeUnimported = true,
 			experimentalPostfixCompletions = true,
-			init_options = {
-				usePlaceholders = true,
-			},
+			usePlaceholders = false,
 			analyses = {
 				unusedparams = true,
+				unusedvariables = true,
+				useany = true,
 				shadow = true,
 				unreachable = true
 			},
