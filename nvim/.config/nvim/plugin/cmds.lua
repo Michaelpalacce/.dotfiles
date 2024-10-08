@@ -21,8 +21,8 @@ vim.api.nvim_create_autocmd({ "ModeChanged" }, {
 	end
 })
 
--- vim.api.nvim_create_autocmd({ "WinEnter", "WinLeave" }, {
--- 	callback = function()
--- 		vim.wo.rnu = vim.fn.mode():match('^[vV\x16]') ~= nil
--- 	end
--- })
+vim.api.nvim_create_autocmd({ "WinEnter", "WinLeave" }, {
+	callback = function()
+		vim.wo.rnu = vim.fn.mode():match('^[vV\x16]') ~= nil
+	end
+})
