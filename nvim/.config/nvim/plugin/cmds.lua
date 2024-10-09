@@ -7,22 +7,6 @@ vim.api.nvim_create_user_command('DelBuffers', function()
 	vim.cmd([[ %bd!|e# ]])
 end, { nargs = 0 })
 
-vim.api.nvim_create_autocmd({ "ModeChanged" }, {
-	pattern = "[vV\x16]*:*",
-	callback = function()
-		vim.wo.rnu = vim.fn.mode():match('^[vV\x16]') ~= nil
-	end
-})
-
-vim.api.nvim_create_autocmd({ "ModeChanged" }, {
-	pattern = "*:[vV\x16]*",
-	callback = function()
-		vim.wo.rnu = vim.fn.mode():match('^[vV\x16]') ~= nil
-	end
-})
-
-vim.api.nvim_create_autocmd({ "WinEnter", "WinLeave" }, {
-	callback = function()
-		vim.wo.rnu = vim.fn.mode():match('^[vV\x16]') ~= nil
-	end
-})
+-- This will toggle the relative line numbers when entering insert mode
+vim.api.nvim_create_autocmd("InsertEnter", { command = [[set norelativenumber]] })
+vim.api.nvim_create_autocmd("InsertLeave", { command = [[set relativenumber]] })

@@ -1,4 +1,4 @@
-vim.wo.relativenumber = false
+vim.wo.relativenumber = true
 -- Enable Hybrid Line Numbering
 vim.wo.number = true
 
