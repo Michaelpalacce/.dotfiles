@@ -1,6 +1,7 @@
 return {
 	{
 		'kevinhwang91/nvim-ufo',
+		event = "BufRead",
 		dependencies = {
 			'VonHeikemen/lsp-zero.nvim',
 			'kevinhwang91/promise-async'
