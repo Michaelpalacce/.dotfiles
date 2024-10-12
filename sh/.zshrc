@@ -99,10 +99,9 @@ HISTFILE=~/.zsh_history
 setopt histignorealldups sharehistory
 HIST_STAMPS="dd/mm/yyyy"
 
-# ------------------------------ ALIASES ---------------------------------
+# ----------------------------- Vi Mode ---------------------------------
 
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+set -o vi
 
 # Profiling
 # zprof
