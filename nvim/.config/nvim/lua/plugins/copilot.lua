@@ -82,9 +82,9 @@ return {
 					accept = "<M-a>",
 					accept_word = "<M-Right>",
 					accept_line = "<M-Left>",
-					next = "<M-]>",
-					prev = "<M-[>",
-					dismiss = "<C-]>",
+					next = "<M-\\>",
+					prev = "<M-]>",
+					dismiss = "<M-[>",
 				},
 			},
 			filetypes = {
