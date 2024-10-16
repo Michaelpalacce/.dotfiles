@@ -23,7 +23,7 @@ return function(opts)
 			["j"] = "*.{json,js}",
 			["p"] = "*.{py,pyc}",
 			["s"] = "*.{sh,zsh}",
-			["t"] = "*.{toml,tml}",
+			["t"] = "*.ts",
 			["h"] = "*.{html,htm}",
 			["x"] = "*.{xml,xaml}",
 			["m"] = "*.{md,markdown}",
