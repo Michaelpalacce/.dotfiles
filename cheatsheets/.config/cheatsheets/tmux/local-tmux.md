@@ -12,9 +12,9 @@ The following will open a new window in tmux specifically for less, once that pr
 
 ---
 
-> `tmux new-window -d -t 100 -n 'tmux-exxegutor' 2> /dev/null`
+> `tmux new-window -d -t 100 -n 'pwd' 2> /dev/null`
 
-The following will create a new window, but in the background (`-d`) with index 100 and name `tmux-exxegutor`.
+The following will create a new window, but in the background (`-d`) with index 100 and name `pwd`.
 
 ---
 

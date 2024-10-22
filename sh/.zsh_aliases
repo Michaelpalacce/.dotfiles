@@ -24,7 +24,6 @@ alias st='tmux-timer'
 alias ss='tmux-sshuttle-daddy'
 alias si='tmux-identity-theft'
 alias sc="tmux-cht"
-alias sb="tmux-exxegutor"
 alias sw="tmux-wttr"
 
 # prefer to use nvim instead of vim

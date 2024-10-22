@@ -151,11 +151,6 @@ For MacOS, we need homebrew installed... this is outside of the install script, 
 
 ### Scripts
 
-### tmux-exxegutor
-
-A helper utility that allows me to run code in the background, or the foreground. 
-Essentially it contains a bunch of local build commands for different languages.
-
 ### tmux-cht
 
 A helper utility that will either query cheat.sh or open up local cheatsheets, defined in `$HOME/.config/cheatsheets/`
