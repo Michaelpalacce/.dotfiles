@@ -122,7 +122,6 @@ lspconfig.helm_ls.setup {
 }
 
 lspconfig.yamlls.setup {}
-
 -- HELM/YAML END
 
 -- JAVA START
@@ -131,3 +130,9 @@ lspconfig.yamlls.setup {}
 -- // ALso... rm -rf ~/.cache/jdtls
 lspconfig.jdtls.setup({})
 -- JAVA END
+
+-- JSON START
+lspconfig.jsonls.setup {
+	filetypes = { "json", "json5" }
+}
+-- JSON END
