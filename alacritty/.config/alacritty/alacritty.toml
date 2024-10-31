@@ -1,3 +1,12 @@
+
+[terminal.shell]
+program = "/bin/zsh"
+args = ["-l"]
+
+[env]
+TERM = "xterm-256color"
+
+[general]
 import = [
   # "~/.config/alacritty/catppuccin-latte.toml"
   # "~/.config/alacritty/catppuccin-frappe.toml"
@@ -7,9 +16,3 @@ import = [
   "~/.config/alacritty/catppuccin-mocha.toml",
 ]
 
-[shell]
-program = "/bin/zsh"
-args = ["-l"]
-
-[env]
-TERM = "xterm-256color"
