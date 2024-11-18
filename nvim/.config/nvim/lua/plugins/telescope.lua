@@ -16,6 +16,7 @@ return {
 			vim.keymap.set('n', '<leader>fS', multi_rg, { desc = 'Telescope: [F]ind [S]tring With Superpowers' })
 			vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope: [F]ind [H]elp Tags' })
 			vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'Telescope: [F]ind [G]it files' })
+			vim.keymap.set('n', '<leader>fc', builtin.grep_string, { desc = 'Telescope: [F]ind [C]urrent file' })
 			vim.keymap.set('n', '<leader>fT', builtin.colorscheme,
 				{ desc = 'Telescope: [F]ind and Select [T]heme (colorscheme)' })
 			vim.keymap.set('n', '<leader>fq', builtin.quickfix, { desc = 'Telescope: [F]ind In The [Q]uickfix List' })
