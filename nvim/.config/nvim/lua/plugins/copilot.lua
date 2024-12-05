@@ -3,7 +3,7 @@ return {
 	-- Dependencies: pip3 install python-dotenv requests pynvim prompt-toolkit
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
-		branch = "canary",
+		branch = "main",
 		dependencies = {
 			'nvim-lua/plenary.nvim',
 			'zbirenbaum/copilot.lua'
