@@ -45,7 +45,7 @@ return {
 				view = {
 					width = {
 						min = 45,
-						max = 90
+						max = 70
 					}
 				},
 				update_focused_file = {
