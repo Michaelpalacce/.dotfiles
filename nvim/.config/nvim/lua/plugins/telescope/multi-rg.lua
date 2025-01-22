@@ -21,6 +21,7 @@ return function(opts)
 			["g"] = "*.go",
 			["y"] = "*.{yaml,yml}",
 			["j"] = "*.{json,js}",
+			["J"] = "*.{java}",
 			["p"] = "*.{py,pyc}",
 			["s"] = "*.{sh,zsh}",
 			["t"] = "*.ts",
