@@ -81,6 +81,8 @@ in
     # Rust
     pkgs.rustup
 
+    pkgs.jetbrains-mono
+
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -125,10 +127,6 @@ in
 
   # Fonts
   fonts.fontconfig.enable = true;
-
- fonts.packages = [
-   pkgs.nerd-fonts.JetBrainsMono
- ]
 
   # Programs
 
