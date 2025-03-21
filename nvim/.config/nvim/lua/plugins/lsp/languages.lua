@@ -10,7 +10,8 @@ require('mason-lspconfig').setup {
 		"yamlls",
 		"helm_ls",
 		"jdtls",
-		"gopls"
+		"gopls",
+		"html_lsp"
 	},
 	handlers = {
 		-- this first function is the "default handler"
