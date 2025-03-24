@@ -69,7 +69,7 @@ in
     pkgs.unstable.go
 
     # Java
-    pkgs.zulu17             pkgs.maven
+    # pkgs.zulu17             pkgs.maven
 
     # Node
     pkgs.fnm
@@ -81,7 +81,13 @@ in
     # Rust
     pkgs.rustup
 
-    pkgs.jetbrains-mono
+    # # It is sometimes useful to fine-tune packages, for example, by applying
+    # # overrides. You can do that directly here, just don't forget the
+    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+    # # fonts?
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+
+    # pkgs.jetbrains-mono
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
