@@ -69,7 +69,7 @@ in
     pkgs.unstable.go
 
     # Java
-    # pkgs.zulu17             pkgs.maven
+    pkgs.zulu17             pkgs.maven
 
     # Node
     pkgs.fnm
