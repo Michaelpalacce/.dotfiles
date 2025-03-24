@@ -20,5 +20,5 @@ fi
 
 # Install node if not
 if ! command_exists node; then
-    fnm install 20
+    fnm install 22
 fi
