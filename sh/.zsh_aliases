@@ -20,11 +20,17 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# Tmux
+
 alias st='tmux-timer'
 alias ss='tmux-sshuttle-daddy'
 alias si='tmux-identity-theft'
 alias sc="tmux-cht"
 alias sw="tmux-wttr"
+alias td="tmux detach"
+alias ta="tmux attach"
+
+# Vim
 
 # prefer to use nvim instead of vim
 alias vim="nvim"
