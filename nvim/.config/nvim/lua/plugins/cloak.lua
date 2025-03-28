@@ -48,8 +48,8 @@ return {
 					replace = "%1",
 				},
 				{
-					file_pattern = { 'env-properties.json' },
-					cloak_pattern = { '("password":).+' },
+					file_pattern = { 'env-properties.json', '*state.json' },
+					cloak_pattern = { '([pP]assword":).+' },
 					replace = "%1",
 				},
 			},
