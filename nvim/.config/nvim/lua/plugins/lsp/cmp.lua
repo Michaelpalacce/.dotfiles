@@ -22,18 +22,18 @@ local mappings = {
 	['<Tab>'] = cmp.mapping(function(fallback)
 		if cmp.visible() then
 			cmp.select_next_item()
-		elseif require("copilot.suggestion").is_visible() then
-			require("copilot.suggestion").accept()
+			-- elseif require("copilot.suggestion").is_visible() then
+			-- 	require("copilot.suggestion").accept()
 		else
 			fallback()
 		end
 	end, { 'i', 's' }),
 	['<C-Y>'] = cmp.mapping(function(fallback)
-		if require("copilot.suggestion").is_visible() then
-			require("copilot.suggestion").accept()
-		else
-			fallback()
-		end
+		-- if require("copilot.suggestion").is_visible() then
+		-- 	require("copilot.suggestion").accept()
+		-- else
+		fallback()
+		-- end
 	end, { 'i', 'v', 'n', 's' }),
 	['<S-Tab>'] = cmp.mapping(function(fallback)
 		if cmp.visible() then

@@ -27,7 +27,7 @@ return {
 	{
 		'nvim-lualine/lualine.nvim', -- Provides a nice status bar at the bottom of the screen
 		dependencies = {
-			'AndreM222/copilot-lualine'
+			-- 'AndreM222/copilot-lualine'
 		},
 		opts = {
 			options = {
@@ -40,10 +40,10 @@ return {
 				lualine_c = { { 'filename', path = 1, shorting_target = 60 } },
 				lualine_x = {
 					clients_lsp,
-					{
-						'copilot',
-						show_colors = true
-					},
+					-- {
+					-- 	'copilot',
+					-- 	show_colors = true
+					-- },
 				},
 				lualine_y = { lint_progress },
 				lualine_z = { 'filetype' }
