@@ -63,6 +63,18 @@ return {
 				print = insert(0)
 			}
 		)),
+
+		snippet("printf", fmt(
+			[[fmt.Printf("%s", {var})]],
+			{
+				var = insert(0)
+			}
+		)),
+
+		snippet("errf", fmt(
+			[[fmt.Errorf("Err: %w", err)]],
+			{}
+		)),
 		snippet(
 			{
 				trig = "errnil",
