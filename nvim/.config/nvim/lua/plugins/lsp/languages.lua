@@ -122,7 +122,29 @@ lspconfig.helm_ls.setup {
 	}
 }
 
-lspconfig.yamlls.setup {}
+lspconfig.yamlls.setup {
+	settings = {
+		yaml = {
+			schemaStore = {
+				-- You must disable built-in schemaStore support if you want to use
+				-- this plugin and its advanced options like `ignore`.
+				enable = false,
+				-- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+				url = "",
+			},
+			schemas = require('schemastore').yaml.schemas {
+				extra = {
+					-- {
+					-- 	description = "Local JSON schema",
+					-- 	fileMatch = "local.json",
+					-- 	name = "local.json",
+					-- 	url = "file:///path/to/your/schema.json", -- or '/path/to/your/schema.json'
+					-- },
+				}
+			},
+		},
+	},
+}
 -- HELM/YAML END
 
 -- JAVA START

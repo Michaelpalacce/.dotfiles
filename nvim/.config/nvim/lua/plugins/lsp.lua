@@ -17,6 +17,7 @@ return {
 
 			-- Language Specifics
 			{ 'towolf/vim-helm',     ft = 'helm' },
+			{ 'b0o/schemastore.nvim' }
 		},
 		config = function()
 		end
