@@ -114,6 +114,10 @@ lspconfig.gopls.setup({
 -- HELM/YAML START
 lspconfig.helm_ls.setup {
 	settings = {
+		json = {
+			schemas = require('schemastore').json.schemas(),
+			validate = { enable = true },
+		},
 		['helm-ls'] = {
 			yamlls = {
 				path = "yaml-language-server",
