@@ -134,12 +134,12 @@ lspconfig.yamlls.setup {
 			},
 			schemas = require('schemastore').yaml.schemas {
 				extra = {
-					-- {
-					-- 	description = "Local JSON schema",
-					-- 	fileMatch = "local.json",
-					-- 	name = "local.json",
-					-- 	url = "file:///path/to/your/schema.json", -- or '/path/to/your/schema.json'
-					-- },
+					{
+						description = "PIAC schema",
+						fileMatch = "spec.yaml",
+						name = "spec.yaml",
+						url = "file://" .. vim.fn.expand("~/.config/schemas/json/piac_spec_yaml_json_schema.json"),
+					},
 				}
 			},
 		},
