@@ -38,6 +38,16 @@ lspconfig.lua_ls.setup({
 -- LUA END
 
 -- TSSERVER
+local inlayHints = {
+	includeInlayEnumMemberValueHints = true,
+	includeInlayFunctionLikeReturnTypeHints = true,
+	includeInlayFunctionParameterTypeHints = true,
+	includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+	includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+	includeInlayPropertyDeclarationTypeHints = true,
+	includeInlayVariableTypeHints = false,
+}
+
 lspconfig.ts_ls.setup({
 	settings = {
 		completions = {
@@ -50,26 +60,10 @@ lspconfig.ts_ls.setup({
 				trimTrailingWhitespace = true,
 				convertTabsToSpaces = false,
 			},
-			inlayHints = {
-				includeInlayEnumMemberValueHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayVariableTypeHints = false,
-			},
+			inlayHints = inlayHints,
 		},
 		javascript = {
-			inlayHints = {
-				includeInlayEnumMemberValueHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
-				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayVariableTypeHints = false,
-			},
+			inlayHints = inlayHints,
 		},
 	},
 	commands = {
