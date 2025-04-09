@@ -20,5 +20,12 @@ fi
 
 # Install node if not
 if ! command_exists node; then
-    fnm install 22
+    NODE_VER=22
+    if command_exists fnm; then
+        fnm install $NODE_VER
+    fi
+
+    if command_exists nvm; then
+        nvm install $NODE_VER
+    fi
 fi

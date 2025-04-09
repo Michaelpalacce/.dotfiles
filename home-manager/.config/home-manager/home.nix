@@ -71,9 +71,6 @@ in
     # Java
     pkgs.zulu17             pkgs.maven
 
-    # Node
-    pkgs.fnm
-
     # Python
     pkgs.python3                    pkgs.python312Packages.pip  pkgs.python312Packages.conda
     pkgs.python312Packages.pyvmomi  

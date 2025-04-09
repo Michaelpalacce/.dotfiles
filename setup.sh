@@ -31,7 +31,6 @@ command_exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
-
 # ------------------------ Clone repo -------------------------------
 
 # Checkout .dotfiles if it does not exist
@@ -61,7 +60,7 @@ else
     exit 1
 fi
 
-DEPS=("stow" "home-manager" "git" "curl" "nix")
+DEPS=("git" "curl")
 
 for dep in ${DEPS[@]}; do
     if ! command_exists $dep; then
@@ -71,6 +70,11 @@ for dep in ${DEPS[@]}; do
 done
 
 pushd $DOTFILES_DIR
+    # Run dependency scripts
+    for deps_script in ./scripts/05-deps/*; do
+        . $deps_script
+    done
+
     # Run pre scripts
     for pre_script in ./scripts/10-pre/*; do
         . $pre_script

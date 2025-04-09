@@ -8,24 +8,14 @@ but instead I am using a bunch of bash scripts and `stow` to create symlinks to 
 
 The following dependencies are needed to run the setup script:
 
-- `stow` - symlink manager
 - `curl` - for downloading the setup script
 - `git` - for cloning the repositoryA
-- `nix` - for home-manager
-- `home-manager` - for setting up the development environment
-
-You can install these dependencies by running the following command:
-
-```bash
-curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-deps.sh | bash
-```
-
-It is important to restart the terminal after running the setup-deps script... nix just doesn't work otherwise.
+- `brew` - for MacOs
 
 ## Setup
 
+The setup script will setup and configure the local development environment.
 Run the setup script. It will prompt for sudo password if one is needed.
-For MacOs, we need brew installed. Note: This is not done automatically for now.
 
 ```bash
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup.sh | bash
@@ -39,6 +29,16 @@ Note: you need to have the correct `age` private key in `~/.config/sops/age/keys
 
 ```bash
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-identity.sh | bash
+```
+
+## Setup Home Manager
+
+After completing the initial setup, you can choose to install home-manager. The default zshrc config has special conditions and handles if
+home-manager exists, to include it.
+
+
+```bash
+curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-homemanager.sh | bash
 ```
 
 ## Showcase

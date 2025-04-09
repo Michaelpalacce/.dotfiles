@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
 
-# This file contains dependencies that are needed for the setup.sh file to be ran.
-# You can satisfy these yourself however needed if you don't want to run this script:
-# - nix
-# - home-manager
-# - git
-# - curl
-# - stow
-#
+# This file installs nix and home-manager.
+# This is entirely optional
 
 # ANSI color codes
 GREEN='\033[0;32m'
@@ -41,17 +35,8 @@ installOsSpecific() {
     fi
 }
 
-unameOut="$(uname -s)"
-case "${unameOut}" in
-    Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
-    *)          machine="UNKNOWN:${unameOut}"
-esac
-
 APPS=(
-    "git"
     "curl"
-    "stow"
 )
 
 for app in "${APPS[@]}"; do
