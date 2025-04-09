@@ -3,15 +3,15 @@ local lspconfig = require("lspconfig")
 require('mason-lspconfig').setup {
 	ensure_installed = {
 		"lua_ls",
-		"ts_ls",
 		"vimls",
-		"lemminx",
-		"jsonls",
-		"yamlls",
-		"helm_ls",
-		"jdtls",
 		"gopls",
-		"html",
+		-- "ts_ls",
+		-- "lemminx",
+		-- "jsonls",
+		-- "yamlls",
+		-- "helm_ls",
+		-- "jdtls",
+		-- "html",
 	},
 	handlers = {
 		-- this first function is the "default handler"
