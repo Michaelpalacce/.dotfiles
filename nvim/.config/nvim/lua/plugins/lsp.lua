@@ -28,6 +28,7 @@ return {
 			require "plugins.lsp.cmp" -- Contains all the completion configs
 		end
 	},
+	-- Using `nvim-lspconfig` to manage LSP configuration as they have amazing default support
 	{
 		'neovim/nvim-lspconfig',
 		cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
