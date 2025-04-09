@@ -1,4 +1,4 @@
--- You need to setup `cmp` after lsp-zero
+-- You need to setup `cmp` after lsp
 local cmp = require('cmp')
 local types = require 'cmp.types'
 

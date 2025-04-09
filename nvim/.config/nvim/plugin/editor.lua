@@ -53,10 +53,6 @@ vim.opt.listchars = {
 	precedes = '<',
 }
 
-vim.diagnostic.config({
-	virtual_text = true
-})
-
 -- Set the timeout for keybindings
 -- Timeout is essentially, wait n milliseconds for the next key press
 -- If the next key press is not received, then the key is treated as a single key press
