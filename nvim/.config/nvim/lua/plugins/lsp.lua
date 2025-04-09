@@ -1,48 +1,5 @@
 return {
-	{
-		'williamboman/mason.nvim',
-		lazy = false,
-		config = true
-	},
-	{
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v4.x',
-		lazy = true,
-		dependencies = {
-			-- Snippets
-			{ "L3MON4D3/LuaSnip" },
-
-			-- Icons
-			{ 'onsails/lspkind.nvim' },
-
-			-- Language Specifics
-			{ 'towolf/vim-helm',     ft = 'helm' },
-			{ 'b0o/schemastore.nvim' }
-		},
-		config = function()
-		end
-	},
-	{
-		'hrsh7th/nvim-cmp',
-		dependencies = {
-			-- Autocompletion
-			{ 'hrsh7th/nvim-cmp' },
-			{ 'hrsh7th/cmp-buffer' },
-			{ 'hrsh7th/cmp-path' },
-			{ 'hrsh7th/cmp-nvim-lsp' },
-			{ 'hrsh7th/cmp-nvim-lua' },
-			{ 'hrsh7th/cmp-cmdline' },
-			{ 'hrsh7th/cmp-nvim-lsp-signature-help' },
-		},
-		event = 'InsertEnter',
-		config = function()
-			-- ##########################################################
-			-- Completion
-			-- ##########################################################
-
-			require "plugins.lsp.cmp" -- Contains all the completion configs
-		end
-	},
+	-- Using `nvim-lspconfig` to manage LSP configuration as they have amazing default support
 	{
 		'neovim/nvim-lspconfig',
 		cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
@@ -51,9 +8,17 @@ return {
 			{ 'hrsh7th/cmp-nvim-lsp' },
 			{ 'williamboman/mason.nvim' },
 			{ 'williamboman/mason-lspconfig.nvim' },
+
+			-- Language Specifics
+			{ 'towolf/vim-helm',                  ft = 'helm' },
+			{ 'b0o/schemastore.nvim' }
 		},
 		config = function()
-			local lsp_zero = require('lsp-zero')
+			-- Remove https://gpanders.com/blog/whats-new-in-neovim-0-11/#more-default-mappings
+			pcall(vim.keymap.del, "n", "gra")
+			pcall(vim.keymap.del, "n", "gri")
+			pcall(vim.keymap.del, "n", "grn")
+			pcall(vim.keymap.del, "n", "grr")
 
 			-- lsp_attach is where you enable features that only work
 			-- if there is a language server active in the file
@@ -76,24 +41,43 @@ return {
 				vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
 			end
 
-			lsp_zero.set_sign_icons({
-				error = '✘',
-				warn = '▲',
-				hint = '⚑',
-				info = '»'
+			-- Diagnostics show different messages in case errors are found
+			vim.diagnostic.config({
+				virtual_text = { severity = { max = vim.diagnostic.severity.WARN, }, }, -- Virtual text at the end of the line
+				virtual_lines = { severity = { min = vim.diagnostic.severity.ERROR, }, }, -- line under the line
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = '✘',
+						[vim.diagnostic.severity.WARN] = '▲',
+						[vim.diagnostic.severity.INFO] = '⚑',
+						[vim.diagnostic.severity.HINT] = '»',
+					},
+				},
+				float = {
+					border = "rounded",
+					source = "if_many",
+				},
 			})
 
-			lsp_zero.extend_lspconfig({
-				sign_text = true,
-				lsp_attach = lsp_attach,
+			vim.api.nvim_create_autocmd('LspAttach', {
+				group = vim.api.nvim_create_augroup('global.lsp', { clear = true }),
+				callback = function(args)
+					local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+					local bufnr = args.buf
+
+					lsp_attach(client, bufnr)
+				end
+			})
+
+			vim.lsp.config("*", {
 				capabilities = require('cmp_nvim_lsp').default_capabilities(),
 			})
 
 			-- ##########################################################
-			-- Load All LSP configs
+			-- Languages
 			-- ##########################################################
 
-			require "plugins.lsp.languages" -- Contains all the language specific configs
+			require "plugins.lsp.languages" -- Contains all the completion configs
 		end
 	}
 }
