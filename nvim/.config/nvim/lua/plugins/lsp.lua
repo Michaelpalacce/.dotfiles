@@ -101,13 +101,12 @@ return {
 			vim.lsp.config("*", {
 				capabilities = require('cmp_nvim_lsp').default_capabilities(),
 			})
-			-- Load all LSP's in "lua/config/lsp"
 
-			-- Then load all other LSP configs
-			for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath("config") .. "/plugins/lsp/languages")) do
-				local module_name = "plugins.lsp.langauges." .. file:gsub("%.lua$", "")
-				require(module_name)
-			end
+			-- ##########################################################
+			-- Languages
+			-- ##########################################################
+
+			require "plugins.lsp.languages" -- Contains all the completion configs
 		end
 	}
 }
