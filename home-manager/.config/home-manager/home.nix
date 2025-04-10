@@ -68,9 +68,6 @@ in
     # Go
     pkgs.unstable.go
 
-    # Java
-    pkgs.zulu17             pkgs.maven
-
     # Python
     pkgs.python3                    pkgs.python312Packages.pip  pkgs.python312Packages.conda
     pkgs.python312Packages.pyvmomi  
@@ -98,8 +95,8 @@ in
     # Gaming
     pkgs.python311Packages.openrazer    pkgs.wine64Packages.unstableFull
 
-    # KVM
-    pkgs.qemu                           pkgs.libvirt                        pkgs.virt-manager   pkgs.bridge-utils
+    # Java
+    pkgs.zulu17             pkgs.maven
   ] else [])
   ++ (if isDarwin then [
       pkgs.terminal-notifier
@@ -110,12 +107,12 @@ in
   home.sessionVariables = 
   (if isLinux then {
     # Linux specific environment variables
+    JAVA_HOME = "${pkgs.zulu17}";
   } else if isDarwin then {
     # Darwin specific environment variables
   } else {}) // {
     # Common environment variables
     EDITOR = "nvim";
-    JAVA_HOME = "${pkgs.zulu17}";
   };
 
   home.sessionPath = [
