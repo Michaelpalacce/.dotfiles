@@ -8,6 +8,6 @@
 # Uses wttr.in to get the weather information.
 
 
-weather=$(curl -s "wttr.in")
+weather=$(curl -s "wttr.in/Plovdiv")
 
 tmux new-window -n "wttr" "echo '$weather' | less"
