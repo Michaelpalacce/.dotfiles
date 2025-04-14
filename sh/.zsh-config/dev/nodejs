@@ -9,10 +9,8 @@
 # fnm
 FNM_PATH="$HOME/.fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
+    export PATH="$FNM_PATH:$PATH"
 
-  # fnm is a Node.js version manager that allows you to install and switch between different versions of Node.js.
-  # nvm is slow, fnm is fast.
-  eval "$(fnm env --use-on-cd)"
+    eval "$(fnm env --use-on-cd --shell zsh)"
 fi
 
