@@ -17,6 +17,11 @@ max_line_length=140
 charset = utf-8
 
 # tab indentation
+[*.{yaml,yml}]
+indent_style = space
+indent_size = 2
+
+# tab indentation
 [*.py]
 indent_style = space
 indent_size = 4
