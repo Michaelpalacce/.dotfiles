@@ -111,3 +111,8 @@ set -o vi
 
 # Profiling
 # zprof
+#
+
+if [ -t 1 ]; then
+  cat $HOME/.dotfiles/sh/.zshenv.d/banner.txt
+fi
