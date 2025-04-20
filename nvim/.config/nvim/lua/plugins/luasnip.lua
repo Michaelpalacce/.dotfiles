@@ -7,9 +7,7 @@ return {
 		-- install jsregexp (optional!:).
 		build = "make install_jsregexp",
 		event = "BufRead",
-		dependencies = {
-			{ 'saadparwaiz1/cmp_luasnip' },
-		},
+		dependencies = {},
 		config = function()
 			require "plugins.lsp.snippets"
 		end,

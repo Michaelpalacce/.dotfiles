@@ -46,6 +46,7 @@ return {
 					fzf = true,
 					mason = true,
 					neotest = true,
+					blink_cmp = true,
 					ufo = true,
 					telescope = {
 						enabled = true,
