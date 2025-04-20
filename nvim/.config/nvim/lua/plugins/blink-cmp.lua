@@ -32,7 +32,7 @@ return {
 				['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
 				['<C-e>'] = { 'hide', 'fallback' },
 
-				['<CR>'] = { 'select_and_accept', 'fallback' },
+				['<CR>'] = { 'fallback' },
 
 				['<Up>'] = {
 					function(cmp)
