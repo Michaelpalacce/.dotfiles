@@ -132,12 +132,6 @@ return {
 						["shift-up"]   = "preview-page-up",
 					},
 				}, -- Neovim keymaps / fzf binds
-				-- use `defaults` (table or function) if you wish to set "global-picker" defaults
-				-- for example, using "mini.icons" globally and open the quickfix list at the top
-				--   defaults = {
-				--     file_icons   = "mini",
-				--     copen        = "topleft copen",
-				--   },
 				files = {
 					-- previewer      = "bat",          -- uncomment to override previewer
 					-- (name from 'previewers' table)
@@ -163,7 +157,7 @@ return {
 					-- parameter to a different folder than the current working directory
 					-- uncomment if you wish to force display of the cwd as part of the
 					-- query prompt string (fzf.vim style), header line or both
-					-- cwd_header = true,
+					cwd_header             = true,
 					cwd_prompt             = true,
 					cwd_prompt_shorten_len = 32, -- shorten prompt beyond this length
 					cwd_prompt_shorten_val = 1, -- shortened path parts length
@@ -316,21 +310,23 @@ return {
 					},
 				},
 				grep = {
-					prompt         = 'Rg❯ ',
-					input_prompt   = 'Grep For❯ ',
-					multiprocess   = true, -- run command in a separate process
-					git_icons      = true, -- show git icons?
-					file_icons     = true, -- show file icons (true|"devicons"|"mini")?
-					color_icons    = true, -- colorize file|git icons
+					prompt           = 'Rg❯ ',
+					input_prompt     = 'Grep For❯ ',
+					multiprocess     = true, -- run command in a separate process
+					git_icons        = true, -- show git icons?
+					file_icons       = true, -- show file icons (true|"devicons"|"mini")?
+					color_icons      = true, -- colorize file|git icons
 					-- executed command priority is 'cmd' (if exists)
 					-- otherwise auto-detect prioritizes `rg` over `grep`
 					-- default options are controlled by 'rg|grep_opts'
 					-- cmd            = "rg --vimgrep",
-					grep_opts      = "--binary-files=without-match --line-number --recursive --color=auto --perl-regexp -e",
-					rg_opts        = "--column --line-number --no-heading --with-filename --color=never --smart-case --max-columns=4096 -g !.git -e",
-					hidden         = true, -- disable hidden files by default
-					follow         = false, -- do not follow symlinks by default
-					no_ignore      = false, -- respect ".gitignore"  by default
+					grep_opts        = "--binary-files=without-match --line-number --recursive --color=auto --perl-regexp -e",
+					rg_opts          = "--sort-files --column --line-number --no-heading --with-filename " .. -- if having problesms with performance, remove `--sort-files
+						"--color=never --smart-case --max-columns=4096 -g !.git -e",
+					hidden           = true,                                                   -- disable hidden files by default
+					follow           = false,                                                  -- do not follow symlinks by default
+					no_ignore        = false,                                                  -- respect ".gitignore"  by default
+					exec_empty_query = true,
 					-- Uncomment to use the rg config file `$RIPGREP_CONFIG_PATH`
 					-- RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH
 					--
@@ -338,9 +334,9 @@ return {
 					-- search strings will be split using the 'glob_separator' and translated
 					-- to '--iglob=' arguments, requires 'rg'
 					-- can still be used when 'false' by calling 'live_grep_glob' directly
-					rg_glob        = true, -- default to glob parsing with `rg`
-					glob_flag      = "--iglob", -- for case sensitive globs use '--glob'
-					glob_separator = "%s%-%-", -- query separator pattern (lua): ' --'
+					rg_glob          = true, -- default to glob parsing with `rg`
+					glob_flag        = "--iglob", -- for case sensitive globs use '--glob'
+					glob_separator   = "%s%-%-", -- query separator pattern (lua): ' --'
 					-- advanced usage: for custom argument parsing define
 					-- 'rg_glob_fn' to return a pair:
 					--   first returned argument is the new search query
@@ -354,15 +350,15 @@ return {
 					-- NOTE: multiline requires fzf >= v0.53 and is ignored otherwise
 					-- multiline      = 1,      -- Display as: PATH:LINE:COL\nTEXT
 					-- multiline      = 2,      -- Display as: PATH:LINE:COL\nTEXT\n
-					actions        = {
+					actions          = {
 						-- actions inherit from 'actions.files' and merge
 						-- this action toggles between 'grep' and 'live_grep'
 						["ctrl-g"] = { actions.grep_lgrep }
 						-- uncomment to enable '.gitignore' toggle for grep
 						-- ["ctrl-r"]   = { actions.toggle_ignore }
 					},
-					no_header      = false, -- hide grep|cwd header?
-					no_header_i    = false, -- hide interactive header?
+					no_header        = false, -- hide grep|cwd header?
+					no_header_i      = false, -- hide interactive header?
 				},
 				args = {
 					prompt     = 'Args❯ ',
