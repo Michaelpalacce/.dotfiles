@@ -7,7 +7,7 @@ return {
 			{ 'nvim-lua/plenary.nvim' },
 		},
 		keys = {
-			{ '<leader>fC', '<cmd>Cheatsheet<CR>', { desc = 'Telescope: [F]ind In [C]heatsheet' } }
+			{ '<leader>fC', '<cmd>Cheatsheet<CR>', { desc = '[F]ind In [C]heatsheet' } }
 		},
 	}
 }

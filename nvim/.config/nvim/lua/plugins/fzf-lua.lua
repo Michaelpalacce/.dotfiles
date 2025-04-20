@@ -34,8 +34,7 @@ return {
 				-- each of these options can also be passed as function that return options table
 				-- e.g. winopts = function() return { ... } end
 				fzf_opts = {
-					['--keep-right'] = '',
-					['--history']    = vim.fn.stdpath("data") .. '/fzf-lua-history',
+					['--history'] = vim.fn.stdpath("data") .. '/fzf-lua-history',
 				},
 				winopts = {
 					-- split = "belowright new",-- open in a split instead?
@@ -145,7 +144,7 @@ return {
 					-- set to 'false' to disable
 					prompt                 = 'Files❯ ',
 					multiprocess           = true, -- run command in a separate process
-					git_icons              = false, -- show git icons?
+					git_icons              = true, -- show git icons?
 					file_icons             = true, -- show file icons (true|"devicons"|"mini")?
 					color_icons            = true, -- colorize file|git icons
 					-- path_shorten   = 1,              -- 'true' or number, shorten path?
@@ -320,7 +319,7 @@ return {
 					prompt         = 'Rg❯ ',
 					input_prompt   = 'Grep For❯ ',
 					multiprocess   = true, -- run command in a separate process
-					git_icons      = false, -- show git icons?
+					git_icons      = true, -- show git icons?
 					file_icons     = true, -- show file icons (true|"devicons"|"mini")?
 					color_icons    = true, -- colorize file|git icons
 					-- executed command priority is 'cmd' (if exists)
@@ -328,7 +327,7 @@ return {
 					-- default options are controlled by 'rg|grep_opts'
 					-- cmd            = "rg --vimgrep",
 					grep_opts      = "--binary-files=without-match --line-number --recursive --color=auto --perl-regexp -e",
-					rg_opts        = "--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
+					rg_opts        = "--column --line-number --no-heading --with-filename --color=never --smart-case --max-columns=4096 -g !.git -e",
 					hidden         = true, -- disable hidden files by default
 					follow         = false, -- do not follow symlinks by default
 					no_ignore      = false, -- respect ".gitignore"  by default
