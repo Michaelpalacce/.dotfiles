@@ -43,6 +43,7 @@ return {
 					fidget = true,
 					harpoon = true,
 					treesitter_context = true,
+					fzf = true,
 					mason = true,
 					neotest = true,
 					ufo = true,

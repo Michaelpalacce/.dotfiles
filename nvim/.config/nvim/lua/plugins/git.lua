@@ -3,37 +3,37 @@ return {
 		'tpope/vim-fugitive', -- Git operations
 		event = "VeryLazy",
 		dependencies = {
-			'nvim-telescope/telescope.nvim'
+			"ibhagwan/fzf-lua",
 		},
 		keys = {
 			{ "<leader>gs", vim.cmd.Git, desc = "Fugitive: [G]it [S]tatus" },
 			{
 				"<leader>gb",
 				function()
-					require('telescope.builtin').git_branches()
+					require('fzf-lua').git_branches()
 				end,
-				desc = "Telescope: [G]it [B]ranches"
+				desc = "Fzf-Lua: [G]it [B]ranches"
 			},
 			{
 				"<leader>gd",
 				function()
-					require('telescope.builtin').git_status()
+					require('fzf-lua').git_status()
 				end,
-				desc = "Telescope: [G]it [D]iff"
+				desc = "Fzf-Lua: [G]it [D]iff"
 			},
 			{
 				"<leader>gc",
 				function()
-					require('telescope.builtin').git_bcommits()
+					require('fzf-lua').git_bcommits()
 				end,
-				desc = "Telescope: [G]it buffer [C]ommits"
+				desc = "Fzf-Lua: [G]it buffer [C]ommits"
 			},
 			{
 				"<leader>gC",
 				function()
-					require('telescope.builtin').git_commits()
+					require('fzf-lua').git_commits()
 				end,
-				desc = "Telescope: [G]it [C]ommits"
+				desc = "Fzf-Lua: [G]it [C]ommits"
 			},
 			{
 				"<leader>gp",

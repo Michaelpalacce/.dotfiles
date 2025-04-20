@@ -5,11 +5,12 @@ return {
 		config = function()
 			local api = require "nvim-tree.api"
 
-			-- Do a telescope live_grep under the current node
+			-- Do a fzf-lua live_grep under the current node
 			local function grep_at_current_tree_node()
 				local node = api.tree.get_node_under_cursor()
 				if not node then return end
-				require('telescope.builtin').live_grep({ search_dirs = { node.absolute_path } })
+
+				require("fzf-lua").live_grep({ cwd = node.absolute_path })
 			end
 
 			-- Custom mappings for nvim-tree
@@ -32,7 +33,7 @@ return {
 			end)
 
 			-- Remap to easily toggle the tree view
-			vim.keymap.set("n", "<leader>tt", vim.cmd.NvimTreeToggle, { desc = "Telescope: [T]oggle Nvim [T]ree" })
+			vim.keymap.set("n", "<leader>tt", vim.cmd.NvimTreeToggle, { desc = "[T]oggle Nvim [T]ree" })
 
 			-- OR setup with some options
 			require("nvim-tree").setup({

@@ -36,7 +36,7 @@ return {
 			},
 		},
 		keys = {
-			{ "<leader>ft", "<cmd>TodoTelescope<CR>",                            { desc = "Telescope: [T]oggle [T]odo Comments" } },
+			{ "<leader>ft", "<cmd>TodoFzfLua<CR>",                               { desc = "Fzf-Lua: [T]oggle [T]odo Comments" } },
 			{ "]t",         function() require("todo-comments").jump_next() end, { desc = "Todo Comments: Next todo comment" } },
 			{ "[t",         function() require("todo-comments").jump_prev() end, { desc = "Todo Comments: Previous todo comment" } },
 		},
