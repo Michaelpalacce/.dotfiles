@@ -8,11 +8,26 @@ return {
 		keys = {
 			{ "<leader>gs", vim.cmd.Git, desc = "Fugitive: [G]it [S]tatus" },
 			{
+				"<leader>gt",
+				function()
+					require('fzf-lua').git_tags()
+				end,
+				desc = "Fzf-Lua: [G]it [T]ags"
+			},
+			{
 				"<leader>gb",
 				function()
 					require('fzf-lua').git_branches()
 				end,
 				desc = "Fzf-Lua: [G]it [B]ranches"
+			},
+
+			{
+				"<leader>gS",
+				function()
+					require('fzf-lua').git_stash()
+				end,
+				desc = "Fzf-Lua: [G]it [S]tash"
 			},
 			{
 				"<leader>gd",

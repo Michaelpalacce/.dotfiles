@@ -245,23 +245,9 @@ return {
 							["ctrl-y"] = { fn = actions.git_yank_commit, exec_silent = true },
 						},
 					},
-					blame = {
-						prompt  = "Blame> ",
-						cmd     = [[git blame --color-lines {file}]],
-						preview = "git show --color {1} -- {file}",
-						-- git-delta is automatically detected as pager, uncomment to disable
-						-- preview_pager = false,
-						actions = {
-							["enter"]  = actions.git_goto_line,
-							["ctrl-s"] = actions.git_buf_split,
-							["ctrl-v"] = actions.git_buf_vsplit,
-							["ctrl-t"] = actions.git_buf_tabedit,
-							["ctrl-y"] = { fn = actions.git_yank_commit, exec_silent = true },
-						},
-					},
 					branches = {
 						prompt  = 'Branches❯ ',
-						cmd     = "git branch --all --color",
+						cmd     = "git branch  --no-color",
 						preview = "git log --graph --pretty=oneline --abbrev-commit --color {1}",
 						remotes = "local", -- "detach|local", switch behavior for remotes
 						actions = {
@@ -270,8 +256,7 @@ return {
 							["ctrl-a"] = { fn = actions.git_branch_add, field_index = "{q}", reload = true },
 						},
 						-- If you wish to add branch and switch immediately
-						-- cmd_add  = { "git", "checkout", "-b" },
-						cmd_add = { "git", "branch" },
+						cmd_add = { "git", "checkout", "-b" },
 						-- If you wish to delete unmerged branches add "--force"
 						-- cmd_del  = { "git", "branch", "--delete", "--force" },
 						cmd_del = { "git", "branch", "--delete" },
@@ -296,17 +281,16 @@ return {
 						},
 					},
 					icons = {
-						["M"] = { icon = "M", color = "yellow" },
-						["D"] = { icon = "D", color = "red" },
-						["A"] = { icon = "A", color = "green" },
+						["M"] = { icon = "★", color = "red" },
+						["D"] = { icon = "✗", color = "red" },
+						["A"] = { icon = "+", color = "green" },
+						-- ["M"] = { icon = "M", color = "yellow" },
+						-- ["D"] = { icon = "D", color = "red" },
+						-- ["A"] = { icon = "A", color = "green" },
 						["R"] = { icon = "R", color = "yellow" },
 						["C"] = { icon = "C", color = "yellow" },
 						["T"] = { icon = "T", color = "magenta" },
 						["?"] = { icon = "?", color = "magenta" },
-						-- override git icons?
-						-- ["M"]        = { icon = "★", color = "red" },
-						-- ["D"]        = { icon = "✗", color = "red" },
-						-- ["A"]        = { icon = "+", color = "green" },
 					},
 				},
 				grep = {
