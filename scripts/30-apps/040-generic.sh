@@ -21,6 +21,7 @@ APPS=(
     "direnv"
     "fzf"
     "ripgrep"
+    "make"
 )
 
 for app in "${APPS[@]}"; do
