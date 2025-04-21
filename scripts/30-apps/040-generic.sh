@@ -1,8 +1,8 @@
+
 #!/usr/bin/env bash
 #
 # ----------------------------------------------------------------------------
-# This script handles dependencies
-#
+# This script installs generic dependencies
 # ----------------------------------------------------------------------------
 
 installOsSpecific() {
@@ -18,9 +18,9 @@ installOsSpecific() {
 }
 
 APPS=(
-    "git"
-    "curl"
-    "stow"
+    "direnv"
+    "fzf"
+    "ripgrep"
 )
 
 for app in "${APPS[@]}"; do
