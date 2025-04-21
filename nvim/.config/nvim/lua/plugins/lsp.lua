@@ -5,7 +5,6 @@ return {
 		cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
 		event = { 'BufReadPre', 'BufNewFile' },
 		dependencies = {
-			{ 'hrsh7th/cmp-nvim-lsp' },
 			{ 'williamboman/mason.nvim' },
 			{ 'williamboman/mason-lspconfig.nvim' },
 
@@ -63,10 +62,6 @@ return {
 
 					lsp_attach(client, bufnr)
 				end
-			})
-
-			vim.lsp.config("*", {
-				capabilities = require('cmp_nvim_lsp').default_capabilities(),
 			})
 
 			-- ##########################################################

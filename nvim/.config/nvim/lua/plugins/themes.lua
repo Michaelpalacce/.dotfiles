@@ -39,13 +39,13 @@ return {
 				color_overrides = {},
 				custom_highlights = {},
 				integrations = {
-					cmp = true,
 					fidget = true,
 					harpoon = true,
 					treesitter_context = true,
 					fzf = true,
 					mason = true,
 					neotest = true,
+					blink_cmp = true,
 					ufo = true,
 					telescope = {
 						enabled = true,
