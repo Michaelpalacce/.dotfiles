@@ -4,7 +4,7 @@ require('mason-lspconfig').setup {
 	ensure_installed = {
 		"lua_ls",
 		"vimls",
-		"gopls",
+		-- "gopls",
 		-- "ts_ls",
 		-- "lemminx",
 		-- "jsonls",
