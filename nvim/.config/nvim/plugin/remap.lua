@@ -78,6 +78,8 @@ vim.keymap.set("n", "Wa", ":wa<CR>", { noremap = false, desc = "Write all" })
 vim.keymap.set("n", "Ww", ":w<CR>", { noremap = false, desc = "Write current file" })
 vim.keymap.set({ "n", "v" }, "E", "$", { noremap = false })
 vim.keymap.set({ "n", "v" }, "B", "^", { noremap = false })
+vim.keymap.set("n", "<leader>ce", ":!chmod +x %<CR>", { noremap = false, silent = true })
+
 
 -- Inlay Hints
 vim.keymap.set("n", '<leader>ti',
