@@ -135,6 +135,15 @@ vim.keymap.set("n", "<leader>eseh", function()
 	)
 end, { noremap = true, desc = "[E]xecute: [S]ops [E]ncrypt [H]elm Release", silent = true })
 
+vim.keymap.set("n", "<leader>esee", function()
+	vim.cmd(
+		"!sops --age "
+		.. sopsAgeKey
+		.. " --encrypt --encrypted-regex '^(values)$' --in-place "
+		.. vim.fn.expand('%')
+	)
+end, { noremap = true, desc = "[E]xecute: [S]ops [E]ncrypt [E]nvironment", silent = true })
+
 vim.keymap.set("n", "<leader>esea", function()
 	vim.cmd(
 		"!sops --age "
@@ -142,7 +151,7 @@ vim.keymap.set("n", "<leader>esea", function()
 		.. " --encrypt --encrypted-regex '.*' --in-place "
 		.. vim.fn.expand('%')
 	)
-end, { noremap = true, desc = "[E]xecute: [S]ops [E]ncrypt [H]elm Release", silent = true })
+end, { noremap = true, desc = "[E]xecute: [S]ops [E]ncrypt [A]ll", silent = true })
 
 -- Base64 encode/decode
 
