@@ -21,6 +21,7 @@ APPS=(
     "git"
     "curl"
     "stow"
+    "gcc"
 )
 
 for app in "${APPS[@]}"; do
