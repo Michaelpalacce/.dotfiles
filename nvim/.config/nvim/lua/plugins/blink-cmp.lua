@@ -89,9 +89,6 @@ return {
 			},
 
 			cmdline = {
-				keymap = {
-					['<Tab>'] = { 'accept' },
-				},
 				-- (optionally) automatically show the menu
 				completion = { menu = { auto_show = true } }
 			},
