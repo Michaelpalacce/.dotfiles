@@ -21,6 +21,8 @@ APPS=(
     "git"
     "curl"
     "stow"
+    "direnv"
+    "fzf"
 )
 
 for app in "${APPS[@]}"; do
