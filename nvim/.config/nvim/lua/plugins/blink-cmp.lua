@@ -34,8 +34,6 @@ return {
 				['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
 				['<C-e>'] = { 'hide', 'fallback' },
 
-				['<CR>'] = { 'fallback' },
-
 				['<Up>'] = {
 					function(cmp)
 						cmp.hide()
@@ -49,6 +47,11 @@ return {
 
 				['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
 				['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+
+				['<CR>'] = {
+					"accept",
+					'fallback'
+				},
 
 				['<Tab>'] = {
 					function(cmp)
