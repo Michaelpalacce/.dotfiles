@@ -31,6 +31,15 @@ command_exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
+if command_exists apt-get; then
+    print_color "$GREEN" "Setting up for Debian based systems"
+elif command_exists brew; then 
+    print_color "$GREEN" "Setting up for MacOS"
+else
+    print_color "$RED" "Error: No package manager found"
+    exit 1
+fi
+
 # ------------------------ Clone repo -------------------------------
 
 # Checkout .dotfiles if it does not exist
@@ -50,15 +59,6 @@ pushd $DOTFILES_DIR
 popd
 
 # ------------------------ Setup -------------------------------
-
-if command_exists apt-get; then
-    print_color "$GREEN" "Setting up for Debian based systems"
-elif command_exists brew; then 
-    print_color "$GREEN" "Setting up for MacOS"
-else
-    print_color "$RED" "Error: No package manager found"
-    exit 1
-fi
 
 DEPS=("git" "curl")
 
