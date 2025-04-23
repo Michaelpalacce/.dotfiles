@@ -32,26 +32,18 @@ return {
 			keymap = {
 				-- set to 'none' to disable the 'default' preset
 				['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
-				['<C-e>'] = { 'hide', 'fallback' },
 
-				['<Up>'] = {
-					function(cmp)
-						cmp.hide()
-					end, 'fallback' },
-				['<Down>'] = {
-					function(cmp)
-						cmp.hide()
-					end, 'fallback' },
+				['<C-e>'] = { 'hide', 'fallback' },
+				['<Up>'] = { 'hide', 'fallback' },
+				['<Down>'] = { 'hide', 'fallback' },
+
 				['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
 				['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
 
 				['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
 				['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
 
-				['<CR>'] = {
-					"accept",
-					'fallback'
-				},
+				['<CR>'] = { "accept", 'fallback' },
 
 				['<Tab>'] = {
 					function(cmp)
@@ -71,7 +63,8 @@ return {
 							return cmp.select_prev()
 						end
 					end,
-					'snippet_backward', 'fallback' },
+					'snippet_backward', 'fallback'
+				},
 
 				['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
 
@@ -95,7 +88,34 @@ return {
 
 			cmdline = {
 				-- (optionally) automatically show the menu
-				completion = { menu = { auto_show = true } }
+				completion = {
+					menu = { auto_show = true },
+					list = {
+						selection = { preselect = false, auto_insert = true }
+					},
+				},
+				keymap = {
+					-- optionally, inherit the mappings from the top level `keymap`
+					-- instead of using the neovim defaults
+					-- preset = 'inherit',
+
+					['<Tab>'] = { 'select_next' },
+					['<S-Tab>'] = { 'select_prev' },
+
+					['<C-y>'] = { 'select_and_accept' },
+					['<C-e>'] = { 'cancel' },
+
+					['<A-1>'] = { function(cmp) cmp.accept({ index = 1 }) end },
+					['<A-2>'] = { function(cmp) cmp.accept({ index = 2 }) end },
+					['<A-3>'] = { function(cmp) cmp.accept({ index = 3 }) end },
+					['<A-4>'] = { function(cmp) cmp.accept({ index = 4 }) end },
+					['<A-5>'] = { function(cmp) cmp.accept({ index = 5 }) end },
+					['<A-6>'] = { function(cmp) cmp.accept({ index = 6 }) end },
+					['<A-7>'] = { function(cmp) cmp.accept({ index = 7 }) end },
+					['<A-8>'] = { function(cmp) cmp.accept({ index = 8 }) end },
+					['<A-9>'] = { function(cmp) cmp.accept({ index = 9 }) end },
+					['<A-0>'] = { function(cmp) cmp.accept({ index = 10 }) end },
+				}
 			},
 
 			signature = {
