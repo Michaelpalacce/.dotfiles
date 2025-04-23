@@ -45,26 +45,8 @@ return {
 
 				['<CR>'] = { "accept", 'fallback' },
 
-				['<Tab>'] = {
-					function(cmp)
-						if cmp.snippet_active() then
-							return cmp.accept()
-						else
-							return cmp.select_next()
-						end
-					end,
-					'snippet_forward',
-					'fallback'
-				},
-				['<S-Tab>'] = {
-					function(cmp)
-						if cmp.snippet_active() then
-						else
-							return cmp.select_prev()
-						end
-					end,
-					'snippet_backward', 'fallback'
-				},
+				['<Tab>'] = { 'select_next' },
+				['<S-Tab>'] = { 'select_prev' },
 
 				['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
 
