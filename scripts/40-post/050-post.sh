@@ -12,8 +12,6 @@ fi
 
 # Mac specifics
 if [[ "$machine" = "Mac" ]]; then
-    brew install gsed
-
     # Run macos.sh for some nice defaults
     . $HOME/.dotfiles/scripts/os/Mac.sh
 fi
