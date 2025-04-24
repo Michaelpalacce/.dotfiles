@@ -20,8 +20,6 @@ installNeovim() {
 if ! command_exists nvim; then
     print_color "$GREEN" "nvim not found, installing"
     installNeovim
-
 else
     print_color "$YELLOW" "nvim exists, skipping"
-    exit 1
 fi
