@@ -73,6 +73,10 @@ in
     pkgs.unstable.nerd-fonts.jetbrains-mono
     pkgs.unstable.nerd-fonts.symbols-only
 
+    # IaC
+    pkgs.terraform
+
+
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
