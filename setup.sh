@@ -60,15 +60,6 @@ popd
 
 # ------------------------ Setup -------------------------------
 
-DEPS=("git" "curl")
-
-for dep in ${DEPS[@]}; do
-    if ! command_exists $dep; then
-        print_color "$RED" "Error: $dep not found"
-        exit 1
-    fi
-done
-
 pushd $DOTFILES_DIR
     # Run dependency scripts
     for deps_script in ./scripts/05-deps/*; do
