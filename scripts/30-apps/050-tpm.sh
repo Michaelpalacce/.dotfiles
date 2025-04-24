@@ -6,7 +6,9 @@
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 
 if [ -d $TPM_DIR ]; then 
-    print_color "$YELLOW" "$TPM_DIR exists, skipping"
+    print_color "$YELLOW" "$TPM_DIR exists, updating"
+    # Install tpm plugins
+    $TPM_DIR/scripts/update_plugins.sh all all
 else
     print_color "$GREEN" "$TPM_DIR does not exist, checking the repository out"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

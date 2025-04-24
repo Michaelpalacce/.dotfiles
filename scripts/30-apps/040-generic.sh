@@ -22,6 +22,7 @@ APPS=(
     "fzf"
     "ripgrep"
     "make"
+    "tmux"
 )
 
 for app in "${APPS[@]}"; do
