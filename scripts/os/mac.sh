@@ -75,3 +75,6 @@ defaults write com.apple.dock showhidden -bool true
 # Don’t show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false
 
+# ------------------------- Windows -------------------------------
+
+defaults write -g NSWindowShouldDragOnGesture -bool true
