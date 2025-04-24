@@ -6,11 +6,6 @@
 #
 # ------------------------------------------------------------------------------
 
-# fnm
-FNM_PATH="$HOME/.fnm"
-if [ -d "$FNM_PATH" ]; then
-    export PATH="$FNM_PATH:$PATH"
-
+if command_exists fnm; then
     eval "$(fnm env --use-on-cd --shell zsh)"
 fi
-
