@@ -48,12 +48,11 @@ in
   home.packages = [
     # General
     pkgs.htop               pkgs.sshpass        pkgs.unzip      pkgs.dos2unix       pkgs.gnupg
-    pkgs.sshpass            pkgs.sshuttle       pkgs.wget       pkgs.gnumake        pkgs.libuv
-    pkgs.smartmontools      pkgs.timer
+    pkgs.sshpass            pkgs.sshuttle       pkgs.gnumake        pkgs.libuv      pkgs.smartmontools
+    pkgs.timer
 
     # Development
-    pkgs.awscli             pkgs.xclip          pkgs.tmux       pkgs.eza            pkgs.stow
-    pkgs.gh                 pkgs.unstable.fzf   pkgs.ansible    pkgs.direnv         pkgs.gcc
+    pkgs.awscli             pkgs.xclip          pkgs.gh         pkgs.direnv         pkgs.gcc
 
     # Encryption And Security
     pkgs.sops               pkgs.age            pkgs.crowdsec
@@ -62,15 +61,11 @@ in
     pkgs.k9s                pkgs.kubent         pkgs.kubectl    pkgs.velero         pkgs.unstable.fluxcd
     pkgs.kubernetes-helm    pkgs.kind           pkgs.talosctl   pkgs.kubebuilder
 
-    # Neovim
-    pkgs.unstable.neovim    pkgs.ripgrep        pkgs.fd
-
     # Go
     pkgs.unstable.go
 
     # Python
-    pkgs.python3                    pkgs.python312Packages.pip  pkgs.python312Packages.conda
-    pkgs.python312Packages.pyvmomi  
+    pkgs.python3
 
     # Rust
     pkgs.rustup
@@ -97,6 +92,9 @@ in
 
     # Java
     pkgs.zulu17             pkgs.maven
+
+    # IaC
+    pkgs.ansible
   ] else [])
   ++ (if isDarwin then [
       pkgs.terminal-notifier
