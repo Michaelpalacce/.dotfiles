@@ -3,10 +3,11 @@
 # libvirtd is a system daemon and cannot be manged by home-manager.
  
 virtualization() {
-    if command_exists brew; then
-    elif command_exists apt-get; then
+    if command_exists apt-get; then
         sudo apt install -y qemu-kvm libvirt-daemon-system
         sudo adduser $USER libvirt
+    elif command_exists brew; then
+        print_color "$YELLOW" "skipping libvirt installation for mac"
     else
         print_color "$RED" "Error: No package manager found"
         exit 1

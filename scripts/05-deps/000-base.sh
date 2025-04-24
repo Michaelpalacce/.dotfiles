@@ -22,6 +22,7 @@ APPS=(
     "curl"
     "stow"
     "gcc"
+    "tmux"
 )
 
 for app in "${APPS[@]}"; do
