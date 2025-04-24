@@ -4,7 +4,6 @@
  
 virtualization() {
     if command_exists brew; then
-        exit 0
     elif command_exists apt-get; then
         sudo apt install -y qemu-kvm libvirt-daemon-system
         sudo adduser $USER libvirt
