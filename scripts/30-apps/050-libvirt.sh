@@ -4,6 +4,7 @@
  
 virtualization() {
     if command_exists apt-get; then
+        print_color "$GREEN" "installing kvm and libvirtd for emulation"
         sudo apt install -y qemu-kvm libvirt-daemon-system
         sudo adduser $USER libvirt
     elif command_exists brew; then
@@ -14,5 +15,4 @@ virtualization() {
     fi
 }
 
-print_color "$GREEN" "installing kvm and libvirtd for emulation"
 virtualization
