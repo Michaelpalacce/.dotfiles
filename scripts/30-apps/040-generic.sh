@@ -18,7 +18,6 @@ installOsSpecific() {
 
 APPS=(
     "direnv"
-    "fzf"
     "ripgrep"
     "tmux"
 )

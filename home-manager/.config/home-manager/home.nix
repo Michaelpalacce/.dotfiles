@@ -48,11 +48,11 @@ in
   home.packages = [
     # General
     pkgs.htop               pkgs.sshpass        pkgs.unzip      pkgs.dos2unix       pkgs.gnupg
-    pkgs.sshpass            pkgs.sshuttle       pkgs.gnumake        pkgs.libuv      pkgs.smartmontools
+    pkgs.sshpass            pkgs.sshuttle       pkgs.gnumake    pkgs.libuv          pkgs.smartmontools
     pkgs.timer
 
     # Development
-    pkgs.awscli             pkgs.xclip          pkgs.gh         pkgs.direnv         pkgs.gcc
+    pkgs.awscli             pkgs.xclip          pkgs.gh         pkgs.gcc
 
     # Encryption And Security
     pkgs.sops               pkgs.age            pkgs.crowdsec
