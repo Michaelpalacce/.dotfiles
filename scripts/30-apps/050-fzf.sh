@@ -9,6 +9,8 @@ if ! command_exists fzf; then
     if ! command_exists fzf; then
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
         ~/.fzf/install --completion --key-bindings --no-update-rc
+
+        sudo ln -sf $HOME/.fzf/bin/fzf /usr/local/bin/fzf
     fi
 else
     print_color "$YELLOW" "fzf exists, skipping"
