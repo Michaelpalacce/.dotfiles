@@ -8,7 +8,7 @@ if ! command_exists fzf; then
     # If you want to update, run the install command again, no need to git clone again of course
     if ! command_exists fzf; then
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-        ~/.fzf/install --completion --key-bindings
+        ~/.fzf/install --completion --key-bindings --no-update-rc
     fi
 else
     print_color "$YELLOW" "fzf exists, skipping"
