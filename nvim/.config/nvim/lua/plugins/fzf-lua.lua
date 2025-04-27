@@ -1,5 +1,4 @@
 return {
-
 	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -24,11 +23,11 @@ return {
 				command = 'lua require("fzf-lua").redraw()'
 			})
 		end,
-		build = function()
-			vim.fn.system("git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf")
-			vim.fn.system("~/.fzf/install --completion --key-bindings --no-update-rc")
-			vim.fn.system("sudo ln -sf $HOME/.fzf/bin/fzf /usr/local/bin/fzf")
-		end,
+		-- build = function()
+		-- 	vim.fn.system("git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf")
+		-- 	vim.fn.system("~/.fzf/install --completion --key-bindings --no-update-rc")
+		-- 	vim.fn.system("sudo ln -sf $HOME/.fzf/bin/fzf /usr/local/bin/fzf")
+		-- end,
 		config = function()
 			local actions = require('fzf-lua').actions
 
