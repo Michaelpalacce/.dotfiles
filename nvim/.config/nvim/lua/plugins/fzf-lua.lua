@@ -3,29 +3,34 @@ return {
 	{
 		"ibhagwan/fzf-lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			local fzfLua = require('fzf-lua')
-			local actions = fzfLua.actions
-
+		keys = {
+			{ "<leader>ff",    mode = { "n" }, function() require("fzf-lua").files() end,        desc = "Fzf-Lua: [F]ind [F]iles" },
+			{ '<leader>fF',    mode = { "n" }, function() require("fzf-lua").oldfiles() end,     desc = 'Fzf-Lua: [F]ind Oldfiles' },
+			{ '<leader>fr',    mode = { "n" }, function() require("fzf-lua").resume() end,       desc = 'Fzf-Lua: [F]inder [R]esume' },
+			{ '<leader>fs',    mode = { "n" }, function() require("fzf-lua").live_grep() end,    desc = 'Fzf-Lua: [F]ind [S]tring' },
+			{ '<leader>fh',    mode = { "n" }, function() require("fzf-lua").helptags() end,     desc = 'Fzf-Lua: [F]ind [H]elp Tags' },
+			{ '<leader>fg',    mode = { "n" }, function() require("fzf-lua").git_files() end,    desc = 'Fzf-Lua: [F]ind [G]it files' },
+			{ '<leader>fc',    mode = { "n" }, function() require("fzf-lua").grep_curbuf() end,  desc = 'Fzf-Lua: [F]ind [C]urrent file' },
+			{ '<leader>fq',    mode = { "n" }, function() require("fzf-lua").quickfix() end,     desc = 'Fzf-Lua: [F]ind In The [Q]uickfix List' },
+			{ '<leader>fk',    mode = { "n" }, function() require("fzf-lua").keymaps() end,      desc = 'Fzf-Lua: [F]ind [K]eymaps' },
+			{ '<leader>fo',    mode = { "n" }, function() require("fzf-lua").nvim_options() end, desc = 'Fzf-Lua: [F]ind Vim [O]ptions' },
+			{ '<leader>fR',    mode = { "n" }, function() require("fzf-lua").registers() end,    desc = 'Fzf-Lua: [F]ind in [R^]egsiters' },
+			{ '<leader>fb',    mode = { "n" }, function() require("fzf-lua").buffers() end,      desc = 'Fzf-Lua: [F]ind [B]uffers' },
+			{ "<Leader><tab>", mode = { "n" }, function() require("fzf-lua").commands() end,     desc = "Fzf-Lua: Commands",                     noremap = false },
+		},
+		init = function()
 			vim.api.nvim_create_autocmd("VimResized", {
 				pattern = '*',
 				command = 'lua require("fzf-lua").redraw()'
 			})
-
-			vim.keymap.set('n', '<leader>ff', fzfLua.files, { desc = 'Fzf-Lua: [F]ind [F]iles' })
-			vim.keymap.set('n', '<leader>fF', fzfLua.oldfiles, { desc = 'Fzf-Lua: [F]ind Oldfiles' })
-			vim.keymap.set('n', '<leader>fr', fzfLua.resume, { desc = 'Fzf-Lua: [F]inder [R]esume' })
-			vim.keymap.set('n', '<leader>fs', fzfLua.live_grep, { desc = 'Fzf-Lua: [F]ind [S]tring' })
-			vim.keymap.set('n', '<leader>fh', fzfLua.helptags, { desc = 'Fzf-Lua: [F]ind [H]elp Tags' })
-			vim.keymap.set('n', '<leader>fg', fzfLua.git_files, { desc = 'Fzf-Lua: [F]ind [G]it files' })
-			vim.keymap.set('n', '<leader>fc', fzfLua.grep_curbuf, { desc = 'Fzf-Lua: [F]ind [C]urrent file' })
-			vim.keymap.set('n', '<leader>fq', fzfLua.quickfix, { desc = 'Fzf-Lua: [F]ind In The [Q]uickfix List' })
-			vim.keymap.set('n', '<leader>fk', fzfLua.keymaps, { desc = 'Fzf-Lua: [F]ind [K]eymaps' })
-			vim.keymap.set('n', '<leader>fo', fzfLua.nvim_options, { desc = 'Fzf-Lua: [F]ind Vim [O]ptions' })
-			vim.keymap.set('n', '<leader>fR', fzfLua.registers, { desc = 'Fzf-Lua: [F]ind in [R^]egsiters' })
-			vim.keymap.set('n', '<leader>fb', fzfLua.buffers, { desc = 'Fzf-Lua: [F]ind [B]uffers' })
-			vim.keymap.set("n", "<Leader><tab>", fzfLua.commands,
-				{ desc = "Fzf-Lua: Commands", noremap = false })
+		end,
+		build = function()
+			vim.fn.system("git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf")
+			vim.fn.system("~/.fzf/install --completion --key-bindings --no-update-rc")
+			vim.fn.system("sudo ln -sf $HOME/.fzf/bin/fzf /usr/local/bin/fzf")
+		end,
+		config = function()
+			local actions = require('fzf-lua').actions
 
 			require('fzf-lua').setup {
 				"telescope",
