@@ -8,11 +8,6 @@
 # Dependencies: The tools mentioned above must be installed and properly set up in your environment.
 # ------------------------------------------------------------------------------
 
-# Function to check if a command is available
-command_exists() {
-  command -v "$1" >/dev/null 2>&1
-}
-
 # Absolute magic
 # Function to lazy load completions for a command
 lazy_load_completion() {

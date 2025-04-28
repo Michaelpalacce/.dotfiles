@@ -6,4 +6,6 @@
 # Dependencies: direnv
 # ------------------------------------------------------------------------------
 
-eval "$(direnv hook zsh)"
+if command_exists $cmd; then
+    eval "$(direnv hook zsh)"
+fi
