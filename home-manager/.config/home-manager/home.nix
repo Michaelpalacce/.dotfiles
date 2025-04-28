@@ -95,7 +95,7 @@ in
     pkgs.python311Packages.openrazer    pkgs.wine64Packages.unstableFull
 
     # Java
-    pkgs.zulu17             pkgs.maven
+    pkgs.zulu21             pkgs.maven
 
     # IaC
     pkgs.ansible
@@ -109,7 +109,7 @@ in
   home.sessionVariables = 
   (if isLinux then {
     # Linux specific environment variables
-    JAVA_HOME = "${pkgs.zulu17}";
+    JAVA_HOME = "${pkgs.zulu21}";
   } else if isDarwin then {
     # Darwin specific environment variables
   } else {}) // {
