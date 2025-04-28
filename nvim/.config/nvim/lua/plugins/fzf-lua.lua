@@ -251,7 +251,7 @@ return {
 					},
 					branches = {
 						prompt  = 'Branches❯ ',
-						cmd     = "git branch  --no-color",
+						cmd     = "git branch --all --no-color",
 						preview = "git log --graph --pretty=oneline --abbrev-commit --color {1}",
 						remotes = "local", -- "detach|local", switch behavior for remotes
 						actions = {
