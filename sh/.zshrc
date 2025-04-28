@@ -11,6 +11,13 @@ export ZSH="$HOME/.oh-my-zsh"
 zstyle ':omz:update' frequency 13
 DISABLE_AUTO_UPDATE="true" 
 
+# ------------------------------ FUNCS ----------------------------------
+
+# Function to check if a command is available
+command_exists() {
+  command -v "$1" >/dev/null 2>&1
+}
+
 # ------------------------------ THEME ---------------------------------
 
 ZSH_THEME="bira"

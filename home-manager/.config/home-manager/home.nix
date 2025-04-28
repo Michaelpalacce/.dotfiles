@@ -49,10 +49,11 @@ in
     # General
     pkgs.htop               pkgs.sshpass        pkgs.unzip      pkgs.dos2unix       pkgs.gnupg
     pkgs.sshpass            pkgs.sshuttle       pkgs.gnumake    pkgs.libuv          pkgs.smartmontools
-    pkgs.timer
+    pkgs.timer              pkgs.eza            pkgs.fzf        pkgs.fd
 
     # Development
-    pkgs.awscli             pkgs.xclip          pkgs.gh         pkgs.gcc
+    pkgs.awscli             pkgs.xclip          pkgs.gh         pkgs.gcc            pkgs.unstable.neovim
+    pkgs.ripgrep            pkgs.direnv  
 
     # Encryption And Security
     pkgs.sops               pkgs.age            pkgs.crowdsec
@@ -63,6 +64,9 @@ in
 
     # Go
     pkgs.unstable.go
+
+    # Node
+    pkgs.fnm
 
     # Python
     pkgs.python3
