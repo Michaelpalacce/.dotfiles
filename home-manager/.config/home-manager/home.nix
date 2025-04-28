@@ -80,6 +80,8 @@ in
     # IaC
     pkgs.terraform
 
+    # Java
+    pkgs.zulu21             pkgs.maven
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -98,9 +100,6 @@ in
     # Gaming
     pkgs.python311Packages.openrazer    pkgs.wine64Packages.unstableFull
 
-    # Java
-    pkgs.zulu21             pkgs.maven
-
     # IaC
     pkgs.ansible
   ] else [])
@@ -113,12 +112,12 @@ in
   home.sessionVariables = 
   (if isLinux then {
     # Linux specific environment variables
-    JAVA_HOME = "${pkgs.zulu21}";
   } else if isDarwin then {
     # Darwin specific environment variables
   } else {}) // {
     # Common environment variables
     EDITOR = "nvim";
+    JAVA_HOME = "${pkgs.zulu21}";
   };
 
   home.sessionPath = [
