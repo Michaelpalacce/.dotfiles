@@ -63,8 +63,8 @@ case $- in
       *) return;;
 esac
 
-if [ -f $ZDOTDIR/.zsh_aliases ]; then
-    . $ZDOTDIR/.zsh_aliases
+if [ -f $HOME/.zsh_aliases ]; then
+    . $HOME/.zsh_aliases
 fi
 
 if [ -f ~/.zsh_secrets ]; then

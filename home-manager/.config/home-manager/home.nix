@@ -69,7 +69,7 @@ in
     pkgs.unstable.go
 
     # Node
-    pkgs.fnm
+    pkgs.nodejs_22
 
     # Python
     pkgs.python3

@@ -9,15 +9,3 @@ if [[ "$machine" = "Mac" ]]; then
     # Run macos.sh for some nice defaults
     . $HOME/.dotfiles/scripts/os/Mac.sh
 fi
-
-# Install node if not
-if ! command_exists node; then
-    NODE_VER=22
-    if command_exists fnm; then
-        fnm install $NODE_VER
-    fi
-
-    if command_exists nvm; then
-        nvm install $NODE_VER
-    fi
-fi
