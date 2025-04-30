@@ -1,4 +1,1 @@
 # Linux Configuration
-
-# Disable caps lock
-setxkbmap -option ctrl:nocaps

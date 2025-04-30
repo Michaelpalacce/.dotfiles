@@ -5,8 +5,6 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 
-
 if [ "$machine" = "Mac" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
-
