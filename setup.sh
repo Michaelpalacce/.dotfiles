@@ -35,6 +35,8 @@ if command_exists apt-get; then
     print_color "$GREEN" "Setting up for Debian based systems"
 elif command_exists brew; then 
     print_color "$GREEN" "Setting up for MacOS"
+elif command_exists nix-shell; then 
+    print_color "$GREEN" "Setting up for NixOS"
 else
     print_color "$RED" "Error: No package manager found"
     exit 1
