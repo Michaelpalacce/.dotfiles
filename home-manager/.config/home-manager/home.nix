@@ -46,6 +46,9 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    # Terminal
+    pkgs.zsh
+
     # General
     pkgs.htop               pkgs.sshpass        pkgs.unzip      pkgs.dos2unix       pkgs.gnupg
     pkgs.sshpass            pkgs.sshuttle       pkgs.gnumake    pkgs.libuv          pkgs.smartmontools
@@ -112,12 +115,16 @@ in
   home.sessionVariables = 
   (if isLinux then {
     # Linux specific environment variables
+    EDITOR = "nvim";
+    JAVA_HOME = "${pkgs.zulu21}";
+    ZDOTDIR = "${config.home.homeDirectory}/.zshrc.d/";
   } else if isDarwin then {
     # Darwin specific environment variables
   } else {}) // {
     # Common environment variables
     EDITOR = "nvim";
     JAVA_HOME = "${pkgs.zulu21}";
+    ZDOTDIR = "${config.home.homeDirectory}/.zshrc.d/";
   };
 
   home.sessionPath = [
@@ -131,6 +138,11 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # zsh
+  programs.zsh = {
+      enable = true;
+  };
 
   # Git
   programs.git = {
