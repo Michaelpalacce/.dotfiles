@@ -12,10 +12,6 @@ The following dependencies are needed to run the setup script:
 - `git` - for cloning the repositoryA
 - `brew` - for **MacOs** fully set up. In order to use brew, make sure to do
 
-```sh
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
-```
-
 ## 📦 Setup
 
 The setup script will setup and configure the local development environment.

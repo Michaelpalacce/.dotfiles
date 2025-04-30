@@ -12,11 +12,4 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
-unameOut="$(uname -s)"
-case "${unameOut}" in
-    Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
-    *)          machine="UNKNOWN:${unameOut}"
-esac
-
 cd "$selected" && eval $1

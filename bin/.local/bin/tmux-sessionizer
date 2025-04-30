@@ -14,13 +14,6 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
-unameOut="$(uname -s)"
-case "${unameOut}" in
-    Linux*)     machine=Linux;;
-    Darwin*)    machine=Mac;;
-    *)          machine="UNKNOWN:${unameOut}"
-esac
-
 # Create a new session with the chosen file
 # Create a new window in the session too, so we can go to it if we need to run a command
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
