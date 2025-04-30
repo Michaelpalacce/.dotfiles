@@ -2,13 +2,6 @@
 
 # Zsh installed outside of `home-manager` so the setup is in one place
 
-# Check if zsh is installed
-if ! command_exists zsh; then
-    installOsSpecific zsh
-else
-    print_color "$YELLOW" "zsh exists, skipping"
-fi
-
 ZSH_DIR="$HOME/.oh-my-zsh"
 
 if [ -d $ZSH_DIR ]; then 

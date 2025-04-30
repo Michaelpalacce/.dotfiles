@@ -11,6 +11,7 @@ APPS=(
     "gcc"
     "make"
     "tmux"
+    "zsh"
 )
 
 for app in "${APPS[@]}"; do
