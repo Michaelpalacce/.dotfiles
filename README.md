@@ -76,7 +76,7 @@ curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup
 
 I use these dotfiles on the following Operating Systems
 
-- [x] NixOs
+- [x] Arch
 - [x] MacOS
 
 Note: Will support whatever I work on.
