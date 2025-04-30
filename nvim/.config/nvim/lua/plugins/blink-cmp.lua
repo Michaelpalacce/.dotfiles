@@ -1,11 +1,6 @@
 return {
 	{
 		'saghen/blink.cmp',
-
-		dependencies = {
-			{ 'onsails/lspkind.nvim' },
-		},
-
 		event = "InsertEnter",
 		-- use a release tag to download pre-built binaries
 		version = '1.*',
