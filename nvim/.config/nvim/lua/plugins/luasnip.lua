@@ -7,7 +7,6 @@ return {
 		-- install jsregexp (optional!:).
 		build = "make install_jsregexp",
 		event = "BufRead",
-		dependencies = {},
 		config = function()
 			require "plugins.lsp.snippets"
 		end,
