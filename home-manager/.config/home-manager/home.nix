@@ -115,9 +115,6 @@ in
   home.sessionVariables = 
   (if isLinux then {
     # Linux specific environment variables
-    EDITOR = "nvim";
-    JAVA_HOME = "${pkgs.zulu21}";
-    ZDOTDIR = "${config.home.homeDirectory}/.zshrc.d/";
   } else if isDarwin then {
     # Darwin specific environment variables
   } else {}) // {
