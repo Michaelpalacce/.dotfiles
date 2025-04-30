@@ -47,7 +47,7 @@ in
   # environment.
   home.packages = [
     # Terminal
-    pkgs.zsh
+    pkgs.tmux
 
     # General
     pkgs.htop               pkgs.sshpass        pkgs.unzip      pkgs.dos2unix       pkgs.gnupg
@@ -121,7 +121,6 @@ in
     # Common environment variables
     EDITOR = "nvim";
     JAVA_HOME = "${pkgs.zulu21}";
-    ZDOTDIR = "${config.home.homeDirectory}/.zshrc.d/";
   };
 
   home.sessionPath = [
@@ -135,11 +134,6 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  # zsh
-  programs.zsh = {
-      enable = true;
-  };
 
   # Git
   programs.git = {
