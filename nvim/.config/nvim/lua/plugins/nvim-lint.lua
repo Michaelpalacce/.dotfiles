@@ -5,8 +5,6 @@ return {
 			"BufReadPre",
 			"BufNewFile",
 		},
-		-- Only for supported filetypes
-		ft = { "go" },
 		config = function()
 			local lint = require("lint")
 
