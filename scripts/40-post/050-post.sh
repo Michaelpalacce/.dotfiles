@@ -4,12 +4,6 @@
 # This script is run after the main setup script. 
 # It contains OS specific setup and other things that should be run after the main setup script.
 
-# Linux specifics
-if [[ "$machine" = "Linux" ]]; then
-    # Set alacritty as default terminal
-    sudo update-alternatives --set x-terminal-emulator /usr/bin/alacritty
-fi
-
 # Mac specifics
 if [[ "$machine" = "Mac" ]]; then
     # Run macos.sh for some nice defaults
