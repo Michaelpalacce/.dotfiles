@@ -130,7 +130,6 @@ return {
 				map('n', '<leader>hR', gs.reset_buffer, { desc = "GitSigns: [H]unk [R]eset buffer" })
 
 				map('n', '<leader>hu', gs.undo_stage_hunk, { desc = "GitSigns: [H]unk [U]ndo stage hunk" })
-				map('n', '<leader>hu', gs.undo_stage_buffer, { desc = "GitSigns: [H]unk [U]ndo stage buffer" })
 
 				map('n', '<leader>hp', gs.preview_hunk, { desc = "GitSigns: [H]unk [P]review" })
 				map('n', '<leader>hb', function() gs.blame_line { full = true } end,
