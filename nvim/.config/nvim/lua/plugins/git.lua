@@ -82,7 +82,6 @@ return {
 	},
 	{
 		'lewis6991/gitsigns.nvim', -- Show Signs in the gutter
-		event = "BufRead",
 		opts = {
 			current_line_blame      = true,
 			current_line_blame_opts = {
@@ -91,10 +90,12 @@ return {
 				delay = 500,
 				ignore_whitespace = false,
 			},
+
 			signcolumn              = true, -- Toggle with `:Gitsigns toggle_signs`
 			numhl                   = true, -- Toggle with `:Gitsigns toggle_numhl`
 			linehl                  = false, -- Toggle with `:Gitsigns toggle_linehl`
 			word_diff               = false, -- Toggle with `:Gitsigns toggle_word_diff`
+			auto_attach             = true,
 			on_attach               = function(bufnr)
 				local gs = package.loaded.gitsigns
 
@@ -129,6 +130,7 @@ return {
 				map('n', '<leader>hR', gs.reset_buffer, { desc = "GitSigns: [H]unk [R]eset buffer" })
 
 				map('n', '<leader>hu', gs.undo_stage_hunk, { desc = "GitSigns: [H]unk [U]ndo stage hunk" })
+				map('n', '<leader>hu', gs.undo_stage_buffer, { desc = "GitSigns: [H]unk [U]ndo stage buffer" })
 
 				map('n', '<leader>hp', gs.preview_hunk, { desc = "GitSigns: [H]unk [P]review" })
 				map('n', '<leader>hb', function() gs.blame_line { full = true } end,
