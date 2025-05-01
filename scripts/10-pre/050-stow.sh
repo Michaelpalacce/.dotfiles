@@ -20,6 +20,7 @@ FOLDERS=(
     "gitignore"
     "aerospace"
     "wallpapers"
+    "hyprland"
 )
 
 for dir in ${FOLDERS[@]} ; do
