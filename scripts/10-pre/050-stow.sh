@@ -22,6 +22,7 @@ FOLDERS=(
     "wallpapers"
     "hyprland"
     "waybar"
+    "wofi"
 )
 
 for dir in ${FOLDERS[@]} ; do
