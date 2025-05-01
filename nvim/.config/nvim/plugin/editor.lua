@@ -45,7 +45,7 @@ vim.opt.updatetime = 50
 vim.opt.list = true
 -- Set Visible Characters
 vim.opt.listchars = {
-	eol = '⤶',
+	eol = '↵',
 	space = '.',
 	tab = '  >',
 	trail = '-',
