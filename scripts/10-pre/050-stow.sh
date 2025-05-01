@@ -19,6 +19,7 @@ FOLDERS=(
     "home-manager"
     "gitignore"
     "aerospace"
+    "wallpapers"
 )
 
 for dir in ${FOLDERS[@]} ; do
