@@ -51,11 +51,11 @@ in
 
     # General
     pkgs.htop               pkgs.sshpass        pkgs.unzip      pkgs.dos2unix       pkgs.gnupg
-    pkgs.sshpass            pkgs.sshuttle       pkgs.gnumake    pkgs.libuv          pkgs.smartmontools
+    pkgs.sshpass            pkgs.sshuttle       pkgs.gnumake    pkgs.smartmontools
     pkgs.timer              pkgs.eza            pkgs.fzf        pkgs.fd
 
     # Development
-    pkgs.awscli             pkgs.xclip          pkgs.gh         pkgs.gcc            pkgs.unstable.neovim
+    pkgs.awscli             pkgs.xclip          pkgs.gh         pkgs.unstable.neovim
     pkgs.ripgrep            pkgs.direnv  
 
     # Encryption And Security
@@ -94,11 +94,8 @@ in
     # Kubernetes
     pkgs.kubescape
 
-    # General
-    pkgs.nfs-utils                      pkgs.lsb-release
-
     # Gaming
-    pkgs.python311Packages.openrazer    pkgs.wine64Packages.unstableFull
+    pkgs.wine64Packages.unstableFull
 
     # IaC
     pkgs.ansible

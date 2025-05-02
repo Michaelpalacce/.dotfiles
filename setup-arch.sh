@@ -31,7 +31,8 @@ sudo pacman --noconfirm -Su vlc nfs-utils veracrypt waybar ttf-font-awesome \
     gtk-doc
 
 yay --noconfirm -Su mupdf catpuccin-gtk-theme-mocha nwg-look brightnessctl hypridle hyprlock hyprshot \
-    nautilus ttf-liberation steamcmd steam wine winetricks proton-cacyos cmake cpio pkg-config \
-    gtkmm3 jsoncpp libsigc++ fmt chroon-date spdlog libgtk-3-dev alsa-utils hyprpicker python python-pip
+    nautilus ttf-liberation steamcmd steam wine winetricks proton-cacyos cpio pkg-config \
+    gtkmm3 jsoncpp libsigc++ fmt chroon-date spdlog libgtk-3-dev alsa-utils hyprpicker python python-pip \
+    waypaper
 
 yay --noconfirm -Su minecraft-launcher
