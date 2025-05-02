@@ -7,7 +7,7 @@
 
   "custom/logo": {
     "format": "",
-    "tooltip": false
+    "on-click-right": "waypaper"
   },
 
   "hyprland/workspaces": {
