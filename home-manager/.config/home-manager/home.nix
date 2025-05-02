@@ -69,10 +69,7 @@ in
     pkgs.unstable.go
 
     # Node
-    pkgs.nodejs_22
-
-    # Python
-    pkgs.python3
+    pkgs.fnm
 
     # Rust
     pkgs.rustup
