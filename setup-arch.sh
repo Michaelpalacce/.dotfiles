@@ -28,11 +28,14 @@ fi
 sudo pacman --noconfirm -Su vlc nfs-utils veracrypt waybar ttf-font-awesome \
     ninja gcc wayland-protocols libjpeg-turbo libwebp libjxl pango cairo \
     pkgconf cmake libglvnd hyprpaper meson gtk4 gobject-introspection libgirepository \
-    gtk-doc
+    gtk-doc rustup cargo
+
+# Needed for rust builds (rustdesk for example)
+rustup default stable
 
 yay --noconfirm -Su mupdf catpuccin-gtk-theme-mocha nwg-look brightnessctl hypridle hyprlock hyprshot \
     nautilus ttf-liberation steamcmd steam wine winetricks proton-cacyos cpio pkg-config \
     gtkmm3 jsoncpp libsigc++ fmt chroon-date spdlog libgtk-3-dev alsa-utils hyprpicker python python-pip \
-    waypaper
+    waypaper rustdesk-bin
 
 yay --noconfirm -Su minecraft-launcher
