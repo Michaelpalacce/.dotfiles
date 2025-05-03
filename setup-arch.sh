@@ -36,6 +36,6 @@ rustup default stable
 yay --noconfirm -Su mupdf catpuccin-gtk-theme-mocha nwg-look brightnessctl hypridle hyprlock hyprshot \
     nautilus ttf-liberation steamcmd steam wine winetricks proton-cacyos cpio pkg-config \
     gtkmm3 jsoncpp libsigc++ fmt chroon-date spdlog libgtk-3-dev alsa-utils hyprpicker python python-pip \
-    waypaper piper xorg-xev pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-ctl
+    waypaper piper xorg-xev pipewire pipewire-pulse wireplumber
 
 yay --noconfirm -Su minecraft-launcher
