@@ -1,4 +1,15 @@
 {
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "  {signalStrength}%  {bandwidthDownBytes}  {bandwidthUpBytes} ",
+        "format-ethernet": "   {bandwidthDownBytes}  {bandwidthUpBytes} ",
+        "format-disconnected": "Not connected",
+        "tooltip-format": "  {ifname} via {gwaddri}",
+        "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "networkmanager_dmenu"
+    },
     "custom/logo": {
         "format": "",
         "on-click": "hyprsysteminfo",
@@ -42,15 +53,6 @@
         "format-calendar": "<span color='#aeaeae'><b>{}</b></span>",
         "format-calendar-weeks": "<span color='#aeaeae'><b>W{:%V}</b></span>",
         "format-calendar-weekdays": "<span color='#aeaeae'><b>{}</b></span>"
-    },
-    "network": {
-        "format-wifi": " ",
-        "format-ethernet": " ",
-        "format-disconnected": "",
-        "tooltip-format": "{ipaddr}",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%)  | {ipaddr}",
-        "tooltip-format-ethernet": "{ifname} 🖧 | {ipaddr}",
-        "on-click": "networkmanager_dmenu"
     },
     "disk": {
         "interval": 30,
@@ -99,27 +101,42 @@
         "on-click": "foot btop"
     },
     "pulseaudio": {
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "󰂰",
-        "format-muted": "<span font='12'></span>",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{volume}% {icon} ",
+        "format-bluetooth-muted": "  {icon} ",
+        "format-muted": " ",
         "format-icons": {
-            "headphones": "",
-            "bluetooth": "󰥰",
-            "handsfree": "",
-            "headset": "󱡬",
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
             "default": [
-                "🕨",
-                "🕩",
-                "🕪"
+                " ",
+                " ",
+                " "
             ]
         },
-        "justify": "center",
-        "on-click": "amixer sset Master toggle",
+        "scroll-step": 5,
         "on-click-right": "pavucontrol",
-        "tooltip-format": "{icon}  {volume}%"
+        "on-click": "amixer set Master toggle"
+    },
+    "pulseaudio#mic": {
+        "format": "{icon} {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " ",
+        "on-scroll-up": "amixer set Capture 5%+",
+        "on-scroll-down": "amixer set Capture 5%-",
+        "on-click-right": "pavucontrol",
+        "on-click": "amixer set Capture toggle"
+    },
+    "group/sound": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "pulseaudio#mic"
+        ]
     },
     "tray": {
         "icon-size": 14,

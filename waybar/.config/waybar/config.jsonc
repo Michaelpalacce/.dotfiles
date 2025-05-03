@@ -30,7 +30,7 @@
         "tray",
         "custom/clipboard",
         "custom/colorpicker",
-        "pulseaudio",
+        "group/sound",
         "network"
     ]
 }
