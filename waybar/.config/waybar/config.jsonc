@@ -1,0 +1,36 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 16, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 8, // Gaps between modules (4px)
+    "margin-top": 8,
+    "margin-left": 8,
+    "margin-right": 8,
+    "mode": "dock",
+    "reload_style_on_change": true,
+    "include": [
+        "~/.config/waybar/modules.json"
+    ],
+    "modules-left": [
+        "custom/logo",
+        "clock",
+        "custom/weather",
+        "disk",
+        "memory",
+        "cpu",
+        "temperature",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "hyprland/language",
+        "tray",
+        "custom/clipboard",
+        "custom/colorpicker",
+        "pulseaudio",
+        "network"
+    ]
+}
