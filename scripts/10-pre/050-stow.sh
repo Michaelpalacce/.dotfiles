@@ -19,7 +19,6 @@ FOLDERS=(
     "home-manager"
     "gitignore"
     "aerospace"
-    "wallpapers"
     "hyprland"
     "waybar"
     "wofi"
