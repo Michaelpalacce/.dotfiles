@@ -2,7 +2,7 @@
   "layer": "top", "position": "top",
   "modules-left": ["custom/logo", "clock",  "custom/weather", "disk", "memory", "cpu", "temperature", "hyprland/window" ],
   "modules-center": [  "hyprland/workspaces"],
-  "modules-right": ["tray",  "custom/clipboard", "custom/colorpicker",  "pulseaudio", "network"  ],
+  "modules-right": ["hyprland/language", "tray",  "custom/clipboard", "custom/colorpicker",  "pulseaudio", "network"  ],
   "reload_style_on_change":true,
 
   "custom/logo": {
@@ -24,6 +24,10 @@
 		"default": "" 
 	}
 },
+  "hyprland/language": {
+    "format": " {}",
+    "keyboard-name": "razer-pro-type-ultra-keyboard"
+  },
 
 "custom/weather": {
   "format": "{}",
@@ -35,7 +39,7 @@
 
 "custom/clipboard":{
   "format":"",
-  "on-click": "cliphist list | rofi -dmenu | cliphist decode | wl-copy",
+  "on-click": "cliphist list | wofi -dmenu | cliphist decode | wl-copy",
   "interval":86400
 },
 
