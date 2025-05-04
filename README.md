@@ -8,9 +8,42 @@
 but I am open to suggestions and improvements. I am not using any fancy dotfile manager, 
 but instead I am using a bunch of bash scripts and `stow` to create symlinks to the appropriate locations.
 
+# Showcase
+
 <p align="center">
 <img src="images/Desktop.png" alt="Desktop">
 </p>
+
+
+<p align="center">
+<img src="images/Lockscreen.png" alt="Lockscreen">
+</p>
+
+## ✨ Development Showcase
+
+<p align="center">
+<img src="images/Layout.png" alt="Layout">
+</p>
+
+<details>
+    <summary>Debugging</summary>
+    <img src="images/Debugging.png"/>
+</details>
+
+<details>
+    <summary>Scripts</summary>
+    <img src="images/Scripts.png"/>
+</details>
+
+<details>
+    <summary>Cheatsheets</summary>
+    <img src="images/cheatsheets.png"/>
+</details>
+
+<details>
+    <summary>tmux-sessionizer</summary>
+    <img src="images/Sessionizer.png"/>
+</details>
 
 ## Dependencies
 
@@ -38,47 +71,6 @@ Note: you need to have the correct `age` private key in `~/.config/sops/age/keys
 ```bash
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-identity.sh | bash
 ```
-
-### Setup Home Manager
-
-After completing the initial setup, you can choose to install home-manager. The default zshrc config has special conditions and handles if
-home-manager exists, to include it.
-
-
-```bash
-curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-homemanager.sh | bash
-```
-
-## ✨ Neovim Showcase
-
-<p align="center">
-<img src="images/Layout.png" alt="Layout">
-</p>
-
-<details>
-    <summary>Debugging</summary>
-    <img src="images/Debugging.png"/>
-</details>
-
-<details>
-    <summary>Scripts</summary>
-    <img src="images/Scripts.png"/>
-</details>
-
-<details>
-    <summary>Cheatsheets</summary>
-    <img src="images/cheatsheets.png"/>
-</details>
-
-<details>
-    <summary>Automated idempotent setup</summary>
-    <img src="images/Setup.png"/>
-</details>
-
-<details>
-    <summary>tmux-sessionizer</summary>
-    <img src="images/Sessionizer.png"/>
-</details>
 
 ## Supported OS
 
