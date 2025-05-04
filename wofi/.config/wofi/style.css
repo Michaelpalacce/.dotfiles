@@ -62,7 +62,7 @@ window {
   border-radius: 20px;
   border: 2px solid transparent;
   background-color: @base;
-  background-image: linear-gradient(to bottom right, rgba(33, 204, 255, 0.93), rgba(0, 255, 153, 0.93));
+  background-image: linear-gradient(to right, rgba(33, 204, 255, 0.93), rgba(0, 255, 153, 0.93));
   background-origin: border-box;
   background-clip: border-box;
 }

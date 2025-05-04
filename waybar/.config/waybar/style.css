@@ -18,20 +18,29 @@ window#waybar {
   padding-left: 5px;
   border-radius: 15px 0 0 15px;
   margin-top: 2px;
-  background: #000000;
+  background-color: #1e1e2e; /* inner background */
+  border: 2px solid rgba(0, 255, 153, 0.93);
 }
 
 .modules-center {
-  padding: 0 15px;
+  padding: 2px 2px; /* Adjust top/bottom and left/right padding */
   margin-top: 2px;
-  border-radius: 15px 15px 15px 15px;
-  background: #000000;
+  border-radius: 15px;
+  background-image: linear-gradient(to right, rgba(33, 204, 255, 0.93), rgba(0, 255, 153, 0.93));
+}
+
+.modules-center > * {
+  background-color: #1e1e2e; /* inner background */
+  border-radius: 15px;
+  padding: 0 15px; /* Restore module padding */
 }
 
 .modules-left {
+  padding: 2px 2px; /* Adjust top/bottom and left/right padding */
   border-radius: 0 15px 15px 0;
   margin-top: 2px;
-  background: #000000;
+  background-color: #1e1e2e; /* inner background */
+  border: 2px solid rgba(33, 204, 255, 0.93);
 }
 
 #battery,
