@@ -26,8 +26,8 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
-        "hyprland/language",
         "tray",
+        "hyprland/language",
         "custom/clipboard",
         "custom/colorpicker",
         "group/sound",

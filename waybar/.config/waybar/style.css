@@ -67,6 +67,9 @@ window#waybar {
 #pulseaudio {
   padding-top: 3px;
 }
+#custom-notification {
+    padding: 0 5px;
+}
 
 #temperature.critical,
 #pulseaudio.muted {
