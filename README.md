@@ -1,8 +1,16 @@
 # `Tis It Folks
 
-These are my personal dotfiles. They are heavily opinionated and they are not meant to be used by anyone else,
+![GitHub Repo stars](https://img.shields.io/github/stars/Michaelpalacce/.dotfiles?style=for-the-badge&color=cba6f7) ![GitHub last commit](https://img.shields.io/github/last-commit/Michaelpalacce/.dotfiles?style=for-the-badge&color=b4befe) ![GitHub repo size](https://img.shields.io/github/repo-size/Michaelpalacce/.dotfiles?style=for-the-badge&color=cba6f7)
+
+> [!CAUTION]
+>
+> These are my personal dotfiles. They are heavily opinionated and they are not meant to be used by anyone else,
 but I am open to suggestions and improvements. I am not using any fancy dotfile manager, 
 but instead I am using a bunch of bash scripts and `stow` to create symlinks to the appropriate locations.
+
+<p align="center">
+<img src="images/Desktop.png" alt="Desktop">
+</p>
 
 ## Dependencies
 
@@ -41,7 +49,7 @@ home-manager exists, to include it.
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-homemanager.sh | bash
 ```
 
-## ✨ Showcase
+## ✨ Neovim Showcase
 
 <p align="center">
 <img src="images/Layout.png" alt="Layout">
@@ -74,7 +82,7 @@ curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup
 
 ## Supported OS
 
-I use these dotfiles on the following Operating Systems
+I use these dotfiles on the following Operating Systems. Everything is setup to work together.
 
 - [x] Arch
 - [x] MacOS
@@ -93,18 +101,24 @@ Note: Will support whatever I work on.
 
 ### Structure
 
-- `Home` - this contains a bunch of ansible recipes that can be used to install a few tools for Ubuntu.
+- `aerospace` - Tiling Manager for MacOS
 - `alacritty` - Contains my alacritty configurations
 - `bin` - Check out the [#Scripts](#scripts) section for this,
 - `cheatsheets` - this contains some local cheatsheets that I can access at any time with `sc`
 - `editorconfig` - this contains my default editorconfig that gets used everywhere
+- `git-hooks` - Contains some git-hooks for identity
 - `gitignore` - Default gitignore for common directories/files you want to ignore
 - `home-manager` - Contains my home-manager configuration. Used to setup dev tools primarily
-- `nix` - Contains some nix configuration, `.config/nix` to be exact. I don't use NixOS
+- `hyprland` - Contains hyprland configuration for Arch Linux
+- `images` - Images for the dotfiles
 - `nvim` - Personalized Development Environment in NeoVim
 - `scripts` - Extra scripts I need to run
 - `sh` - `zsh` configuration
+- `ssh` - Encrypted identity
 - `tmux` - `tmux` configuration
+- `waybar` - Status Bar for Hyprland
+- `waypaper` - Wallpapers for Hyprland
+- `wof` - App launcher for Hyprland
 
 ### Neovim
 
