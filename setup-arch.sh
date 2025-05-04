@@ -54,3 +54,5 @@ yay --noconfirm -Su nautilus nautilus-admin-gtk4 nautilus-image-converter nautil
 yay --noconfirm -Su minecraft-launcher \
     ttf-liberation steamcmd steam wine winetricks proton-cacyos
 
+# Flatpak cause I am a baby
+yay --noconfirm -Su flatpak
