@@ -116,7 +116,7 @@ scale slider:hover {
 .control-center {
   background: @base;
   border-radius: 16px;
-  border: 2px solid @lavender;
+  border: 2px solid rgba(0, 255, 153, 0.93);
   margin: 0;
   padding: 16px;
 }
