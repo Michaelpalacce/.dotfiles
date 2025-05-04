@@ -31,7 +31,6 @@
         "custom/clipboard",
         "custom/colorpicker",
         "group/sound",
-        "network",
-        "custom/exit"
+        "network"
     ]
 }

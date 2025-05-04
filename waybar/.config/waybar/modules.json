@@ -13,7 +13,7 @@
     "custom/logo": {
         "format": "",
         "on-click": "hyprsysteminfo",
-        "on-click-right": "waypaper"
+        "on-click-right": "wlogout"
     },
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -65,6 +65,7 @@
         "interval": "once",
         "exec": "~/.config/waybar/scripts/colorpicker.sh -j",
         "on-click": "sleep 1 && ~/.config/waybar/scripts/colorpicker.sh",
+        "on-click-right": "waypaper",
         "signal": 1
     },
     "cpu": {
@@ -141,11 +142,5 @@
     "tray": {
         "icon-size": 14,
         "spacing": 10
-    },
-    "custom/exit": {
-        "format": "",
-        "tooltip-format": "Powermenu",
-        "on-click": "wlogout",
-        "tooltip": false
     }
 }
