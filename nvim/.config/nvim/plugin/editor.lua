@@ -68,3 +68,6 @@ vim.wo.cursorline = true
 -- Spelling
 vim.opt_local.spell = true
 vim.opt_local.spelllang = "en"
+
+-- Cmd line
+vim.opt.cmdheight = 0
