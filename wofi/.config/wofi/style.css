@@ -60,7 +60,7 @@
 window {
   margin: 0px;
   padding: 10px;
-  border: 2px solid @lavender;
+  border: 2px solid @blue;
   border-radius: 8px;
   background-color: @base;
 }
@@ -101,11 +101,11 @@ window {
 
 #input image {
     border: none;
-    color: @red;
+    color: @blue;
 }
 
 #input * {
-  outline: 4px solid @red!important;
+  outline: 4px solid @blue!important;
 }
 
 /* Text */
@@ -121,18 +121,18 @@ window {
 
 #entry arrow {
   border: none;
-  color: @lavender;
+  color: @blue;
 }
 
 /* Selected Entry */
 #entry:selected {
-  border: 0.11em solid @lavender;
+  border: 0.11em solid @blue;
 }
 
 #entry:selected #text {
-  color: @mauve;
+  color: @blue;
 }
 
 #entry:drop(active) {
-  background-color: @lavender!important;
+  background-color: @blue!important;
 }
