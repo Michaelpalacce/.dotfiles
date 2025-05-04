@@ -1,0 +1,221 @@
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+
+@define-color base alpha(#000000, 0.1);
+/* @define-color surface alpha(@lavender, 0.15); */
+@define-color surface alpha(#000000, 0.1);
+@define-color text #cdd6f4;
+@define-color hoverBg alpha(@mauve, 1);
+@define-color hoverFg #000000;
+@define-color activeBg alpha(@mauve, 1);
+@define-color activeFg #000000;
+@define-color shadow alpha(@lavender, 0.25);
+
+* {
+  all: unset;
+  font-size: 1rem;
+  font-weight: 900;
+  font-family:
+    JetBrainsMonoNerdFont,
+    Font Awesome,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  transition: 50ms;
+  background-clip: border-box;
+}
+
+button {
+  color: @text;
+  box-shadow: 0px 0px 8px 4px @shadow inset;
+}
+
+button:hover,
+button:active {
+  background-color: @activeBg;
+  color: @activeFg;
+  transition:
+    all 50ms cubic-bezier(0.55, 0, 0.28, 1.682),
+    box-shadow 50ms ease-in-out,
+    background-color 200ms ease-in-out;
+}
+
+.notification-row {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  background-color: @base;
+  border-radius: 16px;
+  padding: 8px 8px 8px 0;
+  box-shadow: 0px 0px 32px 8px @shadow inset;
+  margin-bottom: 8px;
+}
+.notification-row:nth-child(1) {
+  margin-top: 8px;
+}
+
+.notification-row .close-button {
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 999px;
+}
+
+.summary {
+  color: @text;
+  font-size: 14px;
+  padding: 0px;
+}
+
+.time {
+  font-size: 12px;
+  text-shadow: none;
+}
+
+.body {
+  font-size: 12px;
+  font-weight: 500;
+  text-shadow: none;
+  margin: 0px 0px 0px 0px;
+}
+
+.image {
+  box-shadow: 0px 0px 8px 4px @shadow;
+  margin: 0 8px;
+  border-radius: 999px;
+}
+
+/* .floating-notifications.background .notification-row .notification-background { */
+/*   background: rgba(0, 0, 0, 0.95); */
+/*   border-radius: 1rem; */
+/*   border: 1px solid alpha(@crust, 0.5); */
+/*   box-shadow: 0 0 10px 0 @lavender; */
+/*   margin: 1rem; */
+/*   padding: 0; */
+/* } */
+/**/
+/* .floating-notifications.background */
+/*   .notification-row */
+/*   .notification-background */
+/*   .notification { */
+/*   padding: 0.4rem; */
+/*   border-radius: 0.8rem; */
+/* } */
+/**/
+/* .floating-notifications.background */
+/*   .notification-row */
+/*   .notification-background */
+/*   .notification.critical { */
+/*   border: 2px solid @red; */
+/* } */
+/**/
+/* .floating-notifications.background */
+/*   .notification-row */
+/*   .notification-background */
+/*   .notification */
+/*   .notification-content { */
+/*   margin: 1rem; */
+/* } */
+/**/
+/* .floating-notifications.background */
+/*   .notification-row */
+/*   .notification-background */
+/*   .notification */
+/*   > *:last-child */
+/*   > * { */
+/*   min-height: 3.4em; */
+/* } */
+/**/
+/* .floating-notifications.background */
+/*   .notification-row */
+/*   .notification-background */
+/*   .notification */
+/*   > *:last-child */
+/*   > * */
+/*   .notification-action { */
+/*   border-radius: 0.5rem; */
+/*   background-color: alpha(@crust, 0.95); */
+/*   margin: 0.4rem; */
+/*   border: 1px solid transparent; */
+/* } */
+/**/
+/* .floating-notifications.background */
+/*   .notification-row */
+/*   .notification-background */
+/*   .notification */
+/*   > *:last-child */
+/*   > * */
+/*   .notification-action:hover { */
+/*   background-color: @hover; */
+/*   border: 1px solid @lavender; */
+/* } */
+/**/
+/* .floating-notifications.background */
+/*   .notification-row */
+/*   .notification-background */
+/*   .notification */
+/*   > *:last-child */
+/*   > * */
+/*   .notification-action:active { */
+/*   background-color: @lavender; */
+/*   color: @text; */
+/* } */
+/**/
+/* .image { */
+/*   margin: 10px 20px 10px 0px; */
+/* } */
+/**/
+/* .summary { */
+/*   font-weight: 800; */
+/*   font-size: 1rem; */
+/* } */
+/**/
+/* .body { */
+/*   font-size: 0.8rem; */
+/* } */
+/**/
+/* .floating-notifications.background */
+/*   .notification-row */
+/*   .notification-background */
+/*   .close-button { */
+/*   margin: 6px; */
+/*   padding: 2px; */
+/*   border-radius: 6px; */
+/*   background-color: transparent; */
+/*   border: 1px solid transparent; */
+/* } */
+/**/
+/* .floating-notifications.background */
+/*   .notification-row */
+/*   .notification-background */
+/*   .close-button:hover { */
+/*   background-color: @lavender; */
+/* } */
+/**/
+/* .floating-notifications.background */
+/*   .notification-row */
+/*   .notification-background */
+/*   .close-button:active { */
+/*   background-color: @lavender; */
+/*   color: @text; */
+/* } */
+/**/
+/* .notification.critical progress { */
+/*   background-color: @lavender; */
+/* } */
+/**/
+/* .notification.low progress, */
+/* .notification.normal progress { */
+/*   background-color: @lavender; */
+/* } */

@@ -1,0 +1,324 @@
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+
+@define-color base alpha(#000000, 0.1);
+@define-color surface alpha(#000000, 0.1);
+@define-color text #cdd6f4;
+@define-color hoverBg alpha(@mauve, 1);
+@define-color hoverFg #000000;
+@define-color activeBg alpha(@mauve, 1);
+@define-color activeFg #000000;
+@define-color shadow alpha(@lavender, 0.25);
+
+* {
+  all: unset;
+  font-size: 1rem;
+  font-weight: 900;
+  font-family:
+    JetBrainsMonoNerdFont,
+    Font Awesome,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  background-clip: border-box;
+}
+
+button {
+  color: @text;
+  box-shadow: 0px 0px 8px 4px @shadow inset;
+}
+
+button:hover,
+button:active {
+  background-color: @activeBg;
+  color: @activeFg;
+  transition:
+    all 50ms cubic-bezier(0.55, 0, 0.28, 1.682),
+    box-shadow 50ms ease-in-out,
+    background-color 200ms ease-in-out;
+}
+
+/* Toggles */
+.toggle:checked {
+  background: #ff0000;
+}
+/*.toggle:not(:checked) {
+            color: rgba(128, 128, 128, 0.5);
+          }*/
+.toggle:checked:hover {
+  background: #ff0000;
+}
+
+/* Avoid 'annoying' backgroud */
+.blank-window {
+  background: transparent;
+}
+
+/* Volume */
+
+.widget-volume button {
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 999px;
+}
+
+.widget-volume > revealer > list > row {
+  margin-top: 8px;
+}
+
+/* Sliders */
+
+/* progressbar, */
+/* progress, */
+/* trough { */
+/*   border-radius: 16px; */
+/* } */
+
+scale {
+}
+
+scale trough {
+  background-color: @surface;
+  border-radius: 999px;
+  box-shadow: 0px 0px 16px 8px @shadow inset;
+  border: unset;
+  margin: 0 8px;
+}
+
+scale trough highlight {
+  padding: 12px;
+  background: @activeBg;
+  border-radius: 16px;
+  border: unset;
+}
+
+scale slider {
+  background-color: #ff0000;
+}
+scale slider:hover {
+}
+
+/* CONTROL CENTER ------------------------------------------------------------------------ */
+
+.control-center {
+  background: @base;
+  border-radius: 16px;
+  border: 2px solid @lavender;
+  margin: 0;
+  padding: 16px;
+}
+
+.control-center > box {
+  margin-bottom: 8px;
+}
+.control-center > box:last-child {
+  margin-bottom: 0;
+}
+
+/* WIDGETS --------------------------------------------------------------------------- */
+
+/* Buttons menu */
+.widget-buttons-grid {
+}
+
+.widget-buttons-grid > flowbox > flowboxchild:nth-child(1),
+.widget-buttons-grid > flowbox > flowboxchild:nth-child(2) {
+  margin-bottom: 4px;
+}
+.widget-buttons-grid > flowbox > flowboxchild:nth-child(1),
+.widget-buttons-grid > flowbox > flowboxchild:nth-child(3) {
+  margin-right: 4px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  padding: 1rem 4rem;
+  background: @surface;
+  color: @text;
+  border-radius: 999px;
+  box-shadow: 0px 0px 16px 8px @shadow inset;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @hoverBg;
+  color: @hoverFg;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+  background: @activeBg;
+  color: @activeFg;
+}
+
+/* Music player */
+.widget-mpris {
+  /* margin: 0px 8px 0px 0px; */
+}
+.widget-mpris-player {
+  border-radius: 16px;
+  margin: 0px;
+  padding: 8px;
+  background: @surface;
+  box-shadow: 0px 0px 16px 8px @shadow inset;
+}
+.widget-mpris-player > box > image {
+  margin: 0px 0px -52px 0px;
+  border-radius: 16px;
+  box-shadow: none;
+}
+.widget-mpris-album-art {
+  all: unset;
+  border-radius: 16px;
+  margin: 8px 0 0 8px;
+}
+
+.widget-mpris > box > carousel > widget > box > box:nth-child(2) {
+  margin: 8px 0px 8px 90px;
+}
+.widget-mpris > box > carousel > widget > box > box:nth-child(2) > button {
+  opacity: 1;
+  background: @base;
+  border-radius: 999px;
+  padding: 2px;
+  margin: 0px;
+}
+.widget-mpris
+  > box
+  > carousel
+  > widget
+  > box
+  > box:nth-child(2)
+  > button:hover {
+  background: @hoverBg;
+}
+carouselindicatordots {
+  /* opacity: 0; */
+}
+.widget-mpris button {
+  opacity: 0;
+  margin: 0 -16px 0 -16px;
+  box-shadow: 0px 0px 4px 2px @shadow;
+}
+.widget-mpris-title {
+  color: @text;
+  font-weight: 800;
+  font-size: 16px;
+  text-shadow: 0px 0px 4px #000000;
+}
+.widget-mpris-subtitle {
+  color: @text;
+  font-size: 12px;
+  text-shadow: 0px 0px 4px #000000;
+}
+
+/* Notification clear button */
+.widget-title {
+  font-size: 1.5rem;
+  /* margin: 0 4px 0px 4px; */
+}
+
+.widget-title button {
+  background: @surface;
+  border-radius: 16px;
+  padding: 4px 16px;
+  box-shadow: 0px 0px 8px 4px @shadow inset;
+}
+
+.widget-title button:hover {
+  background: @hoverBg;
+}
+
+/* Do not disturb */
+.widget-dnd {
+  /* margin: 0 4px 8px 4px; */
+}
+
+.widget-dnd > switch {
+  color: @text;
+  background: @surface;
+  border-radius: 16px;
+  box-shadow: none;
+  padding: 2px;
+  box-shadow: 0px 0px 8px 4px @shadow inset;
+}
+
+.widget-dnd > switch:checked {
+  background: @surface;
+  color: @text;
+}
+
+.widget-dnd > switch slider {
+  background: @surface;
+  color: @text;
+  border-radius: 16px;
+  border: 2px solid @activeBg;
+}
+
+.widget-dnd > switch:hover > slider {
+  color: @text;
+  background: @surface;
+}
+.widget-dnd > switch:checked slider {
+  color: @text;
+  background: @surface;
+}
+
+/* Buttons */
+
+/* Notifications  */
+.control-center .notification-row {
+  /* background-color: @surface; */
+  background-color: alpha(#000000, 0.9);
+  border-radius: 16px;
+  padding: 8px 8px 8px 0;
+  box-shadow: 0px 0px 32px 8px @shadow inset;
+  margin-bottom: 8px;
+  border: none;
+}
+
+.control-center .notification-row:first-child {
+  margin-bottom: 0;
+}
+.control-center .notification-row .close-button {
+  background-color: #ff0000;
+  opacity: 0;
+}
+
+/* Notifications expanded-group */
+
+.notification-group {
+  /* margin: 0 4px 8px 4px; */
+}
+.notification-group-headers {
+  font-weight: 900;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+}
+
+.notification-group-icon {
+  padding: 4px;
+}
+
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+  background: @surface;
+  margin: 4px;
+  border-radius: 16px;
+  padding: 8px;
+}
+
+.notification-group-collapse-button:hover,
+.notification-group-close-all-button:hover {
+  background: @hoverBg;
+}
