@@ -37,6 +37,9 @@ rustup default stable
 yay --noconfirm -Su mupdf cpio pkg-config jsoncpp libsigc++ fmt chroon-date spdlog libgtk-3-dev alsa-utils python python-pip \
     piper xorg-xev 
 
+# Logout
+yay --noconfirm -Su wlogout
+
 # look
 yay --noconfirm -Su swww catpuccin-gtk-theme-mocha nwg-look gtkmm3 qt6-svg qt6-declarative qt5-quickcontrols2
 

@@ -74,7 +74,7 @@ curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup
 
 ### Setup On Arch
 
-Run the `setup-arch.sh` file.
+Run the `setup-arch.sh` file. It will setup yay and a bunch of apps. It will prompt once for password if needed.
 - Manually: https://github.com/catppuccin/sddm
 
 ## Supported OS
