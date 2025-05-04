@@ -37,6 +37,9 @@ rustup default stable
 yay --noconfirm -Su mupdf cpio pkg-config jsoncpp libsigc++ fmt chroon-date spdlog libgtk-3-dev alsa-utils python python-pip \
     piper xorg-xev 
 
+# Notifications
+yay --noconfirm -Su swaync
+
 # Logout
 yay --noconfirm -Su wlogout
 
