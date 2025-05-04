@@ -72,6 +72,11 @@ Note: you need to have the correct `age` private key in `~/.config/sops/age/keys
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-identity.sh | bash
 ```
 
+### Setup On Arch
+
+Run the `setup-arch.sh` file.
+- Manually: https://github.com/catppuccin/sddm
+
 ## Supported OS
 
 I use these dotfiles on the following Operating Systems. Everything is setup to work together.

@@ -35,10 +35,10 @@ yay --noconfirm -Su waybar ttf-font-awesome
 rustup default stable
 
 yay --noconfirm -Su mupdf cpio pkg-config jsoncpp libsigc++ fmt chroon-date spdlog libgtk-3-dev alsa-utils python python-pip \
-    piper xorg-xev  
+    piper xorg-xev 
 
 # look
-yay --noconfirm -Su swww catpuccin-gtk-theme-mocha nwg-look gtkmm3
+yay --noconfirm -Su swww catpuccin-gtk-theme-mocha nwg-look gtkmm3 qt6-svg qt6-declarative qt5-quickcontrols2
 
 # audio
 yay --noconfirm -Su pipewire pipewire-pulse wireplumber pavucontrol
