@@ -37,7 +37,7 @@
         "return-type": "json",
         "exec": "~/.config/waybar/scripts/weather.sh",
         "interval": 10,
-        "on-click": "brave https://wttr.in"
+        "on-click": "opera https://wttr.in"
     },
     "custom/clipboard": {
         "format": "",
