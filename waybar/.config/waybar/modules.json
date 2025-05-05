@@ -87,19 +87,19 @@
     "memory": {
         "format": " {percentage}%"
     },
-    "hyprland/window": {
-        "format": "( {class} )",
-        "rewrite": {
-            "(.*) - Mozilla Firefox": "🌎 $1",
-            "(.*) - zsh": "> [$1]"
-        }
-    },
     "temperature": {
         "format": " {temperatureC}°C",
         "format-critical": " {temperatureC}°C",
         "interval": 1,
         "critical-threshold": 80,
         "on-click": "foot btop"
+    },
+    "hyprland/window": {
+        "format": "( {class} )",
+        "rewrite": {
+            "(.*) - Opera": "🌎 $1",
+            "(.*) - Alacritty": "> [$1]"
+        }
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
