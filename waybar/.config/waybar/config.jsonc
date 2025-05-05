@@ -1,7 +1,7 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "spacing": 10, // Gaps between modules (4px)
+    "spacing": 4, // Gaps between modules (4px)
     "margin-top": 4,
     "margin-left": 8,
     "margin-right": 8,

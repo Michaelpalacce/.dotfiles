@@ -1,6 +1,6 @@
 * {
     border: none;
-    font-size: 14px;
+    font-size: 16px;
     font-family: "JetBrainsMono Nerd Font,JetBrainsMono NF" ;
     min-height: 25px;
 }
@@ -68,7 +68,7 @@ window#waybar {
   padding-top: 3px;
 }
 #custom-notification {
-    padding: 0 5px;
+    padding: 0 15px;
 }
 
 #temperature.critical,
