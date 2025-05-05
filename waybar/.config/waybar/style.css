@@ -77,6 +77,27 @@ window#waybar {
   padding-top: 0;
 }
 
+#pulseaudio-slider slider {
+  background: #A1BDCE;
+  background-color: transparent;
+  box-shadow: none;
+  margin-right: 7px;
+}
+
+#pulseaudio-slider trough {
+  margin-top: -3px;
+  min-width: 90px;
+  min-height: 10px;
+  margin-bottom: -4px;
+  border-radius: 8px;
+  background: #343434;
+}
+
+#pulseaudio-slider highlight {
+  border-radius: 8px;
+  background-color: #2096C0;
+}
+
 
 
 
@@ -103,7 +124,6 @@ window#waybar {
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
-
 
 @keyframes blink {
     to {

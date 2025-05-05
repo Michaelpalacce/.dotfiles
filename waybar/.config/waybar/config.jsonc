@@ -1,10 +1,8 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 16, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 8, // Gaps between modules (4px)
-    "margin-top": 8,
+    "spacing": 10, // Gaps between modules (4px)
+    "margin-top": 4,
     "margin-left": 8,
     "margin-right": 8,
     "mode": "dock",
@@ -26,11 +24,13 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
+        "custom/updates",
         "tray",
         "hyprland/language",
         "custom/clipboard",
         "custom/colorpicker",
-        "group/sound",
+        "group/pulse",
+        // "group/sound",
         "network",
         "custom/notification"
     ]

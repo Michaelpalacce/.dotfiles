@@ -30,8 +30,15 @@
         "format": "{}",
         "return-type": "json",
         "exec": "~/.config/waybar/scripts/weather.sh",
-        "interval": 10,
+        "interval": 600,
         "on-click": "opera https://wttr.in"
+    },
+    "custom/updates": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/myupdate.sh",
+        "interval": 60,
+        "on-click": "alacritty yay -Suy"
     },
     "custom/clipboard": {
         "format": "",
@@ -156,5 +163,24 @@
         "on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
+    },
+    "custom/pulse-text": {
+        "format": " ",
+        "scroll-step": 5,
+        "on-click-right": "pavucontrol"
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "rotate": 0,
+        "device": "pulseaudio",
+        "scroll-step": 1
+    },
+    "group/pulse": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/pulse-text",
+            "pulseaudio/slider"
+        ]
     }
 }
