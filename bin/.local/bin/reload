@@ -1,0 +1,8 @@
+#!/bin/bash
+
+########################
+# Reloads arch components. Can be triggerd with SUPER + R
+########################
+
+killall waybar
+waybar & disown
