@@ -6,5 +6,5 @@ term=alacritty
 hide_scroll=true
 print_command=true
 insensitive=true
-columns=3
+columns=1
 no_actions=true
