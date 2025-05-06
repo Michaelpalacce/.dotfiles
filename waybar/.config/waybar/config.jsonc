@@ -2,6 +2,7 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "spacing": 4, // Gaps between modules (4px)
+    "height": 10,
     "margin-top": 4,
     "margin-left": 8,
     "margin-right": 8,
@@ -29,8 +30,8 @@
         "hyprland/language",
         "custom/clipboard",
         "custom/colorpicker",
-        "group/pulse",
-        // "group/sound",
+        // "group/pulse",
+        "group/sound",
         "network",
         "custom/notification"
     ]

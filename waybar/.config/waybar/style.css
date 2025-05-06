@@ -86,7 +86,7 @@ window#waybar {
 
 #pulseaudio-slider trough {
   margin-top: -3px;
-  min-width: 90px;
+  min-width: 120px;
   min-height: 10px;
   margin-bottom: -4px;
   border-radius: 8px;
