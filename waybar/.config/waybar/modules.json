@@ -177,9 +177,8 @@
         ]
     },
     "custom/updates": {
-        "format": "{} Update(s)",
+        "format": "{} ",
         "exec": "checkupdates | wc -l",
-        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
         "interval": 600,
         "on-click": "alacritty -e yay -Syu && notify-send 'The system has been updated' "
     }

@@ -72,6 +72,10 @@ window#waybar {
     padding: 0 15px;
 }
 
+#custom-updates {
+    padding: 0 20 0 0;
+}
+
 #temperature.critical,
 #pulseaudio.muted {
   color: #FF0000;
