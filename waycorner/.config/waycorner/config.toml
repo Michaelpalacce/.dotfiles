@@ -30,15 +30,6 @@ timeout_ms = 100  # default
 # (Useful for debugging purposes when setting up several hot corners.)
 color = "#FFFF0000"  # default
 
-# Optional output config to specify what output to use.
-[left.output]
-# Regex to match output descriptions on.
-# Regex engine is similar to RE2: https://github.com/rust-lang/regex
-#
-# Use `swaymsg -t get_outputs` to get a list of outputs in the format:
-# Output ${NAME} '${DESCRIPTION}'
-description = ""  # default, empty means all outputs
-
 [right]
 # Shell commands to execute when hotcorner is triggered,
 # at least one is required.
@@ -70,12 +61,3 @@ timeout_ms = 100  # default
 # Hex color of the corner when previewed, supports transparency. (#AARRGGBB or #RRGGBB)
 # (Useful for debugging purposes when setting up several hot corners.)
 color = "#FFFF0000"  # default
-
-# Optional output config to specify what output to use.
-[right.output]
-# Regex to match output descriptions on.
-# Regex engine is similar to RE2: https://github.com/rust-lang/regex
-#
-# Use `swaymsg -t get_outputs` to get a list of outputs in the format:
-# Output ${NAME} '${DESCRIPTION}'
-description = ""  # default, empty means all outputs
