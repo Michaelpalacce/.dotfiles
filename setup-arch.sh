@@ -42,7 +42,6 @@ yay --noconfirm -Su wlogout
 
 # look
 yay --noconfirm -Su swww catpuccin-gtk-theme-mocha nwg-look gtkmm3 qt6-svg qt6-declarative qt5-quickcontrols2 waycorner
-
 # audio
 yay --noconfirm -Su pipewire pipewire-pulse wireplumber pavucontrol
 
@@ -51,7 +50,7 @@ yay --noconfirm -Su hyprutils hyprgraphics qt5-wayland qt6-wayland xdg-desktop-p
     hyprpolkitagent hyprsysteminfo hypridle hyprlock hyprshot hyprpicker lm_sensors
 
 # File Manager
-yay --noconfirm -Su nautilus nautilus-admin-gtk4 nautilus-image-converter nautilus-open-any-terminal ffmpegthumbnailer
+yay --noconfirm -Su nautilus nautilus-admin-gtk4 nautilus-image-converter nautilus-open-any-terminal ffmpegthumbnailer unzip
 
 # Gaming
 yay --noconfirm -Su minecraft-launcher \
