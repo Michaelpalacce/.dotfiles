@@ -12,7 +12,7 @@ exit_command = []
 # Options:
 # - for corners: top_left, top_right, bottom_right, and bottom_left;
 # - for edges: top, bottom, right, left.
-locations = ["top_left", "bottom_left"]  # default
+locations = ["bottom_left"]  # default
 
 # Size of the hot corners in pixels, for edges the size means the width
 # for vertical edges, and height for horizontal edges. The other dimension
@@ -44,7 +44,7 @@ exit_command = []
 # Options:
 # - for corners: top_left, top_right, bottom_right, and bottom_left;
 # - for edges: top, bottom, right, left.
-locations = ["top_right", "bottom_right"]  # default
+locations = ["bottom_right"]  # default
 
 # Size of the hot corners in pixels, for edges the size means the width
 # for vertical edges, and height for horizontal edges. The other dimension
