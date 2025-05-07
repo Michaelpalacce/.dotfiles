@@ -82,8 +82,8 @@ vim.keymap.set("n", "<leader>ce", ":!chmod +x %<CR>", { noremap = false, silent 
 
 
 -- Windows
-vim.keymap.set('n', '<C-w>O', '<C-w>o:DelBuffers<CR>',
-	{ noremap = true, desc = "Close other windows and delete buffers." })
+vim.keymap.set('n', '<C-w>O', '<C-w>o:DelBuffers<CR><CR>',
+	{ noremap = true, desc = "Close other windows and delete buffers.", silent = true })
 
 -- Inlay Hints
 vim.keymap.set("n", '<leader>ti',
