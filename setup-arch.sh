@@ -35,7 +35,7 @@ yay --noconfirm -Su waybar ttf-font-awesome
 rustup default stable
 
 yay --noconfirm -Su mupdf cpio pkg-config jsoncpp libsigc++ fmt chroon-date spdlog libgtk-3-dev alsa-utils python python-pip \
-    piper xorg-xev sof-firmware
+    piper xorg-xev sof-firmware lib32-nvidia-utils nvidia-open 
 
 # Notifications
 yay --noconfirm -Su swaync
@@ -43,10 +43,11 @@ yay --noconfirm -Su swaync
 # Logout
 yay --noconfirm -Su wlogout
 
-# look
+# Look
 yay --noconfirm -Su swww catpuccin-gtk-theme-mocha nwg-look gtkmm3 qt6-svg qt6-declarative qt5-quickcontrols2 waycorner
-# audio
-yay --noconfirm -Su pipewire pipewire-pulse wireplumber pavucontrol
+
+# Audio
+yay --noconfirm -Su pipewire pipewire-pulse wireplumber pavucontrol lib32-pipewire
 
 # hyprland utils
 yay --noconfirm -Su hyprutils hyprgraphics qt5-wayland qt6-wayland xdg-desktop-portal-hyprland waypaper \
