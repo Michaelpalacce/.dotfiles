@@ -7,6 +7,7 @@ sudo pacman -S --needed base-devel git --noconfirm
 
 # Check if yay is already installed.
 if ! command -v yay &> /dev/null; then
+  cd $HOME
   echo "Installing yay."
   git clone https://aur.archlinux.org/yay.git
 
@@ -62,3 +63,6 @@ yay --noconfirm -Su minecraft-launcher \
 
 # Flatpak cause I am a baby
 yay --noconfirm -Su flatpak
+
+# Dev
+yay --noconfirm -Su tmux zsh stow
