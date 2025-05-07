@@ -32,7 +32,7 @@ yay --noconfirm -Su waybar ttf-font-awesome
 rustup default stable
 
 yay --noconfirm -Su mupdf cpio pkg-config jsoncpp libsigc++ fmt chroon-date spdlog libgtk-3-dev alsa-utils python python-pip \
-    piper xorg-xev 
+    piper xorg-xev sof-firmware
 
 # Notifications
 yay --noconfirm -Su swaync
