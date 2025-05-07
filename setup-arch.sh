@@ -44,7 +44,7 @@ yay --noconfirm -Su swaync
 yay --noconfirm -Su wlogout
 
 # look
-yay --noconfirm -Su swww catpuccin-gtk-theme-mocha nwg-look gtkmm3 qt6-svg qt6-declarative qt5-quickcontrols2
+yay --noconfirm -Su swww catpuccin-gtk-theme-mocha nwg-look gtkmm3 qt6-svg qt6-declarative qt5-quickcontrols2 waycorner
 
 # audio
 yay --noconfirm -Su pipewire pipewire-pulse wireplumber pavucontrol
