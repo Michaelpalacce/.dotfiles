@@ -37,6 +37,9 @@ rustup default stable
 yay --noconfirm -Su mupdf cpio pkg-config jsoncpp libsigc++ fmt chroon-date spdlog libgtk-3-dev alsa-utils python python-pip \
     piper xorg-xev sof-firmware lib32-nvidia-utils nvidia-open pacman-contrib
 
+# Networking
+yay --noconfirm -Su networkmanager networkmanager-dmenu-git
+
 # Notifications
 yay --noconfirm -Su swaync
 

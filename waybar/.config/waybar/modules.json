@@ -180,6 +180,6 @@
         "format": "{} ",
         "exec": "checkupdates | wc -l",
         "interval": 600,
-        "on-click": "alacritty -e yay -Syu && notify-send 'The system has been updated' "
+        "on-click": "alacritty -e yay --noconfirm -Syu && notify-send 'The system has been updated' "
     }
 }
