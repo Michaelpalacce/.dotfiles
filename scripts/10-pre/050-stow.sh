@@ -25,6 +25,7 @@ FOLDERS=(
     "waypaper"
     "sway"
     "waycorner"
+    "xsettingsd"
 )
 
 for dir in ${FOLDERS[@]} ; do
