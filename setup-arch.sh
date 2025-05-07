@@ -6,7 +6,6 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S --needed base-devel git --noconfirm
 
 # Check if yay is already installed.
-if ! command -v yay &> /dev/null; then
   cd $HOME
   echo "Installing yay."
   git clone https://aur.archlinux.org/yay.git
@@ -22,9 +21,6 @@ if ! command -v yay &> /dev/null; then
     echo "Failed to return to the previous directory."
     exit 1
   }
-else
-  echo "yay is already installed."
-fi
 
 sudo pacman --noconfirm -Su vlc nfs-utils veracrypt ninja gcc wayland-protocols libjpeg-turbo libwebp libjxl pango cairo \
     pkgconf cmake libglvnd meson gtk4 gobject-introspection libgirepository \
@@ -63,6 +59,9 @@ yay --noconfirm -Su minecraft-launcher \
 
 # Flatpak cause I am a baby
 yay --noconfirm -Su flatpak
+
+# Browser
+yay --noconfirm -Su opera
 
 # Dev
 yay --noconfirm -Su tmux zsh stow
