@@ -33,13 +33,6 @@
         "interval": 600,
         "on-click": "opera https://wttr.in"
     },
-    "custom/updates": {
-        "format": "{}",
-        "return-type": "json",
-        "exec": "~/.config/waybar/scripts/myupdate.sh",
-        "interval": 60,
-        "on-click": "alacritty yay -Suy"
-    },
     "custom/clipboard": {
         "format": "",
         "on-click": "cliphist list | wofi -dmenu | cliphist decode | wl-copy",
@@ -182,5 +175,12 @@
             "custom/pulse-text",
             "pulseaudio/slider"
         ]
-    }
+    },
+ "custom/updates":{
+        "format": "{} Update(s)",
+        "exec": "checkupdates | wc -l",
+        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+        "interval": 15,
+        "on-click": "alacritty -e yay -Syu && notify-send 'The system has been updated' "
+    },
 }
