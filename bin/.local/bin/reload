@@ -9,3 +9,5 @@ waybar & disown
 
 killall swaync
 swaync & disown
+
+~/.dotfiles/stow.sh
