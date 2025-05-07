@@ -6,7 +6,7 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S --needed base-devel git --noconfirm
 
 # Check if yay is already installed.
-  cd $HOME
+if ! command -v yay &> /dev/null; then
   echo "Installing yay."
   git clone https://aur.archlinux.org/yay.git
 
@@ -21,6 +21,9 @@ sudo pacman -S --needed base-devel git --noconfirm
     echo "Failed to return to the previous directory."
     exit 1
   }
+else
+  echo "yay is already installed."
+fi
 
 sudo pacman --noconfirm -Su vlc nfs-utils veracrypt ninja gcc wayland-protocols libjpeg-turbo libwebp libjxl pango cairo \
     pkgconf cmake libglvnd meson gtk4 gobject-introspection libgirepository \
