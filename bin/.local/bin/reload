@@ -6,3 +6,6 @@
 
 killall waybar
 waybar & disown
+
+killall swaync
+swaync & disown
