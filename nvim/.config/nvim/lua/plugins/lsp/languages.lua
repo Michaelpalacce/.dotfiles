@@ -1,5 +1,3 @@
-local lspconfig = require("lspconfig")
-
 require('mason-lspconfig').setup {
 	ensure_installed = {
 		"lua_ls",
@@ -13,17 +11,11 @@ require('mason-lspconfig').setup {
 		-- "jdtls",
 		-- "html",
 	},
-	handlers = {
-		-- this first function is the "default handler"
-		-- it applies to every language server without a "custom handler"
-		function(server_name)
-			require('lspconfig')[server_name].setup({})
-		end,
-	}
+	automatic_enable = true,
 }
 
 -- LUA
-lspconfig.lua_ls.setup({
+vim.lsp.enable("lua_ls", {
 	settings = {
 		Lua = {
 			completion = {
@@ -48,7 +40,7 @@ local inlayHints = {
 	includeInlayVariableTypeHints = false,
 }
 
-lspconfig.ts_ls.setup({
+vim.lsp.enable("ts_ls", {
 	settings = {
 		completions = {
 			completeFunctionCalls = true
@@ -72,7 +64,7 @@ lspconfig.ts_ls.setup({
 -- TSSERVER END
 
 -- GOLANG
-lspconfig.gopls.setup({
+vim.lsp.enable("gopls", {
 	cmd = { "gopls" },
 	settings = {
 		-- https://github.com/golang/tools/blob/master/gopls/doc/settings.md#completion
@@ -106,7 +98,7 @@ lspconfig.gopls.setup({
 -- GOLANG END
 
 -- HELM/YAML START
-lspconfig.helm_ls.setup {
+vim.lsp.enable("helm_ls", {
 	settings = {
 		['helm-ls'] = {
 			yamlls = {
@@ -114,9 +106,9 @@ lspconfig.helm_ls.setup {
 			}
 		}
 	}
-}
+})
 
-lspconfig.yamlls.setup {
+vim.lsp.enable("yamlls", {
 	settings = {
 		yaml = {
 			schemaStore = {
@@ -138,18 +130,18 @@ lspconfig.yamlls.setup {
 			},
 		},
 	},
-}
+})
 -- HELM/YAML END
 
 -- JAVA START
 -- This may cause issues between different environments
 -- // Remember guys :JdtWipeDataAndRestart is your friend
 -- // ALso... rm -rf ~/.cache/jdtls
-lspconfig.jdtls.setup({})
+vim.lsp.enable("jdtls")
 -- JAVA END
 
 -- JSON START
-lspconfig.jsonls.setup {
+vim.lsp.enable("jsonls", {
 	filetypes = { "json", "json5" },
 	settings = {
 		json = {
@@ -157,5 +149,5 @@ lspconfig.jsonls.setup {
 			validate = { enable = true },
 		},
 	}
-}
+})
 -- JSON END

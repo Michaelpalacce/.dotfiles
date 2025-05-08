@@ -5,11 +5,11 @@ return {
 		cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
 		event = { 'BufReadPre', 'BufNewFile' },
 		dependencies = {
-			{ 'williamboman/mason.nvim' },
-			{ 'williamboman/mason-lspconfig.nvim' },
+			{ 'mason-org/mason.nvim' },
+			{ 'mason-org/mason-lspconfig.nvim' },
 
 			-- Language Specifics
-			{ 'towolf/vim-helm',                  ft = 'helm' },
+			{ 'towolf/vim-helm',               ft = 'helm' },
 			{ 'b0o/schemastore.nvim' }
 		},
 		config = function()
