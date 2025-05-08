@@ -179,7 +179,7 @@
     "custom/updates": {
         "format": "{} ",
         "exec": "checkupdates | wc -l",
-        "interval": 600,
+        "interval": 120,
         "on-click": "alacritty -e yay --noconfirm -Syu && notify-send 'The system has been updated' "
     }
 }
