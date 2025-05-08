@@ -73,3 +73,6 @@ yay --noconfirm -Su opera
 
 # Dev
 yay --noconfirm -Su tmux zsh stow
+
+# PKM
+yay --noconfirm -Su obsidian
