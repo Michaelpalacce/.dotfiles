@@ -15,7 +15,7 @@ require('mason-lspconfig').setup {
 }
 
 -- LUA
-vim.lsp.enable("lua_ls", {
+vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			completion = {
@@ -40,7 +40,7 @@ local inlayHints = {
 	includeInlayVariableTypeHints = false,
 }
 
-vim.lsp.enable("ts_ls", {
+vim.lsp.config("ts_ls", {
 	settings = {
 		completions = {
 			completeFunctionCalls = true
@@ -58,13 +58,12 @@ vim.lsp.enable("ts_ls", {
 			inlayHints = inlayHints,
 		},
 	},
-	commands = {
-	}
+	commands = {}
 })
 -- TSSERVER END
 
 -- GOLANG
-vim.lsp.enable("gopls", {
+vim.lsp.config("gopls", {
 	cmd = { "gopls" },
 	settings = {
 		-- https://github.com/golang/tools/blob/master/gopls/doc/settings.md#completion
@@ -98,7 +97,7 @@ vim.lsp.enable("gopls", {
 -- GOLANG END
 
 -- HELM/YAML START
-vim.lsp.enable("helm_ls", {
+vim.lsp.config("helm_ls", {
 	settings = {
 		['helm-ls'] = {
 			yamlls = {
@@ -108,7 +107,7 @@ vim.lsp.enable("helm_ls", {
 	}
 })
 
-vim.lsp.enable("yamlls", {
+vim.lsp.config("yamlls", {
 	settings = {
 		yaml = {
 			schemaStore = {
@@ -133,15 +132,8 @@ vim.lsp.enable("yamlls", {
 })
 -- HELM/YAML END
 
--- JAVA START
--- This may cause issues between different environments
--- // Remember guys :JdtWipeDataAndRestart is your friend
--- // ALso... rm -rf ~/.cache/jdtls
-vim.lsp.enable("jdtls")
--- JAVA END
-
 -- JSON START
-vim.lsp.enable("jsonls", {
+vim.lsp.config("jsonls", {
 	filetypes = { "json", "json5" },
 	settings = {
 		json = {
