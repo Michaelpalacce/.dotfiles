@@ -180,6 +180,7 @@
         "format": "{} ",
         "exec": "checkupdates | wc -l",
         "interval": 120,
-        "on-click": "alacritty -e yay --noconfirm -Syu && notify-send 'The system has been updated' "
+        "on-click": "alacritty -e yay --noconfirm -Syu && notify-send 'The system has been updated' ",
+        "on-click-right": "$HOME/.local/bin/reload"
     }
 }
