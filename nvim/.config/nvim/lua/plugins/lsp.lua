@@ -14,15 +14,18 @@ return {
 		},
 		config = function()
 			-- Remove https://gpanders.com/blog/whats-new-in-neovim-0-11/#more-default-mappings
+			pcall(vim.keymap.del, "n", "gri")
+			pcall(vim.keymap.del, "n", "gra")
+			pcall(vim.keymap.del, "n", "grn")
+			pcall(vim.keymap.del, "n", "grr")
 
 			-- lsp_attach is where you enable features that only work
 			-- if there is a language server active in the file
 			local lsp_attach = function(client, bufnr)
 				local opts = { buffer = bufnr }
 
-				-- vim.keymap.set('n', 'gri', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-				-- vim.keymap.set('n', 'grr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-				vim.keymap.set('n', 'grd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+				vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+				vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
 
 				vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
 				vim.keymap.set({ 'n', 'v' }, '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
