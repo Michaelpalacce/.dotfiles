@@ -21,7 +21,6 @@ return {
 				end,
 				desc = "Fzf-Lua: [G]it [B]ranches"
 			},
-
 			{
 				"<leader>gS",
 				function()
@@ -35,20 +34,6 @@ return {
 					require('fzf-lua').git_status()
 				end,
 				desc = "Fzf-Lua: [G]it [D]iff"
-			},
-			{
-				"<leader>gc",
-				function()
-					require('fzf-lua').git_bcommits()
-				end,
-				desc = "Fzf-Lua: [G]it buffer [C]ommits"
-			},
-			{
-				"<leader>gC",
-				function()
-					require('fzf-lua').git_commits()
-				end,
-				desc = "Fzf-Lua: [G]it [C]ommits"
 			},
 			{
 				"<leader>gp",
@@ -80,6 +65,7 @@ return {
 			},
 		},
 	},
+
 	{
 		'lewis6991/gitsigns.nvim', -- Show Signs in the gutter
 		opts = {
