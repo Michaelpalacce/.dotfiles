@@ -29,6 +29,7 @@ alias sc="tmux-cht"
 alias sw="tmux-wttr"
 alias td="tmux detach"
 alias ta="tmux attach"
+alias tk="tmux kill-server"
 
 # Vim
 
