@@ -74,7 +74,7 @@ yay --noconfirm -Su flatpak
 yay --noconfirm -Su opera
 
 # Dev
-yay --noconfirm -Su tmux zsh stow
+yay --noconfirm -Su tmux zsh stow postman-bin
 
 # PKM
 yay --noconfirm -Su obsidian
