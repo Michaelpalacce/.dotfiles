@@ -31,7 +31,8 @@ sudo pacman --noconfirm -Su vlc nfs-utils veracrypt ninja gcc wayland-protocols 
     pkgconf cmake libglvnd meson gtk4 gobject-introspection libgirepository \
     gtk-doc rustup cargo
 
-yay --noconfirm -Su waybar ttf-font-awesome
+# Waybar and fonts
+yay --noconfirm -Su waybar ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols-mono noto-fonts noto-fonts-cjk noto-fonts-emoji
 
 # Needed for rust builds (rustdesk for example)
 rustup default stable
