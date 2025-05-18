@@ -26,6 +26,7 @@
     ],
     "modules-right": [
         "tray",
+        "idle_inhibitor",
         "custom/updates",
         "hyprland/language",
         "custom/clipboard",
