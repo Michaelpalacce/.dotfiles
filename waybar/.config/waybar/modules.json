@@ -31,7 +31,7 @@
         "return-type": "json",
         "exec": "~/.config/waybar/scripts/weather.sh",
         "interval": 600,
-        "on-click": "opera https://wttr.in"
+        "on-click": "brave https://wttr.in"
     },
     "custom/clipboard": {
         "format": "",
@@ -91,7 +91,7 @@
     "hyprland/window": {
         "format": "( {class} )",
         "rewrite": {
-            "(.*) - Opera": "🌎 $1",
+            "(.*) - Brave": "🌎 $1",
             "(.*) - Alacritty": "> [$1]"
         }
     },

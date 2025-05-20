@@ -71,7 +71,7 @@ yay --noconfirm -Su minecraft-launcher \
 yay --noconfirm -Su flatpak
 
 # Browser
-yay --noconfirm -Su opera
+yay --noconfirm -Su brave-bin
 
 # Dev
 yay --noconfirm -Su tmux zsh stow postman-bin
