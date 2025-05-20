@@ -176,6 +176,13 @@
             "pulseaudio/slider"
         ]
     },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
     "custom/updates": {
         "format": "{} ",
         "exec": "checkupdates | wc -l",
