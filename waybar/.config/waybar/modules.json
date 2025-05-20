@@ -180,7 +180,8 @@
         "format": "{icon}",
         "format-icons": {
             "activated": "",
-            "deactivated": ""
+            "deactivated": "",
+            "tooltip": true
         }
     },
     "custom/updates": {
