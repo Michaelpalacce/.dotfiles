@@ -17,9 +17,12 @@
     },
     "hyprland/workspaces": {
         "format": "{icon}",
+        "persistent-workspaces": {
+            "*": 5
+        },
         "format-icons": {
             "active": "",
-            "default": ""
+            "default": ""
         }
     },
     "hyprland/language": {
@@ -39,10 +42,23 @@
         "interval": 86400
     },
     "clock": {
-        "format": "{:%I:%M:%S %p}",
+        "format": "{:%d %B %Y %H:%M:%S}",
         "interval": 1,
-        "tooltip-format": "\n<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
         "calendar-weeks-pos": "right",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
         "today-format": "<span color='#7645AD'><b><u>{}</u></b></span>",
         "format-calendar": "<span color='#aeaeae'><b>{}</b></span>",
         "format-calendar-weeks": "<span color='#aeaeae'><b>W{:%V}</b></span>",
@@ -89,11 +105,7 @@
         "on-click": "foot btop"
     },
     "hyprland/window": {
-        "format": "( {class} )",
-        "rewrite": {
-            "(.*) - Brave": "🌎 $1",
-            "(.*) - Alacritty": "> [$1]"
-        }
+        "format": "( {class} )"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
