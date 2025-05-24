@@ -12,13 +12,13 @@
         "~/.config/waybar/modules.json"
     ],
     "modules-left": [
-        "custom/logo",
-        "clock",
+        // "custom/logo",
+        "network",
         "custom/weather",
-        "disk",
-        "memory",
         "cpu",
         "temperature",
+        "memory",
+        "disk",
         "hyprland/window"
     ],
     "modules-center": [
@@ -26,14 +26,14 @@
     ],
     "modules-right": [
         "tray",
-        "idle_inhibitor",
+        // "idle_inhibitor",
         "custom/updates",
         "hyprland/language",
-        "custom/clipboard",
-        "custom/colorpicker",
+        // "custom/clipboard",
+        // "custom/colorpicker",
         // "group/pulse",
         "group/sound",
-        "network",
-        "custom/notification"
+        "custom/notification",
+        "clock",
     ]
 }
