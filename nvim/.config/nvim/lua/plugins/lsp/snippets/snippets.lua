@@ -57,6 +57,21 @@ end
 
 return {
 	go = {
+		snippet(
+			{
+				trig = "main",
+			},
+			fmt(
+				[[
+func main() {{
+	{}
+}}
+			]],
+				{
+					insert(1, "// Logic"),
+				}
+			)
+		),
 		snippet("print", fmt(
 			[[fmt.Println({print})]],
 			{
