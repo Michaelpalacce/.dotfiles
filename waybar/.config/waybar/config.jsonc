@@ -33,7 +33,7 @@
         // "custom/colorpicker",
         // "group/pulse",
         "group/sound",
-        "custom/notification",
         "clock",
+        "custom/notification",
     ]
 }
