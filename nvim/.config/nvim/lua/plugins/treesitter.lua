@@ -50,14 +50,6 @@ return {
 			'nvim-treesitter/nvim-treesitter-textobjects',
 			branch = "main",
 			opts = {
-				-- swap = {
-				-- 	enable = true,
-				-- 	swap_next = {
-				-- 		["<leader>Ta"] = "@parameter.inner",
-				-- 	},
-				-- 	swap_previous = {
-				-- 		["<leader>TA"] = "@parameter.inner",
-				-- 	},
 				move = {
 					enable = true,
 					set_jumps = true, -- whether to set jumps in the jumplist
