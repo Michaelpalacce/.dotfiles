@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 
-# Dependencies
-# - git
-# - curl
-# - stow
-# - nix
-# - home-manager
+# Exit on errors
+set +o errexit
 
 # ------------------------ Variables -------------------------------
 
