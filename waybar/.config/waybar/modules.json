@@ -1,11 +1,9 @@
 {
     "network": {
         "format": "{ifname}",
-        "format-wifi": "  {signalStrength}%  {bandwidthDownBytes}  {bandwidthUpBytes} ",
-        "format-ethernet": "   {bandwidthDownBytes}  {bandwidthUpBytes} ",
+        "format-ethernet": " {bandwidthDownBytes}  {bandwidthUpBytes} ",
         "format-disconnected": "Not connected",
         "tooltip-format": "  {ifname} via {gwaddri}",
-        "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
         "tooltip-format-disconnected": "Disconnected",
         "on-click": "networkmanager_dmenu"
@@ -16,9 +14,12 @@
         "on-click-right": "wlogout"
     },
     "hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
         "format": "{icon}",
+        "on-click": "activate",
         "persistent-workspaces": {
-            "*": 5
+            "*": 9
         },
         "format-icons": {
             "active": "",
@@ -202,5 +203,10 @@
         "interval": 120,
         "on-click": "alacritty -e yay --noconfirm -Syu && notify-send 'The system has been updated' ",
         "on-click-right": "$HOME/.local/bin/reload"
+    },
+    "custom/lock": {
+        "format": "<span color='#00FFFF'>  </span>",
+        "on-click": "hyprlock",
+        "tooltip": false
     }
 }

@@ -13,16 +13,17 @@
     ],
     "modules-left": [
         // "custom/logo",
-        "network",
+        "hyprland/workspaces",
         "custom/weather",
         "cpu",
         "temperature",
         "memory",
         "disk",
-        "hyprland/window"
+        "network"
+        // "hyprland/window"
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "clock",
     ],
     "modules-right": [
         "tray",
@@ -33,7 +34,6 @@
         // "custom/colorpicker",
         // "group/pulse",
         "group/sound",
-        "clock",
         "custom/notification",
     ]
 }
