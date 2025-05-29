@@ -5,7 +5,6 @@
 # Dependencies: ydotool, libinput, `sudo usermod -aG input $USER`
 ########################
 
-CLICK_RATE=100
 YDOTOOL_BUTTON_LEFT=0xc0
 
 AUTOCLICKER_ACTIVE=false
@@ -34,7 +33,6 @@ start_autoclicker() {
     (
         while $AUTOCLICKER_ACTIVE; do
             sudo ydotool click $YDOTOOL_BUTTON_LEFT >>/dev/null
-            sleep "$(awk "BEGIN {print 1 / $CLICK_RATE}")"
         done
     ) &
     AUTOCLICKER_PID=$! 
