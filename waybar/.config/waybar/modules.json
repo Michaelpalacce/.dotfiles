@@ -43,7 +43,7 @@
         "interval": 86400
     },
     "clock": {
-        "format": "{:%d %B %Y %H:%M:%S}",
+        "format": "<span> </span>{:%H:%M}",
         "interval": 1,
         "tooltip-format": "<tt><big>{calendar}</big></tt>",
         "calendar-weeks-pos": "right",

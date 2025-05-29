@@ -62,14 +62,12 @@ window#waybar {
 #tray,
 #window,
 #workspaces,
+#custom-notification, 
 #clock {
   padding: 0 5px;
 }
 #pulseaudio {
   padding-top: 3px;
-}
-#custom-notification {
-    padding: 0 15px;
 }
 
 #custom-updates {
@@ -104,7 +102,7 @@ window#waybar {
 }
 
 #clock{
-  color: #5fd1fa;
+  color: #0DF599;
 }
 
 #battery.charging {

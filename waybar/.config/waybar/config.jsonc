@@ -13,7 +13,6 @@
     ],
     "modules-left": [
         // "custom/logo",
-        "hyprland/workspaces",
         "custom/weather",
         "cpu",
         "temperature",
@@ -23,7 +22,7 @@
         // "hyprland/window"
     ],
     "modules-center": [
-        "clock",
+        "hyprland/workspaces",
     ],
     "modules-right": [
         "tray",
@@ -31,9 +30,10 @@
         "custom/updates",
         "hyprland/language",
         // "custom/clipboard",
-        // "custom/colorpicker",
+        "custom/colorpicker",
         // "group/pulse",
         "group/sound",
         "custom/notification",
+        "clock"
     ]
 }
