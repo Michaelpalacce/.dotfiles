@@ -19,15 +19,19 @@
         "format": "{icon}",
         "on-click": "activate",
         "persistent-workspaces": {
-            "*": 9
+            "*": 4
         },
         "format-icons": {
-            "active": "",
-            "default": ""
+            "urgent": "",
+            "active": "",
+            "default": "",
+            "empty": ""
         }
     },
     "hyprland/language": {
         "format": " {}",
+        "format-en": "en",
+        "format-bg": "bg",
         "keyboard-name": "razer-pro-type-ultra-keyboard"
     },
     "custom/weather": {
@@ -122,6 +126,7 @@
             "car": "",
             "default": [
                 " ",
+                "",
                 " ",
                 " "
             ]
@@ -130,20 +135,10 @@
         "on-click-right": "pavucontrol",
         "on-click": "amixer set Master toggle"
     },
-    "pulseaudio#mic": {
-        "format": "{icon} {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": " ",
-        "on-scroll-up": "amixer set Capture 5%+",
-        "on-scroll-down": "amixer set Capture 5%-",
-        "on-click-right": "pavucontrol",
-        "on-click": "amixer set Capture toggle"
-    },
     "group/sound": {
         "orientation": "horizontal",
         "modules": [
-            "pulseaudio",
-            "pulseaudio#mic"
+            "pulseaudio"
         ]
     },
     "tray": {
