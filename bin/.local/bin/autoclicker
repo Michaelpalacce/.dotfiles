@@ -1,0 +1,92 @@
+#!/bin/bash
+
+########################
+# I missed the auto clicker of my razer, so this is an attempt to create one manually
+# Dependencies: ydotool, libinput, `sudo usermod -aG input $USER`
+########################
+
+CLICK_RATE=100
+YDOTOOL_BUTTON_LEFT=0xc0
+
+AUTOCLICKER_ACTIVE=false
+LAST_LEFT_PRESS_TIME=0
+LAST_RIGHT_PRESS_TIME=0
+TOGGLE_THRESHOLD_MS=200
+
+# Start ydotoold
+sudo ydotoold &
+
+kill_ydotoold() {
+    echo "Cleaning up ydotoold on EXIT"
+    sudo killall ydotoold
+}
+
+# Starts the autoclicker.
+start_autoclicker() {
+    echo "Starting autoclicker..."
+    AUTOCLICKER_ACTIVE=true
+    if [ -n "$AUTOCLICKER_PID" ] && kill -0 "$AUTOCLICKER_PID" 2>/dev/null; then
+        echo "Autoclicker already running. Not starting a new one."
+        return
+    fi
+
+    # Background BABY
+    (
+        while $AUTOCLICKER_ACTIVE; do
+            sudo ydotool click $YDOTOOL_BUTTON_LEFT >>/dev/null
+            sleep "$(awk "BEGIN {print 1 / $CLICK_RATE}")"
+        done
+    ) &
+    AUTOCLICKER_PID=$! 
+    echo "Autoclicker PID: $AUTOCLICKER_PID"
+}
+
+# Stops the autoclicker
+stop_autoclicker() {
+    echo "Stopping autoclicker..."
+    AUTOCLICKER_ACTIVE=false
+    if [ -n "$AUTOCLICKER_PID" ] && kill -0 "$AUTOCLICKER_PID" 2>/dev/null; then
+        kill "$AUTOCLICKER_PID"
+        wait "$AUTOCLICKER_PID" 2>/dev/null 
+        echo "Autoclicker process killed."
+    fi
+    AUTOCLICKER_PID=""
+}
+
+trap stop_autoclicker EXIT
+trap kill_ydotoold EXIT
+
+echo "Monitoring input events. Press Left Click + Right Click simultaneously to toggle autoclicker."
+
+echo "Testing to see if we can click once. If you see an error..."
+
+sudo libinput debug-events | while read -r line; do
+    CURRENT_TIME=$(date +%s%3N) # Current time in milliseconds
+
+
+    if [[ "$line" =~ "POINTER_BUTTON" ]]; then
+        if [[ "$line" =~ "BTN_LEFT" && "$line" =~ "pressed" ]]; then
+            LAST_LEFT_PRESS_TIME=$CURRENT_TIME
+            if (( CURRENT_TIME - LAST_RIGHT_PRESS_TIME < TOGGLE_THRESHOLD_MS )); then
+                if $AUTOCLICKER_ACTIVE; then
+                    stop_autoclicker
+                else
+                    start_autoclicker 
+                fi
+                LAST_LEFT_PRESS_TIME=0
+                LAST_RIGHT_PRESS_TIME=0
+            fi
+        elif [[ "$line" =~ "BTN_RIGHT" && "$line" =~ "pressed" ]]; then
+            LAST_RIGHT_PRESS_TIME=$CURRENT_TIME
+            if (( CURRENT_TIME - LAST_LEFT_PRESS_TIME < TOGGLE_THRESHOLD_MS )); then
+                if $AUTOCLICKER_ACTIVE; then
+                    stop_autoclicker
+                else
+                    start_autoclicker 
+                fi
+                LAST_LEFT_PRESS_TIME=0
+                LAST_RIGHT_PRESS_TIME=0
+            fi
+        fi
+    fi
+done
