@@ -43,6 +43,9 @@ yay --noconfirm -Su mupdf cpio pkg-config jsoncpp libsigc++ fmt chroon-date spdl
 # Networking
 yay --noconfirm -Su networkmanager networkmanager-dmenu-git
 
+# System Resources
+yay --noconfirm -Su resources
+
 # Notifications
 yay --noconfirm -Su swaync
 
