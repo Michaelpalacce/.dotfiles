@@ -13,12 +13,12 @@
     ],
     "modules-left": [
         "custom/logo",
-        "custom/weather"
-        // "cpu",
+        "custom/weather",
+        "cpu",
         // "temperature",
-        // "memory",
-        // "disk",
-        // "network"
+        "memory",
+        "disk",
+        "network"
         // "hyprland/window"
     ],
     "modules-center": [

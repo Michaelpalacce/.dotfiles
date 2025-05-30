@@ -61,7 +61,6 @@ echo "Testing to see if we can click once. If you see an error..."
 sudo libinput debug-events | while read -r line; do
     CURRENT_TIME=$(date +%s%3N) # Current time in milliseconds
 
-
     if [[ "$line" =~ "POINTER_BUTTON" ]]; then
         if [[ "$line" =~ "BTN_LEFT" && "$line" =~ "pressed" ]]; then
             LAST_LEFT_PRESS_TIME=$CURRENT_TIME
