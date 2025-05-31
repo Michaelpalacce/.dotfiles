@@ -46,6 +46,9 @@ yay --noconfirm -Su networkmanager networkmanager-dmenu-git
 # System Resources
 yay --noconfirm -Su resources
 
+# Security
+yay --noconfirm -Su firejail
+
 # Notifications
 yay --noconfirm -Su swaync
 
