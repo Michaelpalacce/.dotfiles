@@ -78,7 +78,7 @@ yay --noconfirm -Su ffmpegthumbnailer gst-libav gst-plugins-ugly
 
 # Gaming
 yay --noconfirm -Su minecraft-launcher \
-    ttf-liberation steamcmd steam wine winetricks proton-cacyos discord lutris lutris-wine-meta bottles
+    ttf-liberation steamcmd steam wine winetricks proton-cacyos discord lutris lutris-wine-meta bottles wine-mono wine-gecko
 
 # Flatpak cause I am a baby
 yay --noconfirm -Su flatpak
