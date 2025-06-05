@@ -94,9 +94,6 @@ in
     # Kubernetes
     pkgs.kubescape
 
-    # Gaming
-    pkgs.wine64Packages.unstableFull
-
     # IaC
     pkgs.ansible
   ] else [])
