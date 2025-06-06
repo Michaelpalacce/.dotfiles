@@ -27,7 +27,7 @@ else
   echo "yay is already installed."
 fi
 
-sudo pacman --noconfirm -Su nfs-utils veracrypt ninja gcc wayland-protocols libjpeg-turbo libwebp libjxl pango cairo \
+sudo pacman --noconfirm -Su nfs-utils ninja gcc wayland-protocols libjpeg-turbo libwebp libjxl pango cairo \
     pkgconf cmake libglvnd meson gtk4 gobject-introspection libgirepository \
     gtk-doc rustup cargo
 
