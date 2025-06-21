@@ -77,7 +77,7 @@ yay --noconfirm -Su nautilus nautilus-admin-gtk4 nautilus-image-converter nautil
 yay --noconfirm -Su ffmpegthumbnailer gst-libav gst-plugins-ugly
 
 # Gaming
-yay --noconfirm -Su minecraft-launcher \
+yay --noconfirm -Su minecraft-launcher mesa nwjs-sdk-bin vulkantools vulkan-icd-loader lib32-vulkan-icd-loader \
     ttf-liberation steamcmd steam wine winetricks proton-cacyos discord lutris lutris-wine-meta bottles wine-mono wine-gecko
 
 # Flatpak cause I am a baby
