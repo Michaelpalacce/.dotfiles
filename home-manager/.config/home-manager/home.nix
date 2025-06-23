@@ -55,7 +55,7 @@ in
     pkgs.timer              pkgs.eza            pkgs.fzf        pkgs.fd
 
     # Development
-    pkgs.awscli             pkgs.xclip          pkgs.gh         pkgs.unstable.neovim
+    pkgs.xclip          pkgs.gh         pkgs.unstable.neovim
     pkgs.ripgrep            pkgs.direnv  
 
     # Encryption And Security
