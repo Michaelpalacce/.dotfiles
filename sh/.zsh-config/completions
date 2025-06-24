@@ -47,3 +47,6 @@ lazy_load_completion "velero" "__start_velero" "v"
 lazy_load_completion "flux" "__start_flux" "f"
 lazy_load_completion "helm" "__start_helm" "h"
 lazy_load_completion "kind" "__start_kind" "ki"
+
+
+complete -C '/usr/bin/aws_completer' aws
