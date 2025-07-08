@@ -117,16 +117,7 @@ vim.lsp.config("yamlls", {
 				-- Avoid TypeError: Cannot read properties of undefined (reading 'length')
 				url = "",
 			},
-			schemas = require('schemastore').yaml.schemas {
-				extra = {
-					{
-						description = "PIAC schema",
-						fileMatch = "spec.yaml",
-						name = "spec.yaml",
-						url = "file://" .. vim.fn.expand("~/.config/schemas/json/piac_spec_yaml_json_schema.json"),
-					},
-				}
-			},
+			schemas = require('schemastore').yaml.schemas(),
 		},
 	},
 })
