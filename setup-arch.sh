@@ -62,7 +62,7 @@ yay --noconfirm -Su swww catpuccin-gtk-theme-mocha nwg-look gtkmm3 qt6-svg qt6-d
 yay --noconfirm -Su pipewire pipewire-pulse wireplumber pavucontrol lib32-pipewire
 
 # Video
-yay --noconfirm -Su gifski vlc
+yay --noconfirm -Su gifski vlc vlc-plugins-all
 
 # hyprland utils
 yay --noconfirm -Su hyprutils hyprgraphics qt5-wayland qt6-wayland xdg-desktop-portal-hyprland waypaper \
