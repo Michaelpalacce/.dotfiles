@@ -46,3 +46,9 @@ indent_size = 4
 [{package.json,.travis.yml}]
 indent_style = tab
 indent_size = 4
+
+[*.tf]
+indent_style = space
+indent_size = 2
+# Don't wrap..
+max_line_length = 9999
