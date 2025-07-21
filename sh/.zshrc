@@ -121,5 +121,6 @@ set -o vi
 #
 
 if [ -t 1 ]; then
+  clear
   cat $HOME/.dotfiles/sh/.zshenv.d/banner.txt
 fi
