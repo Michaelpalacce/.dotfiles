@@ -1,0 +1,4 @@
+if command_exists ssh-agent; then
+    eval $(ssh-agent)
+    ssh-add
+fi
