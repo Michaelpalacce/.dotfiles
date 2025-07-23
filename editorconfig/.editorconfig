@@ -52,3 +52,9 @@ indent_style = space
 indent_size = 2
 # Don't wrap..
 max_line_length = 9999
+
+[*.conf]
+indent_style = space
+indent_size = 4
+# Don't wrap..
+max_line_length = 9999
