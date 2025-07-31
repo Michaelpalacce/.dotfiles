@@ -34,6 +34,7 @@
         // "group/pulse",
         "group/sound",
         "custom/notification",
+        "battery",
         "clock"
     ]
 }
