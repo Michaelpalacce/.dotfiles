@@ -12,12 +12,12 @@
         "~/.config/waybar/modules.jsonc"
     ],
     "modules-left": [
-        "custom/logo",
+        // "custom/logo",
         "custom/weather",
-        "cpu",
+        // "cpu",
         // "temperature",
-        "memory",
-        "disk",
+        // "memory",
+        // "disk",
         "network"
         // "hyprland/window"
     ],

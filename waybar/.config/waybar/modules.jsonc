@@ -1,6 +1,8 @@
 {
     "network": {
         "format": "{ifname}",
+        "format-wifi": "  {signalStrength}%  {bandwidthDownBytes}  {bandwidthUpBytes} ",
+        "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
         "format-ethernet": " {bandwidthDownBytes}  {bandwidthUpBytes} ",
         "format-disconnected": "Not connected",
         "tooltip-format": "  {ifname} via {gwaddri}",
