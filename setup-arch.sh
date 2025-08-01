@@ -28,8 +28,11 @@ else
 fi
 
 sudo pacman --noconfirm -Su nfs-utils ninja gcc wayland-protocols libjpeg-turbo libwebp libjxl pango cairo \
-    pkgconf cmake libglvnd meson gtk4 gobject-introspection libgirepository \
-    gtk-doc rustup cargo
+    pkgconf cmake libglvnd meson  gobject-introspection libgirepository \
+    rustup cargo
+
+# Libraries
+yay --noconfirm -Su gtk2 gtk4 libgtk-3-dev gtk-doc
 
 # Waybar and fonts
 yay --noconfirm -Su waybar ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols-mono noto-fonts noto-fonts-cjk noto-fonts-emoji
@@ -37,7 +40,8 @@ yay --noconfirm -Su waybar ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fon
 # Needed for rust builds (rustdesk for example)
 rustup default stable
 
-yay --noconfirm -Su mupdf cpio pkg-config jsoncpp libsigc++ fmt chroon-date spdlog libgtk-3-dev alsa-utils python python-pip \
+# Randos
+yay --noconfirm -Su mupdf cpio pkg-config jsoncpp libsigc++ fmt chroon-date spdlog alsa-utils python python-pip \
     piper xorg-xev sof-firmware lib32-nvidia-utils nvidia-open pacman-contrib
 
 # Networking
