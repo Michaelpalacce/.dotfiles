@@ -65,4 +65,8 @@ alias gp='git config user.name "Stefan Genov" && git config user.email "stefanti
 # Alias to set the current repo's git author to my work email
 alias gw='git config user.name "Stefan Genov" && git config user.email "stefan.genov@broadcom.com"'
 
+# Commands
+
+alias lock='loginctl lock-session && systemctl suspend'
+
 # END PERSONAL
