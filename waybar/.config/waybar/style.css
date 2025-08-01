@@ -108,21 +108,22 @@ window#waybar {
   color: #0DF599;
 }
 
+#battery {
+    padding: 0 5 0 0;
+}
+
 #battery.charging {
     color: #ffffff;
-    background-color: #26A65B;
 }
 
 #battery.warning:not(.charging) {
-    background-color: #ffbe61;
-    color: black;
+    color: #f9e2af;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
     color: #ffffff;
     animation-name: blink;
-    animation-duration: 0.5s;
+    animation-duration: 1s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -130,7 +131,6 @@ window#waybar {
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        color: #f38ba8;
     }
 }

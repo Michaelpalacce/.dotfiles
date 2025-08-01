@@ -206,4 +206,19 @@
         "on-click": "hyprlock",
         "tooltip": false
     },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": "{icon} ",
+        "format-full": "{icon} ",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": true,
+        "tooltip-format": "{capacity}% - {time}",
+        "on-click": "2"
+    },
 }

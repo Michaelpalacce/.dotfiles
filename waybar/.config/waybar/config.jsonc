@@ -33,8 +33,8 @@
         "custom/colorpicker",
         // "group/pulse",
         "group/sound",
-        "custom/notification",
         "battery",
-        "clock"
+        "clock",
+        "custom/notification",
     ]
 }
