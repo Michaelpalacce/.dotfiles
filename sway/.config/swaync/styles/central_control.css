@@ -16,9 +16,9 @@
 
 @define-color text #cdd6f4;
 
-@define-color base alpha(#000000, 0.1);
-@define-color surface alpha(#ffffff, 0.1);
-@define-color hover alpha(#ffffff, 0.2);
+@define-color base alpha(#11111b, 0.8);
+@define-color surface alpha(#cdd6f4, 0.2);
+@define-color hover alpha(#cdd6f4, 0.9);
 @define-color active alpha(alpha(@lavender, 0.5), 0.5);
 
 * {
