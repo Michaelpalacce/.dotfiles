@@ -52,7 +52,7 @@ in
     # General
     pkgs.htop               pkgs.sshpass        pkgs.unzip      pkgs.dos2unix       pkgs.gnupg
     pkgs.sshpass            pkgs.sshuttle       pkgs.gnumake    pkgs.smartmontools
-    pkgs.timer              pkgs.eza            pkgs.fzf        pkgs.fd
+    pkgs.timer              pkgs.eza            pkgs.fzf        pkgs.fd             pkgs.wget
 
     # Development
     pkgs.xclip              pkgs.gh             pkgs.unstable.neovim
