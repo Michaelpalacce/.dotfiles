@@ -91,7 +91,7 @@ yay --noconfirm -Su flatpak
 yay --noconfirm -Su brave-bin
 
 # Dev
-yay --noconfirm -Su tmux zsh stow postman-bin aws-cli-v2
+yay --noconfirm -Su tmux zsh stow postman-bin aws-cli-v2 docker
 
 # PKM
 yay --noconfirm -Su obsidian
