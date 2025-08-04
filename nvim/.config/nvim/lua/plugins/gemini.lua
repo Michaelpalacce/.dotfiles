@@ -7,7 +7,7 @@ return {
 				enabled = false
 			},
 			instruction = {
-				menu_key = '<leader>ai'
+				menu_key = '<leader>Ai'
 			}
 		},
 	}
