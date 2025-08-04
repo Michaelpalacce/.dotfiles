@@ -18,6 +18,9 @@ return {
 			pcall(vim.keymap.del, "n", "gra")
 			pcall(vim.keymap.del, "n", "grn")
 			pcall(vim.keymap.del, "n", "grr")
+			pcall(vim.keymap.del, "n", "grc")
+			pcall(vim.keymap.del, "n", "grt")
+			pcall(vim.keymap.del, "n", "gra")
 
 			-- lsp_attach is where you enable features that only work
 			-- if there is a language server active in the file
