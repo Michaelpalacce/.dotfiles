@@ -55,8 +55,8 @@ in
     pkgs.timer              pkgs.eza            pkgs.fzf        pkgs.fd
 
     # Development
-    pkgs.xclip          pkgs.gh         pkgs.unstable.neovim
-    pkgs.ripgrep            pkgs.direnv  
+    pkgs.xclip              pkgs.gh             pkgs.unstable.neovim
+    pkgs.ripgrep            pkgs.direnv         pkgs.luajitPackages.luarocks_bootstrap
 
     # Encryption And Security
     pkgs.sops               pkgs.age            pkgs.crowdsec
