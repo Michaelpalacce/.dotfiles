@@ -81,7 +81,7 @@ vim.lsp.config("gopls", {
 			-- report vulnerabilities
 			vulncheck = "Imports",
 			staticcheck = true,
-			gofumpt = true,
+			gofumpt = false, -- Enforces a stricter formatting than gofmt
 			hints = {
 				assignVariableTypes = true,
 				compositeLiteralFields = true,
