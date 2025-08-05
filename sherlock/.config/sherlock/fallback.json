@@ -33,6 +33,16 @@
         "on_return": "copy"
     },
     {
+        "name": "Bookmarks",
+        "type": "bookmarks",
+        "args": {
+            "icon": "sherlock-bookmark",
+            "icon_class": "reactive"
+        },
+        "priority": 3,
+        "home": "Search"
+    },
+    {
         "name": "App Launcher",
         "alias": "app",
         "type": "app_launcher",
@@ -49,13 +59,13 @@
     },
     {
         "name": "Web Search",
-        "display_name": "Google Search",
+        "display_name": "DuckDuckGo Search",
         "tag_start": "{keyword}",
         "alias": "gg",
         "type": "web_launcher",
         "args": {
-            "search_engine": "google",
-            "icon": "google"
+            "search_engine": "duckduckgo",
+            "icon": "duckduckgo"
         },
         "priority": 100
     }
