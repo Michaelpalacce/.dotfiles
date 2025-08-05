@@ -91,7 +91,10 @@ yay --noconfirm -Su flatpak
 yay --noconfirm -Su brave-bin
 
 # Dev
-yay --noconfirm -Su tmux zsh stow postman-bin aws-cli-v2 docker
+yay --noconfirm -Su tmux zsh stow postman-bin aws-cli-v2
 
 # PKM
 yay --noconfirm -Su obsidian
+
+# Virtualization and Containerization
+yay --noconfirm -Su docker docker-compose docker-buildx qemu-base
