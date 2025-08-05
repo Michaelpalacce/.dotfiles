@@ -7,12 +7,10 @@ vim.api.nvim_create_user_command('DelBuffers', function()
 	vim.cmd([[ %bd!|e# ]])
 end, { nargs = 0 })
 
--- @TODO: Make this work with a configurable file (arg)
-
 -- load_local_project_config will load a locally stored lua file on demand. Usefull for Project specific settings
 local function load_local_project_config()
 	local current_dir = vim.fn.getcwd()
-	local local_config_file = current_dir .. "/.git/.nvim.lua"
+	local local_config_file = current_dir .. "/.nvim.lua"
 
 	if vim.fn.filereadable(local_config_file) == 1 then
 		local ok, err = pcall(vim.cmd, "source " .. vim.fn.fnameescape(local_config_file))
@@ -22,7 +20,7 @@ local function load_local_project_config()
 			vim.notify("Sourced local config file: " .. local_config_file, vim.log.levels.INFO)
 		end
 	else
-		vim.notify("No .vim.lua file found in " .. current_dir, vim.log.levels.INFO)
+		vim.notify("No .nvim.lua file found in " .. current_dir, vim.log.levels.INFO)
 	end
 end
 
