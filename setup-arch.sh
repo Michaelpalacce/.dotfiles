@@ -70,7 +70,7 @@ yay --noconfirm -Su gifski vlc vlc-plugins-all
 
 # hyprland utils
 yay --noconfirm -Su hyprutils hyprgraphics qt5-wayland qt6-wayland xdg-desktop-portal-hyprland waypaper \
-    hyprpolkitagent hyprsysteminfo hypridle hyprlock hyprshot hyprpicker lm_sensors
+    hyprpolkitagent hyprsysteminfo hypridle hyprlock hyprshot hyprpicker lm_sensors hyprviz-bin
 
 # File Manager
 yay --noconfirm -Su nautilus nautilus-admin-gtk4 nautilus-image-converter nautilus-open-any-terminalunzip \
@@ -98,3 +98,6 @@ yay --noconfirm -Su obsidian
 
 # Virtualization and Containerization
 yay --noconfirm -Su docker docker-compose docker-buildx qemu-base
+
+# App Launcher
+yay --noconfirm -Su sherlock-launcher-bin
