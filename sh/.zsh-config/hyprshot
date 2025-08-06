@@ -1,0 +1,14 @@
+# ------------------------------------------------------------------------------
+#
+# ZSH Configuration hyprshot
+#
+# This will configure the where the screenshots are taken
+# Ref: https://github.com/Gustash/Hyprshot?tab=readme-ov-file#save-location
+#
+# Dependencies: hyprshot
+#
+# ------------------------------------------------------------------------------
+
+if command_exists hyprshot; then
+    export HYPRSHOT_DIR=$HOME/Pictures/Screenshots
+fi
