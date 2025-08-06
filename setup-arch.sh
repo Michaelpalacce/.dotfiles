@@ -69,8 +69,11 @@ yay --noconfirm -Su pipewire pipewire-pulse wireplumber pavucontrol lib32-pipewi
 yay --noconfirm -Su gifski vlc vlc-plugins-all
 
 # hyprland utils
-yay --noconfirm -Su hyprutils hyprgraphics qt5-wayland qt6-wayland xdg-desktop-portal-hyprland waypaper \
+yay --noconfirm -Su hyprutils hyprgraphics qt5-wayland qt6-wayland xdg-desktop-portal-hyprland \
     hyprpolkitagent hyprsysteminfo hypridle hyprlock hyprshot hyprpicker lm_sensors hyprviz-bin
+
+# Wallpaper
+yay --noconfirm -Su linux-wallpaperengine-git waypaper
 
 # File Manager
 yay --noconfirm -Su nautilus nautilus-admin-gtk4 nautilus-image-converter nautilus-open-any-terminalunzip \

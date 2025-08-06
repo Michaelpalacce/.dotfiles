@@ -77,6 +77,8 @@ curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup
 Run the `setup-arch.sh` file. It will setup yay and a bunch of apps. It will prompt once for password if needed.
 - Manually: https://github.com/catppuccin/sddm
 
+Also, see [this](https://wiki.archlinux.org/title/Official_repositories#multilib)
+
 ## Supported OS
 
 I use these dotfiles on the following Operating Systems. Everything is setup to work together.

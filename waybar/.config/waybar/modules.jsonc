@@ -51,7 +51,7 @@
         },
         "sort-by-number": true,
         "persistent-workspaces": {
-            "*": 6,
+            "*": 9,
         }
     },
     "clock": {
