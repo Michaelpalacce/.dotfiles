@@ -73,7 +73,7 @@ yay --noconfirm -Su hyprutils hyprgraphics qt5-wayland qt6-wayland xdg-desktop-p
     hyprpolkitagent hyprsysteminfo hypridle hyprlock hyprshot hyprpicker lm_sensors hyprviz-bin
 
 # Wallpaper
-yay --noconfirm -Su linux-wallpaperengine-git waypaper
+yay --noconfirm -Su waypaper
 
 # File Manager
 yay --noconfirm -Su nautilus nautilus-admin-gtk4 nautilus-image-converter nautilus-open-any-terminalunzip \
