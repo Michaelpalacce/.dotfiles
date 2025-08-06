@@ -22,11 +22,12 @@
     ],
     "modules-right": [
         "custom/updates",
+        "tray",
         "idle_inhibitor",
         "hyprland/language",
         "pulseaudio",
-        "clock",
         "battery",
-        "tray"
+        "custom/notification",
+        "clock",
     ],
 }

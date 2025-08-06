@@ -16,7 +16,7 @@
 
 @define-color text #cdd6f4;
 
-@define-color base alpha(#11111b, 0.8);
+@define-color base alpha(#11111b, 1);
 @define-color surface alpha(#cdd6f4, 0.2);
 @define-color hover alpha(#cdd6f4, 0.9);
 @define-color active alpha(alpha(@lavender, 0.5), 0.5);
@@ -127,7 +127,6 @@ slider {
 
 /* Music player */
 .widget-mpris {
-  background: @surface;
   border-radius: 20px;
   margin: 0 4px 8px 4px;
 }
@@ -156,7 +155,7 @@ slider {
 
 .widget-mpris-album-art {
   border-radius: 20px;
-  margin: 8px 0 0 8px;
+  /* margin: 8px 0 0 8px; */
 }
 
 .widget-mpris-title {

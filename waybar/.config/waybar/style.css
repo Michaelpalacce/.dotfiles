@@ -57,20 +57,19 @@ tooltip {
 #workspaces button.urgent {
     color: #f38ba8;
 }
-#custom-weather,
+
+/* These are blended */
 #language,
 #cpu,
 #window,
-#clock,
 #pulseaudio,
 #pulseaudio.microphone,
 #workspaces,
 #memory,
 #disk,
-#network,
 #idle_inhibitor,
 #battery,
-#tray {
+#custom-notification{
     background: #1e1e2e;
     opacity: 1.0;
     padding: 1.5px 7px 1.5px 7px;
@@ -81,17 +80,11 @@ tooltip {
     margin-left: 5px;
 }
 
-#custom-updates {
-    background: #1e1e2e;
-    opacity: 1.0;
-    padding: 1.5px 20px 1.5px 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 13px;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
+/* These are "islands" */
+#custom-weather,
+#custom-updates,
+#clock,
+#network,
 #tray {
     background: #1e1e2e;
     opacity: 1.0;
@@ -101,6 +94,11 @@ tooltip {
     border-radius: 13px;
     margin-right: 5px;
     margin-left: 5px;
+}
+
+
+#custom-updates {
+    padding-right: 20px
 }
 
 #workspaces {
@@ -118,32 +116,38 @@ tooltip {
 
 #clock {
     color: #a6e3a1;
-    border-radius: 0px 0px 0px 0px;
-    margin-right: 0px;
-    margin-left: 0px;
 }
 
 #battery {
     color: #a6e3a1;
-    border-radius: 0px 13px 13px 0px;
+    border-radius: 0;
     margin-right: 0px;
     margin-left: 0px;
 }
 
-#network {
+#battery.warning:not(.charging) {
     color: #f9e2af;
-    border-radius: 13px;
-    margin-right: 5px;
 }
 
-#custom-notifications {
-    color: #f9e2af;
-    border-radius: 7px 7px 7px 7px;
-    padding-left: 9px;
-    padding-right: 15px;
-    margin-left:  2px;
-    margin-right: 2px;
+#battery.critical:not(.charging) {
+    color: #a6e3a1;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
 
+#custom-notification {
+    color: #f38ba8;
+    border-radius: 0px 13px 13px 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-right: 15px;
+}
+
+#network {
+    color: #89b4fa;
 }
 
 #custom-player {
@@ -199,6 +203,7 @@ tooltip {
 #idle_inhibitor{
    border-radius: 13px 0px 0px 13px;
    padding-right: 15px;
+   padding-left: 10px;
    margin-right: 0px;
 }
 
@@ -220,4 +225,10 @@ tooltip {
 #custom-weather {
    border-radius: 13px 13px 13px 13px;
    margin-right: 10px
+}
+
+@keyframes blink {
+    to {
+        color: #f38ba8;
+    }
 }
