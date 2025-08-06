@@ -4,6 +4,7 @@ return {
 		event = "InsertEnter",
 		-- use a release tag to download pre-built binaries
 		version = '1.*',
+		dependencies = { "archie-judd/blink-cmp-words" },
 		-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
 		-- build = 'cargo build --release',
 		-- If you use nix, you can build from source using latest nightly rust with:
@@ -163,7 +164,7 @@ return {
 			-- Default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
-				default = { 'lsp', 'path', 'snippets', 'buffer' },
+				default = { 'lsp', 'path', 'snippets', 'buffer', 'thesaurus' },
 
 				providers = {
 					path = {
@@ -173,7 +174,57 @@ return {
 							end,
 						},
 					},
+
+					-- Use the thesaurus source
+					thesaurus = {
+						name = "blink-cmp-words",
+						module = "blink-cmp-words.thesaurus",
+						-- All available options
+						opts = {
+							-- A score offset applied to returned items.
+							-- By default the highest score is 0 (item 1 has a score of -1, item 2 of -2 etc..).
+							score_offset = 0,
+
+							-- Default pointers define the lexical relations listed under each definition,
+							-- see Pointer Symbols below.
+							-- Default is as below ("antonyms", "similar to" and "also see").
+							definition_pointers = { "!", "&", "^" },
+
+							-- The pointers that are considered similar words when using the thesaurus,
+							-- see Pointer Symbols below.
+							-- Default is as below ("similar to", "also see" }
+							similarity_pointers = { "&", "^" },
+
+							-- The depth of similar words to recurse when collecting synonyms. 1 is similar words,
+							-- 2 is similar words of similar words, etc. Increasing this may slow results.
+							similarity_depth = 2,
+						},
+					},
+
+					-- Use the dictionary source
+					dictionary = {
+						name = "blink-cmp-words",
+						module = "blink-cmp-words.dictionary",
+						-- All available options
+						opts = {
+							-- The number of characters required to trigger completion.
+							-- Set this higher if completion is slow, 3 is default.
+							dictionary_search_threshold = 3,
+
+							-- See above
+							score_offset = 0,
+
+							-- See above
+							definition_pointers = { "!", "&", "^" },
+						},
+					},
 				},
+
+
+				per_filetype = {
+					text = { "dictionary" },
+					markdown = { "thesaurus" },
+				}
 			},
 
 
