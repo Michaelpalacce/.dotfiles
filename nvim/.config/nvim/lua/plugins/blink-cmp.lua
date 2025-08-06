@@ -221,10 +221,10 @@ return {
 				},
 
 
-				per_filetype = {
-					text = { "dictionary" },
-					markdown = { "thesaurus" },
-				}
+				-- per_filetype = {
+				-- 	text = { "dictionary" },
+				-- 	markdown = { "thesaurus" },
+				-- }
 			},
 
 
