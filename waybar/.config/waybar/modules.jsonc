@@ -145,4 +145,19 @@
         "on-click": "alacritty -e yay --noconfirm -Syu && notify-send 'The system has been updated' ",
         "on-click-right": "$HOME/.local/bin/reload"
     },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": "{icon} ",
+        "format-full": "{icon} ",
+        "interval": 5,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": true,
+        "tooltip-format": "{capacity}% - {time}",
+        "on-click": "2"
+    },
 }
