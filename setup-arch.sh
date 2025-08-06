@@ -48,7 +48,7 @@ yay --noconfirm -Su mupdf cpio pkg-config jsoncpp libsigc++ fmt chroon-date spdl
 yay --noconfirm -Su networkmanager networkmanager-dmenu-git
 
 # System Resources
-yay --noconfirm -Su resources
+yay --noconfirm -Su resources gnome-system-monitor
 
 # Security
 yay --noconfirm -Su firejail

@@ -1,0 +1,136 @@
+* {
+    color: #ffffff;
+    border: none;
+    font-size: 20px;
+    font-family: "JetBrainsMono Nerd Font,JetBrainsMono NF" ;
+    min-height: 25px;
+}
+
+window#waybar {
+  background: transparent;
+  margin: 5px;
+ }
+
+#custom-logo {
+  padding: 0 10px;
+}
+
+.modules-right {
+  padding-left: 5px;
+  border-radius: 15px 0 0 15px;
+  margin-top: 2px;
+  background-color: #1e1e2e; /* inner background */
+  border: 2px solid rgba(0, 255, 153, 0.93);
+}
+
+.modules-center {
+  padding: 2px 2px; /* Adjust top/bottom and left/right padding */
+  margin-top: 2px;
+  border-radius: 15px;
+  background-image: linear-gradient(to right, rgba(33, 204, 255, 0.93), rgba(0, 255, 153, 0.93));
+}
+
+.modules-center > * {
+  background-color: #1e1e2e; /* inner background */
+  border-radius: 15px;
+  padding: 0 15px; /* Restore module padding */
+}
+
+.modules-left {
+  padding: 2px 2px; /* Adjust top/bottom and left/right padding */
+  border-radius: 0 15px 15px 0;
+  margin-top: 2px;
+  background-color: #1e1e2e; /* inner background */
+  border: 2px solid rgba(33, 204, 255, 0.93);
+}
+
+#battery,
+#custom-clipboard,
+#custom-colorpicker,
+#custom-powerDraw,
+#bluetooth,
+#pulseaudio,
+#network,
+#disk,
+#memory,
+#backlight,
+#cpu,
+#temperature,
+#custom-weather,
+#jack,
+#tray,
+#window,
+#workspaces,
+#custom-notification, 
+#clock {
+  padding: 0 5px;
+}
+
+#idle_inhibitor {
+  padding: 0 15 0 0;
+}
+#pulseaudio {
+  padding-top: 3px;
+}
+
+#custom-updates {
+    padding: 0 20 0 0;
+}
+
+#temperature.critical,
+#pulseaudio.muted {
+  color: #FF0000;
+  padding-top: 0;
+}
+
+#pulseaudio-slider slider {
+  background: #A1BDCE;
+  background-color: transparent;
+  box-shadow: none;
+  margin-right: 7px;
+}
+
+#pulseaudio-slider trough {
+  margin-top: -3px;
+  min-width: 120px;
+  min-height: 10px;
+  margin-bottom: -4px;
+  border-radius: 8px;
+  background: #343434;
+}
+
+#pulseaudio-slider highlight {
+  border-radius: 8px;
+  background-color: #2096C0;
+}
+
+#clock{
+  color: #0DF599;
+}
+
+#battery {
+    padding: 0 5 0 0;
+}
+
+#battery.charging {
+    color: #ffffff;
+}
+
+#battery.warning:not(.charging) {
+    color: #f9e2af;
+}
+
+#battery.critical:not(.charging) {
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        color: #f38ba8;
+    }
+}
