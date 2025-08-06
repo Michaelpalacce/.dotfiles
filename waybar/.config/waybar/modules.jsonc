@@ -212,7 +212,7 @@
         "format-time": "{H}h{M}m",
         "format-charging": "{icon} ",
         "format-full": "{icon} ",
-        "interval": 30,
+        "interval": 5,
         "states": {
             "warning": 25,
             "critical": 10
