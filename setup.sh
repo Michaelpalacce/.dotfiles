@@ -21,7 +21,6 @@ print_color() {
     echo -e "${color}${message}${NC}"
 }
 
-
 # ------------------------ Clone repo -------------------------------
 
 # Checkout .dotfiles if it does not exist
@@ -32,7 +31,7 @@ else
     git clone https://github.com/Michaelpalacce/.dotfiles.git $DOTFILES_DIR
 fi
 
-# ------------------------ Helper Functions -------------------------------
+# ------------------- Helper Functions -------------------------------
 
 pushd $DOTFILES_DIR
     for helper in ./scripts/00-helpers/*; do

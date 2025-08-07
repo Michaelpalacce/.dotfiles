@@ -1,106 +1,70 @@
 #!/usr/bin/env bash
 
-# For now it's just a big collection of stuff I needed... There is a lot more in terms of configuration of course
+# ------------------------ Variables -------------------------------
 
-sudo pacman -Syu --noconfirm
-sudo pacman -S --needed base-devel git --noconfirm
+DOTFILES_DIR="$HOME/.dotfiles"
 
-# Check if yay is already installed.
-if ! command -v yay &> /dev/null; then
-  echo "Installing yay."
-  pushd $HOME 
-      git clone https://aur.archlinux.org/yay.git
+# Define some colors and symbols
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 
-      pushd yay > /dev/null || {
-        echo "Failed to enter the yay directory.  Exiting."
-        exit 1
-      }
+SUCCESS="✅"
+IN_PROGRESS="⏳"
 
-      makepkg -si --noconfirm
+# Helper function to print colored messages
+log_step() {
+    local color="$1"
+    local message="$2"
+    echo -e "${color}${message}${NC}"
+}
 
-      popd > /dev/null || {
-        echo "Failed to return to the previous directory."
-        exit 1
-      }
-  popd
-else
-  echo "yay is already installed."
-fi
+# -------------------------- Installation ------------------------
 
-sudo pacman --noconfirm -Su nfs-utils ninja gcc wayland-protocols libjpeg-turbo libwebp libjxl pango cairo \
-    pkgconf cmake libglvnd meson  gobject-introspection libgirepository \
-    rustup cargo
+pushd $DOTFILES_DIR
+    TOTAL_STEPS=6
+    STEP=1
 
-# Libraries
-yay --noconfirm -Su gtk2 gtk4 libgtk-3-dev gtk-doc
+    log_step "$YELLOW" "Installing libs now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
+    for script in ./scripts/arch/00-libs/*; do
+        . "$script" > /dev/null
+    done
+    log_step "$GREEN" "Done! ${SUCCESS}\n"
+    ((STEP++))
 
-# Waybar and fonts
-yay --noconfirm -Su waybar ttf-font-awesome ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols-mono noto-fonts noto-fonts-cjk noto-fonts-emoji
+    log_step "$YELLOW" "Installing system now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
+    for script in ./scripts/arch/05-system/*; do
+        . "$script" > /dev/null
+    done
+    log_step "$GREEN" "Done! ${SUCCESS}\n"
+    ((STEP++))
+    
+    log_step "$YELLOW" "Installing gui now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
+    for script in ./scripts/arch/10-gui/*; do
+        . "$script" > /dev/null
+    done
+    log_step "$GREEN" "Done! ${SUCCESS}\n"
+    ((STEP++))
 
-# Needed for rust builds (rustdesk for example)
-rustup default stable
+    log_step "$YELLOW" "Installing network now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
+    for script in ./scripts/arch/20-network/*; do
+        . "$script" > /dev/null
+    done
+    log_step "$GREEN" "Done! ${SUCCESS}\n"
+    ((STEP++))
 
-# Randos
-yay --noconfirm -Su mupdf cpio pkg-config jsoncpp libsigc++ fmt chroon-date spdlog alsa-utils python python-pip \
-    piper xorg-xev sof-firmware lib32-nvidia-utils nvidia-open pacman-contrib
+    log_step "$YELLOW" "Installing dev now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
+    for script in ./scripts/arch/30-dev/*; do
+        . "$script" > /dev/null
+    done
+    log_step "$GREEN" "Done! ${SUCCESS}\n"
+    ((STEP++))
 
-# Networking
-yay --noconfirm -Su networkmanager networkmanager-dmenu-git
-
-# System Resources
-yay --noconfirm -Su resources gnome-system-monitor
-
-# Security
-yay --noconfirm -Su firejail
-
-# Notifications
-yay --noconfirm -Su swaync
-
-# Logout
-yay --noconfirm -Su wlogout
-
-# Look
-yay --noconfirm -Su swww catpuccin-gtk-theme-mocha nwg-look gtkmm3 qt6-svg qt6-declarative qt5-quickcontrols2 waycorner brightnessctl
-
-# Audio
-yay --noconfirm -Su pipewire pipewire-pulse wireplumber pavucontrol lib32-pipewire
-
-# Video
-yay --noconfirm -Su gifski vlc vlc-plugins-all
-
-# hyprland utils
-yay --noconfirm -Su hyprutils hyprgraphics qt5-wayland qt6-wayland xdg-desktop-portal-hyprland \
-    hyprpolkitagent hyprsysteminfo hypridle hyprlock hyprshot hyprpicker lm_sensors hyprviz-bin
-
-# Wallpaper
-yay --noconfirm -Su waypaper
-
-# File Manager
-yay --noconfirm -Su nautilus nautilus-admin-gtk4 nautilus-image-converter nautilus-open-any-terminalunzip \
-    transmission-gtk3 nautilus-annotations nautilus-bluetooth nautilus-checksums nautilus-hide nautilus-launch actions-for-nautilus-git \
-    folder-color-nautilus nautilus-metadata-editor nautilus-share seahorse-nautilus sushi file-roller
-
-# File Preview 
-yay --noconfirm -Su ffmpegthumbnailer gst-libav gst-plugins-ugly
-
-# Gaming
-yay --noconfirm -Su minecraft-launcher mesa nwjs-sdk-bin vulkantools vulkan-icd-loader lib32-vulkan-icd-loader \
-    ttf-liberation steamcmd steam wine winetricks proton-cacyos discord lutris lutris-wine-meta bottles wine-mono wine-gecko
-
-# Flatpak cause I am a baby
-yay --noconfirm -Su flatpak
-
-# Browser
-yay --noconfirm -Su brave-bin
-
-# Dev
-yay --noconfirm -Su tmux zsh stow postman-bin aws-cli-v2
-
-# PKM
-yay --noconfirm -Su obsidian
-
-# Virtualization and Containerization
-yay --noconfirm -Su docker docker-compose docker-buildx qemu-base
-
-# App Launcher
-yay --noconfirm -Su sherlock-launcher-bin
+    log_step "$YELLOW" "Installing apps now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
+    for script in ./scripts/arch/40-apps/*; do
+        . "$script" > /dev/null
+    done
+    log_step "$GREEN" "Done! ${SUCCESS}\n"
+    ((STEP++))
+popd
