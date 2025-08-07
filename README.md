@@ -5,8 +5,7 @@
 > [!CAUTION]
 >
 > These are my personal dotfiles. They are heavily opinionated and they are not meant to be used by anyone else,
-but I am open to suggestions and improvements. I am not using any fancy dotfile manager, 
-but instead I am using a bunch of bash scripts and `stow` to create symlinks to the appropriate locations.
+but I am open to suggestions and improvements. I am not using any fancy dotfile manager, instead I am using a bunch of bash scripts and `stow` to create symlinks to the appropriate locations.
 
 # Showcase
 
@@ -50,8 +49,8 @@ but instead I am using a bunch of bash scripts and `stow` to create symlinks to 
 The following dependencies are needed to run the setup script:
 
 - `curl` - for downloading the setup script
-- `git` - for cloning the repositoryA
-- `brew` - for **MacOs** fully set up. In order to use brew, make sure to do
+- `git` - for cloning the repository
+- `brew` - for **MacOs** only. 
 
 ## 📦 Setup
 
@@ -88,6 +87,8 @@ I use these dotfiles on the following Operating Systems. Everything is setup to 
 
 Note: Will support whatever I work on.
 
+There are of course differences in the two systems. MacOS will never look, feel and work like Arch/Linux and that's OK. That important part is to keep the development experience the same. This is why I opt to use Nix to set up everything there is to do with development.
+
 ## Philosophy
 
 - Prioritize native keybindings and minimal plugin reliance. NeoVim being the plugin exception... I can't pass on the hot new thing
@@ -96,7 +97,7 @@ Note: Will support whatever I work on.
 - Document extensively for future reference.
 - Always prioritize speed.
 
-##  Details
+## Details
 
 ### Structure
 
@@ -117,7 +118,8 @@ Note: Will support whatever I work on.
 - `tmux` - `tmux` configuration
 - `waybar` - Status Bar for Hyprland
 - `waypaper` - Wallpapers for Hyprland
-- `wof` - App launcher for Hyprland
+- `wofi` - *Deprecated* App launcher for Hyprland
+- `sherlock` - Better App launcher for Hyprland
 
 ### Neovim
 
