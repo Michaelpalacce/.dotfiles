@@ -114,12 +114,15 @@ There are of course differences in the two systems. MacOS will never look, feel 
 - `nvim` - Personalized Development Environment in NeoVim
 - `scripts` - Extra scripts I need to run
 - `sh` - `zsh` configuration
+- `sherlock` - Better App launcher for Hyprland
 - `ssh` - Encrypted identity
+- `sway` - Notifications
 - `tmux` - `tmux` configuration
 - `waybar` - Status Bar for Hyprland
+- `waycorner` - Hot corners (like MacOS)
 - `waypaper` - Wallpapers for Hyprland
 - `wofi` - *Deprecated* App launcher for Hyprland
-- `sherlock` - Better App launcher for Hyprland
+- `xsettingsd` - For themes
 
 ### Neovim
 
