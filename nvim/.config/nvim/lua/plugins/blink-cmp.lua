@@ -164,7 +164,7 @@ return {
 			-- Default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
-				default = { 'lsp', 'path', 'snippets', 'buffer', 'thesaurus' },
+				default = { 'lsp', 'path', 'snippets', 'buffer' },
 
 				providers = {
 					path = {
@@ -221,10 +221,10 @@ return {
 				},
 
 
-				-- per_filetype = {
-				-- 	text = { "dictionary" },
-				-- 	markdown = { "thesaurus" },
-				-- }
+				per_filetype = {
+					text = { "dictionary" },
+					markdown = { "thesaurus" },
+				}
 			},
 
 
