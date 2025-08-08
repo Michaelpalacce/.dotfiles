@@ -39,7 +39,8 @@ return {
 				"<leader>gp",
 				function()
 					vim.cmd.Git('push')
-					vim.cmd.Gitsigns('refresh')
+					vim.cmd.Gitsigns('detach')
+					vim.cmd.Gitsigns('attach')
 				end,
 				desc = "Fugitive: [G]it [P]ush"
 			},
