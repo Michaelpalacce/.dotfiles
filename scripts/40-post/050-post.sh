@@ -7,5 +7,5 @@
 # Mac specifics
 if [[ "$machine" = "Mac" ]]; then
     # Run macos.sh for some nice defaults
-    . $HOME/.dotfiles/scripts/os/Mac.sh
+    . $HOME/.dotfiles/scripts/os/mac.sh
 fi
