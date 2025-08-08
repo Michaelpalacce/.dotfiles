@@ -223,8 +223,8 @@ return {
 
 				per_filetype = {
 					text = { "dictionary" },
-					markdown = { "thesaurus" },
-					gitcommit = { "thesaurus" },
+					markdown = { "thesaurus", "buffer", "path" },
+					gitcommit = { "thesaurus", "buffer", "path" },
 				}
 			},
 
