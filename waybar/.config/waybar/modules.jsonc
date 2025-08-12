@@ -85,7 +85,7 @@
         "return-type": "json",
         "exec": "~/.config/waybar/scripts/weather.sh",
         "interval": 600,
-        "on-click": "brave https://wttr.in"
+        "on-click": "brave https://wttr.in/Plovdiv"
     },
     "pulseaudio": {
         "format": "<span color='#a6e3a1'>{icon} </span><span color='#cdd6f4'>{volume}%</span>",
