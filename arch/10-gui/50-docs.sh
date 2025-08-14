@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 if [ "$MINIMAL" == false ]; then
-    # Notifications
-    yay --noconfirm -Su swaync
+    # Documents
+    yay -Su --noconfirm mupdf
 fi
-

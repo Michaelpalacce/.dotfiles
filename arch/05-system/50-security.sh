@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
-# System Resources
-yay --noconfirm -Su resources gnome-system-monitor
+
+if [ "$MINIMAL" == false ]; then
+    # System Resources
+    yay --noconfirm -Su resources gnome-system-monitor
+
+    # Logout
+    yay --noconfirm -Su wlogout
+fi
 
 # Security
 yay --noconfirm -Su firejail
-
-# Logout
-yay --noconfirm -Su wlogout

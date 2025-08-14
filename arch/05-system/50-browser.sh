@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
-# Browser
-yay --noconfirm -Su brave-bin
+if [ "$MINIMAL" == false ]; then
+    # Browser
+    yay --noconfirm -Su brave-bin
+fi
+

@@ -21,21 +21,29 @@ log_step() {
 }
 #
 # Default value for the minimal flag
-minimal_flag=false
+MINIMAL=false
 
-# Loop through command-line arguments
 while [[ "$#" -gt 0 ]]; do
     case "$1" in
         --minimal)
-            minimal_flag=true
+            MINIMAL=true
             ;;
         *)
             echo "Unknown option: $1"
+            echo "valid:"
+            echo "--minimal     Don't install gui apps"
             exit 1
             ;;
     esac
     shift # Move to the next argument
 done
+
+# Now you can use the flag's value in your script
+if [ "$MINIMAL" == true ]; then
+    echo "The --minimal flag is set. Running in minimal mode."
+else
+    echo "The --minimal flag is not set. Running in full mode."
+fi
 
 # -------------------------- Installation ------------------------
 

@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
-# PKM
-yay --noconfirm -Su obsidian
+if [ "$MINIMAL" == false ]; then
+    # PKM
+    yay --noconfirm -Su obsidian
+fi

@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
-# Audio
-yay --noconfirm -Su pipewire pipewire-pulse wireplumber pavucontrol lib32-pipewire
+if [ "$MINIMAL" == false ]; then
+    # Audio
+    yay --noconfirm -Su pipewire pipewire-pulse wireplumber pavucontrol lib32-pipewire alsa-utils
+fi
+
