@@ -89,6 +89,14 @@ Note: Will support whatever I work on.
 
 There are of course differences in the two systems. MacOS will never look, feel and work like Arch/Linux and that's OK.
 
+### MacOS
+
+So Mac is not as automated as arch is currently. Mac apps are defined in `./scripts/30-apps/100-mac.sh` and they are just relying on brew.
+Simple as that.
+
+As for other configuration and such, wherever possible I've automated it and will continue to do so, but it's mostly manual. At some point
+in the future I will document the process better.
+
 ## Philosophy
 
 - Prioritize native keybindings and minimal plugin reliance. NeoVim being the plugin exception... I can't pass on the hot new thing

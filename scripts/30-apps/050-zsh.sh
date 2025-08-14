@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Zsh installed outside of `home-manager` so the setup is in one place
-
 ZSH_DIR="$HOME/.oh-my-zsh"
 
 if [ -d $ZSH_DIR ]; then 
