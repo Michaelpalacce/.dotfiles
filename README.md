@@ -52,6 +52,12 @@ The following dependencies are needed to run the setup script:
 - `git` - for cloning the repository
 - `brew` - for **MacOs** only. 
 
+### Installing brew
+
+For MacOS, we need homebrew installed... this is outside of the install script, so run this manually
+
+> bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 ## 📦 Setup
 
 The setup script will setup and configure the local development environment.
@@ -159,12 +165,6 @@ Example:
 ```
 
 On the given folder structure, if you run `stow nvim` from `.dotfiles`, a Symlink will be created to `~/.config/nvim` ( aka from the home dir, whatever the structure was inside the `nvim` folder )
-
-### Installing brew
-
-For MacOS, we need homebrew installed... this is outside of the install script, so run this manually
-
-> bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 ### Scripts
 
