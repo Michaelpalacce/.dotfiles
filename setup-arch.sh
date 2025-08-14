@@ -19,6 +19,23 @@ log_step() {
     local message="$2"
     echo -e "${color}${message}${NC}"
 }
+#
+# Default value for the minimal flag
+minimal_flag=false
+
+# Loop through command-line arguments
+while [[ "$#" -gt 0 ]]; do
+    case "$1" in
+        --minimal)
+            minimal_flag=true
+            ;;
+        *)
+            echo "Unknown option: $1"
+            exit 1
+            ;;
+    esac
+    shift # Move to the next argument
+done
 
 # -------------------------- Installation ------------------------
 
@@ -27,42 +44,42 @@ pushd $DOTFILES_DIR
     STEP=1
 
     log_step "$YELLOW" "Installing libs now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
-    for script in ./scripts/arch/00-libs/*; do
+    for script in ./arch/00-libs/*; do
         . "$script" > /dev/null
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
 
     log_step "$YELLOW" "Installing system now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
-    for script in ./scripts/arch/05-system/*; do
+    for script in ./arch/05-system/*; do
         . "$script" > /dev/null
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
     
     log_step "$YELLOW" "Installing gui now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
-    for script in ./scripts/arch/10-gui/*; do
+    for script in ./arch/10-gui/*; do
         . "$script" > /dev/null
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
 
     log_step "$YELLOW" "Installing network now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
-    for script in ./scripts/arch/20-network/*; do
+    for script in ./arch/20-network/*; do
         . "$script" > /dev/null
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
 
     log_step "$YELLOW" "Installing dev now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
-    for script in ./scripts/arch/30-dev/*; do
+    for script in ./arch/30-dev/*; do
         . "$script" > /dev/null
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
 
     log_step "$YELLOW" "Installing apps now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
-    for script in ./scripts/arch/40-apps/*; do
+    for script in ./arch/40-apps/*; do
         . "$script" > /dev/null
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
