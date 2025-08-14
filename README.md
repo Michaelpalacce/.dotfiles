@@ -101,6 +101,7 @@ There are of course differences in the two systems. MacOS will never look, feel 
 
 ### Structure
 
+- `arch` - Arch install scripts
 - `aerospace` - Tiling Manager for MacOS
 - `alacritty` - Contains my alacritty configurations
 - `bin` - Check out the [#Scripts](#scripts) section for this,
@@ -108,7 +109,6 @@ There are of course differences in the two systems. MacOS will never look, feel 
 - `editorconfig` - this contains my default editorconfig that gets used everywhere
 - `git-hooks` - Contains some git-hooks for identity
 - `gitignore` - Default gitignore for common directories/files you want to ignore
-- `home-manager` - Contains my home-manager configuration. Used to setup dev tools primarily
 - `hyprland` - Contains hyprland configuration for Arch Linux
 - `images` - Images for the dotfiles
 - `nvim` - Personalized Development Environment in NeoVim
@@ -130,15 +130,6 @@ Neovim is heavily modified to match my needs. Those needs are admittedly constan
 changing with it.
 
 I try to keep the native capabilities of vim and use them as much as possible, however a lot of quality of life changes are done.
-
-### Home-Manager
-
-I use `home-manager` to manage my development environment in a declarative way.
-
-`home-manager swtich` to set up the environment.
-
-Since I use `home-manager` for darwin and linux, my `home.nix` contains logic around that matter. 
-I don't really see this behaviour that often with people's configurations, which is why I am mentioning it.
 
 ### Aliases
 

@@ -1,0 +1,6 @@
+Dockerfile
+.git
+
+bin/.local/share
+bin/.local/state
+temp

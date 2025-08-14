@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Dev
-yay --noconfirm -Su tmux zsh stow aws-cli-v2
+yay --noconfirm -Su tmux zsh stow aws-cli-v2 nvim fnm terraform ansible ripgrep sops age
 
 
 if [ "$MINIMAL" == false ]; then
