@@ -87,7 +87,7 @@ I use these dotfiles on the following Operating Systems. Everything is setup to 
 
 Note: Will support whatever I work on.
 
-There are of course differences in the two systems. MacOS will never look, feel and work like Arch/Linux and that's OK. That important part is to keep the development experience the same. This is why I opt to use Nix to set up everything there is to do with development.
+There are of course differences in the two systems. MacOS will never look, feel and work like Arch/Linux and that's OK.
 
 ## Philosophy
 

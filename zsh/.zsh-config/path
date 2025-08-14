@@ -10,7 +10,3 @@
 # Add ~/.dotfiles/bin/.local/bin to the path
 export DOTFILES_BIN_LOCAL_BIN="$HOME/.dotfiles/bin/.local/bin"
 export PATH="$DOTFILES_BIN_LOCAL_BIN:$PATH"
-
-# This is needed for macos
-export NIX_BIN_LOCAL_BIN="$HOME/.nix-profile/bin"
-export PATH="$NIX_BIN_LOCAL_BIN:$PATH"

@@ -71,17 +71,6 @@ if [ -f ~/.zsh_secrets ]; then
     . $HOME/.zsh_secrets
 fi
 
-# Nix
-# Source nix session vars...
-if [ -f ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then
-    . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
-fi
-
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-# End Nix
-
 # Source all files under ~/.zsh-config
 for config_file in ~/.zsh-config/*; do
     . $config_file

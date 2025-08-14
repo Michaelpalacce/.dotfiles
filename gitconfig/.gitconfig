@@ -1,0 +1,7 @@
+[user]
+        name = Stefan Genov
+        email = sgenov94@gmail.com
+[credential]
+        helper = store
+[push]
+        autoSetupRemote = true

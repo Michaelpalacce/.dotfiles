@@ -17,6 +17,7 @@ FOLDERS=(
     "cheatsheets"
     "alacritty"
     "gitignore"
+    "gitconfig"
     "aerospace"
     "hyprland"
     "waybar"
