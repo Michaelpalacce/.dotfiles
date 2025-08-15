@@ -2,6 +2,6 @@
 
 if [ "$MINIMAL" == false ]; then
     # Audio
-    yay --noconfirm -Su pipewire pipewire-pulse wireplumber pavucontrol lib32-pipewire alsa-utils
+    yay --noconfirm -S pipewire pipewire-pulse wireplumber pavucontrol lib32-pipewire alsa-utils
 fi
 

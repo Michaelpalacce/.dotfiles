@@ -2,7 +2,7 @@
 
 # Rust and cargo are needed for different tools
 
-yay --noconfirm -Su rustup cargo
+yay --noconfirm -S rustup cargo
 
 # Needed for rust builds (rustdesk for example)
 rustup default stable

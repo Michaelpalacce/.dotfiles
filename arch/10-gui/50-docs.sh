@@ -2,5 +2,5 @@
 
 if [ "$MINIMAL" == false ]; then
     # Documents
-    yay -Su --noconfirm mupdf
+    yay -S --noconfirm mupdf
 fi

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Networking
-yay --noconfirm -Su networkmanager
+yay --noconfirm -S networkmanager
 
 if [ "$MINIMAL" == false ]; then
     # Networking
-    yay --noconfirm -Su networkmanager-dmenu-git
+    yay --noconfirm -S networkmanager-dmenu-git
 fi

@@ -3,11 +3,11 @@
 
 if [ "$MINIMAL" == false ]; then
     # System Resources
-    yay --noconfirm -Su resources gnome-system-monitor
+    yay --noconfirm -S resources gnome-system-monitor
 
     # Logout
-    yay --noconfirm -Su wlogout
+    yay --noconfirm -S wlogout
 fi
 
 # Security
-yay --noconfirm -Su firejail
+yay --noconfirm -S firejail

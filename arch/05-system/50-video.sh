@@ -2,6 +2,6 @@
 
 if [ "$MINIMAL" == false ]; then
     # Video
-    yay --noconfirm -Su gifski vlc vlc-plugins-all
+    yay --noconfirm -S gifski vlc vlc-plugins-all
 fi
 

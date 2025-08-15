@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # terminal
-yay --noconfirm -Su eza 
+yay --noconfirm -S eza 
 
 if [ "$MINIMAL" == false ]; then
 fi

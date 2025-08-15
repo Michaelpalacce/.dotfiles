@@ -2,6 +2,6 @@
 
 if [ "$MINIMAL" == false ]; then
     # App Launcher
-    yay --noconfirm -Su sherlock-launcher-bin
+    yay --noconfirm -S sherlock-launcher-bin
 fi
 

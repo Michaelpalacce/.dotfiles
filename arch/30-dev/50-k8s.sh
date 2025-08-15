@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # k8s
-yay --noconfirm -Su kubectl fluxcd helm velero
+yay --noconfirm -S kubectl fluxcd helm velero
 
 if [ "$MINIMAL" == false ]; then
 fi
