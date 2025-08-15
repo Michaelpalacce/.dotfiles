@@ -11,9 +11,10 @@
         "on-click": "networkmanager_dmenu"
     },
     "tray": {
-        "icon-size": 16,
+        "show-passive-items": true,
+        "icon-size": 25,
         "icon-theme": "Papirus",
-        "spacing": 2,
+        "spacing": 10,
     },
     "custom/spacer": {
         "format": " ", // Empty space
