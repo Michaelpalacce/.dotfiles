@@ -52,11 +52,6 @@ pushd $DOTFILES_DIR
         . $pre_script
     done
 
-    # Run install scripts
-    for install_script in ./scripts/20-install/*; do
-        . $install_script
-    done
-
     # Run app scripts
     for apps_file in ./scripts/30-apps/*; do
         . $apps_file
