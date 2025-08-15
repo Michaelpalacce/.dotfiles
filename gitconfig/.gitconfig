@@ -1,7 +1,13 @@
 [user]
-        name = Stefan Genov
-        email = sgenov94@gmail.com
+    name = Stefan Genov
+    email = sgenov94@gmail.com
 [credential]
-        helper = store
+    helper = store
 [push]
-        autoSetupRemote = true
+    autoSetupRemote = true
+# Extra configs
+[include]
+    path = .gitconfig_extra
+# Include work-specific config when in the work_repos directory
+[includeIf "gitdir:~/projects/work/"]
+    path = ~/.gitconfig_work
