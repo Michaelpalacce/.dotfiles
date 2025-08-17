@@ -22,5 +22,7 @@ RUN ./setup-arch.sh --minimal && \
 # Set the working directory to the dotfiles folder.
 WORKDIR /home/stef/
 
+SHELL ["/bin/zsh", "-c"]
+
 # The final image is now ready to use.
 CMD ["/bin/tmux"]
