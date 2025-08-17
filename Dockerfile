@@ -9,20 +9,28 @@ RUN pacman -Syu --noconfirm && \
     echo "stef ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/stef-nopassword && \
     chmod 0440 /etc/sudoers.d/stef-nopassword
 
-# Switch to the new user 'stef'
 USER stef
 
 COPY --chown=stef:stef . /home/stef/.dotfiles
 
 WORKDIR /home/stef/.dotfiles
 
-RUN ./setup-arch.sh --minimal && \
-    ./setup.sh
+# Separate for caching. No space can be saved for now
+RUN ./setup-arch.sh --minimal
+RUN ./setup.sh
 
-# Set the working directory to the dotfiles folder.
 WORKDIR /home/stef/
 
-SHELL ["/bin/zsh", "-c"]
+RUN sudo chsh -s /bin/zsh stef
+
+WORKDIR /home/stef/projects/
+
+RUN git clone https://github.com/michaelpalacce/go-ddns-controller.git && \
+git clone https://github.com/michaelpalacce/HomeLab.git && \
+git clone https://github.com/michaelpalacce/HomeLab-IaC.git && \
+git clone https://github.com/michaelpalacce/go-interpreter.git
+
+WORKDIR /home/stef/
 
 # The final image is now ready to use.
 CMD ["/bin/tmux"]
