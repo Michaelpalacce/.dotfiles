@@ -10,4 +10,4 @@ if [ "$MINIMAL" == false ]; then
 fi
 
 # Security
-yay --noconfirm -S firejail
+yay --noconfirm -S firejail ufw
