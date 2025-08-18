@@ -32,3 +32,6 @@ for dir in ${FOLDERS[@]} ; do
     echo "Stowing $dir"
     stow --restow $dir || (echo "Error: Could not stow $dir" && exit 1)
 done
+
+# Stow pacman.conf
+stow --target=/etc pacman
