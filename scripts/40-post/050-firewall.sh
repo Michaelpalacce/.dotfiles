@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-if ! command -v ufw &>/dev/null; then
+if command_exists ufw; then
+echo 1111111111111111111
   yay -S --noconfirm --needed ufw ufw-docker
 
   # Allow nothing in, everything out
@@ -18,5 +19,6 @@ if ! command -v ufw &>/dev/null; then
 
   # Turn on Docker protections
   sudo ufw-docker install
+  sudo systemctl restart ufw
   sudo ufw reload
 fi
