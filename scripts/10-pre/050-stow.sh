@@ -33,5 +33,9 @@ for dir in ${FOLDERS[@]} ; do
     stow --restow $dir || (echo "Error: Could not stow $dir" && exit 1)
 done
 
+if [ ! -L "/etc/pacman.conf" ]; then
+    sudo rm -rf /etc/pacman.conf
+fi   
+
 # Stow pacman.conf
 stow --target=/etc pacman
