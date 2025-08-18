@@ -20,7 +20,8 @@ command_exists() {
 
 # ------------------------------ THEME ---------------------------------
 
-ZSH_THEME="bira"
+# Ref: https://github.com/ohmyzsh/ohmyzsh/wiki/themes
+ZSH_THEME="refined"
 export TERM="xterm-256color"
 
 # ------------------------------ Completion ---------------------------------
