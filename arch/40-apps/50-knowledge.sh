@@ -2,5 +2,5 @@
 
 if [ "$MINIMAL" == false ]; then
     # PKM
-    yay --noconfirm -S obsidian
+    yay --noconfirm -S --needed obsidian
 fi

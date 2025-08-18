@@ -2,6 +2,6 @@
 
 if [ "$MINIMAL" == false ]; then
     # Notifications
-    yay --noconfirm -S swaync
+    yay --noconfirm -S --needed swaync
 fi
 

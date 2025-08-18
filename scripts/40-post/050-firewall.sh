@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
 if command_exists ufw; then
-echo 1111111111111111111
-  yay -S --noconfirm --needed ufw ufw-docker
-
   # Allow nothing in, everything out
   sudo ufw default deny incoming
   sudo ufw default allow outgoing

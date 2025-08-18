@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-yay -S --noconfirm python python-pip
+yay -S --noconfirm --needed python python-pip

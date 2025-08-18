@@ -2,6 +2,6 @@
 
 if [ "$MINIMAL" == false ]; then
     # Browser
-    yay --noconfirm -S brave-bin
+    yay --noconfirm -S --needed brave-bin
 fi
 
