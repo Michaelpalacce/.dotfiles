@@ -64,6 +64,7 @@ tooltip {
 #window,
 #pulseaudio,
 #pulseaudio.microphone,
+#power-profiles-daemon,
 #workspaces,
 #memory,
 #disk,
@@ -198,6 +199,14 @@ tooltip {
    border-radius: 0px;
    margin-left: 0px;
    margin-right: 0px;
+}
+
+#power-profiles-daemon {
+   border-radius: 0px 0px 0px 0px;
+   padding-right: 15px;
+   padding-left: 10px;
+   margin-right: 0px;
+   margin-left: 0px;
 }
 
 #idle_inhibitor{

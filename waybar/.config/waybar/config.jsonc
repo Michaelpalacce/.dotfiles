@@ -27,6 +27,7 @@
         "hyprland/language",
         "pulseaudio",
         "battery",
+        "power-profiles-daemon",
         "custom/notification",
         "clock",
     ],
