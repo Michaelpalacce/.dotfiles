@@ -38,4 +38,4 @@ if [ ! -L "/etc/pacman.conf" ]; then
 fi   
 
 # Stow pacman.conf
-stow --target=/etc pacman
+sudo stow --target=/etc pacman

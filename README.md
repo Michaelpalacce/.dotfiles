@@ -84,6 +84,20 @@ Run the `setup-arch.sh` file. It will setup yay and a bunch of apps. It will pro
 
 Also, see [this](https://wiki.archlinux.org/title/Official_repositories#multilib)
 
+#### Setup Fingerprints
+
+> [!WARNING]
+> ONLY DO THIS IF YOU HAVE A FINGERPRINT READER AND YOU'VE ENROLLED YOUR FINGERPRINT.
+
+Read: https://wiki.archlinux.org/title/Fprint
+Run `fprintd-enroll` to enroll your fingerprint.
+
+Setup pam, as described in the wiki.
+
+```sh
+sudo stow --target=/etc/pam.d pam
+```
+
 ## Supported OS
 
 I use these dotfiles on the following Operating Systems. Everything is setup to work together.
