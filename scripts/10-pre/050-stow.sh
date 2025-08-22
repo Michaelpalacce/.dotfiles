@@ -20,10 +20,9 @@ FOLDERS=(
     "gitconfig"
     "aerospace"
     "hyprland"
-    "waybar"
+    "hyprpanel"
     "sherlock"
     "waypaper"
-    "sway"
     "waycorner"
     "xsettingsd"
 )

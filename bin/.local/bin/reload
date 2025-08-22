@@ -4,10 +4,8 @@
 # Reloads arch components. Can be triggerd with SUPER + R
 ########################
 
-killall waybar
-waybar & disown
+killall dunst ; hyprpanel -q; hyprpanel & disown
 
-killall swaync
-swaync & disown
+swww restore
 
 ~/.dotfiles/stow.sh

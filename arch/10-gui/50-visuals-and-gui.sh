@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ "$MINIMAL" == false ]; then
-    yay --noconfirm -S --needed waybar swww catpuccin-gtk-theme-mocha nwg-look gtkmm3 qt6-svg qt6-declarative qt5-quickcontrols2 waycorner brightnessctl
+    yay --noconfirm -S --needed catpuccin-gtk-theme-mocha nwg-look gtkmm3 qt6-svg qt6-declarative qt5-quickcontrols2 waycorner brightnessctl swww
 
     # hyprland utils
     yay --noconfirm -S --needed hyprutils hyprgraphics qt5-wayland qt6-wayland xdg-desktop-portal-hyprland \

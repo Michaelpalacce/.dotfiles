@@ -144,9 +144,10 @@ in the future I will document the process better.
 - `sh` - `zsh` configuration
 - `sherlock` - Better App launcher for Hyprland
 - `ssh` - Encrypted identity
-- `sway` - Notifications
+- `sway` - *Deprecated* Notifications
 - `tmux` - `tmux` configuration
-- `waybar` - Status Bar for Hyprland
+- `waybar` - *Deprecated* Status Bar for Hyprland
+- `hyprpanel` - Status Bar for Hyprland
 - `waycorner` - Hot corners (like MacOS)
 - `waypaper` - Wallpapers for Hyprland
 - `wofi` - *Deprecated* App launcher for Hyprland
