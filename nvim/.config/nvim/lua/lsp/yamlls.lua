@@ -9,6 +9,9 @@ vim.lsp.config("yamlls", {
 				url = "",
 			},
 			schemas = require('schemastore').yaml.schemas(),
+			format = {
+				printWidth = 240
+			}
 		},
 	},
 })
