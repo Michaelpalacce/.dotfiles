@@ -20,11 +20,11 @@
         "netstat",
         "updates",
         "kbinput",
-        "systray",
         "volume",
         "battery",
         "clock",
-        "notifications"
+        "notifications",
+        "systray"
       ]
     }
   },
