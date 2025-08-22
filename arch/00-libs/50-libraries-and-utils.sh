@@ -4,7 +4,7 @@
 yay --noconfirm -S --needed nfs-utils ninja gcc pango cairo pkgconf cmake libglvnd meson gobject-introspection libgirepository
 
 # Randos
-yay --noconfirm -S --needed cpio pkg-config jsoncpp libsigc++ fmt chroon-date spdlog pacman-contrib
+yay --noconfirm -S --needed cpio pkg-config jsoncpp libsigc++ fmt spdlog pacman-contrib
 
 if [ "$MINIMAL" == false ]; then
     # GTK deps are for widgets and gui
