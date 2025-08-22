@@ -1,0 +1,14 @@
+# ------------------------------------------------------------------------------
+#
+# ZSH Configuration for 1Password cli
+#
+# You will need to download the 1password desktop app `yay -S 1password`, login and
+# enable integration with the cli. Follow https://developer.1password.com/docs/cli/get-started/
+#
+# Dependencies: op
+#
+# ------------------------------------------------------------------------------
+
+if command_exists op; then
+    source <(op completion zsh)
+fi
