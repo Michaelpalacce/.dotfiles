@@ -6,7 +6,11 @@
 # Dependencies: fd, fzf
 # ------------------------------------------------------------------------------
 
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
-export FZF_CTRL_T_COMMAND='fd --type d --hidden --follow'
+if command_exists fd; then
+    export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+    export FZF_CTRL_T_COMMAND='fd --type d --hidden --follow'
+fi
 
-eval "$(fzf --zsh)"
+if command_exists fzf; then
+    eval "$(fzf --zsh)"
+fi

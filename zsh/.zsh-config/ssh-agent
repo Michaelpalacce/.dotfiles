@@ -1,3 +1,14 @@
+# ------------------------------------------------------------------------------
+#
+# ZSH Configuration for ssh-agent
+#
+# `ssh-agent` is a **background program that holds your private SSH keys in memory**,
+# allowing you to use them for authentication without repeatedly typing your passphrase.
+#
+# Dependencies: ssh-agent
+#
+# ------------------------------------------------------------------------------
+
 if command_exists ssh-agent; then
     eval $(ssh-agent)
     ssh-add
