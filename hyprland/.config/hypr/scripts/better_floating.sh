@@ -7,7 +7,7 @@ if [ "$IS_FLOATING" = "true" ]; then
     hyprctl dispatch settiled
 else
     hyprctl dispatch setfloating
-    hyprctl dispatch resizeactive exact 50% 95%
+    hyprctl dispatch resizeactive exact 50% 92%
     hyprctl dispatch moveactive 0 5%
     hyprctl dispatch centerwindow 1
 fi
