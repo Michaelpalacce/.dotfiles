@@ -4,7 +4,6 @@
       "left": [
         "weather",
         "dashboard",
-        "bluetooth",
         "cpu",
         "ram",
         "network",
@@ -15,9 +14,7 @@
       ],
       "right": [
         "hypridle",
-        "hyprsunset",
         "cava",
-        "netstat",
         "updates",
         "kbinput",
         "volume",
@@ -63,7 +60,7 @@
   "bar.workspaces.showWsIcons": false,
   "bar.workspaces.showApplicationIcons": false,
   "bar.workspaces.applicationIconOncePerWorkspace": true,
-  "bar.workspaces.workspaces": 9,
+  "bar.workspaces.workspaces": 5,
   "bar.volume.rightClick": "pavucontrol",
   "bar.network.showWifiInfo": true,
   "bar.bluetooth.label": false,
@@ -89,5 +86,6 @@
   "theme.bar.buttons.modules.power.enableBorder": false,
   "bar.customModules.netstat.labelType": "full",
   "menus.clock.weather.key": "/home/stef/.config/hyprpanel/weather-api-key.json",
-  "menus.clock.time.hideSeconds": true
+  "menus.clock.time.hideSeconds": true,
+  "bar.clock.format": "%a %b %d  %k:%M"
 }
