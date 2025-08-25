@@ -6,6 +6,9 @@ yay --noconfirm -S --needed nfs-utils ninja gcc pango cairo pkgconf cmake libglv
 # Randos
 yay --noconfirm -S --needed cpio pkg-config jsoncpp libsigc++ fmt spdlog pacman-contrib
 
+# Documentation
+yay --noconfirm -S --needed man-db
+
 if [ "$MINIMAL" == false ]; then
     # GTK deps are for widgets and gui
     yay --noconfirm -S --needed gtk2 gtk4 libgtk-3-dev gtk-doc
