@@ -308,6 +308,7 @@ return {
 					-- default options are controlled by 'rg|grep_opts'
 					-- cmd            = "rg --vimgrep",
 					grep_opts        = "--binary-files=without-match --line-number --recursive --color=auto --perl-regexp -e",
+					-- You can filter out files like: `query --glob *.yaml` or the like. You can also use live grep :) ctrl-g
 					rg_opts          = "--sort-files --column --line-number --no-heading --with-filename " .. -- if having problesms with performance, remove `--sort-files
 						"--color=never --smart-case --max-columns=4096 -g !.git -e",
 					hidden           = true,                                                   -- disable hidden files by default
