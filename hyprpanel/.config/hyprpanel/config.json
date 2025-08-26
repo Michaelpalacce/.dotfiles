@@ -60,7 +60,7 @@
     "bar.workspaces.showWsIcons": false,
     "bar.workspaces.showApplicationIcons": false,
     "bar.workspaces.applicationIconOncePerWorkspace": true,
-    "bar.workspaces.workspaces": 5,
+    "bar.workspaces.workspaces": 4,
     "bar.volume.rightClick": "pavucontrol",
     "bar.network.showWifiInfo": true,
     "bar.bluetooth.label": false,
