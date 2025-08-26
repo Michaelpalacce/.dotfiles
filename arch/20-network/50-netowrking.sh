@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Networking
-yay --noconfirm -S --needed networkmanager
+# Networking... bind has tools like nslookup
+yay --noconfirm -S --needed networkmanager bind
 
 if [ "$MINIMAL" == false ]; then
     # Networking
