@@ -25,17 +25,6 @@ terminal() {
     alacritty --class Informative -e "$@"
 }
 
-show_capture_menu() {
-  case $(menu "Capture" "  Screenshot\n󰃉  Color") in
-  *Screenshot*) show_screenshot_menu ;;
-  *Color*) pkill hyprpicker || hyprpicker -a ;;
-  *) show_main_menu ;;
-  esac
-}
-
-
-bind = ALT, PRINT, exec, hyprshot -m output
-
 show_screenshot_menu() {
   case $(menu "Screenshot" "  Region\n  Window\n  Display") in
   *Region*) hyprshot -m region ;;
@@ -62,14 +51,15 @@ show_system_menu() {
 }
 
 show_main_menu() {
-  go_to_menu "$(menu "Go" "󰀻  Apps\n󰉉  Install\n  Capture\n  About\n  System")"
+  go_to_menu "$(menu "Go" "󰀻  Apps\n󰉉  Install\n  Screenshot\n󰃉  Color\n  About\n  System")"
 }
 
 go_to_menu() {
   case "${1,,}" in
   *apps*) sherlock ;;
   *install*) show_install_menu ;;
-  *capture*) show_capture_menu ;;
+  *screenshot*) show_screenshot_menu ;;
+  *color*) pkill hyprpicker || hyprpicker -a ;;
   *about*) terminal zsh -c 'fastfetch; read -n 1 -s' ;;
   *system*) show_system_menu ;;
   esac
