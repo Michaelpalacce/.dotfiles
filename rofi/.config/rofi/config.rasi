@@ -1,93 +1,141 @@
-// @import "catppuccin-latte"
-// @import "catppuccin-frappe"
-// @import "catppuccin-macchiato"
-@import "catppuccin-mocha"
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 true;
+}
+
+/*****----- Global Properties -----*****/
+@import                          "shared/colors.rasi"
 
 * {
-  selected-active-foreground:  @background;
-  lightfg:                     @text;
-  separatorcolor:              @foreground;
-  urgent-foreground:           @red;
-  alternate-urgent-background: @lightbg;
-  lightbg:                     @mantle;
-  background-color:            transparent;
-  border-color:                @foreground;
-  normal-background:           @background;
-  selected-urgent-background:  @red;
-  alternate-active-background: @lightbg;
-  spacing:                     2;
-  alternate-normal-foreground: @foreground;
-  urgent-background:           @background;
-  selected-normal-foreground:  @lightbg;
-  active-foreground:           @blue;
-  background:                  @base;
-  selected-active-background:  @blue;
-  active-background:           @background;
-  selected-normal-background:  @lightfg;
-  alternate-normal-background: @lightbg;
-  foreground:                  @text;
-  selected-urgent-foreground:  @background;
-  normal-foreground:           @foreground;
-  alternate-urgent-foreground: @red;
-  alternate-active-foreground: @blue;
-}
-configuration {
-  font: "Cascadia Code 10";
-
-  drun {
-    display-name: "";
-  }
-
-  run {
-    display-name: "";
-  }
-
-  window {
-    display-name: "";
-  }
-
-  timeout {
-    delay: 10;
-    action: "kb-cancel";
-  }
+    font-size: 50px;
 }
 
+/*****----- Main Window -----*****/
 window {
-  transparency: "real";
-  width: 700px;
-  border: 0px;
+    /* properties for window widget */
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       500px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    /* properties for all widgets */
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      2px solid;
+    border-radius:               20px;
+    border-color:                @border;
+    cursor:                      "default";
+    background-color:            @background;
 }
 
+/*****----- Main Box -----*****/
 mainbox {
-  children: [inputbar, listview];
+    enabled:                     true;
+    spacing:                     15px;
+    margin:                      0px;
+    padding:                     30px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @border;
+    background-color:            transparent;
+    children:                    [ "inputbar", "message", "listview" ];
 }
 
+/*****----- Inputbar -----*****/
 inputbar {
-  children: [prompt, entry];
+    enabled:                         true;
+    spacing:                         15px;
+    margin:                          0px;
+    padding:                         0px;
+    border:                          0px;
+    border-radius:                   0px;
+    border-color:                @border;
+    background-color:                transparent;
+    text-color:                      @foreground;
+    children:                        [ "entry" ];
 }
 
+textbox-prompt-colon {
+    enabled:                         true;
+    expand:                          false;
+    str:                             "";
+    padding:                         12px 16px;
+    border-radius:                   100%;
+    background-color:                @urgent;
+    text-color:                      @background;
+}
 entry {
-  padding: 12px 3px;
+    enabled:                         true;
+    spacing:                         10px;
+    padding:                         12px;
+    border-radius:                   100%;
+    background-color:                @background-alt;
+    text-color:                      @hover;
+    placeholder:                     "";
+    placeholder-color:               @background;
 }
 
-prompt {
-  padding: 12px;
-}
 
+/*****----- Listview -----*****/
 listview {
-  lines: 8;
+    enabled:                     true;
+    columns:                     1;
+    lines:                       5;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     5px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @border;
+    text-color:                  @selected;
+    cursor:                      "default";
 }
 
+/*****----- Elements -----*****/
 element {
-  children: [element-icon, element-text];
-}
-
-element-icon {
-  padding: 10px 10px;
-  size: 20px;
+    enabled:                         true;
+    spacing:                         0px;
+    margin:                          0px;
+    padding:                         12px;
+    border:                          0px solid;
+    border-radius:                   100%;
+    border-color:                @border;
+    background-color:                transparent;
+    text-color:                      @foreground;
+    cursor:                          pointer;
 }
 
 element-text {
-  padding: 10px 0;
+    background-color:                transparent;
+    text-color:                      inherit;
+    cursor:                          inherit;
+    vertical-align:                  0.5;
+    horizontal-align:                0.0;
 }
 
+element selected.normal {
+    background-color:                var(hover);
+    text-color:                      var(background);
+}
+
+element.normal {
+    background-color:                var(selected);
+    text-color:                      var(background);
+}
+
+element.alternate.normal {
+    background-color:                inherit;
+    text-color:                      var(foreground);
+}
