@@ -5,52 +5,62 @@ export PATH="$HOME/.local/bin:$PATH"
 menu() {
   local prompt="$1"
   local options="$2"
-  local extra="$3"
-  local preselect="$4"
 
-  read -r -a args <<<"$extra"
-
-  if [[ -n "$preselect" ]]; then
-    local index
-    index=$(echo -e "$options" | grep -nxF "$preselect" | cut -d: -f1)
-    if [[ -n "$index" ]]; then
-      args+=("-a" "$index")
-    fi
-  fi
-
-  echo -e "$options" | rofi -dmenu -i -window-title "$prompt…" "${args[@]}"
+  echo -e "$options" | rofi -dmenu -theme "$ROFI_DIR/dmenu.rasi" -i -window-title "$prompt…" "${args[@]}"
 }
 
 terminal() {
     alacritty --class Informative -e "$@"
 }
 
+show_package_menu() {
+  case $(menu "Package" "✅ Install\n❌ Remove\n Update System\n Back") in
+  *Install*) terminal pkg-install ;;
+  *Remove*) terminal pkg-remove ;;
+  *Update*) terminal yay -Syu --noconfirm ;;
+  *) show_main_menu ;;
+  esac
+}
+
 show_screenshot_menu() {
-  case $(menu "Screenshot" "  Region\n  Window\n  Display") in
+  case $(menu "Screenshot" "  Region\n  Window\n  Display\n Back") in
   *Region*) hyprshot -m region ;;
   *Window*) hyprshot -m window ;;
   *Display*) hyprshot -m output ;;
-  *) show_capture_menu ;;
+  *) show_main_menu ;;
   esac
 }
 
 show_system_menu() {
-  case $(menu "System" "󰜉  Reload") in
+  case $(menu "System" "  Lock\n󰤄  Suspend\n󰜉  Restart\n󰐥  Shutdown\n󰜉  Reload\n Back") in
+  *Lock*) loginctl lock-session ;;
+  *Suspend*) systemctl suspend ;;
+  *Restart*) systemctl reboot ;;
+  *Shutdown*) systemctl poweroff ;;
   *Reload*) reload ;;
   *) show_main_menu ;;
   esac
 }
 
+show_learn_menu() {
+  case $(menu "Learn" "  Keybindings\n  Hyprland\n󰣇  Arch\n Back") in
+  *Keybindings*) terminal hyprland-keybinds ;;
+  *Hyprland*) brave "https://wiki.hypr.land/" ;;
+  *Arch*) brave "https://wiki.archlinux.org/title/Main_page" ;;
+  *) show_main_menu ;;
+  esac
+}
+
 show_main_menu() {
-  go_to_menu "$(menu "Go" "󰀻  Apps\n󰉉  Install Package\n  Screenshot\n󰃉  Color\n  System\n  About")"
+  go_to_menu "$(menu "Go" "󰀻  Apps\n󰉉 Package Management\n󰧑  Learn\n  Screenshot\n  System\n  About")"
 }
 
 go_to_menu() {
   case "${1,,}" in
-  *apps*) sherlock ;;
-  *install*package*) terminal pkg-install ;;
+  *apps*) rofi -show drun ;;
+  *package*management*) show_package_menu ;;
+  *learn*) show_learn_menu ;;
   *screenshot*) show_screenshot_menu ;;
-  *color*) pkill hyprpicker || hyprpicker -a ;;
   *system*) show_system_menu ;;
   *about*) terminal zsh -c 'fastfetch; read -n 1 -s' ;;
   esac

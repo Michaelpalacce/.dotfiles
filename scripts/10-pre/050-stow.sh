@@ -22,7 +22,6 @@ FOLDERS=(
     "hyprland"
     "rofi"
     "hyprpanel"
-    "sherlock"
     "waypaper"
     "waycorner"
     "xsettingsd"
