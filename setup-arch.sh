@@ -20,7 +20,7 @@ log_step() {
     echo -e "${color}${message}${NC}"
 }
 #
-# Default value for the minimal flag
+# Default value for flags
 MINIMAL=false
 
 while [[ "$#" -gt 0 ]]; do
@@ -38,7 +38,6 @@ while [[ "$#" -gt 0 ]]; do
     shift # Move to the next argument
 done
 
-# Now you can use the flag's value in your script
 if [ "$MINIMAL" == true ]; then
     echo "The --minimal flag is set. Running in minimal mode."
 else
