@@ -143,6 +143,7 @@ in the future I will document the process better.
 - `scripts` - Extra scripts I need to run
 - `sh` - `zsh` configuration
 - `sherlock` - Better App launcher for Hyprland
+- `rofi` - Also an app launcer, but I use it for super-menu
 - `ssh` - Encrypted identity
 - `sway` - *Deprecated* Notifications
 - `tmux` - `tmux` configuration
