@@ -1,26 +1,5 @@
 [
     {
-        "name": "Weather",
-        "type": "weather",
-        "args": {
-            "location": "Plovdiv",
-            "update_interval": 60
-        },
-        "actions": [
-            {
-                "name": "Show in Web",
-                "exec": "https://www.wttr.in/Plovdiv",
-                "icon": "sherlock-link",
-                "method": "web_launcher"
-            }
-        ],
-        "priority": 1,
-        "home": "OnlyHome",
-        "async": true,
-        "shortcut": false,
-        "spawn_focus": false
-    },
-    {
         "name": "Calculator",
         "type": "calculation",
         "args": {
@@ -61,7 +40,7 @@
         "name": "Web Search",
         "display_name": "DuckDuckGo Search",
         "tag_start": "{keyword}",
-        "alias": "gg",
+        "alias": "search",
         "type": "web_launcher",
         "args": {
             "search_engine": "duckduckgo",

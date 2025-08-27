@@ -1,0 +1,82 @@
+#!/bin/bash
+
+export PATH="$HOME/.local/bin:$PATH"
+
+menu() {
+  local prompt="$1"
+  local options="$2"
+  local extra="$3"
+  local preselect="$4"
+
+  read -r -a args <<<"$extra"
+
+  if [[ -n "$preselect" ]]; then
+    local index
+    index=$(echo -e "$options" | grep -nxF "$preselect" | cut -d: -f1)
+    if [[ -n "$index" ]]; then
+      args+=("-a" "$index")
+    fi
+  fi
+
+  echo -e "$options" | rofi -dmenu -i -window-title "$prompt…" "${args[@]}"
+}
+
+terminal() {
+    alacritty --class Informative -e "$@"
+}
+
+show_capture_menu() {
+  case $(menu "Capture" "  Screenshot\n󰃉  Color") in
+  *Screenshot*) show_screenshot_menu ;;
+  *Color*) pkill hyprpicker || hyprpicker -a ;;
+  *) show_main_menu ;;
+  esac
+}
+
+
+bind = ALT, PRINT, exec, hyprshot -m output
+
+show_screenshot_menu() {
+  case $(menu "Screenshot" "  Region\n  Window\n  Display") in
+  *Region*) hyprshot -m region ;;
+  *Window*) hyprshot -m window ;;
+  *Display*) hyprshot -m output ;;
+  *) show_capture_menu ;;
+  esac
+}
+
+show_install_menu() {
+  case $(menu "Install" "󰣇  Package\n  Web App\n  TUI") in
+  *Package*) terminal pkg-install ;;
+  *Web*) notify-send "Not Ready yet" ;;
+  *TUI*) notify-send "Not Ready yet" ;;
+  *) show_main_menu ;;
+  esac
+}
+
+show_system_menu() {
+  case $(menu "System" "󰜉  Reload") in
+  *Reload*) reload ;;
+  *) show_main_menu ;;
+  esac
+}
+
+show_main_menu() {
+  go_to_menu "$(menu "Go" "󰀻  Apps\n󰉉  Install\n  Capture\n  About\n  System")"
+}
+
+go_to_menu() {
+  case "${1,,}" in
+  *apps*) sherlock ;;
+  *install*) show_install_menu ;;
+  *capture*) show_capture_menu ;;
+  *about*) terminal zsh -c 'fastfetch; read -n 1 -s' ;;
+  *system*) show_system_menu ;;
+  esac
+}
+
+if [[ -n "$1" ]]; then
+  go_to_menu "$1"
+else
+  show_main_menu
+fi

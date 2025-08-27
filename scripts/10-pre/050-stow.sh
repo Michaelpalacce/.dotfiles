@@ -20,6 +20,7 @@ FOLDERS=(
     "gitconfig"
     "aerospace"
     "hyprland"
+    "rofi"
     "hyprpanel"
     "sherlock"
     "waypaper"

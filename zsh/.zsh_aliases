@@ -23,7 +23,7 @@ alias egrep='egrep --color=auto'
 # Tmux
 
 alias st='tmux-timer'
-alias si='tmux-pkg'
+alias si='pkg-install'
 alias sc="tmux-cht"
 alias sw="tmux-wttr"
 alias td="tmux detach"
