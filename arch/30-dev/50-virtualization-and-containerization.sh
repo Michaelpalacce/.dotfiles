@@ -4,5 +4,6 @@
 yay --noconfirm -S --needed docker docker-compose docker-buildx
 
 if [ "$MINIMAL" == false ]; then
+    yay -S --needed nftables-git
     yay --noconfirm -S --needed qemu-full libvirt virt-manager-git
 fi
