@@ -34,15 +34,6 @@ show_screenshot_menu() {
   esac
 }
 
-show_install_menu() {
-  case $(menu "Install" "󰣇  Package\n  Web App\n  TUI") in
-  *Package*) terminal pkg-install ;;
-  *Web*) notify-send "Not Ready yet" ;;
-  *TUI*) notify-send "Not Ready yet" ;;
-  *) show_main_menu ;;
-  esac
-}
-
 show_system_menu() {
   case $(menu "System" "󰜉  Reload") in
   *Reload*) reload ;;
@@ -51,17 +42,17 @@ show_system_menu() {
 }
 
 show_main_menu() {
-  go_to_menu "$(menu "Go" "󰀻  Apps\n󰉉  Install\n  Screenshot\n󰃉  Color\n  About\n  System")"
+  go_to_menu "$(menu "Go" "󰀻  Apps\n󰉉  Install Package\n  Screenshot\n󰃉  Color\n  System\n  About")"
 }
 
 go_to_menu() {
   case "${1,,}" in
   *apps*) sherlock ;;
-  *install*) show_install_menu ;;
+  *install*package*) terminal pkg-install ;;
   *screenshot*) show_screenshot_menu ;;
   *color*) pkill hyprpicker || hyprpicker -a ;;
-  *about*) terminal zsh -c 'fastfetch; read -n 1 -s' ;;
   *system*) show_system_menu ;;
+  *about*) terminal zsh -c 'fastfetch; read -n 1 -s' ;;
   esac
 }
 
