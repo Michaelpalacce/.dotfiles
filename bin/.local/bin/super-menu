@@ -64,9 +64,15 @@ show_learn_menu() {
   esac
 }
 
+show_news_menu(){
+  case $(menu "News" "📈 Stocks\n Back") in
+  *Stocks*) xlInfoTerminal ticker --config ~/.ticker.yaml ;;
+  *) show_main_menu ;;
+  esac
+}
 
 show_main_menu() {
-  go_to_menu "$(menu "Go" "󰀻 Apps\n😀 Emoji\n💾 Package Management\n📚 Learn\n📷 Screenshot\n📈 Stocks\n  System\n⚡ Power\nℹ️ About")"
+  go_to_menu "$(menu "Go" "󰀻 Apps\n😀 Emoji\n💾 Package Management\n📚 Learn\n📷 Screenshot\n📰 News\n  System\n⚡ Power\nℹ️ About")"
 }
 
 go_to_menu() {
@@ -76,7 +82,7 @@ go_to_menu() {
   *package*management*) show_package_menu ;;
   *learn*) show_learn_menu ;;
   *screenshot*) show_screenshot_menu ;;
-  *stocks*) xlInfoTerminal ticker --config ~/.ticker.yaml ;;
+  *news*) show_news_menu ;;
   *system*) show_system_menu ;;
   *power*) show_power_menu ;;
   *about*) infoTerminal zsh -c 'fastfetch; read -n 1 -s' ;;
