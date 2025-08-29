@@ -12,6 +12,7 @@ configuration {
 /*****----- Global Properties -----*****/
 @import                          "shared/colors.rasi"
 @import                          "shared/font.rasi"
+@import                          "shared/config.rasi"
 
 * {
     border-colour:               var(selected);
