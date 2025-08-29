@@ -9,15 +9,21 @@ menu() {
   echo -e "$options" | rofi -dmenu -theme "$ROFI_DIR/dmenu.rasi" -i -window-title "$prompt…" "${args[@]}"
 }
 
-terminal() {
+# infoTerminal displays an informative window
+infoTerminal() {
     alacritty --class Informative -e "$@"
+}
+
+# xlInfoTerminal displays an informative window
+xlInfoTerminal() {
+    alacritty --class xl-Informative -e "$@"
 }
 
 show_package_menu() {
   case $(menu "Package" "✅ Install\n❌ Remove\n Update System\n Back") in
-  *Install*) terminal pkg-install ;;
-  *Remove*) terminal pkg-remove ;;
-  *Update*) terminal yay -Syu --noconfirm ;;
+  *Install*) infoTerminal pkg-install ;;
+  *Remove*) infoTerminal pkg-remove ;;
+  *Update*) infoTerminal yay -Syu --noconfirm ;;
   *) show_main_menu ;;
   esac
 }
@@ -51,8 +57,10 @@ show_learn_menu() {
   esac
 }
 
+
 show_main_menu() {
-  go_to_menu "$(menu "Go" "󰀻  Apps\n󰉉 Package Management\n󰧑  Learn\n  Screenshot\n  System\n  About")"
+  go_to_menu "$(menu "Go" "󰀻  Apps\n󰉉 Package Management\n󰧑  Learn\n  Screenshot\n  System\n Stocks\n  About")"
+
 }
 
 go_to_menu() {
@@ -62,7 +70,8 @@ go_to_menu() {
   *learn*) show_learn_menu ;;
   *screenshot*) show_screenshot_menu ;;
   *system*) show_system_menu ;;
-  *about*) terminal zsh -c 'fastfetch; read -n 1 -s' ;;
+  *stocks*) xlInfoTerminal ticker --config ~/.ticker.yaml ;;
+  *about*) infoTerminal zsh -c 'fastfetch; read -n 1 -s' ;;
   esac
 }
 
