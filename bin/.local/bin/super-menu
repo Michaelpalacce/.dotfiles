@@ -9,8 +9,8 @@ menu() {
   echo -e "$options" | rofi -dmenu -theme "$ROFI_DIR/dmenu.rasi" -i -window-title "$prompt…" "${args[@]}"
 }
 
-# infoTerminal displays an informative window
-infoTerminal() {
+# terminal displays an informative window
+terminal() {
     alacritty --class Informative -e "$@"
 }
 
@@ -20,10 +20,12 @@ xlInfoTerminal() {
 }
 
 show_package_menu() {
-  case $(menu "Package" "✅ Install\n❌ Remove\n Update System\n Back") in
-  *Install*) infoTerminal pkg-install ;;
-  *Remove*) infoTerminal pkg-remove ;;
-  *Update*) infoTerminal yay -Syu --noconfirm ;;
+  case $(menu "Package" "✅ Install Package\n❌ Remove Package\n Update System\n✅ Install WebApp\n❌ Remove WebApp\n Back") in
+  *Install*Package*) terminal pkg-install ;;
+  *Remove*Package*) terminal pkg-remove ;;
+  *Update*System*) terminal yay -Syu --noconfirm ;;
+  *Install*WebApp*) terminal webapp-install ;;
+  *Remove*WebApp*) terminal webapp-remove ;;
   *) show_main_menu ;;
   esac
 }
@@ -39,7 +41,7 @@ show_screenshot_menu() {
 
 show_system_menu() {
   case $(menu "System" " Resources\n󰜉 Reload\n Back") in
-  *Resources*) infoTerminal htop ;;
+  *Resources*) terminal htop ;;
   *Reload*) reload ;;
   *) show_main_menu ;;
   esac
@@ -58,8 +60,8 @@ show_power_menu() {
 show_learn_menu() {
   case $(menu "Learn" "  Keybindings\n  Hyprland\n󰣇  Arch\n Back") in
   *Keybindings*) hyprland-keybinds ;;
-  *Hyprland*) brave "https://wiki.hypr.land/" ;;
-  *Arch*) brave "https://wiki.archlinux.org/title/Main_page" ;;
+  *Hyprland*) webapp-launch "https://wiki.hypr.land/" ;;
+  *Arch*) webapp-launch "https://wiki.archlinux.org/title/Main_page" ;;
   *) show_main_menu ;;
   esac
 }
@@ -85,7 +87,7 @@ go_to_menu() {
   *news*) show_news_menu ;;
   *system*) show_system_menu ;;
   *power*) show_power_menu ;;
-  *about*) infoTerminal zsh -c 'fastfetch; read -n 1 -s' ;;
+  *about*) terminal zsh -c 'fastfetch; read -n 1 -s' ;;
   esac
 }
 
