@@ -23,6 +23,7 @@ FOLDERS=(
     "rofi"
     "hyprpanel"
     "waypaper"
+    "ticker"
     "waycorner"
     "xsettingsd"
 )

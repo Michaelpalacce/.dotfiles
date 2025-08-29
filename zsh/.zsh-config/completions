@@ -50,3 +50,5 @@ lazy_load_completion "kind" "__start_kind" "ki"
 
 
 complete -C '/usr/bin/aws_completer' aws
+
+

@@ -1,0 +1,13 @@
+# ------------------------------------------------------------------------------
+#
+# ZSH Configuration for ticker, a stick terminal watcher
+#
+# You will need to download the ticker app `yay -S ticker-bin`
+#
+# Dependencies: ticker
+#
+# ------------------------------------------------------------------------------
+
+if command_exists ticker; then
+    source <(ticker completion zsh)
+fi
