@@ -58,10 +58,11 @@ show_power_menu() {
 }
 
 show_learn_menu() {
-  case $(menu "Learn" "  Keybindings\n  Hyprland\n󰣇  Arch\n Back") in
+  case $(menu "Learn" "  Keybindings\n  Hyprland\n󰣇  Arch\n Font Awesome\n Back") in
   *Keybindings*) hyprland-keybinds ;;
   *Hyprland*) webapp-launch "https://wiki.hypr.land/" ;;
   *Arch*) webapp-launch "https://wiki.archlinux.org/title/Main_page" ;;
+  *Font*Awesome*) webapp-launch "https://fontawesome.com/search?o=r" ;;
   *) show_main_menu ;;
   esac
 }

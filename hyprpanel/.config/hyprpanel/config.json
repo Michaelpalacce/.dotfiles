@@ -69,7 +69,7 @@
   "bar.battery.label": true,
   "bar.notifications.show_total": true,
   "menus.media.displayTime": true,
-  "menus.power.lowBatteryNotification": false,
+  "menus.power.lowBatteryNotification": true,
   "menus.dashboard.controls.enabled": true,
   "theme.osd.enable": true,
   "theme.bar.buttons.workspaces.enableBorder": false,
@@ -100,5 +100,12 @@
   "bar.media.show_active_only": true,
   "bar.notifications.hideCountWhenZero": true,
   "bar.launcher.autoDetectIcon": true,
-  "theme.bar.layer": "top"
+  "theme.bar.layer": "top",
+  "menus.dashboard.shortcuts.right.shortcut3.command": "hyprshot -m region",
+  "menus.dashboard.shortcuts.enabled": true,
+  "menus.dashboard.shortcuts.right.shortcut1.icon": "",
+  "menus.dashboard.shortcuts.right.shortcut1.command": "sleep 0.5 && hyprpicker -a",
+  "menus.dashboard.shortcuts.right.shortcut1.tooltip": "Color Picker",
+  "menus.dashboard.shortcuts.right.shortcut3.icon": "󰄀",
+  "menus.dashboard.shortcuts.right.shortcut3.tooltip": "Screenshot"
 }
