@@ -29,7 +29,7 @@ show_package_menu() {
 }
 
 show_screenshot_menu() {
-  case $(menu "Screenshot" "  Region\n  Window\n  Display\n Back") in
+  case $(menu "Screenshot" "🔳 Region\n🪟 Window\n🖥️ Display\n Back") in
   *Region*) hyprshot -m region ;;
   *Window*) hyprshot -m window ;;
   *Display*) hyprshot -m output ;;
@@ -38,12 +38,19 @@ show_screenshot_menu() {
 }
 
 show_system_menu() {
-  case $(menu "System" "  Lock\n󰤄  Suspend\n󰜉  Restart\n󰐥  Shutdown\n󰜉  Reload\n Back") in
+  case $(menu "System" " Resources\n󰜉 Reload\n Back") in
+  *Resources*) infoTerminal htop ;;
+  *Reload*) reload ;;
+  *) show_main_menu ;;
+  esac
+}
+
+show_power_menu() {
+  case $(menu "Power" " Lock\n󰤄 Suspend\n󰜉 Restart\n󰐥 Shutdown\n Back") in
   *Lock*) loginctl lock-session ;;
   *Suspend*) systemctl suspend ;;
   *Restart*) systemctl reboot ;;
   *Shutdown*) systemctl poweroff ;;
-  *Reload*) reload ;;
   *) show_main_menu ;;
   esac
 }
@@ -59,18 +66,19 @@ show_learn_menu() {
 
 
 show_main_menu() {
-  go_to_menu "$(menu "Go" "󰀻  Apps\n󰉉 Package Management\n󰧑  Learn\n  Screenshot\n  System\n Stocks\n  About")"
-
+  go_to_menu "$(menu "Go" "󰀻 Apps\n😀 Emoji\n💾 Package Management\n📚 Learn\n📷 Screenshot\n📈 Stocks\n  System\n⚡ Power\nℹ️ About")"
 }
 
 go_to_menu() {
   case "${1,,}" in
   *apps*) rofi -show drun ;;
+  *emoji*) rofi -modi emoji -show emoji ;;
   *package*management*) show_package_menu ;;
   *learn*) show_learn_menu ;;
   *screenshot*) show_screenshot_menu ;;
-  *system*) show_system_menu ;;
   *stocks*) xlInfoTerminal ticker --config ~/.ticker.yaml ;;
+  *system*) show_system_menu ;;
+  *power*) show_power_menu ;;
   *about*) infoTerminal zsh -c 'fastfetch; read -n 1 -s' ;;
   esac
 }
