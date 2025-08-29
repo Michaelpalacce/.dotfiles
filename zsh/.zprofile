@@ -3,3 +3,4 @@ if [[ -f /opt/homebrew/bin/brew ]]; then
 fi
 
 export ROFI_DIR="$HOME/.config/rofi/"
+export EDITOR=nvim
