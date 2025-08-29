@@ -5,10 +5,19 @@ show-fundamentals: true
 show-separator: true
 show-holdings: true
 interval: 5
-currency: EUR
+currency: EURO
 currency-summary-only: false
 watchlist:
   - AVGO
+  - 4GLDD.XD
+  - VWCE.DE
+  - VUSA.AS
 lots:
   - symbol: "AVGO"
+    quantity: 1
+  - symbol: "4GLDD.XD"
+    quantity: 1
+  - symbol: "VWCE.DE"
+    quantity: 1
+  - symbol: "VUSA.AS"
     quantity: 1
