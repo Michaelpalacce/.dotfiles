@@ -14,15 +14,57 @@ but I am open to suggestions and improvements. I am not using any fancy dotfile 
 </p>
 
 
+## ✨ UX Showcase
+
 <p align="center">
 <img src="images/Lockscreen.png" alt="Lockscreen">
 </p>
+
+<details>
+    <summary>Emoji Picker</summary>
+    <img src="images/EmojiPicker.png"/>
+</details>
+
+<details>
+    <summary>Keybinds Menu</summary>
+    <img src="images/KeybindsMenu.png"/>
+</details>
+
+<details>
+    <summary>Learn Menu</summary>
+    <img src="images/LearnMenu.png"/>
+</details>
+
+<details>
+    <summary>News Menu</summary>
+    <img src="images/NewsMenu.png"/>
+</details>
+
+<details>
+    <summary>Packages Menu</summary>
+    <img src="images/PackagesMenu.png"/>
+</details>
+
+<details>
+    <summary>Power Menu</summary>
+    <img src="images/PowerMenu.png"/>
+</details>
+
+<details>
+    <summary>Run Menu</summary>
+    <img src="images/RunMenu.png"/>
+</details>
 
 ## ✨ Development Showcase
 
 <p align="center">
 <img src="images/Layout.png" alt="Layout">
 </p>
+
+<details>
+    <summary>Pomodoro Timer</summary>
+    <img src="images/Pomodoro.png"/>
+</details>
 
 <details>
     <summary>Debugging</summary>
@@ -214,3 +256,8 @@ Shows the weather forecast in another tmux windows.
 
 Forces `tmux` if a normal terminal is opened. It will also ask which tmux session to attach to if there are multiple.
 
+## Inspirations
+
+- [Omarchy](https://github.com/basecamp/omarchy) For UX
+- [Prime](https://github.com/ThePrimeagen/.dotfiles) For dev
+- [bashbunni](https://github.com/bashbunni/dotfiles) For a nice timer :)
