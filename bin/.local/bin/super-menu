@@ -26,7 +26,8 @@ show_package_menu() {
   *Update*System*) terminal yay -Syu --noconfirm ;;
   *Install*WebApp*) terminal webapp-install ;;
   *Remove*WebApp*) terminal webapp-remove ;;
-  *) show_main_menu ;;
+  *Back*) show_main_menu ;;
+  *) ;;
   esac
 }
 
@@ -35,7 +36,8 @@ show_screenshot_menu() {
   *Region*) hyprshot -m region ;;
   *Window*) hyprshot -m window ;;
   *Display*) hyprshot -m output ;;
-  *) show_main_menu ;;
+  *Back*) show_main_menu ;;
+  *) ;;
   esac
 }
 
@@ -43,7 +45,8 @@ show_system_menu() {
   case $(menu "System" " Resources\n󰜉 Reload\n Back") in
   *Resources*) terminal htop ;;
   *Reload*) reload ;;
-  *) show_main_menu ;;
+  *Back*) show_main_menu ;;
+  *) ;;
   esac
 }
 
@@ -53,7 +56,8 @@ show_power_menu() {
   *Suspend*) systemctl suspend ;;
   *Restart*) systemctl reboot ;;
   *Shutdown*) systemctl poweroff ;;
-  *) show_main_menu ;;
+  *Back*) show_main_menu ;;
+  *) ;;
   esac
 }
 
@@ -63,14 +67,16 @@ show_learn_menu() {
   *Hyprland*) webapp-launch "https://wiki.hypr.land/" ;;
   *Arch*) webapp-launch "https://wiki.archlinux.org/title/Main_page" ;;
   *Font*Awesome*) webapp-launch "https://fontawesome.com/search?o=r" ;;
-  *) show_main_menu ;;
+  *Back*) show_main_menu ;;
+  *) ;;
   esac
 }
 
 show_news_menu(){
   case $(menu "News" "📈 Stocks\n Back") in
   *Stocks*) xlInfoTerminal ticker --config ~/.ticker.yaml ;;
-  *) show_main_menu ;;
+  *Back*) show_main_menu ;;
+  *) ;;
   esac
 }
 

@@ -142,16 +142,12 @@ in the future I will document the process better.
 - `nvim` - Personalized Development Environment in NeoVim
 - `scripts` - Extra scripts I need to run
 - `sh` - `zsh` configuration
-- `sherlock` - *Deprecated* Better App launcher for Hyprland
 - `rofi` - Also an app launcer
 - `ssh` - Encrypted identity
-- `sway` - *Deprecated* Notifications
 - `tmux` - `tmux` configuration
-- `waybar` - *Deprecated* Status Bar for Hyprland
 - `hyprpanel` - Status Bar for Hyprland
 - `waycorner` - Hot corners (like MacOS)
 - `waypaper` - Wallpapers for Hyprland
-- `wofi` - *Deprecated* App launcher for Hyprland
 - `xsettingsd` - For themes
 
 ### Neovim

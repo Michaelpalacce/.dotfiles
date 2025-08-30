@@ -4,9 +4,6 @@
 if [ "$MINIMAL" == false ]; then
     # System Resources
     yay --noconfirm -S --needed resources gnome-system-monitor
-
-    # Logout
-    yay --noconfirm -S --needed wlogout
 fi
 
 # Security
