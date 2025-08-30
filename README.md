@@ -13,7 +13,6 @@ but I am open to suggestions and improvements. I am not using any fancy dotfile 
 <img src="images/Desktop.png" alt="Desktop">
 </p>
 
-
 ## ✨ UX Showcase
 
 <p align="center">
