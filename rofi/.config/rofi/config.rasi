@@ -1,3 +1,8 @@
+/*****----- Global Properties -----*****/
+@import                          "shared/colors.rasi"
+@import                          "shared/font.rasi"
+@import                          "shared/config.rasi"
+
 /*****----- Configuration -----*****/
 configuration {
 	modi:                       "drun,run,filebrowser";
@@ -6,13 +11,9 @@ configuration {
     display-run:                " Run";
     display-filebrowser:        " Files";
 	drun-display-format:        "{name}";
+    matching:                   "prefix";
 	window-format:              "{w} · {c} · {t}";
 }
-
-/*****----- Global Properties -----*****/
-@import                          "shared/colors.rasi"
-@import                          "shared/font.rasi"
-@import                          "shared/config.rasi"
 
 * {
     border-colour:               var(selected);
