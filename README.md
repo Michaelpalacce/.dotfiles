@@ -187,6 +187,7 @@ in the future I will document the process better.
 - `images` - Images for the dotfiles
 - `nvim` - Personalized Development Environment in NeoVim
 - `scripts` - Extra scripts I need to run
+- `sddm` && `sddm-themes` - Greeter
 - `sh` - `zsh` configuration
 - `rofi` - Also an app launcer
 - `ssh` - Encrypted identity

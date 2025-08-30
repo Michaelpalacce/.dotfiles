@@ -39,3 +39,6 @@ fi
 
 # Stow pacman.conf
 sudo stow --target=/etc pacman
+
+sudo stow --target=/usr/share/sddm/themes sddm-themes
+sudo stow --target=/etc sddm
