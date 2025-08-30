@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # terminal
-yay --noconfirm -S --needed fastfetch htop ticker-bin
+yay --noconfirm -S --needed fastfetch htop ticker-bin gum-git
 
 if [ "$MINIMAL" == false ]; then
 fi
