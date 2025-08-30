@@ -20,6 +20,11 @@ but I am open to suggestions and improvements. I am not using any fancy dotfile 
 </p>
 
 <details>
+    <summary>Super Menu</summary>
+    <img src="images/SuperMenu.png"/>
+</details>
+
+<details>
     <summary>Emoji Picker</summary>
     <img src="images/EmojiPicker.png"/>
 </details>
