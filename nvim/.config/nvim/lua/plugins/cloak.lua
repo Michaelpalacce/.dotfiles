@@ -29,7 +29,7 @@ return {
 					replace = nil,
 				},
 				{
-					file_pattern = { '.zsh_secrets', '.zprofile' },
+					file_pattern = { '.zsh_secrets' },
 					cloak_pattern = { '=.+' },
 					replace = nil,
 				},
