@@ -123,14 +123,7 @@ Note: you need to have the correct `age` private key in `~/.config/sops/age/keys
 curl -o- https://raw.githubusercontent.com/Michaelpalacce/.dotfiles/master/setup-identity.sh | bash
 ```
 
-### Setup On Arch
-
-Run the `setup-arch.sh` file. It will setup yay and a bunch of apps. It will prompt once for password if needed.
-- Manually: https://github.com/catppuccin/sddm
-
-Also, see [this](https://wiki.archlinux.org/title/Official_repositories#multilib)
-
-#### Setup Fingerprints
+### Setup Fingerprints
 
 > [!WARNING]
 > ONLY DO THIS IF YOU HAVE A FINGERPRINT READER AND YOU'VE ENROLLED YOUR FINGERPRINT.
@@ -185,6 +178,8 @@ in the future I will document the process better.
 - `gitignore` - Default gitignore for common directories/files you want to ignore
 - `hyprland` - Contains hyprland configuration for Arch Linux
 - `images` - Images for the dotfiles
+- `karabiner` - Keyboard remapping for macos
+- `mac` - MacOS Install scripts
 - `nvim` - Personalized Development Environment in NeoVim
 - `scripts` - Extra scripts I need to run
 - `sddm` && `sddm-themes` - Greeter

@@ -1,24 +1,10 @@
 #!/usr/bin/env bash
-#
-# ----------------------------------------------------------------------------
-# This script handles dependencies
-# ----------------------------------------------------------------------------
 
-APPS=(
-    "git"
-    "curl"
-    "stow"
-    "gcc"
-    "make"
-    "tmux"
-    "zsh"
-)
-
-for app in "${APPS[@]}"; do
-    if ! command_exists $app; then
-        print_color "$RED" "$app is a required dependency. Quitting installation."
-        exit 1
-    else
-        print_color "$YELLOW" "$app exists, skipping"
-    fi
-done
+if [[ $machine == "Linux" ]]; then
+    . $HOME/.dotfiles/setup-arch.sh
+elif [[ $machine == "Mac" ]]; then
+    . $HOME/.dotfiles/setup-mac.sh
+else
+    echo "$RED" "What machine are you on?"
+    exit 1
+fi
