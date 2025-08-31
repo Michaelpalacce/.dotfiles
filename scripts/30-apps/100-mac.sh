@@ -9,7 +9,9 @@ if command_exists brew; then
     brew install --cask nikitabobko/tap/aerospace # Tiling manager for MacOs
 
     # APPS
-    brew install nvim velero kubectl flux helm ripgrep fzf eza ansible sops age terraform
+    brew install nvim velero kubectl flux helm ripgrep fzf eza ansible sops age
+    brew tap hashicorp/tap
+    brew install hashicorp/tap/terraform
 else
     print_color "$YELLOW" "Skipping for non-mac"
 fi
