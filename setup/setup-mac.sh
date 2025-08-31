@@ -27,42 +27,42 @@ pushd $DOTFILES_DIR
     STEP=1
 
     log_step "$YELLOW" "Installing libs now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
-    for script in ./mac/00-libs/*; do
+    for script in ./setup/mac/00-libs/*; do
         . "$script" > /dev/null
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
 
     log_step "$YELLOW" "Installing system now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
-    for script in ./mac/05-system/*; do
+    for script in ./setup/mac/05-system/*; do
         . "$script" > /dev/null
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
     
     log_step "$YELLOW" "Installing gui now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
-    for script in ./mac/10-gui/*; do
+    for script in ./setup/mac/10-gui/*; do
         . "$script" > /dev/null
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
 
     log_step "$YELLOW" "Installing network now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
-    for script in ./mac/20-network/*; do
+    for script in ./setup/mac/20-network/*; do
         . "$script" > /dev/null
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
 
     log_step "$YELLOW" "Installing dev now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
-    for script in ./mac/30-dev/*; do
+    for script in ./setup/mac/30-dev/*; do
         . "$script" > /dev/null
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
 
     log_step "$YELLOW" "Installing apps now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
-    for script in ./mac/40-apps/*; do
+    for script in ./setup/mac/40-apps/*; do
         . "$script" > /dev/null
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"

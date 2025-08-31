@@ -148,14 +148,6 @@ Note: Will support whatever I work on.
 
 There are of course differences in the two systems. MacOS will never look, feel and work like Arch/Linux and that's OK.
 
-### MacOS
-
-So Mac is not as automated as arch is currently. Mac apps are defined in `./scripts/30-apps/100-mac.sh` and they are just relying on brew.
-Simple as that.
-
-As for other configuration and such, wherever possible I've automated it and will continue to do so, but it's mostly manual. At some point
-in the future I will document the process better.
-
 ## Philosophy
 
 - Prioritize native keybindings and minimal plugin reliance. NeoVim being the plugin exception... I can't pass on the hot new thing
@@ -168,7 +160,6 @@ in the future I will document the process better.
 
 ### Structure
 
-- `arch` - Arch install scripts
 - `aerospace` - Tiling Manager for MacOS
 - `alacritty` - Contains my alacritty configurations
 - `bin` - Check out the [#Scripts](#scripts) section for this,
@@ -179,9 +170,8 @@ in the future I will document the process better.
 - `hyprland` - Contains hyprland configuration for Arch Linux
 - `images` - Images for the dotfiles
 - `karabiner` - Keyboard remapping for macos
-- `mac` - MacOS Install scripts
 - `nvim` - Personalized Development Environment in NeoVim
-- `scripts` - Extra scripts I need to run
+- `setup` - Setup scripts ran by `setup.sh`
 - `sddm` && `sddm-themes` - Greeter
 - `sh` - `zsh` configuration
 - `rofi` - Also an app launcer

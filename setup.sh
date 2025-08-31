@@ -34,7 +34,7 @@ fi
 # ------------------- Helper Functions -------------------------------
 
 pushd $DOTFILES_DIR
-    for helper in ./scripts/00-helpers/*; do
+    for helper in ./setup/00-helpers/*; do
         . $helper
     done
 popd
@@ -43,22 +43,22 @@ popd
 
 pushd $DOTFILES_DIR
     # Run dependency scripts
-    for deps_script in ./scripts/05-deps/*; do
+    for deps_script in ./setup/05-deps/*; do
         . $deps_script
     done
 
     # Run pre scripts
-    for pre_script in ./scripts/10-pre/*; do
+    for pre_script in ./setup/10-pre/*; do
         . $pre_script
     done
 
     # Run app scripts
-    for apps_file in ./scripts/30-apps/*; do
+    for apps_file in ./setup/30-apps/*; do
         . $apps_file
     done
 
     # Run post scripts
-    for post_script in ./scripts/40-post/*; do
+    for post_script in ./setup/40-post/*; do
         . $post_script
     done
 popd
