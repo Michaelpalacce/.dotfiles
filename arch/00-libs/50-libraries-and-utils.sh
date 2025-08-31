@@ -11,7 +11,7 @@ yay --noconfirm -S --needed man-db
 
 if [ "$MINIMAL" == false ]; then
     # GTK deps are for widgets and gui
-    yay --noconfirm -S --needed gtk2 gtk4 libgtk-3-dev gtk-doc
+    yay --noconfirm -S --needed gtk2 gtk4 gtk-doc
 
     # Some gui libs
     yay --noconfirm -S --needed wayland-protocols libjpeg-turbo libwebp libjxl xorg-xev piper
