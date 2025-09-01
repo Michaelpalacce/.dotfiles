@@ -5,9 +5,6 @@ if command_exists ufw; then
   sudo ufw default deny incoming
   sudo ufw default allow outgoing
 
-  # Allow SSH in
-  sudo ufw allow 22/tcp
-
   # Allow Docker containers to use DNS on host
   sudo ufw allow in on docker0 to any port 53
 
