@@ -12,5 +12,6 @@ configuration {
 /*****----- Main Window -----*****/
 window {
     width:                       900px; 
+    height:                      75%; 
 }
 

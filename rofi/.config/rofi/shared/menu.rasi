@@ -55,14 +55,14 @@ inputbar {
 }
 
 entry {
-    enabled:                         true;
-    spacing:                         10px;
-    padding:                         12px;
-    border-radius:                   100%;
-    background-color:                @background-alt;
-    text-color:                      @hover;
-    placeholder:                     "";
-    placeholder-color:               @background;
+    enabled:                    true;
+    spacing:                    10px;
+    padding:                    12px;
+    border-radius:              100%;
+    background-color:           @background-alt;
+    text-color:                 @hover;
+    placeholder:                "Select...";
+    placeholder-color:          inherit;
 }
 
 textbox-prompt-colon {

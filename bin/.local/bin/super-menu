@@ -6,7 +6,7 @@ menu() {
   local prompt="$1"
   local options="$2"
 
-  echo -e "$options" | rofi -dmenu -theme "$ROFI_DIR/dmenu.rasi" -i -window-title "$prompt…" "${args[@]}"
+  echo -e "$options" | rofi -dmenu -theme "$ROFI_DIR/dmenu.rasi" -i -mesg "$prompt…" "${args[@]}"
 }
 
 # terminal displays an informative window
@@ -14,9 +14,9 @@ terminal() {
     alacritty --class Informative -e "$@"
 }
 
-# xlInfoTerminal displays an informative window
+# xlInfoTerminal creates a full window
 xlInfoTerminal() {
-    alacritty --class xl-Informative -e "$@"
+    alacritty --class FullInformative -e "$@"
 }
 
 show_package_menu() {
@@ -42,7 +42,7 @@ show_screenshot_menu() {
 }
 
 show_system_menu() {
-  case $(menu "System" " Resources\n󰜉 Reload\n Back") in
+    case $(menu "System" " Resources\n󰜉 Reload\n Back") in
   *Resources*) terminal htop ;;
   *Reload*) reload ;;
   *Back*) show_main_menu ;;
@@ -82,8 +82,99 @@ show_news_menu(){
   esac
 }
 
+show_k8s_menu() {
+    case $(menu "Kubernetes" "\n Back") in
+  *Back*) show_dev_menu ;;
+  *) ;;
+  esac
+}
+
+show_kind_menu() {
+  case $(menu "Kind" "+ Create\n Delete\n Assume Context\n Back") in
+  *Create*) terminal kind create cluster ;;
+  *Delete*) terminal kind delete cluster ;;
+  *Assume*Context*) terminal kubectl config set-context kind-kind ;;
+  *Back*) show_main_menu ;;
+  *) ;;
+  esac
+}
+
+show_minikube_menu() {
+  case $(menu "Minikube" "+ Create\n Delete\n Assume Context\n Back") in
+  *Create*) terminal minikube start ;;
+  *Delete*) terminal minikube delete ;;
+  *Assume*Context*) terminal minikube update-context ;;
+  *Back*) show_dev_menu ;;
+  *) ;;
+  esac
+}
+
+show_ops_menu() {
+    case $(menu "Ops" "\n Back") in
+  *Back*) show_main_menu ;;
+  *) ;;
+  esac
+}
+
+show_systemd_menu() {
+    case $(menu "Systemd" "🟢 Start Service\n🔁 Restart Service\n🛑 Stop Service\n✅ Enable Service\n❌ Disable Service\nℹ️ Get Status\n Back") in
+    *Start*Service*)
+        local service_to_start=$(list_services)
+        if [[ -n "$service_to_start" ]]; then
+            terminal sudo systemctl start "$service_to_start"
+        fi
+        ;;
+    *Restart*Service*)
+        local service_to_restart=$(list_services)
+        if [[ -n "$service_to_restart" ]]; then
+            terminal sudo systemctl restart "$service_to_restart"
+        fi
+        ;;
+    *Stop*Service*)
+        local service_to_stop=$(list_services)
+        if [[ -n "$service_to_stop" ]]; then
+            terminal sudo systemctl stop "$service_to_stop"
+        fi
+        ;;
+    *Enable*Service*)
+        local service_to_enable=$(list_services)
+        if [[ -n "$service_to_enable" ]]; then
+            terminal sudo systemctl enable "$service_to_enable"
+        fi
+        ;;
+    *Disable*Service*)
+        local service_to_disable=$(list_services)
+        if [[ -n "$service_to_disable" ]]; then
+            terminal sudo systemctl disable "$service_to_disable"
+        fi
+        ;;
+    *Get*Status*)
+        local service_to_check=$(list_services)
+        if [[ -n "$service_to_check" ]]; then
+            terminal systemctl status "$service_to_check"
+        fi
+        ;;
+    *Back*) show_main_menu ;;
+    *) ;;
+    esac
+}
+
+list_services() {
+    systemctl list-units --type=service --no-legend --no-pager | awk '{print $1}' | grep -Ev '.slice|.mount|@' | rofi -dmenu -theme "$ROFI_DIR/dmenu.rasi" -i -p "Select a service:"
+}
+
+show_dev_menu() {
+  case $(menu "Dev" " Kubernetes\n Kind\n Minikube\n Back") in
+  *Kubernetes*) show_k8s_menu ;;
+  *Kind*) show_kind_menu ;;
+  *Minikube*) show_minikube_menu ;;
+  *Back*) show_main_menu ;;
+  *) ;;
+  esac
+}
+
 show_main_menu() {
-  go_to_menu "$(menu "Go" "󰀻 Apps\n😀 Emoji\n💾 Package Management\n📚 Learn\n📷 Screenshot\n📰 News\n  System\n⚡ Power\nℹ️ About")"
+  go_to_menu "$(menu "Go" "󰀻 Apps\n😀 Emoji\n💾 Package Management\n📚 Learn\n📷 Screenshot\n📰 News\n  System\n Systemd\n⚡ Power\n🖥️ Ops (WIP)\n💻 Dev\nℹ️ About")"
 }
 
 go_to_menu() {
@@ -94,8 +185,11 @@ go_to_menu() {
   *learn*) show_learn_menu ;;
   *screenshot*) show_screenshot_menu ;;
   *news*) show_news_menu ;;
+  *systemd*) show_systemd_menu ;;
   *system*) show_system_menu ;;
   *power*) show_power_menu ;;
+  *ops*) show_ops_menu ;;
+  *dev*) show_dev_menu ;;
   *about*) terminal zsh -c 'fastfetch; read -n 1 -s' ;;
   esac
 }
