@@ -7,4 +7,4 @@ if [ "$MINIMAL" == false ]; then
 fi
 
 # Security
-yay --noconfirm -S --needed firejail ufw ufw-docker
+yay --noconfirm -S --needed firejail ufw ufw-docker sops age

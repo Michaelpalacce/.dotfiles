@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# terminal
-yay --noconfirm -S --needed eza tmux zsh stow 
+# Dev
+yay --noconfirm -S --needed mariadb-git
 
 if [ "$MINIMAL" == false ]; then
 fi
