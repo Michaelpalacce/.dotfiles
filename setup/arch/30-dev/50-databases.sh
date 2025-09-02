@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Dev
-yay --noconfirm -S --needed mariadb-git
-
 if [ "$MINIMAL" == false ]; then
+    # Dev
+    # `mariadb-git` is giant...
+    yay --noconfirm -S --needed mariadb-git
 fi
