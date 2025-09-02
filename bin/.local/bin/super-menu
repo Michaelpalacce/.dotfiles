@@ -62,13 +62,15 @@ show_power_menu() {
 }
 
 show_learn_menu() {
-  case $(menu "Learn" "  Keybindings\n  Hyprland\n󰣇  Arch\n󰣇  Arch Wiki Offline\n Font Awesome\n Hyprpanel Modules\n Back") in
+  case $(menu "Learn" "  Keybindings\n📖 Conventional Commits\n  Hyprland\n󰣇  Arch\n󰣇  Arch Wiki Offline\n Font Awesome\n Hyprpanel Modules\n📖 Kubernetes Docs\n Back") in
   *Keybindings*) hyprland-keybinds ;;
+  *Conventional*Commits*) webapp-launch "https://www.conventionalcommits.org/en/v1.0.0/" ;;
   *Hyprland*) webapp-launch "https://wiki.hypr.land/" ;;
   *Arch*Wiki*Offline*) brave "file:///usr/share/doc/arch-wiki/html/en/Main_page.html" ;;
   *Arch*) webapp-launch "https://wiki.archlinux.org/title/Main_page" ;;
   *Font*Awesome*) webapp-launch "https://fontawesome.com/search?o=r" ;;
   *Hyprpanel*Modules*) webapp-launch "https://hyprpanel.com/configuration/modules.html" ;;
+  *Kubernetes*Docs*) webapp-launch "https://kubernetes.io/docs/home/" ;;
   *Back*) show_main_menu ;;
   *) ;;
   esac
@@ -117,7 +119,7 @@ show_ops_menu() {
 }
 
 show_systemd_menu() {
-    case $(menu "Systemd" "🟢 Start Service\n🔁 Restart Service\n🛑 Stop Service\n✅ Enable Service\n❌ Disable Service\nℹ️ Get Status\n Back") in
+    case $(menu "Systemd" "🟢 Start Service\n🔁 Restart Service\n🛑 Stop Service\n✅ Enable Service\n❌ Disable Service\n View System Logs\nℹ️ Get Status\n Back") in
     *Start*Service*)
         local service_to_start=$(list_services)
         if [[ -n "$service_to_start" ]]; then
@@ -147,6 +149,10 @@ show_systemd_menu() {
         if [[ -n "$service_to_disable" ]]; then
             terminal sudo systemctl disable "$service_to_disable"
         fi
+        ;;
+    *View*System*Logs*)
+        # Opens a new terminal to view live system logs
+        terminal sudo journalctl -f -q -b
         ;;
     *Get*Status*)
         local service_to_check=$(list_services)
