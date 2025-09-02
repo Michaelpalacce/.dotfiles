@@ -190,8 +190,18 @@ show_dev_menu() {
   esac
 }
 
+show_ai_menu() {
+  source ~/.zsh_secrets
+  case $(menu "AI" "🧠 Ask Gemini\n Back") in
+  *Ask*Gemini*) terminal gemini ;;
+  *Back*) show_main_menu ;;
+  *) ;;
+  esac
+}
+
+# 🖥️ Ops (WIP)
 show_main_menu() {
-  go_to_menu "$(menu "Go" "󰀻 Apps\n😀 Emoji\n💾 Package Management\n📚 Learn\n📷 Screenshot\n📰 News\n  System\n Systemd\n⚡ Power\n🖥️ Ops (WIP)\n💻 Dev\nℹ️ About")"
+  go_to_menu "$(menu "Go" "󰀻 Apps\n😀 Emoji\n💾 Package Management\n📚 Learn\n📷 Screenshot\n📰 News\n  System\n Systemd\n⚡ Power\n💻 Development\n🤖 AI\nℹ️ About")"
 }
 
 go_to_menu() {
@@ -206,7 +216,8 @@ go_to_menu() {
   *system*) show_system_menu ;;
   *power*) show_power_menu ;;
   *ops*) show_ops_menu ;;
-  *dev*) show_dev_menu ;;
+  *development*) show_dev_menu ;;
+  *ai*) show_ai_menu ;;
   *about*) terminal zsh -c 'fastfetch; read -n 1 -s' ;;
   esac
 }
