@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
 # Dev
-yay --noconfirm -S --needed mariadb-git
+brew install mariadb
+
+brew tap hashicorp/tap
+brew install hashicorp/tap/vault
