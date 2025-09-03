@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 # Dependencies: fzf, curl, tmux, nvim
-
+#
+# Arguments:
+# - $1 - name of cheatsheet to use
+#
 # This script is used to search cheat sheets from cheat.sh and open them in a new tmux window
 # It also searches for additional cheat sheets in the local_cheatsheets_dir
 # The additional cheatsheets will be opened in nvim, so you can edit them
@@ -9,32 +12,40 @@
 file_path="$HOME/.cache/cheat-sheets"
 local_cheatsheets_dir="$HOME/.config/cheatsheets"
 
-# If the cache is older than 1 day, update it
-if [[ ! -f $file_path ]] || [[ $(find $file_path -mtime +1 -print) ]]; then
-    echo "Updating cheat sheets..."
-    curl https://cheat.sh/:list > $file_path
+# If an argument is passed, use that as name of cheatsheet
+CHT=$1
+
+if [[ -z $CHT ]]; then
+    # If the cache is older than 1 day, update it
+    if [[ ! -f $file_path ]] || [[ $(find $file_path -mtime +1 -print) ]]; then
+        echo "Updating cheat sheets..."
+        curl https://cheat.sh/:list > $file_path
+    else
+        echo "Using cached cheat sheets..."
+    fi
+
+    # Function to recursively get relative paths of files from a directory
+    get_files_recursive() {
+        local dir="$1"
+        fd -H -I -0 -t f . "$dir" --exec bash -c 'echo "${0#'"$dir/"'}"' {} \;
+    }
+
+    local_cheetsheets_content=$(get_files_recursive "$local_cheatsheets_dir" "")
+
+    # Get relative paths of files in the additional lines directory
+    additional_lines_content=""
+    additional_lines_content+="META: Create cheatsheet\n"
+    additional_lines_content+="META: Delete cheatsheet\n"
+
+    # Concatenate additional lines with file contents
+    file_contents=$(cat "$file_path")
+    content_with_additional_lines=$(printf "%s\n%s\n%s\n%s" "$additional_lines_content" "$local_cheetsheets_content" "$file_contents")
+
+    selected=$(echo -e "$content_with_additional_lines" | fzf --height 60% --layout=reverse --border --prompt="Choose a Cheatsheet: ")
 else
-    echo "Using cached cheat sheets..."
+    selected=$CHT
 fi
 
-# Function to recursively get relative paths of files from a directory
-get_files_recursive() {
-    local dir="$1"
-    fd -H -I -0 -t f . "$dir" --exec bash -c 'echo "${0#'"$dir/"'}"' {} \;
-}
-
-local_cheetsheets_content=$(get_files_recursive "$local_cheatsheets_dir" "")
-
-# Get relative paths of files in the additional lines directory
-additional_lines_content=""
-additional_lines_content+="META: Create cheatsheet\n"
-additional_lines_content+="META: Delete cheatsheet\n"
-
-# Concatenate additional lines with file contents
-file_contents=$(cat "$file_path")
-content_with_additional_lines=$(printf "%s\n%s\n%s\n%s" "$additional_lines_content" "$local_cheetsheets_content" "$file_contents")
-
-selected=$(echo -e "$content_with_additional_lines" | fzf --height 60% --layout=reverse --border --prompt="Choose a Cheatsheet: ")
 
 if [[ -z $selected ]]; then
     exit 0
