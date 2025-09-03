@@ -2,7 +2,7 @@
 
 if [ "$MINIMAL" == false ]; then
     # File Manager
-    yay --noconfirm -S --needed nautilus nautilus-admin-gtk4 nautilus-image-converter nautilus-open-any-terminalunzip \
+    yay --noconfirm -S --needed nautilus nautilus-admin-gtk4 nautilus-image-converter nautilus-open-any-terminal unzip \
         transmission-gtk3 nautilus-annotations nautilus-checksums nautilus-hide nautilus-launch actions-for-nautilus-git \
         folder-color-nautilus nautilus-metadata-editor nautilus-share seahorse-nautilus sushi file-roller
 
