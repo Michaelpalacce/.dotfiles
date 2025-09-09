@@ -6,6 +6,7 @@
                 "cpu",
                 "ram",
                 "network",
+                "bluetooth",
                 "cava"
             ],
             "middle": [
