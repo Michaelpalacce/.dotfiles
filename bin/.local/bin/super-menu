@@ -186,8 +186,9 @@ show_dev_menu() {
 
 show_ai_menu() {
   source ~/.zsh_secrets
-  case $(menu "AI" "🧠 Ask Gemini\n Back") in
-  *Ask*Gemini*) terminal gemini ;;
+  case $(menu "AI" "🧠 Ask Gemini\n🧠 Ask ChatGPT\n Back") in
+  *Ask*Gemini*) webapp-launch https://gemini.google.com ;;
+  *Ask*ChatGP*) webapp-launch https://chat.openai.com ;;
   *Back*) show_main_menu ;;
   *) ;;
   esac
