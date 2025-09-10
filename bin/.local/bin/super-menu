@@ -126,7 +126,7 @@ show_ops_menu() {
 }
 
 show_systemd_menu() {
-    case $(menu "Systemd" "🟢 Start Service\n🔁 Restart Service\n🛑 Stop Service\n✅ Enable Service\n❌ Disable Service\n View System Logs\nℹ️ Get Status\n Back") in
+    case $(menu "Systemd" "🟢 Start Service\n🔁 Restart Service\n🛑 Stop Service\n✅ Enable Service\n❌ Disable Service\n View System Logs\n Back") in
     *Start*Service*)
         local service_to_start=$(list_services)
         if [[ -n "$service_to_start" ]]; then
@@ -160,12 +160,6 @@ show_systemd_menu() {
     *View*System*Logs*)
         # Opens a new terminal to view live system logs
         terminal sudo journalctl -f -q -b
-        ;;
-    *Get*Status*)
-        local service_to_check=$(list_services)
-        if [[ -n "$service_to_check" ]]; then
-            terminal systemctl status "$service_to_check"
-        fi
         ;;
     *Back*) show_main_menu ;;
     *) ;;
