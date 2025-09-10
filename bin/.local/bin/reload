@@ -4,8 +4,17 @@
 # Reloads arch components. Can be triggerd with SUPER + R
 ########################
 
-killall dunst ; hyprpanel -q; hyprpanel & disown
+# Kill notifications
+killall dunst ; 
 
+# Hyprpanel reload
+hyprpanel -q; hyprpanel & disown
+
+# Restore wallpaper
 swww restore
 
+# Reload Hyprland config
+hyprctl reload
+
+# Restow stuff
 ~/.dotfiles/stow.sh
