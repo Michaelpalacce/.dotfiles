@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-brew install sops age
+brew install sops age trivy
