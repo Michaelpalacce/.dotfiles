@@ -166,7 +166,6 @@ go_to_menu() {
   case "${1,,}" in
   *power*) show_power_menu ;;
   *screenshot*) show_screenshot_menu ;;
-  *power*) show_power_menu ;;
   esac
 }
 
