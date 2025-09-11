@@ -20,9 +20,10 @@ xlInfoTerminal() {
 }
 
 show_package_menu() {
-  case $(menu "Package" "✅ Install Package\n❌ Remove Package\n Update System\n✅ Install WebApp\n❌ Remove WebApp\n Back") in
+  case $(menu "Package" "✅ Install Package\n❌ Remove Package\n⬇️ Downgrade Package\n Update System\n✅ Install WebApp\n❌ Remove WebApp\n Back") in
   *Install*Package*) terminal pkg-install ;;
   *Remove*Package*) terminal pkg-remove ;;
+  *Downgrade*Package*) terminal pkg-downgrade ;;
   *Update*System*) terminal yay -Syu --noconfirm ;;
   *Install*WebApp*) terminal webapp-install ;;
   *Remove*WebApp*) terminal webapp-remove ;;
