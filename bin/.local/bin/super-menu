@@ -19,17 +19,18 @@ xlInfoTerminal() {
     alacritty --class FullInformative -e "$@"
 }
 
-show_package_menu() {
-  case $(menu "Package" "✅ Install Package\n❌ Remove Package\n⬇️ Downgrade Package\n Update System\n✅ Install WebApp\n❌ Remove WebApp\n Back") in
-  *Install*Package*) terminal pkg-install ;;
-  *Remove*Package*) terminal pkg-remove ;;
-  *Downgrade*Package*) terminal pkg-downgrade ;;
-  *Update*System*) terminal yay -Syu --noconfirm ;;
-  *Install*WebApp*) terminal webapp-install ;;
-  *Remove*WebApp*) terminal webapp-remove ;;
-  *Back*) show_main_menu ;;
-  *) ;;
-  esac
+list_services() {
+    systemctl list-units --type=service --no-legend --no-pager | awk '{print $1}' | grep -Ev '.slice|.mount|@' | rofi -dmenu -theme "$ROFI_DIR/dmenu.rasi" -i -p "Select a service:"
+}
+
+show_devhints_cheatsheet() {
+    local cheatsheet_name=$(curl -s https://devhints.io/ | \
+        grep -oP '(?<=<code class="slug">)[^<]+' | \
+        rofi -dmenu -theme "$ROFI_DIR/dmenu.rasi" -i -p "Select a cheatsheet:")
+
+    if [[ -n "$cheatsheet_name" ]]; then
+        webapp-launch "https://devhints.io/${cheatsheet_name}"
+    fi
 }
 
 show_screenshot_menu() {
@@ -37,15 +38,6 @@ show_screenshot_menu() {
   *Region*) hyprshot -m region ;;
   *Window*) hyprshot -m window ;;
   *Display*) hyprshot -m output ;;
-  *Back*) show_main_menu ;;
-  *) ;;
-  esac
-}
-
-show_system_menu() {
-    case $(menu "System" " Resources\n󰜉 Reload\n Back") in
-  *Resources*) terminal htop ;;
-  *Reload*) reload ;;
   *Back*) show_main_menu ;;
   *) ;;
   esac
@@ -61,18 +53,9 @@ show_power_menu() {
   *) ;;
   esac
 }
-show_devhints_cheatsheet() {
-    local cheatsheet_name=$(curl -s https://devhints.io/ | \
-        grep -oP '(?<=<code class="slug">)[^<]+' | \
-        rofi -dmenu -theme "$ROFI_DIR/dmenu.rasi" -i -p "Select a cheatsheet:")
-
-    if [[ -n "$cheatsheet_name" ]]; then
-        webapp-launch "https://devhints.io/${cheatsheet_name}"
-    fi
-}
 
 show_learn_menu() {
-  case $(menu "Learn" "  Keybindings\n📜 Devhints Cheatsheet\n  Hyprland\n󰣇  Arch\n󰣇  Arch Wiki Offline\n Font Awesome\n Hyprpanel Modules\n Back") in
+  case $(menu "Learn" "  Keybindings\n📜 Devhints Cheatsheet\n  Hyprland\n󰣇  Arch\n󰣇  Arch Wiki Offline\n Font Awesome\n Hyprpanel Modules\n📈 Stocks\n📖 Conventional Commits\n📖 Kubernetes Docs\n☁️ Terraform Docs\n Back") in
   *Keybindings*) hyprland-keybinds ;;
   *Devhints*Cheatsheet*) show_devhints_cheatsheet ;;
   *Hyprland*) webapp-launch "https://wiki.hypr.land/" ;;
@@ -80,22 +63,11 @@ show_learn_menu() {
   *Arch*) webapp-launch "https://wiki.archlinux.org/title/Main_page" ;;
   *Font*Awesome*) webapp-launch "https://fontawesome.com/search?o=r" ;;
   *Hyprpanel*Modules*) webapp-launch "https://hyprpanel.com/configuration/modules.html" ;;
-  *Back*) show_main_menu ;;
-  *) ;;
-  esac
-}
-
-show_news_menu(){
-  case $(menu "News" "📈 Stocks\n Back") in
+  *Conventional*Commits*) webapp-launch "https://www.conventionalcommits.org/en/v1.0.0/" ;;
+  *Kubernetes*Docs*) webapp-launch "https://kubernetes.io/docs/home/" ;;
+  *Terraform*Docs*) webapp-launch "https://www.terraform.io/docs/" ;;
   *Stocks*) xlInfoTerminal ticker --config ~/.ticker.yaml ;;
   *Back*) show_main_menu ;;
-  *) ;;
-  esac
-}
-
-show_k8s_menu() {
-    case $(menu "Kubernetes" "\n Back") in
-  *Back*) show_dev_menu ;;
   *) ;;
   esac
 }
@@ -115,20 +87,15 @@ show_minikube_menu() {
   *Create*) terminal minikube start ;;
   *Delete*) terminal minikube delete ;;
   *Assume*Context*) terminal minikube update-context ;;
-  *Back*) show_dev_menu ;;
-  *) ;;
-  esac
-}
-
-show_ops_menu() {
-    case $(menu "Ops" "\n Back") in
   *Back*) show_main_menu ;;
   *) ;;
   esac
 }
 
-show_systemd_menu() {
-    case $(menu "Systemd" "🟢 Start Service\n🔁 Restart Service\n🛑 Stop Service\n✅ Enable Service\n❌ Disable Service\n View System Logs\nGet Status\n Back") in
+show_system_menu() {
+    case $(menu "System" " Resources\n󰜉 Reload\n🟢 Start Service\n🔁 Restart Service\n🛑 Stop Service\n✅ Enable Service\n❌ Disable Service\n View System Logs\nGet Status\n Back") in
+      *Resources*) terminal htop ;;
+      *Reload*) reload ;;
     *Start*Service*)
         local service_to_start=$(list_services)
         if [[ -n "$service_to_start" ]]; then
@@ -174,58 +141,37 @@ show_systemd_menu() {
     esac
 }
 
-list_services() {
-    systemctl list-units --type=service --no-legend --no-pager | awk '{print $1}' | grep -Ev '.slice|.mount|@' | rofi -dmenu -theme "$ROFI_DIR/dmenu.rasi" -i -p "Select a service:"
-}
-
-show_dev_menu() {
-    case $(menu "Dev" "📖 Conventional Commits\n📖 Kubernetes Docs\n☁️ Terraform Docs\n📜 Devhints Cheatsheet\n Kubernetes (WIP)\n Kind\n Minikube\n Back") in
-  *Conventional*Commits*) webapp-launch "https://www.conventionalcommits.org/en/v1.0.0/" ;;
-  *Kubernetes*Docs*) webapp-launch "https://kubernetes.io/docs/home/" ;;
-  *Terraform*Docs*) webapp-launch "https://www.terraform.io/docs/" ;;
-  *Kubernetes*) show_k8s_menu ;;
+show_main_menu() {
+  source ~/.zsh_secrets
+  case "$(menu "" "󰀻 Apps\n😀 Emoji\n📚 Learn\n📷 Screenshot\n  System\n⚡ Power\n✅ Install Package\n❌ Remove Package\n⬇️ Downgrade Package\n  Update System\n✅ Install WebApp\n❌ Remove WebApp\n🧠 Ask Gemini\n🧠 Ask ChatGPT\n Kind\n Minikube\nℹ️ About")" in
+  *Apps*) rofi -show drun ;;
+  *Emoji*) hyprland-emoji ;;
+  *Learn*) show_learn_menu ;;
+  *Screenshot*) show_screenshot_menu ;;
+  *Power*) show_power_menu ;;
+  *Install*Package*) terminal pkg-install ;;
+  *Remove*Package*) terminal pkg-remove ;;
+  *Downgrade*Package*) terminal pkg-downgrade ;;
+  *Update*System*) terminal zsh -c 'yay -Syu --noconfirm; notify-send \"System Updated!\" read -n 1 -s';;
+  *System*) show_system_menu ;;
+  *Install*WebApp*) terminal webapp-install ;;
+  *Remove*WebApp*) terminal webapp-remove ;;
+  *Ask*Gemini*) webapp-launch https://gemini.google.com ;;
+  *Ask*ChatGPT*) webapp-launch https://chat.openai.com ;;
   *Kind*) show_kind_menu ;;
   *Minikube*) show_minikube_menu ;;
-  *Back*) show_main_menu ;;
-  *) ;;
+  *About*) terminal zsh -c 'fastfetch; read -n 1 -s' ;;
   esac
-}
-
-show_ai_menu() {
-  source ~/.zsh_secrets
-  case $(menu "AI" "🧠 Ask Gemini\n🧠 Ask ChatGPT\n Back") in
-  *Ask*Gemini*) webapp-launch https://gemini.google.com ;;
-  *Ask*ChatGP*) webapp-launch https://chat.openai.com ;;
-  *Back*) show_main_menu ;;
-  *) ;;
-  esac
-}
-
-# 🖥️ Ops (WIP)
-show_main_menu() {
-  go_to_menu "$(menu "Go" "󰀻 Apps\n😀 Emoji\n💾 Package Management\n📚 Learn\n📷 Screenshot\n📰 News\n  System\n Systemd\n⚡ Power\n💻 Development\n🤖 AI\nℹ️ About")"
 }
 
 go_to_menu() {
   case "${1,,}" in
-  *apps*) rofi -show drun ;;
-  *emoji*) hyprland-emoji ;;
-  *package*management*) show_package_menu ;;
-  *learn*) show_learn_menu ;;
-  *screenshot*) show_screenshot_menu ;;
-  *news*) show_news_menu ;;
-  *systemd*) show_systemd_menu ;;
-  *system*) show_system_menu ;;
   *power*) show_power_menu ;;
-  *ops*) show_ops_menu ;;
-  *development*) show_dev_menu ;;
-  *ai*) show_ai_menu ;;
-  *about*) terminal zsh -c 'fastfetch; read -n 1 -s' ;;
   esac
 }
 
 if [[ -n "$1" ]]; then
   go_to_menu "$1"
 else
-  show_main_menu
+show_main_menu
 fi
