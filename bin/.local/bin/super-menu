@@ -143,12 +143,10 @@ show_system_menu() {
 
 show_main_menu() {
   source ~/.zsh_secrets
-  case "$(menu "" "󰀻 Apps\n😀 Emoji\n📚 Learn\n📷 Screenshot\n  System\n⚡ Power\n✅ Install Package\n❌ Remove Package\n⬇️ Downgrade Package\n  Update System\n✅ Install WebApp\n❌ Remove WebApp\n🧠 Ask Gemini\n🧠 Ask ChatGPT\n Kind\n Minikube\nℹ️ About")" in
+  case "$(menu "" "󰀻 Apps\n📚 Learn\n📷 Screenshot\n  System\n✅ Install Package\n❌ Remove Package\n⬇️ Downgrade Package\n  Update System\n✅ Install WebApp\n❌ Remove WebApp\n🧠 Ask Gemini\n🧠 Ask ChatGPT\n Kind\n Minikube\nℹ️ About")" in
   *Apps*) rofi -show drun ;;
-  *Emoji*) hyprland-emoji ;;
   *Learn*) show_learn_menu ;;
   *Screenshot*) hyprshot -m region ;;
-  *Power*) show_power_menu ;;
   *Install*Package*) terminal pkg-install ;;
   *Remove*Package*) terminal pkg-remove ;;
   *Downgrade*Package*) terminal pkg-downgrade ;;
@@ -168,6 +166,7 @@ go_to_menu() {
   case "${1,,}" in
   *power*) show_power_menu ;;
   *screenshot*) show_screenshot_menu ;;
+  *power*) show_power_menu ;;
   esac
 }
 
