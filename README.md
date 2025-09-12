@@ -168,6 +168,7 @@ There are of course differences in the two systems. MacOS will never look, feel 
 - `git-hooks` - Contains some git-hooks for identity
 - `gitignore` - Default gitignore for common directories/files you want to ignore
 - `hyprland` - Contains hyprland configuration for Arch Linux
+- `hyprworm` - Nice window switcher
 - `images` - Images for the dotfiles
 - `karabiner` - Keyboard remapping for macos
 - `nvim` - Personalized Development Environment in NeoVim

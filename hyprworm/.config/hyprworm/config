@@ -1,0 +1,15 @@
+# Launcher command - any dmenu-compatible launcher
+launcher = rofi -dmenu -i
+
+# Show window titles in display (true/false)
+show_title = false
+
+# Workspace aliases - replace names with custom symbols
+workspace_alias_special = "⭐ "
+workspace_alias_work = "💼 "
+workspace_alias_gaming = "🎮 "
+
+# Logging configuration
+log_level = INFO          # ERROR, WARNING, INFO, DEBUG
+log_file = /tmp/hyprworm.log  # Optional log file
+debug_mode = false        # Enable debug output

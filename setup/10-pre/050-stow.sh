@@ -25,6 +25,7 @@ FOLDERS=(
     "hyprpanel"
     "waypaper"
     "ticker"
+    "hyprworm"
     "waycorner"
     "xsettingsd"
 )
