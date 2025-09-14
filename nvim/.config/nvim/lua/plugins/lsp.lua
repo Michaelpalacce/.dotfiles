@@ -14,6 +14,10 @@ return {
 			{ 'towolf/vim-helm',               ft = 'helm' },
 			{ 'b0o/schemastore.nvim' }
 		},
+		keys = {
+			{ "<leader>Lr", function() vim.cmd.LspRestart() end, desc = "Reload", },
+			{ "<leader>Li", function() vim.cmd.LspInfo() end,    desc = "Info", },
+		},
 		config = function()
 			-- Remove https://gpanders.com/blog/whats-new-in-neovim-0-11/#more-default-mappings
 			pcall(vim.keymap.del, "n", "gri")
