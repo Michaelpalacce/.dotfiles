@@ -14,9 +14,9 @@ fzf_args=(
   --color 'pointer:red,marker:red'
 )
 
-pkg_names=$(yay -Qq | fzf "${fzf_args[@]}")
+pkg=$(yay -Qq | fzf "${fzf_args[@]}")
 
-if [[ -n "$pkg_names" ]]; then
+if [[ -n "$pkg" ]]; then
   # Convert newline-separated selections to space-separated for yay
-  echo "$pkg_names" | tr '\n' ' ' | xargs sudo downgrade
+  sudo downgrade $(echo "$pkg" | tr '\n' ' ') --ignore never -- --noconfirm
 fi
