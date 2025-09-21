@@ -148,6 +148,15 @@ vim.keymap.set("n", "<leader>esee", function()
 	)
 end, { noremap = true, desc = "[E]xecute: [S]ops [E]ncrypt [E]nvironment", silent = true })
 
+vim.keymap.set("n", "<leader>eseA", function()
+	vim.cmd(
+		"!sops --age "
+		.. sopsAgeKey
+		.. " --encrypt --encrypted-regex '^(receivers)$' --in-place "
+		.. vim.fn.expand('%')
+	)
+end, { noremap = true, desc = "[E]xecute: [S]ops [E]ncrypt [A]lert", silent = true })
+
 vim.keymap.set("n", "<leader>esea", function()
 	vim.cmd(
 		"!sops --age "
