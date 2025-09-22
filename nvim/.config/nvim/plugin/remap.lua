@@ -112,6 +112,15 @@ vim.keymap.set("n", "<leader>eses", function()
 	)
 end, { noremap = true, desc = "[E]xecute: [S]ops [E]ncrypt [S]ecret", silent = true })
 
+vim.keymap.set("n", "<leader>eseS", function()
+	vim.cmd(
+		"!sops --age "
+		.. sopsAgeKey
+		.. " --encrypt --encrypted-regex '(?i)password|webhook_url' --in-place "
+		.. vim.fn.expand('%')
+	)
+end, { noremap = true, desc = "[E]xecute: [S]ops [E]ncrypt [S]ensitive", silent = true })
+
 vim.keymap.set("n", "<leader>esei", function()
 	vim.cmd(
 		"!sops --age "
