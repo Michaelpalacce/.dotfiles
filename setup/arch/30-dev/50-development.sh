@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Dev
-yay --noconfirm -S --needed aws-cli-v2 nvim fnm terraform ansible ripgrep fzf fd direnv vault-bin golangci-lint github-cli
+yay --noconfirm -S --needed aws-cli-v2 nvim fnm terraform ansible ripgrep fzf fd direnv vault-bin golangci-lint github-cli chart-testing
 
 if [ "$MINIMAL" == false ]; then
     # Postman GUI app
