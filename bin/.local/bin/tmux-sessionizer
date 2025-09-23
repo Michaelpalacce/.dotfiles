@@ -5,28 +5,35 @@
 # $1: Command to run in the new window
 
 # This will search for folders that have `.git` folder in them and show them
-selected=$(find ~/projects ~/projects/clients ~/.dotfiles -mindepth 1 -maxdepth 3 -type d -name ".git" -not -path "*node_modules*" -exec dirname {} \;  2>/dev/null | fzf --height 60% --border --reverse --prompt="Select a project: ")
+selected=$(
+  find ~/projects ~/projects/clients ~/.dotfiles \
+    -mindepth 1 -maxdepth 3 -type d -name ".git" \
+    -not -path "*node_modules*" -exec dirname {} \; 2>/dev/null \
+  | sed "s|^$HOME/|~/|" \
+  | fzf --height 60% --border --reverse --prompt="Select a project: "
+)
 
 if [[ -z $selected ]]; then
     exit 0
 fi
 
 selected_name=$(basename "$selected" | tr . _)
+selected_path="${selected/#\~/$HOME}"
 tmux_running=$(pgrep tmux)
 
 # Create a new session with the chosen file
 # Create a new window in the session too, so we can go to it if we need to run a command
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
     # Not sure why this does not work on Linux, but it does on Mac
-    tmux new-session -ds $selected_name -c $selected zsh
+    tmux new-session -ds $selected_name -c $selected_path zsh
     tmux send-keys -t $selected_name $1 Enter
 
     # This will open a window at the bottom
-    # tmux split-window -v -t $selected_name -p 10 -c $selected
+    # tmux split-window -v -t $selected_name -p 10 -c $selected_path
     # tmux switch-client -t $selected_name:0.0
 
     # # This will do a git pull in a second pane and it will quit, so you won't probably see it
-    # tmux new-window -d -t $selected_name -c $selected 'git pull'
+    # tmux new-window -d -t $selected_name -c $selected_path 'git pull'
 fi
 
 if [[ -z $TMUX ]]; then
