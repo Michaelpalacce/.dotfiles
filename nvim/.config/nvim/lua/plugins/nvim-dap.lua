@@ -55,12 +55,16 @@ return {
 				-- :help dap-configuration
 				dap_configurations = {
 					{
-						-- Must be "go" or it will be ignored by the plugin
 						type = "go",
-						name = "Attach remote",
-						mode = "remote",
-						request = "attach",
-					},
+						name = "Debug All",
+						request = "launch",
+						program = "${workspaceFolder}/cmd/controller",
+						args = {
+							"--log-dev",
+							"--log-level=info",
+							"--log-time-encoder=iso8601",
+						},
+					}
 				},
 				-- delve configurations
 				delve = {
