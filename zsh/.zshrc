@@ -87,9 +87,9 @@ case "${unameOut}" in
 esac
 
 if [ $machine = "Linux" ]; then
-    . $HOME/.dotfiles/sh/.zshenv.d/linux
+    . $HOME/.dotfiles/zsh/.zshenv.d/linux
 elif [ $machine = "Mac" ]; then
-    . $HOME/.dotfiles/sh/.zshenv.d/mac
+    . $HOME/.dotfiles/zsh/.zshenv.d/mac
 fi
 
 # ------------------------------ HISTORY ---------------------------------
