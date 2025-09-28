@@ -84,7 +84,7 @@ return {
 			word_diff               = false, -- Toggle with `:Gitsigns toggle_word_diff`
 			auto_attach             = true,
 			on_attach               = function(bufnr)
-				local gs = package.loaded.gitsigns
+				local gs = require('gitsigns')
 
 				local function map(mode, l, r, opts)
 					opts = opts or {}
