@@ -72,10 +72,11 @@ return {
 			current_line_blame      = true,
 			current_line_blame_opts = {
 				virt_text = true,
-				virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+				virt_text_pos = 'eol',
 				delay = 500,
 				ignore_whitespace = false,
 			},
+			max_file_length         = 10000, -- Disable gitsigns if a file is longer than 10k
 
 			signcolumn              = true, -- Toggle with `:Gitsigns toggle_signs`
 			numhl                   = true, -- Toggle with `:Gitsigns toggle_numhl`
