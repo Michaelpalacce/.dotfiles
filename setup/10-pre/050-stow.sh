@@ -28,6 +28,7 @@ FOLDERS=(
     "hyprworm"
     "waycorner"
     "xsettingsd"
+    "velero"
 )
 
 for dir in ${FOLDERS[@]} ; do
