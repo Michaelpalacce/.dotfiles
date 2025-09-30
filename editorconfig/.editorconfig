@@ -74,3 +74,9 @@ indent_size = 2
 # Don't wrap..
 max_line_length = 9999
 insert_final_newline = false
+
+[*.sh]
+indent_size = 2
+indent_style = space
+max_line_length = 9999
+insert_final_newline = false
