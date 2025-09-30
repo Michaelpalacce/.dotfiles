@@ -70,7 +70,7 @@ vim.opt_local.spell = true
 vim.opt_local.spelllang = "en"
 
 -- Performance
-vim.opt.maxmempatter = 50000
+vim.opt.maxmempattern = 50000
 
 -- Cmd line
 -- This disables the cmdline
