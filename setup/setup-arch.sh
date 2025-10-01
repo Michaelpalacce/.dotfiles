@@ -22,16 +22,21 @@ log_step() {
 #
 # Default value for flags
 MINIMAL=false
+GAMING=false
 
 while [[ "$#" -gt 0 ]]; do
     case "$1" in
         --minimal)
             MINIMAL=true
             ;;
+        --gaming)
+            MINIMAL=true
+            ;;
         *)
             echo "Unknown option: $1"
             echo "valid:"
-            echo "--minimal     Don't install gui apps"
+            echo "--minimal    Don't install gui apps"
+            echo "--gaming     Install gaming-related stuff"
             exit 1
             ;;
     esac
@@ -42,6 +47,12 @@ if [ "$MINIMAL" == true ]; then
     echo "The --minimal flag is set. Running in minimal mode."
 else
     echo "The --minimal flag is not set. Running in full mode."
+fi
+
+if [ "$GAMING" == true ]; then
+    echo "The --gaming flag is set. Installing gaming-related stuff."
+else
+    echo "The --gaming flag is not set. Not installing gaming-related stuff."
 fi
 
 # -------------------------- Installation ------------------------
