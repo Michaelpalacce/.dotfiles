@@ -1,7 +1,7 @@
 return {
 	{
 		'saghen/blink.cmp',
-		event = "InsertEnter",
+		lazy = false,
 		-- use a release tag to download pre-built binaries
 		version = '1.*',
 		dependencies = { "archie-judd/blink-cmp-words" },

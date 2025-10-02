@@ -3,10 +3,17 @@ return {
 		'nvim-treesitter/nvim-treesitter', -- Provides syntax highlighting
 		build = ':TSUpdate',
 		lazy = false,
-		branch = "main",
-		config = {
+		branch = "master", -- `main` is not good
+		config = function()
 			require 'nvim-treesitter.configs'.setup {
 				-- A list of parser names, or "all"
+				ensure_installed = {},
+				ignore_install = {},
+				modules = {},
+
+				-- Install parsers synchronously (only applied to `ensure_installed`)
+				sync_install = false,
+
 				-- Automatically install missing parsers when entering buffer
 				-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
 				auto_install = true,
@@ -23,29 +30,23 @@ return {
 					-- Instead of true it can also be a list of languages
 					additional_vim_regex_highlighting = true,
 				},
-				autotag = {
+				incremental_selection = {
 					enable = true,
-				},
-			}
-		},
-		{
-			"sustech-data/wildfire.nvim",
-			event = "VeryLazy",
-			dependencies = { "nvim-treesitter/nvim-treesitter" },
-			config = function()
-				require("wildfire").setup {
 					keymaps = {
 						init_selection = "<C-e>", -- set to `false` to disable one of the mappings
 						node_incremental = "<C-e>",
 						node_decremental = "<C-x>",
 					},
-				}
-			end,
-		},
-		{
-			'nvim-treesitter/nvim-treesitter-context', -- Provides a nice context of where you are
-			config = true,
-			event = "BufRead"
-		},
-	}
+				},
+				autotag = {
+					enable = true,
+				},
+			}
+		end
+	},
+	{
+		'nvim-treesitter/nvim-treesitter-context', -- Provides a nice context of where you are
+		config = true,
+		event = "BufRead"
+	},
 }
