@@ -10,6 +10,7 @@ return {
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-neotest/neotest-go",
+			"nvim-contrib/nvim-ginkgo",
 		},
 		-- Limit to go, cause that's all I use it for
 		ft = { "go", "gomod" },
@@ -47,6 +48,7 @@ return {
 				adapters = {
 					require("neotest-go"),
 					require("neotest-vim-test")({ ignore_filetypes = { "go", "golang" } }),
+					require("nvim-ginkgo")
 				},
 			})
 		end
