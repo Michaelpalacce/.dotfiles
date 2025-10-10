@@ -17,6 +17,13 @@ return {
 			vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
 			vim.keymap.set('n', 'zz', require('ufo').enableFold)
 
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "markdown" },
+				callback = function()
+					require("ufo").detach()
+				end
+			})
+
 			require('ufo').setup({
 				open_fold_hl_timeout = 150,
 				provider_selector = function(bufnr, filetype, buftype)
