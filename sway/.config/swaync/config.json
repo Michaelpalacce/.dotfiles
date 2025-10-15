@@ -96,7 +96,7 @@
                 },
                 {
                     "label": "",
-                    "command": "wlogout -b 4"
+                    "command": "$HOME/.local/bin/super-menu show_power_menu"
                 }
             ]
         }

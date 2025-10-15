@@ -13,7 +13,6 @@
     "custom/logo": {
         "format": "",
         "on-click": "hyprsysteminfo",
-        "on-click-right": "wlogout"
     },
     "hyprland/workspaces": {
         "disable-scroll": false,
