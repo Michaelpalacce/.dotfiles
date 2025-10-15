@@ -55,14 +55,13 @@ show_power_menu() {
 }
 
 show_learn_menu() {
-  case $(menu "Learn" "  Keybindings\n📜 Devhints Cheatsheet\n  Hyprland\n󰣇  Arch\n󰣇  Arch Wiki Offline\n Font Awesome\n Hyprpanel Modules\n📈 Stocks\n📖 Conventional Commits\n📖 Kubernetes Docs\n☁️ Terraform Docs\n Back") in
+  case $(menu "Learn" "  Keybindings\n📜 Devhints Cheatsheet\n  Hyprland\n󰣇  Arch\n󰣇  Arch Wiki Offline\n Font Awesome\n📈 Stocks\n📖 Conventional Commits\n📖 Kubernetes Docs\n☁️ Terraform Docs\n Back") in
   *Keybindings*) hyprland-keybinds ;;
   *Devhints*Cheatsheet*) show_devhints_cheatsheet ;;
   *Hyprland*) webapp-launch "https://wiki.hypr.land/" ;;
   *Arch*Wiki*Offline*) brave "file:///usr/share/doc/arch-wiki/html/en/Main_page.html" ;;
   *Arch*) webapp-launch "https://wiki.archlinux.org/title/Main_page" ;;
   *Font*Awesome*) webapp-launch "https://fontawesome.com/search?o=r" ;;
-  *Hyprpanel*Modules*) webapp-launch "https://hyprpanel.com/configuration/modules.html" ;;
   *Conventional*Commits*) webapp-launch "https://www.conventionalcommits.org/en/v1.0.0/" ;;
   *Kubernetes*Docs*) webapp-launch "https://kubernetes.io/docs/home/" ;;
   *Terraform*Docs*) webapp-launch "https://www.terraform.io/docs/" ;;

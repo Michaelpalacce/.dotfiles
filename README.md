@@ -178,7 +178,7 @@ There are of course differences in the two systems. MacOS will never look, feel 
 - `rofi` - Also an app launcer
 - `ssh` - Encrypted identity
 - `tmux` - `tmux` configuration
-- `hyprpanel` - Status Bar for Hyprland
+- `waybar` - Status Bar for Hyprland
 - `waycorner` - Hot corners (like MacOS)
 - `waypaper` - Wallpapers for Hyprland
 - `xsettingsd` - For themes

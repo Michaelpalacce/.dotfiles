@@ -22,7 +22,6 @@ FOLDERS=(
     "hyprland"
     "karabiner"
     "rofi"
-    "hyprpanel"
     "waypaper"
     "ticker"
     "hyprworm"
