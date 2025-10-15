@@ -9,6 +9,9 @@ yay --noconfirm -S --needed cpio pkg-config jsoncpp libsigc++ fmt spdlog pacman-
 # Documentation
 yay --noconfirm -S --needed man-db
 
+# Utils
+yay --noconfirm -S btop
+
 if [ "$MINIMAL" == false ]; then
     # GTK deps are for widgets and gui
     yay --noconfirm -S --needed gtk2 gtk4 gtk-doc
