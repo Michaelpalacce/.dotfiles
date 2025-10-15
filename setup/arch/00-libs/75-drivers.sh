@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-yay --noconfirm -S --needed sof-firmware 
+yay --noconfirm -S --needed sof-firmware
 
 if [ "$MINIMAL" == false ]; then
     # GUI drivers

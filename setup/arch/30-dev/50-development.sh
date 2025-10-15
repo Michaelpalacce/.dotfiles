@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Dev
-yay --noconfirm -S --needed aws-cli-v2 nvim fnm terraform ansible vault-bin golangci-lint github-cli chart-testing ginkgo-git
+yay --noconfirm -S --needed aws-cli-v2 nvim fnm terraform ansible vault-bin github-cli chart-testing
 
 # Utils
 yay --noconfirm -S --needed ripgrep fzf fd direnv go-yq jq
