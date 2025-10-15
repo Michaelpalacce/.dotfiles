@@ -1,0 +1,40 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "spacing": 4, // Gaps between modules (4px)
+    "height": 10,
+    "margin-top": 4,
+    "margin-left": 8,
+    "margin-right": 8,
+    "mode": "dock",
+    "reload_style_on_change": true,
+    "include": [
+        "~/.config/waybar/modules.jsonc"
+    ],
+    "modules-left": [
+        // "custom/logo",
+        "custom/weather",
+        // "cpu",
+        // "temperature",
+        // "memory",
+        // "disk",
+        "network"
+        // "hyprland/window"
+    ],
+    "modules-center": [
+        "hyprland/workspaces",
+    ],
+    "modules-right": [
+        "tray",
+        "idle_inhibitor",
+        "custom/updates",
+        "hyprland/language",
+        // "custom/clipboard",
+        "custom/colorpicker",
+        // "group/pulse",
+        "group/sound",
+        "battery",
+        "clock",
+        "custom/notification",
+    ]
+}

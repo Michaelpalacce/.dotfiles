@@ -1,0 +1,223 @@
+{
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "  {signalStrength}%  {bandwidthDownBytes}  {bandwidthUpBytes} ",
+        "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
+        "format-ethernet": " {bandwidthDownBytes}  {bandwidthUpBytes} ",
+        "format-disconnected": "Not connected",
+        "tooltip-format": "  {ifname} via {gwaddri}",
+        "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "networkmanager_dmenu"
+    },
+    "custom/logo": {
+        "format": "",
+        "on-click": "hyprsysteminfo",
+        "on-click-right": "wlogout"
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*": 4
+        },
+        "format-icons": {
+            "urgent": "",
+            "active": "",
+            "default": "",
+            "empty": ""
+        }
+    },
+    "hyprland/language": {
+        "format": " {}",
+        "format-en": "en",
+        "format-bg": "bg",
+    },
+    "custom/weather": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/weather.sh",
+        "interval": 600,
+        "on-click": "brave https://wttr.in"
+    },
+    "custom/clipboard": {
+        "format": "",
+        "on-click": "cliphist list | wofi -dmenu | cliphist decode | wl-copy",
+        "interval": 86400
+    },
+    "clock": {
+        "format": "<span> </span>{:%H:%M}",
+        "interval": 1,
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "calendar-weeks-pos": "right",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "today-format": "<span color='#7645AD'><b><u>{}</u></b></span>",
+        "format-calendar": "<span color='#aeaeae'><b>{}</b></span>",
+        "format-calendar-weeks": "<span color='#aeaeae'><b>W{:%V}</b></span>",
+        "format-calendar-weekdays": "<span color='#aeaeae'><b>{}</b></span>"
+    },
+    "disk": {
+        "interval": 30,
+        "format": "  {percentage_used}%",
+        "path": "/"
+    },
+    "custom/colorpicker": {
+        "format": "{}",
+        "return-type": "json",
+        "interval": "once",
+        "exec": "~/.config/waybar/scripts/colorpicker.sh -j",
+        "on-click": "sleep 1 && ~/.config/waybar/scripts/colorpicker.sh",
+        "on-click-right": "waypaper",
+        "signal": 1
+    },
+    "cpu": {
+        "interval": 1,
+        "format": " {usage}%",
+        "min-length": 6,
+        "max-length": 6,
+        "format-icons": [
+            "▁",
+            "▂",
+            "▃",
+            "▄",
+            "▅",
+            "▆",
+            "▇",
+            "█"
+        ]
+    },
+    "memory": {
+        "format": " {percentage}%"
+    },
+    "temperature": {
+        "format": " {temperatureC}°C",
+        "format-critical": " {temperatureC}°C",
+        "interval": 1,
+        "critical-threshold": 80,
+        "on-click": "foot btop"
+    },
+    "hyprland/window": {
+        "format": "( {class} )"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{volume}% {icon} ",
+        "format-bluetooth-muted": "  {icon} ",
+        "format-muted": " ",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                " ",
+                "",
+                " ",
+                " "
+            ]
+        },
+        "scroll-step": 5,
+        "on-click-right": "pavucontrol",
+        "on-click": "amixer set Master toggle"
+    },
+    "group/sound": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio"
+        ]
+    },
+    "tray": {
+        "icon-size": 24,
+        "spacing": 10
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂚",
+            "dnd-notification": "󱅫",
+            "dnd-none": "󰂛",
+            "inhibited-notification": "",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/pulse-text": {
+        "format": " ",
+        "scroll-step": 5,
+        "on-click-right": "pavucontrol"
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "rotate": 0,
+        "device": "pulseaudio",
+        "scroll-step": 1
+    },
+    "group/pulse": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/pulse-text",
+            "pulseaudio/slider"
+        ]
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": "",
+            "tooltip": true
+        }
+    },
+    "custom/updates": {
+        "format": "{} ",
+        "exec": "checkupdates | wc -l",
+        "interval": 120,
+        "on-click": "alacritty -e yay --noconfirm -Syu && notify-send 'The system has been updated' ",
+        "on-click-right": "$HOME/.local/bin/reload"
+    },
+    "custom/lock": {
+        "format": "<span color='#00FFFF'>  </span>",
+        "on-click": "hyprlock",
+        "tooltip": false
+    },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": "{icon} ",
+        "format-full": "{icon} ",
+        "interval": 5,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": true,
+        "tooltip-format": "{capacity}% - {time}",
+        "on-click": "2"
+    },
+}

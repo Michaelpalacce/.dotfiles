@@ -7,14 +7,16 @@
 # Kill notifications
 killall dunst ; 
 
-# Hyprpanel reload
-hyprpanel -q; hyprpanel & disown
+# # Hyprpanel reload
+# hyprpanel -q; hyprpanel & disown
+
+
+killall swaync; swaync & disown
+
+killall waybar; waybar & disown
 
 # Restore wallpaper
 swww restore
 
 # Reload Hyprland config
 hyprctl reload
-
-# Restow stuff
-~/.dotfiles/stow.sh
