@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Dev
-brew install mariadb go golangci-lint kubebuilder
+brew install mariadb go golangci-lint kubebuilder fnm
 
 brew tap hashicorp/tap
 brew install hashicorp/tap/vault
