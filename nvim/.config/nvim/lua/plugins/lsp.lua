@@ -1,6 +1,11 @@
 local require_all = require("helpers.require_all").require_all
 
 return {
+	{
+		'mason-org/mason.nvim',
+		lazy = false,
+		config = true
+	},
 	-- Using `nvim-lspconfig` to manage LSP configuration as they have amazing default support
 	{
 		'neovim/nvim-lspconfig',
