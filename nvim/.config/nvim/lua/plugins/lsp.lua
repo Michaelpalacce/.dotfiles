@@ -78,16 +78,36 @@ return {
 
 			require('mason-lspconfig').setup {
 				ensure_installed = {
+					-- Vum/Lua
 					"lua_ls",
 					"vimls",
-					-- "gopls",
-					-- "ts_ls",
-					-- "lemminx",
-					-- "jsonls",
-					-- "yamlls",
-					-- "helm_ls",
-					-- "jdtls",
-					-- "html",
+					"selene",
+
+					-- Kube
+					"helm_ls",
+
+					-- Scripting
+					"shellcheck",
+					"bashls",
+
+					-- Go
+					"delve",
+					"gopls",
+					"golangci-lint",
+
+					-- Config Languages
+					"jsonls",
+					"yamlls",
+					"lemminx", -- xml
+					"html",
+
+					-- JS/TS
+					"ts_ls",
+
+					-- Terraform
+					"tflint",
+					"tfsec",
+					"terraformls",
 				},
 				automatic_enable = true,
 			}

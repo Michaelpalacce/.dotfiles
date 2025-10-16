@@ -11,6 +11,7 @@ return {
 			lint.linters_by_ft = {
 				go = { "golangcilint" },
 				terraform = { "tflint", "tfsec" },
+				sh = { "shellcheck" },
 				-- lua = { "selene" }
 			}
 

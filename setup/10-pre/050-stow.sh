@@ -32,9 +32,9 @@ FOLDERS=(
     "velero"
 )
 
-for dir in ${FOLDERS[@]} ; do
+for dir in "${FOLDERS[@]}" ; do
     echo "Stowing $dir"
-    stow --restow $dir || (echo "Error: Could not stow $dir" && exit 1)
+    stow --restow "$dir" || (echo "Error: Could not stow $dir" && exit 1)
 done
 
 if [ ! -L "/etc/pacman.conf" ]; then
