@@ -160,28 +160,36 @@ There are of course differences in the two systems. MacOS will never look, feel 
 
 ### Structure
 
+#### Mac Specific
+
 - `aerospace` - Tiling Manager for MacOS
+- `karabiner` - Keyboard remapping for macos
+
+#### Linux Specific
+
+- `hyprland` - Contains hyprland configuration for Arch Linux
+- `hyprworm` - Nice window switcher
+- `sddm` && `sddm-themes` - Greeter
+- `rofi` - Also an app launcer
+- `waybar` - Status Bar for Hyprland
+- `waycorner` - Hot corners (like MacOS)
+- `waypaper` - Wallpapers for Hyprland
+- `xsettingsd` - For themes
+
+#### Universal
+
 - `alacritty` - Contains my alacritty configurations
 - `bin` - Check out the [#Scripts](#scripts) section for this,
 - `cheatsheets` - this contains some local cheatsheets that I can access at any time with `sc`
 - `editorconfig` - this contains my default editorconfig that gets used everywhere
 - `git-hooks` - Contains some git-hooks for identity
 - `gitignore` - Default gitignore for common directories/files you want to ignore
-- `hyprland` - Contains hyprland configuration for Arch Linux
-- `hyprworm` - Nice window switcher
 - `images` - Images for the dotfiles
-- `karabiner` - Keyboard remapping for macos
 - `nvim` - Personalized Development Environment in NeoVim
 - `setup` - Setup scripts ran by `setup.sh`
-- `sddm` && `sddm-themes` - Greeter
 - `sh` - `zsh` configuration
-- `rofi` - Also an app launcer
 - `ssh` - Encrypted identity
 - `tmux` - `tmux` configuration
-- `waybar` - Status Bar for Hyprland
-- `waycorner` - Hot corners (like MacOS)
-- `waypaper` - Wallpapers for Hyprland
-- `xsettingsd` - For themes
 
 ### Neovim
 
