@@ -14,6 +14,7 @@ FOLDERS=(
     "zsh"
     "tmux"
     "bin"
+    "dunst"
     "cheatsheets"
     "alacritty"
     "gitignore"
@@ -27,7 +28,6 @@ FOLDERS=(
     "hyprworm"
     "waycorner"
     "waybar"
-    "sway"
     "xsettingsd"
     "velero"
 )

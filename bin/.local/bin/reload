@@ -5,7 +5,6 @@
 ########################
 
 # Kill notifications
-killall swaync; swaync & disown
 killall waybar; waybar & disown
 
 # Restore wallpaper
