@@ -175,6 +175,7 @@ There are of course differences in the two systems. MacOS will never look, feel 
 - `waycorner` - Hot corners (like MacOS)
 - `waypaper` - Wallpapers for Hyprland
 - `xsettingsd` - For themes
+- `eww` - Widgets baby
 
 #### Universal
 
