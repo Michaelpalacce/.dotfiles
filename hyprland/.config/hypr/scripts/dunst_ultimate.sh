@@ -8,7 +8,7 @@
 volume_step=5
 brightness_step=10
 max_volume=100
-notification_timeout=1000
+notification_timeout=1500
 download_album_art=true
 show_album_art=true
 show_music_in_volume_indicator=true

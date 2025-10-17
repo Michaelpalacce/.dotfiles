@@ -5,6 +5,8 @@
 ########################
 
 # Kill notifications
+killall dunst
+# Kill bar
 killall waybar; waybar & disown
 
 # Restore wallpaper

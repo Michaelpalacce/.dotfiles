@@ -2,7 +2,7 @@
     font = "JetBrainsMono Nerd Font 12"
     allow_markup = yes
     markup = yes
-    format = "<span foreground='#a6e3a1'><b>%s</b></span>\n%b"
+    format = "<span foreground='#89b4fa'><b>%s</b></span>\n%b"
     sort = yes
     indicate_hidden = yes
     bounce_freq = 0
@@ -23,12 +23,12 @@
     separator_width = 1
     startup_notification = false
     corner_radius = 12
-    frame_color = "#585b70"
     frame_width = 2
     width = 500
     progress_bar_max_width = 500
     progress_bar_min_width = 500
-    highlight = "#a6e3a1"
+    frame_color = "#89dceb"
+    highlight = "#89b4fa"
 
     progress_bar_height = 10
     progress_bar_frame_width = 1
@@ -49,15 +49,20 @@
 [urgency_low]
     background = "#1e1e2e"
     foreground = "#cdd6f4"
-    timeout = 3
+    frame_color = "#bac2de"
+    timeout = 2
 
 [urgency_normal]
     background = "#1e1e2e"
     foreground = "#cdd6f4"
-    timeout = 2
+    frame_color = "#cba6f7"
+    timeout = 5
 
 [urgency_critical]
     background = "#1e1e2e"
     foreground = "#cdd6f4"
-    frame_color = "#fab387"
+
+    format = "<span foreground='#f38ba8'><b>%s</b></span>\n%b"
+    highlight = "#f38ba8"
+    frame_color = "#f38ba8"
     timeout = 0
