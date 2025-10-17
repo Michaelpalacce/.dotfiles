@@ -6,7 +6,7 @@
 
 # This will search for folders that have `.git` folder in them and show them
 selected=$(
-  find ~/projects ~/projects/clients ~/.dotfiles \
+  find ~/projects ~/projects/clients ~/.dotfiles ~/.dotfiles/nvim/.config/nvim \
     -mindepth 1 -maxdepth 3 -type d -name ".git" \
     -not -path "*node_modules*" -exec dirname {} \; 2>/dev/null \
   | sed "s|^$HOME/|~/|" \
