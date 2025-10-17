@@ -1,6 +1,5 @@
-/*****----- Configuration -----*****/
 configuration {
-    show-icons:                 true;
+    show-icons:                 false;
 }
 
 * {
@@ -45,8 +44,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       500px;
-    height:                      600px;
+    width:                       800px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -55,19 +53,10 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      1px solid;
-    border-radius:               12px;
+    border-radius:               15px;
     border-color:                @border-colour;
     cursor:                      "default";
-    /* Backgroud Colors */
     background-color:            @background-colour;
-    /* Backgroud Image */
-    //background-image:          url("/path/to/image.png", none);
-    /* Simple Linear Gradient */
-    //background-image:          linear-gradient(red, orange, pink, purple);
-    /* Directional Linear Gradient */
-    //background-image:          linear-gradient(to bottom, pink, yellow, magenta);
-    /* Angle Linear Gradient */
-    //background-image:          linear-gradient(45, cyan, purple, indigo);
 }
 
 /*****----- Main Box -----*****/
@@ -75,7 +64,7 @@ mainbox {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     25px;
+    padding:                     20px;
     border:                      0px solid;
     border-radius:               0px 0px 0px 0px;
     border-color:                @border-colour;
@@ -89,8 +78,8 @@ inputbar {
     spacing:                     10px;
     margin:                      0 0 15px 0;
     padding:                     10px;
-    border:                      1.5px;
-    border-radius:               12px;
+    border:                      1px;
+    border-radius:               5px;
     border-color:                @border-colour;
     background-color:            @background-alt;
     text-color:                  @foreground-colour;
@@ -102,7 +91,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "search...";
+    placeholder:                 "Search...";
     placeholder-color:           inherit;
 }
 
@@ -155,8 +144,8 @@ listview {
     cursor:                      "default";
 }
 scrollbar {
-    handle-width:                0px ;
-    handle-color:                @handle-colour;
+    handle-width:                4px ;
+    handle-color:                @selected;
     border-radius:               8px;
     background-color:            @alternate-background;
 }

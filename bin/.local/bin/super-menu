@@ -43,16 +43,6 @@ show_screenshot_menu() {
   esac
 }
 
-show_power_menu() {
-  case $(menu "Power" " Lock\n󰤄 Suspend\n󰜉 Restart\n󰐥 Shutdown\n Back") in
-  *Lock*) loginctl lock-session ;;
-  *Suspend*) systemctl suspend ;;
-  *Restart*) systemctl reboot ;;
-  *Shutdown*) systemctl poweroff ;;
-  *Back*) show_main_menu ;;
-  *) ;;
-  esac
-}
 
 show_learn_menu() {
   case $(menu "Learn" "  Keybindings\n📜 Devhints Cheatsheet\n  Hyprland\n󰣇  Arch\n󰣇  Arch Wiki Offline\n Font Awesome\n📈 Stocks\n📖 Conventional Commits\n📖 Kubernetes Docs\n☁️ Terraform Docs\n Back") in
@@ -163,7 +153,6 @@ show_main_menu() {
 
 go_to_menu() {
   case "${1,,}" in
-  *power*) show_power_menu ;;
   *screenshot*) show_screenshot_menu ;;
   esac
 }
