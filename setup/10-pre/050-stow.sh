@@ -28,6 +28,7 @@ FOLDERS=(
     "hyprworm"
     "waycorner"
     "waybar"
+    "eww"
     "xsettingsd"
     "velero"
 )

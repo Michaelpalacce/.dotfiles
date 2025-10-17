@@ -27,7 +27,6 @@
         "pulseaudio",
         "battery",
         "power-profiles-daemon",
-        "custom/notification",
         "clock",
         "tray",
     ],

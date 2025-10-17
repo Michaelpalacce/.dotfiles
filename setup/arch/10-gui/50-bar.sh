@@ -2,5 +2,5 @@
 
 if [ "$MINIMAL" == false ]; then
     # Waybar
-    yay --noconfirm -S --needed waybar dunst
+    yay --noconfirm -S --needed waybar dunst eww
 fi

@@ -1,0 +1,31 @@
+/* Variables */
+* {
+  all: unset;
+  transition: 200ms;
+}
+
+@mixin window {
+  background-color: $bg;
+  margin: 1rem;
+  border: 1px solid $bg-alt2;
+}
+
+$shadow: #11111b;
+$bg: #1e1e2e;
+$bg-alt: #181825;
+$bg-alt2: #313244;
+$fg: #cdd6f4;
+$fg-alt: #a6adc8;
+$fg-alt2: #bac2de;
+$black: #11111b;
+$gray: #585b70;
+$red: #f38ba8;
+$green: #a6e3a1;
+$yellow: #f9e2af;
+$blue: #89b4fa;
+$magenta: #cba6f7;
+$cyan: #94e2d5;
+$white: #f5e0dc;
+
+@import "central/central.scss";
+
