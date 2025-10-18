@@ -3,3 +3,4 @@ bin/.local/state
 temp
 
 weather-api-key.json
+nvim/.config/nvim/
