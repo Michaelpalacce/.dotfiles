@@ -72,23 +72,23 @@ run_cmd() {
 # Actions
 chosen="$(run_rofi)"
 case ${chosen} in
-    $shutdown)
+    *$shutdown*)
 		run_cmd --shutdown
         ;;
-    $reboot)
+    *$reboot*)
 		run_cmd --reboot
         ;;
-    $lock)
+    *$lock*)
 		if command -v hyprlock &>/dev/null; then
 			hyprlock
 		else
 			notify-send "Hyprland" "hyprlock not installed"
 		fi
         ;;
-    $suspend)
+    *$suspend*)
 		run_cmd --suspend
         ;;
-    $logout)
+    *$logout*)
 		run_cmd --logout
         ;;
 esac
