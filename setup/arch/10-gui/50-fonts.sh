@@ -7,4 +7,5 @@ yay --noconfirm -S --needed ttf-font-awesome \
   ttf-font-icons \
   noto-fonts \
   noto-fonts-cjk \
-  noto-fonts-emoji
+  noto-fonts-emoji \
+  ttf-font-awesome-4
