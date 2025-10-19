@@ -42,7 +42,7 @@ confirm_cmd() {
 
 # Ask for confirmation
 confirm_exit() {
-	echo -e "$yes\n$no" | confirm_cmd
+	echo -e "$yes Yes\n$no No" | confirm_cmd
 }
 
 # Pass variables to rofi dmenu
@@ -53,7 +53,7 @@ run_rofi() {
 # Execute Command
 run_cmd() {
 	selected="$(confirm_exit)"
-	if [[ "$selected" == "$yes" ]]; then
+	if [[ "$selected" == "$yes Yes" ]]; then
 		case $1 in
 			--shutdown) systemctl poweroff ;;
 			--reboot) systemctl reboot ;;
