@@ -18,16 +18,17 @@
         "network"
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "custom/updates",
     ],
     "modules-right": [
         "tray",
         "idle_inhibitor",
         "hyprland/language",
-        "power-profiles-daemon",
-        "custom/updates",
         "battery",
+        "power-profiles-daemon",
         "pulseaudio",
+        "pulseaudio/microphone",
         "clock",
     ],
 }

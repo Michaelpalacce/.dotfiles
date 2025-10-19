@@ -66,13 +66,6 @@
         "interval": 3,
         "format": "<span color='#f38ba8'> </span> <span color='#cdd6f4'>{used:0.1f}G</span>"
     },
-    "custom/weather": {
-        "format": "{}",
-        "return-type": "json",
-        "exec": "~/.config/waybar/scripts/weather.sh",
-        "interval": 600,
-        "on-click": "brave https://wttr.in/Plovdiv"
-    },
     "pulseaudio": {
         "format": "<span color='#a6e3a1'>{icon} </span><span color='#cdd6f4'>{volume}%</span>",
         "format-bluetooth": "<span color='#a6e3a1'>{icon}</span>  <span color='#cdd6f4'>{volume}%</span>",
@@ -125,11 +118,19 @@
         }
     },
     "custom/updates": {
-        "format": "{} ",
-        "exec": "checkupdates | wc -l",
+        "format": "{text} ",
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/updates.sh",
+        "exec-if": "bash -c '[[ $(checkupdates | wc -l) -gt 0 ]]'", // Only show if there are updates
         "interval": 120,
         "on-click": "alacritty -e yay --noconfirm -Syu && notify-send 'The system has been updated' ",
-        "on-click-right": "$HOME/.local/bin/reload"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/weather.sh",
+        "interval": 600,
+        "on-click": "brave https://wttr.in/Plovdiv"
     },
     "battery": {
         "format": "{icon} {capacity}%",
