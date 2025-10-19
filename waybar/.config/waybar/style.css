@@ -62,28 +62,30 @@ tooltip {
 #language,
 #cpu,
 #window,
-#pulseaudio,
-#pulseaudio.microphone,
-#workspaces,
 #memory,
 #disk,
 #idle_inhibitor,
+#power-profiles-daemon,
 #battery{
     background: #1e1e2e;
     opacity: 1.0;
     padding: 1.5px 7px 1.5px 7px;
+    /* No rouding */
+    border-radius: 0px;
+    /* No space on sides, some space top and bottom */
     margin-top: 5px;
     margin-bottom: 5px;
-    border-radius: 13px;
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: 0px;
+    margin-left: 0px;
 }
 
 /* These are "islands" */
 #custom-weather,
 #custom-updates,
 #clock,
-#power-profiles-daemon,
+#workspaces,
+#pulseaudio,
+#pulseaudio.microphone,
 #network,
 #tray {
     background: #1e1e2e;
@@ -96,22 +98,41 @@ tooltip {
     margin-left: 5px;
 }
 
+/* Rounding Left */
 
+#cpu,
+#idle_inhibitor{
+   border-radius: 13px 0px 0px 13px;
+}
+
+/* Rounding Right */
+
+#bluetooth,
+#power-profiles-daemon,
+#disk {
+    border-radius: 0px 13px 13px 0px;
+}
+
+/* Extra settings to fix positions... Use when icons are too big or overlapping or too small */
+
+/* FOR ICONS */
+#power-profiles-daemon,
 #custom-updates {
     padding-right: 20px
 }
 
-#workspaces {
-    background: #1e1e2e;
-    border-radius: 13px;
-    margin-left: 5px;
-    padding-right: 0px;
+#idle_inhibitor{
+    padding-right: 15px;
 }
 
-#window {
-    border-radius: 7px;
-    margin-left: 60px;
-    margin-right: 60px;
+/* Coloring */
+
+#bluetooth {
+  color: #94e2d5;
+} 
+
+#disk {
+    color: #f9e2af;
 }
 
 #clock {
@@ -138,72 +159,12 @@ tooltip {
     animation-direction: alternate;
 }
 
-#network {
-    color: #89b4fa;
-}
-
-#custom-player {
- color: #cba6f7;
- border-radius: 7px 7px 7px 7px;
- padding-left: 4px;
- margin-left:  5px;
- margin-right: 5px;
-}
-
 #memory {
     color: #94e2d5;
-    border-radius: 0px 0px 0px 0px;
-    margin-left: 0px;
-    margin-right:0px;
 }
 
-#disk {
-    color: #f9e2af;
-    border-radius: 0px 13px 13px 0px;
-    margin-left: 0px;
-}
-
-
-#bluetooth {
-  color: #94e2d5;
-  border-radius: 0px 13px 13px 0px;
-  margin-left: 5px;
-  margin-right: 5px;
-} 
-
-#pulseaudio {
-  color: #94e2d5;
-  border-radius: 0px 0px 0px 0px;
-  margin-right: 0px;
-  margin-left: 0px;
-}
-
-#pulseaudio.microphone {
-    color: #cba6f7;
-    border-radius: 0px 0px 0px 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
-
-#language {
-   border-radius: 0px;
-   margin-left: 0px;
-   margin-right: 0px;
-}
-
-#power-profiles-daemon {
-   border-radius: 0px 13px 13px 0px;
-   padding-right: 20px;
-   padding-left: 10px;
-   margin-left: 0px;
-}
-
-#idle_inhibitor{
-   border-radius: 13px 0px 0px 13px;
-   padding-right: 15px;
-   padding-left: 10px;
-   margin-right: 0px;
+#network {
+    color: #89b4fa;
 }
 
 #idle_inhibitor.activated{
@@ -214,16 +175,12 @@ tooltip {
     color: #cdd6f4;
 }
 
-#cpu {
-   border-radius: 13px 0px 0px 13px;
-   padding-left:10px;
-   margin-right:0px;
-   margin-left: 0px;
-}
+/* Misc */
 
-#custom-weather {
-   border-radius: 13px 13px 13px 13px;
-   margin-right: 10px
+#window {
+    border-radius: 7px;
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
 @keyframes blink {

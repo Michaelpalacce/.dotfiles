@@ -21,13 +21,13 @@
         "hyprland/workspaces"
     ],
     "modules-right": [
-        "custom/updates",
+        "tray",
         "idle_inhibitor",
         "hyprland/language",
-        "pulseaudio",
-        "battery",
         "power-profiles-daemon",
+        "custom/updates",
+        "battery",
+        "pulseaudio",
         "clock",
-        "tray",
     ],
 }
