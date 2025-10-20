@@ -64,6 +64,7 @@ tooltip {
 #window,
 #memory,
 #disk,
+#bluetooth,
 #idle_inhibitor,
 #power-profiles-daemon,
 #custom-gpu-recorder,
@@ -108,7 +109,6 @@ tooltip {
 
 /* Rounding Right */
 
-#bluetooth,
 #power-profiles-daemon,
 #disk {
     border-radius: 0px 13px 13px 0px;
