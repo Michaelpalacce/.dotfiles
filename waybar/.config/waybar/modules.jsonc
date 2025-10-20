@@ -117,6 +117,13 @@
             "tooltip": true
         }
     },
+    "custom/gpu-recorder": {
+      "format": "{text}",
+      "exec": "~/.config/waybar/scripts/video_recording.sh",
+      "interval": 2,
+      "return-type": "json",
+      "on-click": "~/.config/waybar/scripts/toggle_video_recording.sh"
+    },
     "custom/updates": {
         "format": "{text} ",
         "return-type": "json",

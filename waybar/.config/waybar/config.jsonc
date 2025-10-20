@@ -11,10 +11,15 @@
         "~/.config/waybar/modules.jsonc"
     ],
     "modules-left": [
+        // ISLAND
         "custom/weather",
+
+        // ISLAND
         "cpu",
         "memory",
         "disk",
+
+        // ISLAND
         "network"
     ],
     "modules-center": [
@@ -22,13 +27,20 @@
         "custom/updates",
     ],
     "modules-right": [
+        // ISLAND
         "tray",
+
+        // ISLAND
         "idle_inhibitor",
+        "custom/gpu-recorder",
         "hyprland/language",
         "battery",
         "power-profiles-daemon",
+
+        // ISLAND
         "pulseaudio",
-        "pulseaudio/microphone",
+        
+        // ISLAND
         "clock",
-    ],
+    ]
 }

@@ -66,6 +66,7 @@ tooltip {
 #disk,
 #idle_inhibitor,
 #power-profiles-daemon,
+#custom-gpu-recorder,
 #battery{
     background: #1e1e2e;
     opacity: 1.0;

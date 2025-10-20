@@ -34,10 +34,12 @@ show_devhints_cheatsheet() {
 }
 
 show_screenshot_menu() {
-  case $(menu "Screenshot" "🔳 Region\n🪟 Window\n🖥️ Display\n Back") in
+  case $(menu "Screenshot" "🔳 Region\n🪟 Window\n🖥️ Display\n Video\n Back") in
   *Region*) hyprshot -m region ;;
   *Window*) hyprshot -m window ;;
   *Display*) hyprshot -m output ;;
+  *Video*) "$HOME/.config/waybar/scripts/toggle_video_recording.sh"
+ ;;
   *Back*) show_main_menu ;;
   *) ;;
   esac
