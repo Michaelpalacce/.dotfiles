@@ -183,7 +183,6 @@ There are of course differences in the two systems. MacOS will never look, feel 
 - `bin` - Check out the [#Scripts](#scripts) section for this,
 - `cheatsheets` - this contains some local cheatsheets that I can access at any time with `sc`
 - `editorconfig` - this contains my default editorconfig that gets used everywhere
-- `git-hooks` - Contains some git-hooks for identity
 - `gitignore` - Default gitignore for common directories/files you want to ignore
 - `images` - Images for the dotfiles
 - `nvim` - Personalized Development Environment in NeoVim
