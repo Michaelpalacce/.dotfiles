@@ -112,6 +112,6 @@ set -o vi
 
 if [ -t 1 ]; then
   clear
-  fastfetch
+  # fastfetch
   # cat $HOME/.dotfiles/zsh/.zshenv.d/banner.txt
 fi

@@ -1,0 +1,14 @@
+# ------------------------------------------------------------------------------
+#
+# ZSH Autocomplete Configuration for gcloud
+#
+# Ref: https://stackoverflow.com/questions/66360580/how-to-get-shell-command-completion-autocomplete-for-gcloud
+#
+# Dependencies: google-cloud-cli/gcloud. Arch: `google-cloud-cli`, brew: `gcloud-cli`
+#
+# ------------------------------------------------------------------------------
+
+COMPLETION="/opt/google-cloud-cli/completion.zsh.inc"
+if [[ -f "$COMPLETION" ]]; then
+    source /opt/google-cloud-cli/completion.zsh.inc
+fi
