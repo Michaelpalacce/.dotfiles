@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-brew install syncthing
+brew install --cask syncthing-app
