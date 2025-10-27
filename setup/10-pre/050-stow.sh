@@ -31,6 +31,7 @@ FOLDERS=(
     "eww"
     "xsettingsd"
     "velero"
+    "wayscriber"
 )
 
 for dir in "${FOLDERS[@]}" ; do
