@@ -1,0 +1,32 @@
+# ------------------------------------------------------------------------------
+#
+# Kind Helpers and config
+#
+# Dependencies: docker, kind,
+#
+# ------------------------------------------------------------------------------
+
+function kind_load() {
+  if [ -z "$1" ]; then
+    echo "Usage: kind_load <docker-image-tag> [kind-cluster-name]"
+    return 1
+  fi
+
+  local IMAGE_TAG="$1"
+  local CLUSTER_NAME="$2"
+  local KIND_LOAD_CMD="kind load docker-image \"${IMAGE_TAG}\""
+
+  if [ -n "${CLUSTER_NAME}" ]; then
+    KIND_LOAD_CMD="${KIND_LOAD_CMD} --name \"${CLUSTER_NAME}\""
+  fi
+
+  echo "Attempting to pull Docker image: ${IMAGE_TAG}"
+
+  if docker pull "${IMAGE_TAG}"; then
+    echo "Image pulled successfully. Loading into kind cluster..."
+    eval "${KIND_LOAD_CMD}"
+  else
+    echo "Error: Docker image pull failed for ${IMAGE_TAG}"
+    return 1
+  fi
+}
