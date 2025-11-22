@@ -9,7 +9,7 @@ yay --noconfirm -S --needed ripgrep fzf fd direnv go-yq jq
 # Openshift
 yay --noconfirm -S --needed oc crc
 
-if [ "$MINIMAL" == false ]; then
+if [[ "$MINIMAL" == false ]]; then
     # Postman GUI app
     yay --noconfirm -S --needed postman-bin
 fi

@@ -2,7 +2,7 @@
 
 yay --noconfirm -S --needed sof-firmware
 
-if [ "$MINIMAL" == false ]; then
+if [[ "$MINIMAL" == false ]]; then
     # GUI drivers
     yay --noconfirm -S --needed egl-x11 lib32-nvidia-utils nvidia-open intel-media-driver
 fi

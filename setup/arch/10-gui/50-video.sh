@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$MINIMAL" == false ]; then
+if [[ "$MINIMAL" == false ]]; then
     # Video
     yay --noconfirm -S --needed gifski vlc \
       vlc-plugin-aalib           \

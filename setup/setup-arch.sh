@@ -43,13 +43,13 @@ while [[ "$#" -gt 0 ]]; do
     shift # Move to the next argument
 done
 
-if [ "$MINIMAL" == true ]; then
+if [[ "$MINIMAL" == false ]]; then
     echo "The --minimal flag is set. Running in minimal mode."
 else
     echo "The --minimal flag is not set. Running in full mode."
 fi
 
-if [ "$GAMING" == true ]; then
+if [[ "$GAMING" == true ]]; then
     echo "The --gaming flag is set. Installing gaming-related stuff."
 else
     echo "The --gaming flag is not set. Not installing gaming-related stuff."
@@ -63,42 +63,42 @@ pushd $DOTFILES_DIR
 
     log_step "$YELLOW" "Installing libs now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
     for script in ./setup/arch/00-libs/*; do
-        . "$script" > /dev/null
+        . "$script"
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
 
     log_step "$YELLOW" "Installing system now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
     for script in ./setup/arch/05-system/*; do
-        . "$script" > /dev/null
+        . "$script"
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
     
     log_step "$YELLOW" "Installing gui now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
     for script in ./setup/arch/10-gui/*; do
-        . "$script" > /dev/null
+        . "$script"
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
 
     log_step "$YELLOW" "Installing network now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
     for script in ./setup/arch/20-network/*; do
-        . "$script" > /dev/null
+        . "$script"
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
 
     log_step "$YELLOW" "Installing dev now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
     for script in ./setup/arch/30-dev/*; do
-        . "$script" > /dev/null
+        . "$script"
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))
 
     log_step "$YELLOW" "Installing apps now ${IN_PROGRESS} [${STEP}/$TOTAL_STEPS]"
     for script in ./setup/arch/40-apps/*; do
-        . "$script" > /dev/null
+        . "$script"
     done
     log_step "$GREEN" "Done! ${SUCCESS}\n"
     ((STEP++))

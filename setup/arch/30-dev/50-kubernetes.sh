@@ -4,5 +4,6 @@
 # k8s
 yay --noconfirm -S --needed kubectl fluxcd helm velero clusterctl kubebuilder
 
-if [ "$MINIMAL" == false ]; then
+if [[ "$MINIMAL" == false ]]; then
+  echo ""
 fi

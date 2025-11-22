@@ -15,7 +15,7 @@ yay --noconfirm -S btop
 # Clipboard
 yay --noconfirm -S cliphist
 
-if [ "$MINIMAL" == false ]; then
+if [[ "$MINIMAL" == false ]]; then
     # GTK deps are for widgets and gui
     yay --noconfirm -S --needed gtk2 gtk4 gtk-doc
 

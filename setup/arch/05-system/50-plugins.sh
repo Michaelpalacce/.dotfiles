@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$MINIMAL" == false ]; then
+if [[ "$MINIMAL" == false ]]; then
     read -p "Do you want hyprbars? [y/N]" -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then

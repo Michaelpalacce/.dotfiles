@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$MINIMAL" == false ]; then
+if [[ "$MINIMAL" == false ]]; then
     # File Manager
     yay --noconfirm -S --needed nautilus nautilus-admin-gtk4 nautilus-image-converter nautilus-open-any-terminal unzip \
         transmission-gtk3 nautilus-annotations nautilus-checksums nautilus-hide nautilus-launch actions-for-nautilus-git \
