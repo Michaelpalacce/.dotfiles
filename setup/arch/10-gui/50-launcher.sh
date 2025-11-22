@@ -2,5 +2,5 @@
 
 if [[ "$MINIMAL" == false ]]; then
     # App Launcher
-    yay --noconfirm -S --needed rofi rofi-emoji-git hyprworm
+    yay --noconfirm -S --needed rofi rofi-emoji hyprworm
 fi
