@@ -1,266 +1,203 @@
-# wayscriber configuration file
-# Location: ~/.config/wayscriber/config.toml
-#
-# All settings are optional. If not specified, defaults will be used.
-# Delete this file to reset to defaults.
-
-# ═══════════════════════════════════════════════════════════════════════════════
-# DRAWING SETTINGS
-# ═══════════════════════════════════════════════════════════════════════════════
-
 [drawing]
-# Default pen color
-# Options: "red", "green", "blue", "yellow", "orange", "pink", "white", "black"
-# Or RGB array: [255, 0, 0]
-default_color = [4, 165, 229]
-
-# Default pen thickness in pixels (1.0 - 20.0)
-default_thickness = 2.0
-
-# Default font size for text mode (8.0 - 72.0)
-default_font_size = 26.0
-
-# ───────────────────────────────────────────────────────────────────────────────
-# Font Configuration (Pango-based text rendering)
-# ───────────────────────────────────────────────────────────────────────────────
-
-# Font family name for text rendering
-# Install fonts system-wide and reference by family name
-# Examples to try:
-#   font_family = "Sans"              # Default sans-serif
-#   font_family = "Monospace"         # Fixed-width font
-#   font_family = "Serif"             # Serif font
-#   font_family = "JetBrains Mono"    # If installed
-#   font_family = "Fira Code"         # If installed
-#   font_family = "Maple Mono NF"     # If installed
-#   font_family = "DejaVu Sans"       # Common on Linux
-#   font_family = "Liberation Sans"   # Common on Linux
-#   font_family = "Noto Sans"         # Google Noto fonts
-# Falls back to "Sans" if the specified font is not available
+default_color = [
+    255,
+    255,
+    0,
+]
+default_thickness = 5.707913306451613
+default_eraser_size = 12.0
+marker_opacity = 0.32
+default_fill_enabled = false
+default_font_size = 48.788306451612904
+hit_test_tolerance = 6.0
+hit_test_linear_threshold = 400
+undo_stack_limit = 100
 font_family = "Sans"
-
-# Font weight: "normal", "bold", "light", "ultralight", "heavy", "ultrabold"
-# Or numeric: 100-900 (400=normal, 700=bold)
-# Try different weights:
-#   font_weight = "normal"    # Regular weight
-#   font_weight = "bold"      # Bold (default, best visibility)
-#   font_weight = "light"     # Light weight
-#   font_weight = "600"       # Semi-bold (numeric)
 font_weight = "normal"
-
-# Font style: "normal", "italic", "oblique"
-# Try different styles:
-#   font_style = "normal"     # Standard upright text
-#   font_style = "italic"     # Italic/cursive
-#   font_style = "oblique"    # Slanted text
 font_style = "normal"
-
-# Enable semi-transparent background box behind text for better contrast
-# Set to true if you find text hard to read against complex backgrounds
-# Default: false (no background, cleaner look with just stroke outline)
 text_background_enabled = false
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# ARROW SETTINGS
-# ═══════════════════════════════════════════════════════════════════════════════
+[history]
+undo_all_delay_ms = 1000
+redo_all_delay_ms = 1000
+custom_section_enabled = false
+custom_undo_delay_ms = 1000
+custom_redo_delay_ms = 1000
+custom_undo_steps = 5
+custom_redo_steps = 5
 
 [arrow]
-# Arrowhead length in pixels
 length = 20.0
-
-# Arrowhead angle in degrees (15-60)
-# 30 degrees gives a nice balanced arrow
 angle_degrees = 30.0
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# PERFORMANCE SETTINGS
-# ═══════════════════════════════════════════════════════════════════════════════
-
 [performance]
-# Number of buffers for rendering (2, 3, or 4)
-# 2 = double buffering (low memory)
-# 3 = triple buffering (recommended, smooth)
-# 4 = quad buffering (ultra-smooth on high refresh displays)
 buffer_count = 4
-
-# Enable vsync frame synchronization
-# Prevents tearing and limits rendering to display refresh rate
 enable_vsync = true
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# UI SETTINGS
-# ═══════════════════════════════════════════════════════════════════════════════
-
 [ui]
-# Show status bar with current color/thickness/tool
 show_status_bar = true
-
-# Status bar position
-# Options: "top-left", "top-right", "bottom-left", "bottom-right"
+show_frozen_badge = false
 status_bar_position = "bottom-left"
-
-# ───────────────────────────────────────────────────────────────────────────────
-# Status Bar Styling
-# ───────────────────────────────────────────────────────────────────────────────
+xdg_fullscreen = false
 
 [ui.status_bar_style]
-# Font size for status bar text
 font_size = 21.0
-
-# Padding around status bar text
 padding = 15.0
-
-# Background color [R, G, B, A] (0.0-1.0 range)
-# Default: semi-transparent black (85% opaque for visibility)
-bg_color = [0.0, 0.0, 0.0, 0.85]
-
-# Text color [R, G, B, A] (0.0-1.0 range)
-# Default: white
-text_color = [1.0, 1.0, 1.0, 1.0]
-
-# Color indicator dot radius
+bg_color = [
+    0.0,
+    0.0,
+    0.0,
+    0.85,
+]
+text_color = [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+]
 dot_radius = 6.0
 
-# ───────────────────────────────────────────────────────────────────────────────
-# Help Overlay Styling (Press F10 to toggle)
-# ───────────────────────────────────────────────────────────────────────────────
-
 [ui.help_overlay_style]
-# Font size for help overlay text
 font_size = 16.0
-
-# Line height for help text
 line_height = 22.0
-
-# Padding around help box
 padding = 20.0
-
-# Background color [R, G, B, A] (0.0-1.0 range)
-# Default: semi-transparent black (darker than status bar)
-bg_color = [0.0, 0.0, 0.0, 0.85]
-
-# Border color [R, G, B, A] (0.0-1.0 range)
-# Default: light blue
-border_color = [0.3, 0.6, 1.0, 0.9]
-
-# Border line width
+bg_color = [
+    0.0,
+    0.0,
+    0.0,
+    0.85,
+]
+border_color = [
+    0.3,
+    0.6,
+    1.0,
+    0.9,
+]
 border_width = 2.0
+text_color = [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+]
 
-# Text color [R, G, B, A] (0.0-1.0 range)
-# Default: white
-text_color = [1.0, 1.0, 1.0, 1.0]
+[ui.click_highlight]
+enabled = false
+radius = 24.0
+outline_thickness = 4.0
+duration_ms = 750
+fill_color = [
+    1.0,
+    0.8,
+    0.0,
+    0.35,
+]
+outline_color = [
+    1.0,
+    0.6,
+    0.0,
+    0.9,
+]
+use_pen_color = true
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# BOARD MODE SETTINGS (Whiteboard/Blackboard)
-# ═══════════════════════════════════════════════════════════════════════════════
+[ui.context_menu]
+enabled = true
+
+[ui.toolbar]
+top_pinned = true
+side_pinned = true
+use_icons = true
+show_more_colors = false
+show_actions_section = true
+show_delay_sliders = false
+show_marker_opacity_section = false
 
 [board]
-# Enable board mode features
 enabled = false
-
-# Default mode on startup
-# Options: "transparent" (default overlay), "whiteboard" (light), "blackboard" (dark)
 default_mode = "transparent"
-
-# Whiteboard background color [R, G, B] (0.0-1.0 range)
-# Default: off-white (253, 253, 253) for softer appearance
-whiteboard_color = [0.992, 0.992, 0.992]
-
-# Blackboard background color [R, G, B] (0.0-1.0 range)
-# Default: near-black (17, 17, 17) for softer appearance
-blackboard_color = [0.067, 0.067, 0.067]
-
-# Default pen color for whiteboard mode [R, G, B] (0.0-1.0 range)
-# Default: black for contrast on light background
-whiteboard_pen_color = [0.0, 0.0, 0.0]
-
-# Default pen color for blackboard mode [R, G, B] (0.0-1.0 range)
-# Default: white for contrast on dark background
-blackboard_pen_color = [1.0, 1.0, 1.0]
-
-# Automatically adjust pen color when entering board modes
-# Set to false if you want to keep your current color when switching modes
+whiteboard_color = [
+    0.992,
+    0.992,
+    0.992,
+]
+blackboard_color = [
+    0.067,
+    0.067,
+    0.067,
+]
+whiteboard_pen_color = [
+    0.0,
+    0.0,
+    0.0,
+]
+blackboard_pen_color = [
+    1.0,
+    1.0,
+    1.0,
+]
 auto_adjust_pen = true
 
-# ───────────────────────────────────────────────────────────────────────────────
-# Color Theme Examples
-# ───────────────────────────────────────────────────────────────────────────────
-
-# High Contrast Theme (pure white/black):
-#   whiteboard_color = [1.0, 1.0, 1.0]
-#   blackboard_color = [0.0, 0.0, 0.0]
-
-# Chalkboard Theme (green board):
-#   blackboard_color = [0.11, 0.18, 0.13]
-#   blackboard_pen_color = [0.95, 0.95, 0.8]
-
-# Sepia Theme (vintage):
-#   whiteboard_color = [0.96, 0.93, 0.86]
-#   whiteboard_pen_color = [0.29, 0.23, 0.18]
-
-# ═══════════════════════════════════════════════════════════════════════════════
-# CAPTURE SETTINGS
-# ═══════════════════════════════════════════════════════════════════════════════
-
-[capture]
-# Enable screenshot shortcuts (set to false to disable all capture actions)
-enabled = false
-
-# Directory where PNG files are saved (supports ~ expansion)
-save_directory = "~/Pictures/Wayscriber"
-
-# Filename template (uses chrono format specifiers)
-filename_template = "screenshot_%Y-%m-%d_%H%M%S"
-
-# Image format for saved screenshots
-format = "png"
-
-# Copy screenshots to clipboard by default
-# Shortcut-specific actions may override this
-copy_to_clipboard = false
-
-# ═══════════════════════════════════════════════════════════════════════════════
-# KEYBINDING SETTINGS
-# ═══════════════════════════════════════════════════════════════════════════════
-
 [keybindings]
-# Customize keyboard shortcuts for all actions
-# Format: key names with modifiers separated by +
-# Examples: "Escape", "Ctrl+Z", "Ctrl+Shift+T", "F10"
-# Each action can have multiple keybindings (e.g., ["+", "="])
-
-# Exit overlay (or cancel current action)
-exit = ["Escape", "Ctrl+Q"]
-
-# Enter text mode
+exit = [
+    "Escape",
+    "Ctrl+Q",
+]
 enter_text_mode = ["T"]
-
-# Clear all annotations on current canvas
 clear_canvas = ["E"]
-
-# Undo last annotation
 undo = ["Ctrl+Z"]
-
-# Adjust pen thickness
-increase_thickness = ["+", "="]
-decrease_thickness = ["-", "_"]
-
-# Adjust font size
-increase_font_size = ["Ctrl+Shift++", "Ctrl+Shift+="]
-decrease_font_size = ["Ctrl+Shift+-", "Ctrl+Shift+_"]
-
-# Board mode toggles (only if board.enabled = true)
+redo = [
+    "Ctrl+Shift+Z",
+    "Ctrl+Y",
+]
+undo_all = []
+redo_all = []
+undo_all_delayed = []
+redo_all_delayed = []
+duplicate_selection = ["Ctrl+D"]
+move_selection_to_front = ["]"]
+move_selection_to_back = ["["]
+nudge_selection_up = ["ArrowUp"]
+nudge_selection_down = ["ArrowDown"]
+nudge_selection_left = ["ArrowLeft"]
+nudge_selection_right = ["ArrowRight"]
+delete_selection = ["Delete"]
+increase_thickness = [
+    "+",
+    "=",
+]
+decrease_thickness = [
+    "-",
+    "_",
+]
+increase_marker_opacity = ["Ctrl+Alt+ArrowUp"]
+decrease_marker_opacity = ["Ctrl+Alt+ArrowDown"]
+select_marker_tool = ["H"]
+select_eraser_tool = ["D"]
+select_pen_tool = ["F"]
+increase_font_size = [
+    "Ctrl+Shift++",
+    "Ctrl+Shift+=",
+]
+decrease_font_size = [
+    "Ctrl+Shift+-",
+    "Ctrl+Shift+_",
+]
 toggle_whiteboard = ["Ctrl+W"]
 toggle_blackboard = ["Ctrl+B"]
 return_to_transparent = ["Ctrl+Shift+T"]
-
-# Toggle help overlay
 toggle_help = ["F10"]
-
-# Launch the desktop configurator (requires wayscriber-configurator)
+toggle_status_bar = ["F12"]
+toggle_click_highlight = ["Ctrl+Shift+H"]
+toggle_toolbar = [
+    "F2",
+    "F9",
+]
+toggle_highlight_tool = ["Ctrl+Alt+H"]
+open_context_menu = [
+    "Shift+F10",
+    "Menu",
+]
 open_configurator = ["F11"]
-
-# Color selection shortcuts
 set_color_red = ["R"]
 set_color_green = ["G"]
 set_color_blue = ["B"]
@@ -269,36 +206,40 @@ set_color_orange = ["O"]
 set_color_pink = ["P"]
 set_color_white = ["W"]
 set_color_black = ["K"]
-
-# Screenshot shortcuts
 capture_full_screen = ["Ctrl+Shift+P"]
 capture_active_window = ["Ctrl+Shift+O"]
 capture_selection = ["Ctrl+Shift+I"]
-
-# Clipboard/File capture variants
 capture_clipboard_full = ["Ctrl+C"]
 capture_file_full = ["Ctrl+S"]
 capture_clipboard_selection = ["Ctrl+Shift+C"]
 capture_file_selection = ["Ctrl+Shift+S"]
 capture_clipboard_region = ["Ctrl+6"]
 capture_file_region = ["Ctrl+Shift+6"]
+toggle_frozen_mode = ["Ctrl+Shift+F"]
 
-# ───────────────────────────────────────────────────────────────────────────────
-# Keybinding Examples
-# ───────────────────────────────────────────────────────────────────────────────
+[capture]
+enabled = false
+save_directory = "~/Pictures/Wayscriber"
+filename_template = "screenshot_%Y-%m-%d_%H%M%S"
+format = "png"
+copy_to_clipboard = false
 
-# Vim-style keybindings:
-#   exit = ["Escape", "Q"]
-#   clear_canvas = ["D"]
-#   undo = ["U"]
+[tablet]
+enabled = false
+pressure_enabled = true
+min_thickness = 1.0
+max_thickness = 8.0
 
-# Emacs-style keybindings:
-#   exit = ["Ctrl+G"]
-#   undo = ["Ctrl+/"]
-#   clear_canvas = ["Ctrl+K"]
-
-# Gaming-friendly (WASD area):
-#   exit = ["Q"]
-#   toggle_help = ["H"]
-#   undo = ["Z"]
-#   clear_canvas = ["X"]
+[session]
+persist_transparent = false
+persist_whiteboard = false
+persist_blackboard = false
+persist_history = true
+restore_tool_state = true
+storage = "auto"
+max_shapes_per_frame = 10000
+max_file_size_mb = 10
+compress = "auto"
+auto_compress_threshold_kb = 100
+backup_retention = 1
+per_output = true
