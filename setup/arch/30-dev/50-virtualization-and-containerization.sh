@@ -4,7 +4,7 @@
 yay --noconfirm -S --needed docker docker-compose docker-buildx
 
 if [[ "$MINIMAL" == false ]]; then
-    yay --noconfirm -S --needed nftables qemu-full libvirt virt-manager
+    yay --noconfirm -S --needed nftables qemu-full libvirt virt-manager libnftnl
 
     # Running Windows stuf in Linux
     yay --noconfirm -S --needed winboat
