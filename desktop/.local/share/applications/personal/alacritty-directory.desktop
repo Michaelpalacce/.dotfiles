@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Application
+
+# Flag `working-directory` takes argument
+Exec=alacritty --working-directory %f
+# MimeType contains special type `inode/directory;`
+MimeType=inode/directory;
+
+Icon=Alacritty
+Terminal=false
+Categories=System;TerminalEmulator;
+Name=Open in Alacritty
+GenericName=Terminal
+StartupNotify=true
+StartupWMClass=Alacritty
+
