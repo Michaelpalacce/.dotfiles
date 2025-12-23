@@ -8,7 +8,7 @@ default_thickness = 5.707913306451613
 default_eraser_size = 12.0
 marker_opacity = 0.32
 default_fill_enabled = false
-default_font_size = 48.788306451612904
+default_font_size = 26.788306451612904
 hit_test_tolerance = 6.0
 hit_test_linear_threshold = 400
 undo_stack_limit = 100
@@ -174,6 +174,11 @@ decrease_marker_opacity = ["Ctrl+Alt+ArrowDown"]
 select_marker_tool = ["H"]
 select_eraser_tool = ["D"]
 select_pen_tool = ["F"]
+select_line_tool = []
+select_rect_tool = []
+select_ellipse_tool = []
+select_arrow_tool = []
+select_highlight_tool = []
 increase_font_size = [
     "Ctrl+Shift++",
     "Ctrl+Shift+=",
@@ -192,6 +197,7 @@ toggle_toolbar = [
     "F2",
     "F9",
 ]
+toggle_fill = []
 toggle_highlight_tool = ["Ctrl+Alt+H"]
 open_context_menu = [
     "Shift+F10",
