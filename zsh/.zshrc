@@ -115,3 +115,8 @@ if [ -t 1 ]; then
   # fastfetch
   # cat $HOME/.dotfiles/zsh/.zshenv.d/banner.txt
 fi
+
+# ----------------------------- Key Binds ---------------------------------
+
+# Ref: https://unix.stackexchange.com/questions/47349/what-does-zshs-magic-space-command-do
+bindkey " " magic-space
