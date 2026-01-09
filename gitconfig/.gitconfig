@@ -11,3 +11,26 @@
 # Include work-specific config when in the work_repos directory
 [includeIf "gitdir:~/projects/work/"]
     path = ~/.gitconfig_work
+[alias]
+    publish = "!f() { \
+        IFS=$'\n'; \
+        echo '🛡️  Syncing publication status...'; \
+        for file in $(find . -type f -name '*.md' -not -path '*/.*'); do \
+            clean_file=\"${file#./}\"; \
+            if head -n 20 \"$clean_file\" | grep -q 'publish: true'; then \
+                echo \"   ✅ Staging: $clean_file\"; \
+                git add -f \"$clean_file\"; \
+            else \
+                if git ls-files --error-unmatch \"$clean_file\" >/dev/null 2>&1; then \
+                    echo \"   🗑️  Removing: $clean_file\"; \
+                    git rm --cached \"$clean_file\" -q; \
+                fi; \
+            fi; \
+        done; \
+        unset IFS; \
+        if [ -n \"$1\" ]; then \
+            git commit -m \"$1\"; \
+        else \
+            git commit -v; \
+        fi; \
+    }; f"
