@@ -1,0 +1,30 @@
+#!/bin/bash
+
+IFS=$'\n'
+
+all_md_files=$(git ls-files | grep '\.md$')
+staged_md_files=$(git diff --name-only --cached | grep '\.md$')
+
+echo "🛡️  Checking publication status..."
+
+for file in $all_md_files; do
+    if [ -f "$file" ]; then
+        if ! head -n 30 "$file" | grep -q "publish: true"; then
+            echo "   🗑️  Un-tracking: $file"
+            git rm --cached "$file" -q
+        fi
+    fi
+done
+
+for file in $staged_md_files; do
+    if [ -f "$file" ]; then
+        if ! head -n 30 "$file" | grep -q "publish: true"; then
+            echo "   🚫 Blocking: $file"
+            git reset -q HEAD "$file"
+        fi
+    fi
+done
+
+unset IFS
+echo "✅ Filter complete."
+
