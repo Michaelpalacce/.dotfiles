@@ -17,8 +17,6 @@ alias klog="kubectl get po -o wide -A | awk '{print \$1,\$2}' | fzf | xargs -o k
 alias klogs="klog"
 
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 
 # Tmux
 
