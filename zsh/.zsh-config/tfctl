@@ -1,0 +1,1 @@
+command -v tfctl >/dev/null && . <(tfctl completion zsh)
