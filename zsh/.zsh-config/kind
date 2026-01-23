@@ -24,9 +24,9 @@ function kind_load() {
 
   if docker pull "${IMAGE_TAG}"; then
     echo "Image pulled successfully. Loading into kind cluster..."
-    eval "${KIND_LOAD_CMD}"
   else
-    echo "Error: Docker image pull failed for ${IMAGE_TAG}"
-    return 1
+    echo "Error: Docker image pull failed for ${IMAGE_TAG} assuming it's locally present"
   fi
+
+  eval "${KIND_LOAD_CMD}"
 }
