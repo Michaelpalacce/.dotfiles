@@ -134,7 +134,10 @@ Run `fprintd-enroll` to enroll your fingerprint.
 Setup pam, as described in the wiki.
 
 ```sh
-sudo stow --target=/etc/pam.d pam
+# Change to root
+su root
+# Navigate to dotfiles dir
+rm -rf /etc/pam.d/sddm /etc/pam.d/system-auth /etc/pam.d/system-local-login && stow --target=/etc/pam.d pam
 ```
 
 ## Supported OS
