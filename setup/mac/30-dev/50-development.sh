@@ -8,3 +8,5 @@ brew install hashicorp/tap/vault
 
 # Ginkgo for tests
 go install github.com/onsi/ginkgo/v2/ginkgo
+
+brew install syft
