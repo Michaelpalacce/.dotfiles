@@ -53,30 +53,11 @@ indent_size = 4
 indent_style = tab
 indent_size = 4
 
-[*.tf]
-indent_style = space
-indent_size = 2
-# Don't wrap..
-max_line_length = 9999
-
-[*.conf]
-indent_style = space
-indent_size = 4
-# Don't wrap..
-max_line_length = 9999
-
 [Dockerfile]
 indent_size = 2
 
-[*.cnf]
+[*.{tf,conf,cnf,sh,md}]
 indent_style = space
 indent_size = 2
-# Don't wrap..
-max_line_length = 9999
-insert_final_newline = false
-
-[*.sh]
-indent_size = 2
-indent_style = space
 max_line_length = 9999
 insert_final_newline = false
