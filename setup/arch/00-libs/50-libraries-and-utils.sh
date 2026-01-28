@@ -15,6 +15,9 @@ yay --noconfirm -S btop
 # Clipboard
 yay --noconfirm -S cliphist
 
+# Power Profile
+yay --noconfirm -S power-profiles-daemon
+
 if [[ "$MINIMAL" == false ]]; then
     # GTK deps are for widgets and gui
     yay --noconfirm -S --needed gtk2 gtk4 gtk-doc
