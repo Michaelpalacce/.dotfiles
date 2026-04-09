@@ -12,7 +12,7 @@
     ],
     "modules-left": [
         // ISLAND
-        "custom/weather",
+        // "custom/weather",
 
         // ISLAND
         "cpu",
