@@ -2,7 +2,7 @@
 
 if [[ "$MINIMAL" == false ]]; then
     # File Manager
-    yay --noconfirm -S --needed nautilus nautilus-open-any-terminal nautilus-launch actions-for-nautilus-git sushi
+    yay --noconfirm -S --needed nautilus nautilus-launch actions-for-nautilus-git sushi
 
     # File Preview 
     yay --noconfirm -S --needed ffmpegthumbnailer gst-libav gst-plugins-ugly
