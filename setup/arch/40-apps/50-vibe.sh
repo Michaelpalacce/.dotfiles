@@ -3,7 +3,7 @@
 # Gemini
 yay --noconfirm -S gemini-cli-bin
 
-yay --noconfirm -S opencode-bin
+yay --noconfirm -S opencode-bin claude-code
 
 if [[ "$MINIMAL" == false ]]; then
     yay --noconfirm -S --needed lmstudio
