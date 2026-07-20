@@ -4,7 +4,7 @@
 
 # Command to run when cursor enters hotcorner.
 # `command` is an alias for `enter_command`.
-enter_command = [ "hyprctl", "dispatch", "workspace", "-1" ]
+enter_command = [ "hyprctl", "dispatch", "hl.dsp.focus({ workspace = '-1' })" ]
 # Command to run when cursor exits hotcorner.
 exit_command = []
 
@@ -36,7 +36,7 @@ color = "#FFFF0000"  # default
 
 # Command to run when cursor enters hotcorner.
 # `command` is an alias for `enter_command`.
-enter_command = [ "hyprctl", "dispatch", "workspace", "+1" ]
+enter_command = [ "hyprctl", "dispatch", "hl.dsp.focus({ workspace = '+1' })" ]
 # Command to run when cursor exits hotcorner.
 exit_command = []
 
