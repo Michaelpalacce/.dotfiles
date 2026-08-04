@@ -14,12 +14,31 @@ if hl.plugin and hl.plugin.hyprbars ~= nil then
 				bar_button_padding = 15,
 				bar_padding = 10,
 				bar_precedence_over_border = true,
-				["hyprbars-button"] = {
-					"rgb(f38ba8), 20, , hyprctl dispatch killactive",
-					"rgb(f9e2af), 20, , hyprctl dispatch fullscreen 2",
-					"rgb(74c7ec), 20, , hyprctl dispatch hl.dsp.window.float({action='toggle'})"
-				}
 			}
 		}
+	})
+
+	hl.plugin.hyprbars.add_button({
+		bg_color = "rgb(f38ba8)",
+		fg_color = "#000000",
+		size = 20,
+		icon = "",
+		action = "hyprctl dispatch 'hl.dsp.window.close()'",
+	})
+
+	hl.plugin.hyprbars.add_button({
+		bg_color = "rgb(f9e2af)",
+		fg_color = "#000000",
+		size = 20,
+		icon = "",
+		action = "hyprctl dispatch 'hl.dsp.window.fullscreen(2)'",
+	})
+
+	hl.plugin.hyprbars.add_button({
+		bg_color = "rgb(74c7ec)",
+		fg_color = "#000000",
+		size = 20,
+		icon = "",
+		action = "hyprctl dispatch 'hl.dsp.window.float({ action = \"toggle\" })'",
 	})
 end
