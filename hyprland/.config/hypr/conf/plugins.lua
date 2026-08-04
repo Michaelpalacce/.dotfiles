@@ -41,4 +41,10 @@ if hl.plugin and hl.plugin.hyprbars ~= nil then
 		icon = "",
 		action = "hyprctl dispatch 'hl.dsp.window.float({ action = \"toggle\" })'",
 	})
+
+	hl.window_rule({
+		name = "Hide bars on non-floating windows",
+		match = { float = false },
+		["hyprbars:no_bar"] = true
+	})
 end
