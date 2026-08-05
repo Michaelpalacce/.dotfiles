@@ -9,6 +9,7 @@
 # ----------------------------------------------------------------------------
 
 FOLDERS=(
+    "agents"
     "desktop"
     "nvim"
     "editorconfig"
@@ -39,6 +40,15 @@ for dir in "${FOLDERS[@]}" ; do
     echo "Stowing $dir"
     stow --restow "$dir" || (echo "Error: Could not stow $dir" && exit 1)
 done
+
+# Claude Code only discovers skills in ~/.claude/skills, so point it at the
+# stowed ~/.agents/skills. ~/.claude holds runtime state, so link the subdir only.
+if [ -d "$HOME/.claude/skills" ] && [ ! -L "$HOME/.claude/skills" ]; then
+    echo "Warning: $HOME/.claude/skills is a real directory, not linking to ~/.agents/skills"
+else
+    mkdir -p "$HOME/.claude"
+    ln -sfn "$HOME/.agents/skills" "$HOME/.claude/skills"
+fi
 
 if [ ! -L "/etc/pacman.conf" ]; then
     sudo rm -rf /etc/pacman.conf

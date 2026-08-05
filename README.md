@@ -258,6 +258,30 @@ Shows the weather forecast in another tmux windows.
 
 Forces `tmux` if a normal terminal is opened. It will also ask which tmux session to attach to if there are multiple.
 
+## Agents
+
+- Agent Skills are located in `~/.agents/skills/`
+
+To load them changes to your configuration may be needed.
+
+### Opencode:
+
+Edit `~/.config/opencode/opencode.json`
+
+add:
+
+```json
+  "skills": {
+    "paths": [
+      "~/.agents"
+    ]
+  }
+```
+
+### Claude
+
+Claude stinks with configuration... a symlink is automatically created in `setup/10-pre/050-stow.sh`
+
 ## Inspirations
 
 - [Omarchy](https://github.com/basecamp/omarchy) For UX
