@@ -17,6 +17,8 @@ Once invoked, apply it to the work at hand:
 - **Upkeep** the context file before handing control back to the user (Phase 3) — this
   applies to the session you were invoked in, and does not require a second invocation.
 - Record new architectural quirks, significant design decisions, and blockers as you hit them.
+- **Compact** the context if requested or if the file becomes excessively large.
+- **Reset** the context if the user asks to start from scratch.
 
 ## 📍 Context File Location
 The single source of truth for branch context is strictly located at:
@@ -41,6 +43,19 @@ Before reporting completion to the user, you MUST write back to the context file
 2. **Record Decisions:** Add any structural or design decisions made during the session, explicitly stating the *rationale* (the "why").
 3. **Log Gotchas:** Add any traps, weird behaviors, or upstream dependencies you discovered. Write this specifically to save the *next* agent time.
 4. **Append Changelog:** Add a 1-2 sentence summary at the bottom of the file detailing what you just did and the current date/commit hash.
+
+### Special Operations
+
+**Resetting / Cleaning Context**
+If the user explicitly asks to "reset context", "clean context", "forget everything", or "start from scratch":
+1. Completely overwrite the existing context file with the empty **Context File Template** below, discarding all previous content.
+2. Do not attempt to merge, match, or manually delete specific lines. Just replace the entire file content with the fresh template.
+
+**Compacting Context**
+Context files can grow large and consume excessive tokens, failing to fit in the local context. If the user asks to "compact context" or if the file feels unwieldy:
+1. **Prune Backlog**: Remove `[x]` (completed) items that are no longer relevant to the current ongoing work.
+2. **Condense Decisions & Gotchas**: Merge redundant points and summarize lengthy explanations while strictly preserving the core *why*.
+3. **Summarize Changelog**: Collapse older changelog entries into a single, high-level summary bullet point (e.g., "- Pre-YYYY-MM-DD: Initial feature scaffolding and API integration").
 
 ---
 
