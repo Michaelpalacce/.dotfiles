@@ -73,16 +73,6 @@ show_kind_menu() {
   esac
 }
 
-show_minikube_menu() {
-  case $(menu "Minikube" "+ Create\n Delete\n Assume Context\n Back") in
-  *Create*) terminal minikube start ;;
-  *Delete*) terminal minikube delete ;;
-  *Assume*Context*) terminal minikube update-context ;;
-  *Back*) show_main_menu ;;
-  *) ;;
-  esac
-}
-
 show_system_menu() {
     case $(menu "System" " Resources\n󰜉 Reload\n🟢 Start Service\n🔁 Restart Service\n🛑 Stop Service\n✅ Enable Service\n❌ Disable Service\n View System Logs\nGet Status\n Back") in
       *Resources*) terminal htop ;;
@@ -134,7 +124,7 @@ show_system_menu() {
 
 show_main_menu() {
   source ~/.zsh_secrets
-  case "$(menu "" "󰀻 Apps\n📚 Learn\n📷 Screenshot\n  System\n✅ Install Package\n❌ Remove Package\n⬇️ Downgrade Package\n  Update System\n✅ Install WebApp\n❌ Remove WebApp\n🧠 Ask Gemini\n🧠 Ask ChatGPT\n Kind\n Minikube\nℹ️ About")" in
+  case "$(menu "" "󰀻 Apps\n📚 Learn\n📷 Screenshot\n  System\n✅ Install Package\n❌ Remove Package\n⬇️ Downgrade Package\n  Update System\n✅ Install WebApp\n❌ Remove WebApp\n🧠 Ask Gemini\n🧠 Ask ChatGPT\n🧠 Ask DeepSeek\n Kind\nℹ️ About")" in
   *Apps*) rofi -show drun ;;
   *Learn*) show_learn_menu ;;
   *Screenshot*) hyprshot -m region ;;
@@ -147,8 +137,8 @@ show_main_menu() {
   *Remove*WebApp*) terminal webapp-remove ;;
   *Ask*Gemini*) webapp-launch https://gemini.google.com ;;
   *Ask*ChatGPT*) webapp-launch https://chat.openai.com ;;
+  *Ask*DeepSeek*) webapp-launch https://chat.deepseek.com/ ;;
   *Kind*) show_kind_menu ;;
-  *Minikube*) show_minikube_menu ;;
   *About*) terminal zsh -c 'fastfetch; read -n 1 -s' ;;
   esac
 }
