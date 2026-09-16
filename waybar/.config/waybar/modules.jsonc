@@ -58,11 +58,11 @@
     },
     "cpu": {
         "format": "<span color='#89b4fa'>󰍛</span> <span color='#cdd6f4'>{usage}%</span>",
-        "interval": 1,
+        "interval": 5,
         "on-click-right": "gnome-system-monitor"
     },
     "memory": {
-        "interval": 3,
+        "interval": 5,
         "format": "<span color='#f38ba8'> </span> <span color='#cdd6f4'>{used:0.1f}G</span>"
     },
     "pulseaudio": {
@@ -103,7 +103,7 @@
         "format-bg": "bg",
     },
     "disk": {
-        "interval": 3,
+        "interval": 5,
         "path": "/",
         "format": "<span color='#a6e3a1'> </span><span color='#cdd6f4'>{free}</span>",
         "unit": "GB"
