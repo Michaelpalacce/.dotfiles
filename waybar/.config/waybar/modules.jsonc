@@ -1,14 +1,13 @@
 {
     "network": {
         "format": "{ifname}",
-        "format-wifi": "  {signalStrength}%  {bandwidthDownBytes}  {bandwidthUpBytes} ",
-        "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
-        "format-ethernet": " {bandwidthDownBytes}  {bandwidthUpBytes} ",
+        "format-wifi": "  {essid} {signalStrength}% {ipaddr}",
+        "tooltip-format-wifi": "  {signalStrength}%  {bandwidthDownBytes}  {bandwidthUpBytes}",
+        "format-ethernet": " {bandwidthDownBytes}  {bandwidthUpBytes}",
         "format-disconnected": "Not connected",
         "tooltip-format": "  {ifname} via {gwaddri}",
         "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
         "tooltip-format-disconnected": "Disconnected",
-        "on-click": "networkmanager_dmenu"
     },
     "tray": {
         "show-passive-items": true,
@@ -49,7 +48,7 @@
       },
         "sort-by-number": true,
         "persistent-workspaces": {
-            "*": 5,
+            "*": 4,
         }
     },
     "clock": {
