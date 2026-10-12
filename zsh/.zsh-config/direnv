@@ -6,6 +6,17 @@
 # Dependencies: direnv
 # ------------------------------------------------------------------------------
 
+# This is tracked upstream in direnv issue #1633 (https://github.com/direnv/direnv/issues/1633) and PR #1634 (https://github.com/direnv/direnv/pull/1634).
 if command_exists direnv; then
     eval "$(direnv hook zsh)"
+    _direnv_hook() {
+        setopt localoptions localtraps
+        if [[ ! -o interactive || $ZSH_SUBSHELL -ne 0 ]]; then
+            return
+        fi
+        vars="$('/usr/bin/direnv' export zsh)"
+        trap -- '' SIGINT
+        eval "$vars"
+        trap - SIGINT
+    }
 fi
