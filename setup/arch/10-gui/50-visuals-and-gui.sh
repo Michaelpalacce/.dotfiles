@@ -8,5 +8,5 @@ if [[ "$MINIMAL" == false ]]; then
         hyprpolkitagent hyprsysteminfo hypridle hyprlock hyprshot hyprpicker lm_sensors hyprviz-bin
 
     # Wallpaper
-    yay --noconfirm -S --needed waypaper swww mpvpaper
+    yay --noconfirm -S --needed waypaper swww mpvpaper python-screeninfo
 fi
